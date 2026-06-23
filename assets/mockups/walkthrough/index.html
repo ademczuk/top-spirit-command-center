@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Angel Software Solutions — guided interface walkthrough</title>
+  <style>
+    :root {
+      --navy: #0F172A;
+      --slate: #64748B;
+      --teal: #0D9488;
+      --teal-soft: #CCFBF1;
+      --bg: #F8FAFC;
+      --card: #FFFFFF;
+      --border: #E2E8F0;
+      --amber: #F59E0B;
+      --red: #DC2626;
+      --green: #16A34A;
+      --shadow: 0 18px 45px rgba(15, 23, 42, 0.10);
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; min-height: 100%; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: var(--navy); background: var(--bg); }
+    body { display: grid; grid-template-rows: 64px 1fr; }
+    .topbar { position: sticky; top: 0; z-index: 20; height: 64px; display: flex; align-items: center; justify-content: space-between; padding: 0 28px; background: rgba(255,255,255,.94); backdrop-filter: blur(14px); border-bottom: 1px solid var(--border); }
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 800; letter-spacing: -0.02em; }
+    .brand-mark { width: 36px; height: 36px; border-radius: 12px; background: linear-gradient(135deg, var(--navy), var(--teal)); color: #fff; display: grid; place-items: center; font-size: 17px; box-shadow: var(--shadow); }
+    .top-meta { color: var(--slate); font-size: 13px; }
+    .app { min-height: calc(100vh - 64px); display: grid; grid-template-columns: 260px minmax(0, 1fr); }
+    aside { border-right: 1px solid var(--border); background: #fff; padding: 22px 18px; position: sticky; top: 64px; align-self: start; min-height: calc(100vh - 64px); }
+    .nav-title { font-size: 12px; color: var(--slate); text-transform: uppercase; letter-spacing: .12em; margin: 0 0 12px; }
+    .nav-item { width: 100%; border: 0; background: transparent; color: var(--slate); text-align: left; border-radius: 14px; padding: 12px 12px; margin: 3px 0; cursor: pointer; display: flex; gap: 10px; align-items: center; font: inherit; }
+    .nav-item span:first-child { width: 28px; height: 28px; border-radius: 999px; display: grid; place-items: center; background: var(--bg); color: var(--slate); font-weight: 800; font-size: 12px; }
+    .nav-item.active { background: var(--teal-soft); color: var(--navy); font-weight: 750; }
+    .nav-item.active span:first-child { background: var(--teal); color: #fff; }
+    main { padding: 34px; }
+    .slide { display: none; animation: rise .24s ease-out; }
+    .slide.active { display: block; }
+    @keyframes rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+    .hero { display: flex; justify-content: space-between; gap: 24px; align-items: flex-start; margin-bottom: 20px; }
+    h1 { margin: 0 0 10px; font-size: clamp(28px, 4vw, 46px); letter-spacing: -0.05em; line-height: 1.02; }
+    .helper { margin: 0; color: var(--slate); font-size: 16px; max-width: 820px; line-height: 1.6; }
+    .pill, .badge { display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--border); border-radius: 999px; padding: 6px 10px; background: #fff; color: var(--slate); font-size: 12px; font-weight: 700; white-space: nowrap; }
+    .pill.teal, .badge.teal { background: var(--teal-soft); border-color: #99F6E4; color: #0F766E; }
+    .badge.red { color: var(--red); background: #FEF2F2; border-color: #FECACA; }
+    .badge.amber { color: #92400E; background: #FFFBEB; border-color: #FDE68A; }
+    .badge.green { color: #166534; background: #F0FDF4; border-color: #BBF7D0; }
+    .screen { background: #fff; border: 1px solid var(--border); border-radius: 28px; box-shadow: var(--shadow); overflow: hidden; }
+    .screen-bar { min-height: 54px; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 0 20px; border-bottom: 1px solid var(--border); background: #fff; }
+    .screen-title { font-weight: 850; }
+    .screen-actions { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
+    .content { padding: 22px; display: grid; gap: 18px; }
+    .grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 16px; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 20px; padding: 18px; min-height: 100%; }
+    .card.soft { background: var(--bg); }
+    .card h3 { margin: 0 0 10px; font-size: 18px; letter-spacing: -0.02em; }
+    .card p { margin: 0 0 10px; color: var(--slate); line-height: 1.5; }
+    .col-3 { grid-column: span 3; } .col-4 { grid-column: span 4; } .col-5 { grid-column: span 5; } .col-6 { grid-column: span 6; } .col-7 { grid-column: span 7; } .col-8 { grid-column: span 8; } .col-12 { grid-column: span 12; }
+    .list { display: grid; gap: 10px; }
+    .row { display: flex; justify-content: space-between; gap: 12px; align-items: center; padding: 11px 0; border-top: 1px solid var(--border); }
+    .row:first-child { border-top: 0; }
+    .file { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; color: var(--navy); }
+    .banner { border: 1px solid #FDE68A; background: #FFFBEB; color: #92400E; border-radius: 18px; padding: 14px 16px; font-weight: 800; display: flex; align-items: center; gap: 10px; }
+    .doc-preview { border-radius: 18px; background: #fff; border: 1px solid var(--border); padding: 16px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; color: #334155; line-height: 1.6; }
+    mark { background: #CCFBF1; color: #0F766E; border-radius: 6px; padding: 0 4px; }
+    .confidence { height: 8px; border-radius: 999px; background: #E2E8F0; overflow: hidden; min-width: 90px; }
+    .confidence > i { display: block; height: 100%; background: var(--teal); border-radius: inherit; }
+    .button, button.control { border: 0; background: var(--navy); color: #fff; border-radius: 14px; padding: 11px 14px; font-weight: 850; cursor: pointer; }
+    .button.secondary, button.control.secondary { background: #fff; color: var(--navy); border: 1px solid var(--border); }
+    .metric { font-size: 34px; font-weight: 900; letter-spacing: -0.04em; }
+    .muted { color: var(--slate); }
+    .tier { border-left: 5px solid var(--teal); }
+    .tier.amber { border-left-color: var(--amber); }
+    .tier.red { border-left-color: var(--red); }
+    details { border: 1px solid var(--border); border-radius: 18px; background: #fff; padding: 14px 16px; }
+    details summary { cursor: pointer; font-weight: 850; }
+    .lineage { margin-top: 14px; display: grid; gap: 8px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px; color: #334155; }
+    .chart { width: 100%; min-height: 220px; }
+    .board { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+    .opp { border: 1px solid var(--border); border-radius: 18px; background: #fff; padding: 14px; }
+    .compare th, .compare td { border-bottom: 1px solid var(--border); padding: 12px; text-align: left; vertical-align: top; }
+    .compare { width: 100%; border-collapse: collapse; font-size: 14px; }
+    .progress-wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-top: 18px; }
+    .dots { display: flex; gap: 7px; align-items: center; }
+    .dot { width: 10px; height: 10px; border-radius: 999px; border: 1px solid #94A3B8; background: #fff; }
+    .dot.active { width: 26px; border-color: var(--teal); background: var(--teal); }
+    .controls { display: flex; gap: 10px; }
+    .tiny { font-size: 12px; color: var(--slate); }
+    @media (max-width: 980px) {
+      body { display: block; }
+      .topbar { position: static; }
+      .app { display: block; }
+      aside { position: static; min-height: 0; border-right: 0; border-bottom: 1px solid var(--border); }
+      .nav-item { display: inline-flex; width: auto; }
+      main { padding: 18px; }
+      .hero { display: block; }
+      .grid { grid-template-columns: 1fr; }
+      .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-12 { grid-column: auto; }
+      .board { grid-template-columns: 1fr; }
+      .screen-actions { justify-content: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><div class="brand-mark">AS</div><div>Angel Software Solutions <span class="muted">/ guided walkthrough</span></div></div>
+    <div class="top-meta">File exports · Approval Envelopes · Source-linked Audit Trail</div>
+  </header>
+  <div class="app">
+    <aside>
+      <p class="nav-title">Walkthrough beats</p>
+      <div id="nav"></div>
+    </aside>
+    <main>
+      <section class="slide active" data-step="1" data-title="Export Layer">
+        <div class="hero"><div><h1>Export Layer / source ingestion</h1><p class="helper">The distributor keeps source systems where they are. Governed Excel, CSV and JSON exports land in Microsoft 365 E3, get classified, and become the safe foundation for automation and reporting.</p></div><span class="pill teal">1 of 8</span></div>
+        <div class="screen"><div class="screen-bar"><div class="screen-title">Export Layer dashboard</div><div class="screen-actions"><span class="badge teal">ERP-agnostic</span><span class="badge">M365 E3</span><span class="badge">No live connectors</span></div></div><div class="content"><div class="grid">
+          <div class="card col-3 soft"><h3>Source systems</h3><div class="list"><div class="row"><span>Legacy ERP</span><span class="badge">CSV</span></div><div class="row"><span>CRM / customer master</span><span class="badge">Excel</span></div><div class="row"><span>Warehouse stock</span><span class="badge">JSON</span></div><div class="row"><span>Bank statements</span><span class="badge">CSV</span></div></div></div>
+          <div class="card col-6"><h3>Incoming exports</h3><div class="list"><div class="row"><span><b class="file">sales_invoice_lines_may.csv</b><br><span class="tiny">Net sales, GP, depletions</span></span><span><span class="badge amber">Confidential</span> <span class="badge red">GDPR review</span></span></div><div class="row"><span><b class="file">open_invoices_week_22.xlsx</b><br><span class="tiny">Finance reconciliation source</span></span><span><span class="badge amber">Confidential</span></span></div><div class="row"><span><b class="file">stock_on_hand.json</b><br><span class="tiny">Warehouse availability</span></span><span><span class="badge">Internal</span></span></div></div></div>
+          <div class="card col-3 soft"><h3>Control checks</h3><p><b>92%</b> fields mapped to the Business Glossary.</p><p><b>4</b> exports awaiting owner confirmation.</p><p><b>0</b> rows written back without approval.</p></div>
+        </div></div></div>
+      </section>
+      <section class="slide" data-step="2" data-title="Order Intake">
+        <div class="hero"><div><h1>Order Intake Approval Envelope</h1><p class="helper">AI can draft the order from a PDF or email, but the Customer Service lead approves, edits or rejects before anything is sent downstream.</p></div><span class="pill teal">2 of 8</span></div>
+        <div class="screen"><div class="screen-bar"><div class="screen-title">Human approval required — nothing committed until you confirm</div><button class="control">Review & Approve → send to ERP</button></div><div class="content"><div class="banner">⚠ Approval Envelope active: AI proposes; a named human decides.</div><div class="grid">
+          <div class="card col-5"><h3>Incoming order source</h3><div class="doc-preview">From: trade customer<br>Subject: June replenishment<br><br>Please deliver <mark>24 cases</mark> of item <mark>W-1042</mark> and <mark>12 cases</mark> of item <mark>S-7781</mark> before <mark>Friday</mark>.<br><br>Reference: standing seasonal listing</div></div>
+          <div class="card col-7"><h3>AI-extracted editable draft</h3><div class="list"><div class="row"><span>Customer account</span><b>Neutral trade account</b><div class="confidence"><i style="width: 94%"></i></div></div><div class="row"><span>Delivery date</span><b>Friday, pending calendar check</b><div class="confidence"><i style="width: 82%"></i></div></div><div class="row"><span>Line item W-1042</span><b>24 cases</b><div class="confidence"><i style="width: 96%"></i></div></div><div class="row"><span>Line item S-7781</span><b>12 cases</b><div class="confidence"><i style="width: 91%"></i></div></div><div class="row"><span>Price / stock validation</span><span class="badge amber">Needs human check</span><div class="confidence"><i style="width: 68%"></i></div></div></div></div>
+        </div></div></div>
+      </section>
+      <section class="slide" data-step="3" data-title="Reconciliation">
+        <div class="hero"><div><h1>Financial Reconciliation Assistant</h1><p class="helper">Bank payments and open invoices are matched with evidence, confidence and exception flags. Finance signs off before posting.</p></div><span class="pill teal">3 of 8</span></div>
+        <div class="screen"><div class="screen-bar"><div class="screen-title">Suggested matches with finance sign-off</div><button class="control">Approve matches → post</button></div><div class="content"><div class="grid">
+          <div class="card col-3 soft"><h3>Matched</h3><div class="metric">18</div><p>high-confidence suggestions</p></div><div class="card col-3 soft"><h3>Unmatched</h3><div class="metric">3</div><p>needs finance review</p></div><div class="card col-3 soft"><h3>Flagged</h3><div class="metric">2</div><p>short payment or duplicate risk</p></div><div class="card col-3 soft"><h3>Total value</h3><div class="metric">€1.2m</div><p>illustrative placeholder</p></div>
+          <div class="card col-6"><h3>Bank payments</h3><div class="list"><div class="row"><span>Payment 7741</span><span class="badge green">95% match</span></div><div class="row"><span>Payment 7742</span><span class="badge amber">Short paid</span></div><div class="row"><span>Payment 7743</span><span class="badge red">No match</span></div></div></div>
+          <div class="card col-6"><h3>Open invoices</h3><div class="list"><div class="row"><span>Invoice INV-2210</span><span class="badge green">Payment 7741</span></div><div class="row"><span>Invoice INV-2211</span><span class="badge amber">Tolerance review</span></div><div class="row"><span>Invoice INV-2212</span><span class="badge red">Exception queue</span></div></div></div>
+        </div></div></div>
+      </section>
+      <section class="slide" data-step="4" data-title="Governance Tiers">
+        <div class="hero"><div><h1>Governance tiers</h1><p class="helper">Controls change by risk. Low-risk information can be logged automatically; operational actions need approval; financial, pricing and customer-facing decisions stay human-only.</p></div><span class="pill teal">4 of 8</span></div>
+        <div class="screen"><div class="screen-bar"><div class="screen-title">Risk-based AI control overlay</div><span class="badge teal">Mandatory audit log</span></div><div class="content"><div class="grid">
+          <div class="card tier col-4"><h3>Tier 1 — informational</h3><p>AI acts and logs: classify files, draft summaries, route low-risk tasks.</p><div class="row"><span>Approver</span><b>System owner review by sample</b></div><div class="row"><span>Logged</span><b>Prompt, source, output</b></div></div>
+          <div class="card tier amber col-4"><h3>Tier 2 — operational</h3><p>AI proposes; a human approves: order intake, reconciliation suggestions, report refresh checks.</p><div class="row"><span>Approver</span><b>Process owner</b></div><div class="row"><span>Logged</span><b>Evidence + decision</b></div></div>
+          <div class="card tier red col-4"><h3>Tier 3 — decision-critical</h3><p>AI assists only: pricing, credit, customer-facing commitments and financial posting.</p><div class="row"><span>Approver</span><b>Named accountable human</b></div><div class="row"><span>Logged</span><b>Full approval envelope</b></div></div>
+        </div></div></div>
+      </section>
+      <section class="slide" data-step="5" data-title="Audit Trail">
+        <div class="hero"><div><h1>Source-linked Audit Trail</h1><p class="helper">Every reported figure can be expanded back to the export, sheet/range, transformation and approval event that produced it.</p></div><span class="pill teal">5 of 8</span></div>
+        <div class="screen"><div class="screen-bar"><div class="screen-title">Net sales — May 2026</div><span class="badge amber">Illustrative placeholder</span></div><div class="content"><div class="grid"><div class="card col-5 soft"><h3>Headline figure</h3><div class="metric">€X.Xm</div><p>Shown as a placeholder until client exports populate the real value.</p></div><div class="card col-7"><h3>Traceability</h3><details open><summary>Expand source trace</summary><div class="lineage"><div>source_file: exports/sales_invoice_lines_may.csv</div><div>sheet_range: SalesInvoiceLines!A:Q</div><div>export_date: 2026-05-31</div><div>formula: gross_sales - discounts - credit_notes</div><div>approver: Finance owner placeholder</div><div>recent_action: report refresh approved; no auto-posting</div></div></details></div></div></div></div>
+      </section>
+      <section class="slide" data-step="6" data-title="Value & Adoption">
+        <div class="hero"><div><h1>Value & Adoption Dashboard</h1><p class="helper">Savings and adoption are tracked together so the steering committee can see whether tools are actually used, not just built.</p></div><span class="pill teal">6 of 8</span></div>
+        <div class="screen"><div class="screen-bar"><div class="screen-title">Measured value, not theatre fog in a blazer</div><span class="badge teal">Monthly review</span></div><div class="content"><div class="grid"><div class="card col-3 soft"><h3>Hours saved</h3><div class="metric">120</div><p>illustrative YTD</p></div><div class="card col-3 soft"><h3>EUR value</h3><div class="metric">€--</div><p>requires agreed rate</p></div><div class="card col-3 soft"><h3>Automations live</h3><div class="metric">4</div><p>human-gated</p></div><div class="card col-3 soft"><h3>Active users</h3><div class="metric">18</div><p>placeholder trend</p></div><div class="card col-7"><h3>Cumulative hours saved</h3><svg class="chart" viewBox="0 0 620 240" role="img" aria-label="Cumulative hours saved chart"><rect x="0" y="0" width="620" height="240" rx="18" fill="#F8FAFC"/><polyline fill="none" stroke="#0D9488" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" points="40,190 140,170 240,132 340,106 440,70 560,42"/><g fill="#0D9488"><circle cx="40" cy="190" r="6"/><circle cx="140" cy="170" r="6"/><circle cx="240" cy="132" r="6"/><circle cx="340" cy="106" r="6"/><circle cx="440" cy="70" r="6"/><circle cx="560" cy="42" r="6"/></g><text x="40" y="222" fill="#64748B" font-size="14">Month 1</text><text x="500" y="222" fill="#64748B" font-size="14">Month 6</text></svg></div><div class="card col-5"><h3>Adoption by team</h3><div class="list"><div class="row"><span>Finance</span><span class="badge green">Rising</span></div><div class="row"><span>Customer Service</span><span class="badge green">Active</span></div><div class="row"><span>BICC / BI lead</span><span class="badge amber">Training</span></div></div></div></div></div></div>
+      </section>
+      <section class="slide" data-step="7" data-title="Glossary & Opportunities">
+        <div class="hero"><div><h1>Business Glossary + Opportunity Catalogue</h1><p class="helper">Definitions and automation opportunities live side by side: agreed language, scored value, and a visible path from idea to governed delivery.</p></div><span class="pill teal">7 of 8</span></div>
+        <div class="screen"><div class="screen-bar"><div class="screen-title">Search term: “net sales”</div><span class="badge teal">Owner-reviewed</span></div><div class="content"><div class="grid"><div class="card col-5"><h3>Business Glossary</h3><p><b>Net sales</b> = gross sales minus discounts and credit notes.</p><div class="row"><span>Formula</span><b>gross_sales - discounts - credit_notes</b></div><div class="row"><span>Source</span><b>sales invoice export</b></div><div class="row"><span>Owner</span><b>Finance owner placeholder</b></div><div class="row"><span>Last reviewed</span><b>Pending workshop</b></div></div><div class="card col-7"><h3>Opportunity Catalogue</h3><div class="board"><div class="opp"><b>Order intake</b><p class="tiny">Effort M · Value H · Risk M</p><span class="badge amber">Pilot</span></div><div class="opp"><b>Reconciliation</b><p class="tiny">Effort M · Value H · Risk H</p><span class="badge">Candidate</span></div><div class="opp"><b>Glossary rollout</b><p class="tiny">Effort L · Value M · Risk L</p><span class="badge green">Ready</span></div><div class="opp"><b>ERP decision pack</b><p class="tiny">Effort M · Value H · Risk M</p><span class="badge">Steering</span></div></div></div></div></div></div>
+      </section>
+      <section class="slide" data-step="8" data-title="Next-ERP Decision">
+        <div class="hero"><div><h1>Next-ERP Decision Pack</h1><p class="helper">The work stays ERP-agnostic. The decision pack compares brownfield and greenfield options using evidence gathered through the Export Layer, process maps and adoption data.</p></div><span class="pill teal">8 of 8</span></div>
+        <div class="screen"><div class="screen-bar"><div class="screen-title">Brownfield vs Greenfield decision support</div><button class="control" data-restart>Restart walkthrough</button></div><div class="content"><div class="card"><table class="compare"><thead><tr><th>Criterion</th><th>Brownfield</th><th>Greenfield</th></tr></thead><tbody><tr><td>Cost</td><td>Lower initial change; legacy constraints remain.</td><td>Higher programme cost; cleaner target architecture.</td></tr><tr><td>Time to value</td><td>Faster if current processes are stable.</td><td>Slower, but may remove structural friction.</td></tr><tr><td>Disruption</td><td>Lower near-term disruption.</td><td>Higher migration and training load.</td></tr><tr><td>Export Layer fit</td><td>Works now and survives incremental changes.</td><td>Works as bridge and migration evidence base.</td></tr><tr><td>Recommendation</td><td colspan="2"><b>Neutral placeholder:</b> choose after export inventory, process baseline and steering constraints are confirmed.</td></tr></tbody></table></div></div></div>
+      </section>
+      <div class="progress-wrap"><div><b id="stepLabel">1 of 8</b><div class="tiny">Use ← / → keys, side nav, or buttons.</div></div><div class="dots" id="dots"></div><div class="controls"><button class="control secondary" id="prev">Previous</button><button class="control" id="next">Next</button></div></div>
+      <p class="tiny">No real Top Spirit / Marussia data. Figures and names are neutral placeholders for steering-committee demonstration only.</p>
+    </main>
+  </div>
+  <script>
+    const slides = [...document.querySelectorAll('.slide')];
+    const nav = document.querySelector('#nav');
+    const dots = document.querySelector('#dots');
+    const stepLabel = document.querySelector('#stepLabel');
+    let current = 0;
+    slides.forEach((slide, index) => {
+      const b = document.createElement('button');
+      b.className = 'nav-item' + (index === 0 ? ' active' : '');
+      b.innerHTML = `<span>${index + 1}</span><strong>${slide.dataset.title}</strong>`;
+      b.addEventListener('click', () => show(index));
+      nav.appendChild(b);
+      const d = document.createElement('span');
+      d.className = 'dot' + (index === 0 ? ' active' : '');
+      dots.appendChild(d);
+    });
+    const navItems = [...document.querySelectorAll('.nav-item')];
+    const dotItems = [...document.querySelectorAll('.dot')];
+    function show(index) {
+      current = Math.max(0, Math.min(slides.length - 1, index));
+      slides.forEach((s, i) => s.classList.toggle('active', i === current));
+      navItems.forEach((n, i) => n.classList.toggle('active', i === current));
+      dotItems.forEach((d, i) => d.classList.toggle('active', i === current));
+      stepLabel.textContent = `${current + 1} of ${slides.length}`;
+      document.querySelector('#prev').disabled = current === 0;
+      document.querySelector('#next').textContent = current === slides.length - 1 ? 'Restart' : 'Next';
+    }
+    document.querySelector('#prev').addEventListener('click', () => show(current - 1));
+    document.querySelector('#next').addEventListener('click', () => current === slides.length - 1 ? show(0) : show(current + 1));
+    document.querySelector('[data-restart]').addEventListener('click', () => show(0));
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'ArrowRight') show(current + 1);
+      if (event.key === 'ArrowLeft') show(current - 1);
+    });
+    show(0);
+  </script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Business Glossary — Angel Software Solutions</title>
+<style>:root {
+  --navy:#0f172a; --slate:#64748b; --muted:#94a3b8; --bg:#f8fafc;
+  --card:#ffffff; --line:#e2e8f0; --teal:#0d9488; --teal-soft:#ccfbf1;
+  --amber:#f59e0b; --amber-soft:#fef3c7; --red:#dc2626; --red-soft:#fee2e2;
+  --blue:#2563eb; --blue-soft:#dbeafe; --green:#16a34a; --green-soft:#dcfce7;
+}
+* { box-sizing: border-box; }
+body { margin:0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif; color:var(--navy); background:linear-gradient(135deg,#f8fafc 0%,#eef2ff 100%); }
+.app { min-height:100vh; display:grid; grid-template-columns:240px 1fr; }
+aside { background:#0f172a; color:white; padding:28px 22px; }
+.logo { font-size:18px; font-weight:750; letter-spacing:-.02em; margin-bottom:8px; }
+.tag { color:#99f6e4; font-size:12px; text-transform:uppercase; letter-spacing:.12em; }
+nav { margin-top:32px; display:grid; gap:10px; }
+nav span { color:#cbd5e1; font-size:14px; padding:8px 10px; border-radius:8px; }
+nav span.active { background:rgba(13,148,136,.25); color:white; }
+main { padding:34px; }
+.hero { display:flex; justify-content:space-between; gap:28px; align-items:flex-start; margin-bottom:26px; }
+h1 { margin:0; font-size:34px; line-height:1.05; letter-spacing:-.04em; }
+.lede { margin:12px 0 0; color:var(--slate); max-width:760px; font-size:17px; }
+.badges { display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end; }
+.badge { border:1px solid var(--line); background:white; border-radius:999px; padding:6px 10px; color:var(--slate); font-size:12px; white-space:nowrap; }
+.badge.teal { background:var(--teal-soft); color:#115e59; border-color:#99f6e4; }
+.grid { display:grid; grid-template-columns:repeat(12,1fr); gap:18px; }
+.card { background:rgba(255,255,255,.94); border:1px solid var(--line); border-radius:18px; padding:20px; box-shadow:0 24px 60px rgba(15,23,42,.08); }
+.card h2, .card h3 { margin:0 0 12px; letter-spacing:-.02em; }
+.card h2 { font-size:22px; } .card h3 { font-size:17px; }
+.card p { color:var(--slate); margin:6px 0 12px; }
+.span-12 { grid-column:span 12; } .span-8 { grid-column:span 8; } .span-7 { grid-column:span 7; } .span-6 { grid-column:span 6; } .span-5 { grid-column:span 5; } .span-4 { grid-column:span 4; } .span-3 { grid-column:span 3; }
+.kpis { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; }
+.kpi { background:var(--bg); border:1px solid var(--line); border-radius:14px; padding:14px; }
+.kpi .num { font-size:25px; font-weight:800; letter-spacing:-.03em; }
+.kpi .label { color:var(--slate); font-size:12px; margin-top:4px; }
+.timeline { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; align-items:stretch; }
+.phase { border:1px solid var(--line); border-radius:16px; padding:18px; background:white; position:relative; }
+.phase strong { color:var(--teal); display:block; margin-bottom:8px; }
+.phase ul, .list { margin:10px 0 0; padding-left:18px; color:var(--slate); }
+table { width:100%; border-collapse:collapse; font-size:14px; }
+th, td { text-align:left; border-bottom:1px solid var(--line); padding:10px 8px; vertical-align:top; }
+th { color:var(--slate); font-size:12px; text-transform:uppercase; letter-spacing:.08em; }
+.pill { display:inline-flex; align-items:center; padding:4px 8px; border-radius:999px; background:var(--blue-soft); color:#1d4ed8; font-size:12px; font-weight:700; }
+.pill.green { background:var(--green-soft); color:#166534; } .pill.amber { background:var(--amber-soft); color:#92400e; } .pill.red { background:var(--red-soft); color:#991b1b; } .pill.teal { background:var(--teal-soft); color:#115e59; }
+.axis { height:420px; position:relative; background:linear-gradient(90deg,rgba(13,148,136,.12),transparent 45%),linear-gradient(0deg,rgba(13,148,136,.12),transparent 45%),white; border:1px solid var(--line); border-radius:18px; overflow:hidden; }
+.axis:before { content:'Business value →'; position:absolute; left:16px; top:14px; color:var(--slate); font-size:12px; } .axis:after { content:'Implementation effort →'; position:absolute; right:18px; bottom:14px; color:var(--slate); font-size:12px; }
+.bubble { position:absolute; transform:translate(-50%,-50%); width:var(--s); height:var(--s); border-radius:50%; background:rgba(13,148,136,.18); border:2px solid var(--teal); display:grid; place-items:center; text-align:center; font-size:12px; font-weight:800; padding:8px; }
+.mockdoc { background:#f1f5f9; border:1px dashed #94a3b8; border-radius:14px; padding:18px; color:#334155; }
+.field { display:flex; justify-content:space-between; gap:12px; padding:10px 0; border-bottom:1px solid var(--line); }
+.conf { font-weight:800; color:var(--teal); }
+.board { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+.op-card { border:1px solid var(--line); background:white; border-radius:16px; padding:16px; }
+.chart { height:230px; display:flex; align-items:end; gap:10px; padding:12px; border-radius:14px; background:var(--bg); border:1px solid var(--line); }
+.bar { flex:1; background:linear-gradient(180deg,var(--teal),#14b8a6); border-radius:8px 8px 2px 2px; min-height:24px; position:relative; }
+.bar span { position:absolute; bottom:100%; left:50%; transform:translateX(-50%); color:var(--slate); font-size:11px; }
+.notice { border-left:4px solid var(--amber); background:#fffbeb; padding:14px 16px; border-radius:12px; color:#92400e; }
+footer { margin-top:24px; color:var(--slate); font-size:12px; }
+@media (max-width:900px) { .app { grid-template-columns:1fr; } aside { display:none; } .span-8,.span-7,.span-6,.span-5,.span-4,.span-3 { grid-column:span 12; } .timeline,.kpis,.board { grid-template-columns:1fr; } .hero { flex-direction:column; } }</style>
+</head>
+<body>
+<div class="app">
+  <aside>
+    <div class="logo">Angel Software Solutions</div>
+    <div class="tag">Top Spirit engagement</div>
+    <nav><span class=''>Roadmap</span><span class=''>Prioritise</span><span class=''>Approval</span><span class='active'>Audit</span><span class=''>Value</span><span class=''>Handover</span></nav>
+  </aside>
+  <main>
+    <section class="hero">
+      <div><h1>Business Glossary</h1><p class="lede">A searchable dictionary for agreed definitions, formulas, owners and source exports.</p></div>
+      <div class="badges"><span class='badge teal'>#13</span><span class='badge '>Definitions</span><span class='badge '>Source-linked</span></div>
+    </section>
+    <div class="grid">
+  <section class="card span-12"><div class="field"><span>Search</span><strong>net sales, GP, depletions, listing…</strong></div></section>
+  <section class="card span-4"><h2>Net Sales</h2><p>Gross sales minus discounts, credit notes and VAT treatment confirmed by Finance.</p><span class="pill amber">Owner: Finance SME</span><p>Source: EXP-ERP-SALES-001</p></section>
+  <section class="card span-4"><h2>Gross Profit</h2><p>Net sales minus agreed cost basis. Placeholder until cost export is supplied.</p><span class="pill red">Open definition</span><p>Owner: Finance SME</p></section>
+  <section class="card span-4"><h2>Depletions</h2><p>Stock leaving warehouse to trade; definition to confirm against logistics source.</p><span class="pill amber">Needs review</span><p>Owner: Logistics / BICC</p></section>
+</div>
+    <footer>Illustrative placeholder mockup for discussion. No real Top Spirit / Marussia data, logos or live system output. Human approval remains required for financial, pricing and customer-facing decisions.</footer>
+  </main>
+</div>
+</body>
+</html>

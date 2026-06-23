@@ -1,0 +1,50 @@
+%% Angel Software Solutions — Top Spirit (Marussia) engagement
+%% Storyboard visual 1 of 7: Solution architecture (Export Layer first)
+%% Source prompt: docs/03-mockup-pack.md #1  |  Visual identity: assets/angel-context-block.md
+%% Illustrative only — neutral placeholders, no real client data. A human stays in control of every financial / pricing / customer-facing decision.
+
+flowchart TB
+    subgraph Sources["Source systems (file exports only)"]
+        ERP["ERP\norders / invoices"]
+        CRM["CRM / customer master"]
+        WMS["Warehouse\nstock & shipments"]
+        Bank["Bank\npayments"]
+        Pricing["Pricing engine\nprice lists"]
+    end
+
+    subgraph ExportLayer["Export Layer — Microsoft 365 E3"]
+        SP["SharePoint/OneDrive\norganised folders"]
+        PA["Power Automate\ningestion & routing"]
+        Excel["Excel / JSON\nvalidated staging"]
+    end
+
+    subgraph Intelligence["Intelligence & control"]
+        Agent["AI agents\npropose, never commit"]
+        AE["Approval Envelope\nhuman decision gate"]
+        Audit["Source-linked Audit Trail"]
+    end
+
+    subgraph Outputs["Outputs"]
+        PBI["Power BI Desktop\ndashboards"]
+        Glossary["Business Glossary"]
+        OppCat["Opportunity Catalogue"]
+    end
+
+    ERP -->|CSV / Excel| SP
+    CRM -->|CSV / Excel| SP
+    WMS -->|CSV / Excel| SP
+    Bank -->|CSV / Excel| SP
+    Pricing -->|CSV / Excel| SP
+
+    SP --> PA
+    PA --> Excel
+    Excel --> Agent
+    Agent --> AE
+    AE -->|approved| Outputs
+    Agent --> Audit
+    AE --> Audit
+    Outputs --> Audit
+
+    style ExportLayer fill:#f0fdfa,stroke:#0d9488,stroke-width:2px
+    style Intelligence fill:#fff7ed,stroke:#f97316,stroke-width:2px
+    style Outputs fill:#eff6ff,stroke:#3b82f6,stroke-width:2px

@@ -1,0 +1,26 @@
+%% Angel Software Solutions — Top Spirit (Marussia) engagement
+%% Storyboard visual 5 of 7: AI agent inside an Approval Envelope
+%% Source prompt: docs/03-mockup-pack.md #7  |  Visual identity: assets/angel-context-block.md
+%% Illustrative only — neutral placeholders, no real client data. A human stays in control of every financial / pricing / customer-facing decision.
+
+flowchart TB
+    A["PDF/email order\narrives in Export Layer"] --> B["AI agent extracts\nheader + line items"]
+    B --> C["Validate against\ncustomer master, price list, stock"]
+    C --> D{"Confidence &\nvalidation result"}
+    D -->|high confidence, no exceptions| E["Draft order in\nApproval Envelope"]
+    D -->|low confidence or exception| F["Hold + flag for\nhuman review"]
+    E --> G["CS team lead\nreviews evidence"]
+    F --> G
+    G --> H{"Decision"}
+    H -->|Approve| I["Commit to downstream\nprocess / ERP"]
+    H -->|Edit| J["Update draft,\nre-route"]
+    H -->|Reject| K["Return to customer\nor queue"]
+    I --> L["Source-linked Audit Trail"]
+    J --> L
+    K --> L
+
+    style B fill:#d1fae5
+    style E fill:#fef3c7
+    style G fill:#fef3c7
+    style I fill:#d1fae5
+    style L fill:#e0f2fe

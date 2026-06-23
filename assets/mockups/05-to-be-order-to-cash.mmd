@@ -1,0 +1,26 @@
+%% Angel Software Solutions — Top Spirit (Marussia) engagement
+%% Storyboard visual 4 of 7: Target-state (to-be) order-to-cash
+%% Source prompt: docs/03-mockup-pack.md #5  |  Visual identity: assets/angel-context-block.md
+%% Illustrative only — neutral placeholders, no real client data. A human stays in control of every financial / pricing / customer-facing decision.
+
+flowchart LR
+    A["Customer sends\nPDF/email order"] --> B["AI agent extracts\n& validates draft"]
+    B --> C{"Approval\nEnvelope"}
+    C -->|approve / edit| D["ERP-equivalent\norder drafted"]
+    D --> E["Warehouse picks"]
+    E --> F["Invoice created"]
+    F --> G["AI proposes\npayment matches"]
+    G --> H{"Approval\nEnvelope"}
+    H -->|approve| I["Reconciliation\nposted"]
+
+    B --> J["Source-linked\nAudit Trail"]
+    C --> J
+    G --> J
+    H --> J
+
+    style B fill:#d1fae5
+    style C fill:#fef3c7
+    style D fill:#d1fae5
+    style G fill:#d1fae5
+    style H fill:#fef3c7
+    style J fill:#e0f2fe
