@@ -10,26 +10,27 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --white:#ffffff; --surface:#f3f3f3; --surface-2:#fafafa; --black:#000000; --deep:#1b0104;
-      --muted:#4e4e4e; --border:#393939; --line:#e6e6e6; --maroon:#8b2e38; --red:#a83232;
-      --soft-red:#f4e7e9; --green:#76c65f; --blue:#569ff7; --max:1180px; --grid:5px;
+      --white:#101B2A; --surface:#101B2A; --surface-2:#0c1622; --black:#F8FAFC; --deep:#07111F;
+      --muted:#94A3B8; --border:#2a3a4f; --line:#1d2c40; --maroon:#D6A94A; --red:#B45309;
+      --soft-red:#16273b; --green:#76c65f; --blue:#569ff7; --teal:#0D9488; --cream:#F6F1E8; --paper:#F8FAFC; --max:1180px; --grid:5px;
     }
     * { box-sizing:border-box; }
-    html { scroll-behavior:smooth; background:var(--white); }
-    body { margin:0; font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; color:var(--black); background:var(--white); -webkit-font-smoothing:antialiased; }
+    html { scroll-behavior:smooth; background:var(--deep); }
+    body { margin:0; font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; color:var(--black); background:var(--deep); -webkit-font-smoothing:antialiased; }
     img { max-width:100%; display:block; }
     a { color:inherit; }
-    :focus-visible { outline:3px solid rgba(139,46,56,.44); outline-offset:4px; }
-    .topbar { position:sticky; top:0; z-index:50; background:rgba(0,0,0,.92); color:#fff; border-bottom:1px solid rgba(255,255,255,.12); backdrop-filter:blur(16px); }
+    .lead a { color:var(--teal); text-decoration:underline; text-underline-offset:3px; }
+    :focus-visible { outline:3px solid rgba(214,169,74,.55); outline-offset:4px; }
+    .topbar { position:sticky; top:0; z-index:50; background:rgba(7,17,31,.92); color:#fff; border-bottom:1px solid rgba(255,255,255,.12); backdrop-filter:blur(16px); }
     .nav { max-width:var(--max); margin:auto; height:70px; padding:0 25px; display:flex; align-items:center; justify-content:space-between; gap:30px; }
     .brand { text-decoration:none; letter-spacing:.04em; display:flex; flex-direction:column; line-height:1; }
     .brand-main { font-weight:900; font-size:25px; } .brand-main span { color:var(--maroon); }
     .brand-sub { font-size:8px; color:#cfcfcf; letter-spacing:.22em; margin-top:5px; text-transform:uppercase; }
     .navlinks { display:flex; align-items:center; gap:32px; font-size:14px; font-weight:800; }
-    .navlinks a { color:#fff; text-decoration:none; opacity:.9; } .navlinks a:hover { color:#ffb7bf; opacity:1; }
-    .nav-cta { border:1px solid rgba(255,255,255,.28); padding:13px 20px; min-height:44px; display:inline-flex; align-items:center; text-decoration:none; font-weight:900; background:var(--maroon); }
+    .navlinks a { color:#fff; text-decoration:none; opacity:.9; } .navlinks a:hover { color:var(--maroon); opacity:1; }
+    .nav-cta { border:1px solid rgba(255,255,255,.28); padding:13px 20px; min-height:44px; display:inline-flex; align-items:center; text-decoration:none; font-weight:900; background:var(--maroon); color:#07111F; }
     .mobile-button { display:none; background:transparent; color:#fff; border:1px solid rgba(255,255,255,.25); padding:10px 12px; font-weight:900; }
-    .mobile-menu { display:none; border-top:1px solid rgba(255,255,255,.12); padding:10px 25px 25px; }
+    .mobile-menu { display:none; border-top:1px solid rgba(255,255,255,.12); padding:10px 25px 25px; background:var(--deep); }
     .mobile-menu a { display:block; padding:14px 0; color:#fff; text-decoration:none; border-bottom:1px solid rgba(255,255,255,.1); font-weight:800; }
     .section { padding:95px 25px; } .section.tight { padding-top:55px; padding-bottom:55px; }
     .wrap { max-width:var(--max); margin:auto; }
@@ -41,54 +42,80 @@
     p { line-height:1.62; } .lead { font-size:clamp(18px,2vw,23px); line-height:1.52; color:var(--muted); max-width:760px; }
     .btnrow { display:flex; flex-wrap:wrap; gap:12px; margin-top:30px; }
     .btn { display:inline-flex; align-items:center; justify-content:center; gap:10px; min-height:50px; padding:16px 24px; border:1px solid var(--border); text-decoration:none; font-weight:900; transition:transform .18s ease, background .18s ease, color .18s ease, border .18s ease; }
-    .btn:hover { transform:translateY(-2px); } .btn.primary { background:var(--maroon); color:#fff; border-color:var(--maroon); } .btn.primary:hover { background:var(--red); } .btn.ghost { background:#fff; color:var(--black); }
-    .hero { position:relative; min-height:calc(100vh - 70px); overflow:hidden; background:linear-gradient(180deg,#fff 0%,#fff 66%,var(--surface) 66%,var(--surface) 100%); }
+    .btn:hover { transform:translateY(-2px); } .btn.primary { background:var(--maroon); color:#07111F; border-color:var(--maroon); } .btn.primary:hover { background:var(--red); color:#F8FAFC; } .btn.ghost { background:var(--surface); color:var(--black); }
+    .hero { position:relative; min-height:calc(100vh - 70px); overflow:hidden; background:linear-gradient(180deg,var(--deep) 0%,var(--deep) 66%,var(--surface) 66%,var(--surface) 100%); }
     .hero-layout { max-width:var(--max); margin:auto; padding:78px 25px 95px; display:grid; grid-template-columns:1.02fr .98fr; gap:55px; align-items:center; }
     .hero-copy { position:relative; z-index:2; } .hero-copy .red { color:var(--maroon); }
     .hero-kicker { display:inline-flex; align-items:center; gap:10px; font-weight:900; font-size:12px; letter-spacing:.16em; text-transform:uppercase; margin-bottom:25px; color:var(--maroon); }
     .hero-kicker::before { content:""; width:42px; height:2px; background:var(--maroon); display:block; }
-    .hero-image-card { background:#000; color:#fff; position:relative; min-height:620px; overflow:hidden; box-shadow:0 28px 70px rgba(0,0,0,.22); }
+    .hero-image-card { background:#07111F; color:#fff; position:relative; min-height:620px; overflow:hidden; box-shadow:0 28px 70px rgba(0,0,0,.4); }
     .hero-image-card img.hero-photo { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:.68; filter:saturate(.85) contrast(1.04); }
     .hero-image-card::after { content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(0,0,0,.1),rgba(0,0,0,.8)); }
     .hero-panel { position:absolute; left:25px; right:25px; bottom:25px; z-index:2; border:1px solid rgba(255,255,255,.22); background:rgba(0,0,0,.58); backdrop-filter:blur(12px); padding:24px; }
     .hero-panel img { width:100%; max-height:150px; object-fit:contain; margin-top:18px; background:rgba(255,255,255,.92); padding:12px; }
     .brand-proof { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
-    .proof-chip { background:#fff; padding:22px 25px; } .proof-chip strong { display:block; font-size:13px; text-transform:uppercase; letter-spacing:.13em; color:var(--maroon); } .proof-chip span { display:block; margin-top:6px; color:var(--muted); font-size:14px; }
+    .proof-chip { background:var(--surface); padding:22px 25px; } .proof-chip strong { display:block; font-size:13px; text-transform:uppercase; letter-spacing:.13em; color:var(--maroon); } .proof-chip span { display:block; margin-top:6px; color:var(--muted); font-size:14px; }
     .photo-trio { display:grid; grid-template-columns:repeat(3,1fr); gap:30px; margin-top:50px; }
     .brand-card { background:var(--surface); padding:40px 35px; min-height:520px; text-align:center; position:relative; }
     .brand-card img { width:230px; height:230px; object-fit:cover; margin:0 auto 54px; }
-    .brand-card .badge { position:absolute; top:268px; left:50%; transform:translateX(-50%); width:76px; height:76px; border-radius:999px; background:var(--maroon); color:#fff; display:grid; place-items:center; border:8px solid var(--surface); font-weight:900; }
-    .brand-card p { color:#111; font-size:15px; }
+    .brand-card .badge { position:absolute; top:268px; left:50%; transform:translateX(-50%); width:76px; height:76px; border-radius:999px; background:var(--maroon); color:#07111F; display:grid; place-items:center; border:8px solid var(--surface); font-weight:900; }
+    .brand-card p { color:var(--black); font-size:15px; }
     .split { display:grid; grid-template-columns:.88fr 1.12fr; gap:55px; align-items:start; }
     .spine-buttons { display:grid; gap:12px; margin-top:28px; }
-    .spine-button { appearance:none; text-align:left; background:#fff; border:1px solid var(--line); padding:20px; cursor:pointer; transition:.18s ease; }
+    .spine-button { appearance:none; text-align:left; background:var(--surface); border:1px solid var(--line); padding:20px; cursor:pointer; transition:.18s ease; }
     .spine-button strong { display:block; font-size:15px; color:var(--black); } .spine-button span { color:var(--muted); display:block; margin-top:6px; }
-    .spine-button[aria-selected="true"] { background:var(--black); color:#fff; border-color:var(--black); box-shadow:-5px 0 0 var(--maroon); }
+    .spine-button[aria-selected="true"] { background:#07111F; color:#fff; border-color:var(--maroon); box-shadow:-5px 0 0 var(--maroon); }
     .spine-button[aria-selected="true"] strong,.spine-button[aria-selected="true"] span { color:#fff; }
     .spine-panel { background:var(--surface); border:1px solid var(--line); padding:36px; min-height:450px; }
-    .spine-panel img { width:100%; max-height:250px; object-fit:contain; background:#fff; border:1px solid var(--line); margin-bottom:25px; }
+    .spine-panel img { width:100%; max-height:250px; object-fit:contain; background:var(--surface-2); border:1px solid var(--line); margin-bottom:25px; }
     .spine-panel .number { color:var(--maroon); font-family:"Playfair Display",serif; font-size:72px; line-height:.8; font-weight:800; }
     .grid-4 { display:grid; grid-template-columns:repeat(4,1fr); gap:22px; margin-top:45px; }
-    .cap-card { background:#fff; border:1px solid var(--line); text-decoration:none; min-height:100%; display:flex; flex-direction:column; transition:.18s ease; }
-    .cap-card:hover { transform:translateY(-4px); box-shadow:0 18px 45px rgba(0,0,0,.09); border-color:rgba(139,46,56,.44); }
-    .cap-card img { background:var(--surface); width:100%; aspect-ratio:1.22/1; object-fit:cover; border-bottom:1px solid var(--line); }
+    .cap-card { background:var(--surface); border:1px solid var(--line); text-decoration:none; min-height:100%; display:flex; flex-direction:column; transition:.18s ease; }
+    .cap-card:hover { transform:translateY(-4px); box-shadow:0 18px 45px rgba(0,0,0,.4); border-color:rgba(214,169,74,.55); }
+    .cap-card img { background:var(--cream); width:100%; aspect-ratio:1.22/1; object-fit:cover; border-bottom:1px solid var(--line); }
     .cap-card div { padding:22px; } .cap-card h3 { font-size:27px; } .cap-card p { color:var(--muted); font-size:14px; margin-bottom:0; }
-    .workstreams { background:var(--black); color:#fff; } .workstreams h2,.workstreams h3 { color:#fff; } .workstreams .lead { color:#d6d6d6; }
+    .workstreams { background:#07111F; color:#fff; } .workstreams h2,.workstreams h3 { color:#fff; } .workstreams .lead { color:#d6d6d6; }
     .work-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:rgba(255,255,255,.2); border:1px solid rgba(255,255,255,.2); margin-top:42px; }
-    .work-card { background:#070707; padding:28px; min-height:230px; } .work-card b { color:#ffbdc4; text-transform:uppercase; font-size:12px; letter-spacing:.16em; } .work-card p { color:#d2d2d2; }
+    .work-card { background:#0c1622; padding:28px; min-height:230px; } .work-card b { color:var(--maroon); text-transform:uppercase; font-size:12px; letter-spacing:.16em; } .work-card p { color:#d2d2d2; }
     .artifact-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:40px; }
-    .artifact-card { border:1px solid var(--line); background:#fff; padding:24px; min-height:172px; text-decoration:none; position:relative; transition:.18s ease; }
+    .artifact-card { border:1px solid var(--line); background:var(--surface); padding:24px; min-height:172px; text-decoration:none; position:relative; transition:.18s ease; }
     .artifact-card::after { content:"→"; position:absolute; right:22px; top:18px; color:var(--maroon); font-weight:900; } .artifact-card:hover { background:var(--soft-red); border-color:var(--maroon); }
     .artifact-card strong { display:block; font-family:"Playfair Display",serif; font-size:27px; letter-spacing:-.02em; } .artifact-card span { display:block; margin-top:10px; color:var(--muted); font-size:14px; line-height:1.5; }
     .gate-list { display:grid; gap:12px; margin-top:35px; }
-    .gate { display:grid; grid-template-columns:110px 1fr; gap:20px; background:#fff; border:1px solid var(--line); padding:20px; }
-    .gate code { font-family:Inter, sans-serif; font-weight:900; color:#fff; background:var(--maroon); display:inline-flex; align-items:center; justify-content:center; min-height:42px; padding:0 14px; }
+    .gate { display:grid; grid-template-columns:110px 1fr; gap:20px; background:var(--surface); border:1px solid var(--line); padding:20px; }
+    .gate code { font-family:Inter, sans-serif; font-weight:900; color:#fff; background:#0B7A70; display:inline-flex; align-items:center; justify-content:center; min-height:42px; padding:0 14px; }
     .gate strong { display:block; } .gate span { color:var(--muted); font-size:14px; line-height:1.5; }
-    .walkthrough { background:linear-gradient(90deg,var(--surface) 0%,var(--surface) 50%,#fff 50%,#fff 100%); }
+    .walkthrough { background:linear-gradient(90deg,var(--surface) 0%,var(--surface) 50%,var(--surface-2) 50%,var(--surface-2) 100%); }
     .walk-card { display:grid; grid-template-columns:.9fr 1.1fr; gap:1px; background:var(--border); border:1px solid var(--border); margin-top:42px; min-width:0; }
-    .walk-pane { background:#fff; padding:36px; min-width:0; } .walk-pane.dark { background:#090909; color:#fff; } .walk-pane.dark h3 { color:#fff; } .walk-pane.dark p { color:#d8d8d8; }
-    .walk-pane img { border:1px solid rgba(255,255,255,.25); background:#fff; margin-top:22px; }
-    .footer { padding:45px 25px; background:#000; color:#fff; } .footer .wrap { display:flex; justify-content:space-between; gap:25px; flex-wrap:wrap; } .footer p { color:#bbb; margin:0; max-width:700px; }
+    .walk-pane { background:var(--surface); padding:36px; min-width:0; } .walk-pane.dark { background:#07111F; color:#fff; } .walk-pane.dark h3 { color:#fff; } .walk-pane.dark p { color:#d8d8d8; }
+    .walk-pane img { border:1px solid rgba(255,255,255,.25); background:var(--cream); margin-top:22px; }
+    .footer { padding:45px 25px; background:#07111F; color:#fff; } .footer .wrap { display:flex; justify-content:space-between; gap:25px; flex-wrap:wrap; } .footer p { color:#bbb; margin:0; max-width:700px; }
+    /* ===== Motion hero (full-screen cinematic: video + canvas-network fallback) ===== */
+    .hero-motion { position:relative; min-height:calc(100svh - 70px); display:flex; align-items:flex-end; overflow:hidden; background:var(--deep); }
+    .mh-poster, .mh-net, .mh-video { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; pointer-events:none; }
+    .mh-poster { z-index:0; opacity:.9; filter:saturate(.9) contrast(1.04); }
+    .mh-net    { z-index:1; display:block; }
+    .mh-video  { z-index:2; opacity:0; transition:opacity .6s ease; }
+    .mh-video.mh-video--ready { opacity:1; }
+    .mh-scrim {
+      position:absolute; inset:0; z-index:3; pointer-events:none;
+      background:
+        linear-gradient(180deg, rgba(7,17,31,.62) 0%, rgba(7,17,31,.32) 34%, rgba(7,17,31,.94) 100%),
+        radial-gradient(120% 95% at 74% 16%, transparent 0%, rgba(7,17,31,.28) 52%, rgba(7,17,31,.86) 100%);
+    }
+    .hero-motion .hero-layout { position:relative; z-index:4; grid-template-columns:1fr; gap:34px; padding-top:110px; padding-bottom:64px; align-items:end; }
+    .hero-motion .hero-copy { max-width:920px; }
+    .hero-motion .hero-kicker { color:var(--maroon); }
+    .hero-motion h1 { color:#fff; text-shadow:0 2px 34px rgba(0,0,0,.5); }
+    .hero-motion h1 .red { color:var(--maroon); font-style:italic; }
+    .hero-motion .lead { color:#dfe6ef; max-width:680px; }
+    .hero-motion .btn.ghost { background:rgba(255,255,255,.04); color:#fff; border-color:rgba(246,241,232,.34); }
+    .hero-motion .btn.ghost:hover { border-color:var(--maroon); color:var(--maroon); }
+    .hero-motion .brand-proof { position:relative; z-index:4; background:rgba(7,17,31,.55); border-top:1px solid rgba(214,169,74,.22); backdrop-filter:blur(8px); }
+    .hero-motion .proof-chip { background:transparent; }
+    @media (prefers-reduced-motion: reduce) { .hero-motion .mh-video { display:none; } }
+    @media (max-width: 640px) { .hero-motion .hero-layout { padding-top:84px; } }
+
     @keyframes softIn { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:none; } }
     .reveal { animation:softIn .45s ease both; }
     @media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } *,*::before,*::after { animation-duration:.01ms!important; animation-iteration-count:1!important; transition-duration:.01ms!important; } .reveal { animation:none; } }
@@ -119,7 +146,20 @@
   </header>
 
   <main id="top">
-    <section class="hero" aria-labelledby="hero-title">
+    <section class="hero hero-motion" aria-labelledby="hero-title">
+      <!-- z-0 poster floor: shows with JS off / while video buffers / under reduced-motion -->
+      <img class="mh-poster" src="assets/hero-poster.jpg" alt="" aria-hidden="true"
+           onerror="this.style.display='none'">
+      <!-- z-1 canvas particle-network: animated gold-on-dark fallback when the video is absent -->
+      <canvas class="mh-net" aria-hidden="true"></canvas>
+      <!-- z-2 looping cinematic video background (dropped in at assets/hero-bg.mp4 by tide) -->
+      <video class="mh-video" autoplay muted loop playsinline preload="metadata"
+             poster="assets/hero-poster.jpg" aria-hidden="true">
+        <source src="assets/hero-bg.mp4" type="video/mp4">
+      </video>
+      <!-- z-3 dark gradient scrim: keeps headline + body legible over the motion -->
+      <div class="mh-scrim" aria-hidden="true"></div>
+
       <div class="hero-layout">
         <div class="hero-copy reveal">
           <div class="hero-kicker">AngelServ by Angel Software Solutions · Top Spirit (Marussia)</div>
@@ -130,15 +170,6 @@
             <a class="btn ghost" href="#artifacts">Open the evidence pack</a>
           </div>
         </div>
-        <figure class="hero-image-card reveal" aria-label="Top Spirit style hero image with command-center proof overlay">
-          <img class="hero-photo" src="assets/images/topspirit-hero.webp" alt="Top Spirit hospitality bar scene used as a visual reference for the command-center hero">
-          <figcaption class="hero-panel">
-            <div class="eyebrow">Steering read</div>
-            <h3 style="color:#fff;margin-top:8px;">AI can propose improvements now. People still decide what becomes operational.</h3>
-            <p>Demo values are illustrative until client evidence gates close.</p>
-            <img src="assets/images/cc-hero-diagram.svg" alt="Abstract data-flow from exports into an approval controlled command center">
-          </figcaption>
-        </figure>
       </div>
       <div class="brand-proof" aria-label="Hero proof points">
         <div class="proof-chip"><strong>Export Layer</strong><span>Start with governed files before integrations.</span></div>
@@ -146,6 +177,102 @@
         <div class="proof-chip"><strong>Source-linked Audit Trail</strong><span>Every claim points back to source and status.</span></div>
         <div class="proof-chip"><strong>Next-ERP ready</strong><span>Brownfield, greenfield and phased paths remain visible.</span></div>
       </div>
+
+      <script>
+      (function () {
+        var hero = document.querySelector(".hero-motion");
+        if (!hero) return;
+        var canvas = hero.querySelector(".mh-net");
+        var video  = hero.querySelector(".mh-video");
+        var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        if (video) {
+          if (reduce) { video.removeAttribute("autoplay"); try { video.pause(); } catch (e) {} }
+          else {
+            video.addEventListener("playing", function () { video.classList.add("mh-video--ready"); });
+            video.addEventListener("error",   function () { video.style.display = "none"; });
+            var pl = video.play && video.play(); if (pl && pl.catch) pl.catch(function () {});
+          }
+        }
+
+        if (!canvas || !canvas.getContext) return;
+        var ctx = canvas.getContext("2d");
+        var AC = { r: 214, g: 169, b: 74 }; /* #D6A94A gold */
+        var dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+        var w = 0, h = 0, nodes = [], raf = 0, running = false;
+        var ptr = { x: 0.5, y: 0.5, ox: 0, oy: 0 };
+
+        function size() {
+          var r = canvas.getBoundingClientRect();
+          w = Math.max(1, r.width); h = Math.max(1, r.height);
+          canvas.width = Math.floor(w * dpr); canvas.height = Math.floor(h * dpr);
+          ctx.setTransform(dpr, 0, 0, dpr, 0, 0); build();
+        }
+        function build() {
+          var count = Math.max(40, Math.min(120, Math.round((w * h) / 13500)));
+          nodes = [];
+          for (var i = 0; i < count; i++) nodes.push({
+            x: Math.random() * w, y: Math.random() * h,
+            vx: (Math.random() - 0.5) * 0.2, vy: (Math.random() - 0.5) * 0.2,
+            r: 0.8 + Math.random() * 1.7
+          });
+        }
+        function frame() {
+          var LINK = Math.min(w, h) * 0.16, LINK2 = LINK * LINK;
+          ptr.ox += ((ptr.x - 0.5) * 24 - ptr.ox) * 0.05;
+          ptr.oy += ((ptr.y - 0.5) * 24 - ptr.oy) * 0.05;
+          ctx.clearRect(0, 0, w, h);
+          var g = ctx.createRadialGradient(w * 0.64, h * 0.4, 0, w * 0.64, h * 0.4, Math.max(w, h) * 0.7);
+          g.addColorStop(0, "rgba(" + AC.r + "," + AC.g + "," + AC.b + ",0.10)");
+          g.addColorStop(1, "rgba(7,17,31,0)");
+          ctx.fillStyle = g; ctx.fillRect(0, 0, w, h);
+          var i, j, a, b, dx, dy, d2;
+          for (i = 0; i < nodes.length; i++) {
+            a = nodes[i]; a.x += a.vx; a.y += a.vy;
+            if (a.x < -20) a.x = w + 20; else if (a.x > w + 20) a.x = -20;
+            if (a.y < -20) a.y = h + 20; else if (a.y > h + 20) a.y = -20;
+          }
+          for (i = 0; i < nodes.length; i++) {
+            a = nodes[i];
+            for (j = i + 1; j < nodes.length; j++) {
+              b = nodes[j]; dx = a.x - b.x; dy = a.y - b.y; d2 = dx * dx + dy * dy;
+              if (d2 < LINK2) {
+                var al = (1 - d2 / LINK2) * 0.5;
+                ctx.strokeStyle = "rgba(" + AC.r + "," + AC.g + "," + AC.b + "," + al + ")";
+                ctx.lineWidth = 1; ctx.beginPath();
+                ctx.moveTo(a.x + ptr.ox, a.y + ptr.oy); ctx.lineTo(b.x + ptr.ox, b.y + ptr.oy); ctx.stroke();
+              }
+            }
+          }
+          for (i = 0; i < nodes.length; i++) {
+            a = nodes[i]; ctx.beginPath();
+            ctx.arc(a.x + ptr.ox, a.y + ptr.oy, a.r, 0, Math.PI * 2);
+            ctx.fillStyle = "rgba(" + AC.r + "," + AC.g + "," + AC.b + ",0.85)"; ctx.fill();
+          }
+        }
+        function loop() { frame(); raf = requestAnimationFrame(loop); }
+        function start() { if (running) return; running = true; raf = requestAnimationFrame(loop); }
+        function stop() { running = false; if (raf) cancelAnimationFrame(raf); raf = 0; }
+        function onScreen() { var r = hero.getBoundingClientRect(); return r.bottom > 0 && r.top < window.innerHeight; }
+
+        window.addEventListener("resize", size, { passive: true });
+        window.addEventListener("pointermove", function (e) {
+          ptr.x = e.clientX / Math.max(1, window.innerWidth);
+          ptr.y = e.clientY / Math.max(1, window.innerHeight);
+        }, { passive: true });
+
+        size();
+        if (reduce) { frame(); }
+        else {
+          if (typeof IntersectionObserver === "function") {
+            new IntersectionObserver(function (en) { if (en[0] && en[0].isIntersecting) start(); else stop(); }, { threshold: 0 }).observe(hero);
+          } else { start(); }
+          document.addEventListener("visibilitychange", function () {
+            if (document.visibilityState === "hidden") stop(); else if (onScreen()) start();
+          });
+        }
+      })();
+      </script>
     </section>
 
     <section class="section" aria-labelledby="brand-fit-title">
@@ -200,7 +327,7 @@
           <div class="number" id="proofNumber">01</div>
           <h3 id="proofHeading">Export Layer</h3>
           <p id="proofText">ERP, CRM, bank, workbook and document inputs enter through a controlled layer first. This keeps early value work ERP-neutral while preserving a path to integrations later.</p>
-          <a class="btn ghost" href="assets/mockups/storyboard-gallery.md" data-path="assets/mockups/storyboard-gallery.md">Open source artifact</a>
+          <a class="btn ghost" href="docs/05-technical-setup/export-layer-setup-guide.md" data-path="docs/05-technical-setup/export-layer-setup-guide.md">Open source artifact</a>
         </article>
       </div>
     </section>
@@ -211,7 +338,7 @@
         <h2 id="cap-title">Eight things the sponsor can understand in one glance.</h2>
         <p class="lead">The command center still covers the working system. It now presents the operating model in a boardroom-ready format.</p>
         <div class="grid-4">
-          <a class="cap-card" href="assets/mockups/storyboard-gallery.md" data-path="assets/mockups/storyboard-gallery.md"><img src="assets/images/cc-export-layer.svg" alt="Export Layer visual"><div><h3>Export Layer</h3><p>Start with files the business already owns, classify them, and keep the future API decision separate from the first value proof.</p></div></a><a class="cap-card" href="assets/mockups/html/08-document-order-intake.html" data-path="assets/mockups/html/08-document-order-intake.html"><img src="assets/images/cc-document-intake.svg" alt="Document Intake visual"><div><h3>Document Intake</h3><p>Turn PDF/email order intake into a controlled draft workflow that never bypasses review.</p></div></a><a class="cap-card" href="assets/mockups/html/09-financial-reconciliation-assistant.html" data-path="assets/mockups/html/09-financial-reconciliation-assistant.html"><img src="assets/images/cc-reconciliation.svg" alt="Reconciliation visual"><div><h3>Reconciliation</h3><p>Match bank statement lines, invoices and exceptions with visible reasoning and approval state.</p></div></a><a class="cap-card" href="assets/mockups/rendered/10-governance-tiers.svg" data-path="assets/mockups/rendered/10-governance-tiers.svg"><img src="assets/images/cc-governance-tiers.svg" alt="Governance Tiers visual"><div><h3>Governance Tiers</h3><p>Separate low-risk suggestions from manager approval and steering-level decisions.</p></div></a><a class="cap-card" href="assets/mockups/rendered/11-source-linked-audit-trail.svg" data-path="assets/mockups/rendered/11-source-linked-audit-trail.svg"><img src="assets/images/cc-audit-trail.svg" alt="Audit Trail visual"><div><h3>Audit Trail</h3><p>Show source references, transformations and sign-offs before a result gets reused.</p></div></a><a class="cap-card" href="assets/mockups/html/15-opportunity-catalogue-board.html" data-path="assets/mockups/html/15-opportunity-catalogue-board.html"><img src="assets/images/cc-glossary-opportunity.svg" alt="Glossary + Opportunities visual"><div><h3>Glossary + Opportunities</h3><p>Connect the Business Glossary to an Opportunity Catalogue the client can prioritise.</p></div></a><a class="cap-card" href="assets/mockups/rendered/16-value-adoption-dashboard.svg" data-path="assets/mockups/rendered/16-value-adoption-dashboard.svg"><img src="assets/images/cc-trust-safety.svg" alt="Value &amp; Adoption visual"><div><h3>Value & Adoption</h3><p>Track savings hypotheses, owner adoption and sustainment without inventing client numbers.</p></div></a><a class="cap-card" href="assets/mockups/html/19-erp-decision-pack.html" data-path="assets/mockups/html/19-erp-decision-pack.html"><img src="assets/images/cc-next-erp.svg" alt="Next-ERP Decision Pack visual"><div><h3>Next-ERP Decision Pack</h3><p>Give leadership a brownfield/greenfield/phased view with evidence, risks and transition logic.</p></div></a>
+          <a class="cap-card" href="docs/05-technical-setup/export-layer-setup-guide.md" data-path="docs/05-technical-setup/export-layer-setup-guide.md"><img src="assets/images/cc-export-layer.svg" alt="Export Layer visual"><div><h3>Export Layer</h3><p>Start with files the business already owns, classify them, and keep the future API decision separate from the first value proof.</p></div></a><a class="cap-card" href="assets/mockups/html/08-document-order-intake.html" data-path="assets/mockups/html/08-document-order-intake.html"><img src="assets/images/cc-document-intake.svg" alt="Document Intake visual"><div><h3>Document Intake</h3><p>Turn PDF/email order intake into a controlled draft workflow that never bypasses review.</p></div></a><a class="cap-card" href="assets/mockups/html/09-financial-reconciliation-assistant.html" data-path="assets/mockups/html/09-financial-reconciliation-assistant.html"><img src="assets/images/cc-reconciliation.svg" alt="Reconciliation visual"><div><h3>Reconciliation</h3><p>Match bank statement lines, invoices and exceptions with visible reasoning and approval state.</p></div></a><a class="cap-card" href="docs/06-wave-1/governance-approval-envelopes.md" data-path="docs/06-wave-1/governance-approval-envelopes.md"><img src="assets/images/cc-governance-tiers.svg" alt="Governance Tiers visual"><div><h3>Governance Tiers</h3><p>Separate low-risk suggestions from manager approval and steering-level decisions.</p></div></a><a class="cap-card" href="docs/05-phase-0/source-linked-audit-trail-standard.md" data-path="docs/05-phase-0/source-linked-audit-trail-standard.md"><img src="assets/images/cc-audit-trail.svg" alt="Audit Trail visual"><div><h3>Audit Trail</h3><p>Show source references, transformations and sign-offs before a result gets reused.</p></div></a><a class="cap-card" href="assets/mockups/html/15-opportunity-catalogue-board.html" data-path="assets/mockups/html/15-opportunity-catalogue-board.html"><img src="assets/images/cc-glossary-opportunity.svg" alt="Glossary + Opportunities visual"><div><h3>Glossary + Opportunities</h3><p>Connect the Business Glossary to an Opportunity Catalogue the client can prioritise.</p></div></a><a class="cap-card" href="docs/08-scale/value-adoption-dashboard-spec.md" data-path="docs/08-scale/value-adoption-dashboard-spec.md"><img src="assets/images/cc-trust-safety.svg" alt="Value &amp; Adoption visual"><div><h3>Value & Adoption</h3><p>Track savings hypotheses, owner adoption and sustainment without inventing client numbers.</p></div></a><a class="cap-card" href="docs/08-scale/next-erp-recommendation-pack.md" data-path="docs/08-scale/next-erp-recommendation-pack.md"><img src="assets/images/cc-next-erp.svg" alt="Next-ERP Decision Pack visual"><div><h3>Next-ERP Decision Pack</h3><p>Give leadership a brownfield/greenfield/phased view with evidence, risks and transition logic.</p></div></a>
         </div>
       </div>
     </section>
@@ -238,7 +365,7 @@
         <h2 id="artifact-title">The meeting pack is visible before anyone opens GitHub.</h2>
         <p class="lead">Nine artifact cards give Marlin, Joey, Keith, Will, and the client reviewer the same source map. No repository hunting, no stale thread archaeology, no uncertainty about the deck.</p>
         <div class="artifact-grid">
-          <a class="artifact-card" href="assets/mockups/walkthrough/index.html" data-path="assets/mockups/walkthrough/index.html"><strong>Walkthrough</strong><span>Interactive guided route through the command center.</span></a><a class="artifact-card" href="assets/mockups/storyboard-gallery.md" data-path="assets/mockups/storyboard-gallery.md"><strong>Storyboard</strong><span>Eight-core storyboard for the client presentation.</span></a><a class="artifact-card" href="assets/mockups/html/README.md" data-path="assets/mockups/html/README.md"><strong>HTML companion screens</strong><span>Runnable mockup screens for the workstreams.</span></a><a class="artifact-card" href="assets/pitch/pitch-deck.md" data-path="assets/pitch/pitch-deck.md"><strong>Pitch deck</strong><span>Steering-committee narrative and slide outline.</span></a>
+          <a class="artifact-card" href="assets/mockups/walkthrough/index.html" data-path="assets/mockups/walkthrough/index.html"><strong>Walkthrough</strong><span>Interactive guided route through the command center.</span></a><a class="artifact-card" href="assets/mockups/storyboard-gallery.md" data-path="assets/mockups/storyboard-gallery.md"><strong>Storyboard</strong><span>Seven-core storyboard for the client presentation.</span></a><a class="artifact-card" href="assets/mockups/html/README.md" data-path="assets/mockups/html/README.md"><strong>HTML companion screens</strong><span>Runnable mockup screens for the workstreams.</span></a><a class="artifact-card" href="assets/pitch/pitch-deck.md" data-path="assets/pitch/pitch-deck.md"><strong>Pitch deck</strong><span>Steering-committee narrative and slide outline.</span></a><a class="artifact-card" href="docs/11-presentation/demo-qa-report.md" data-path="docs/11-presentation/demo-qa-report.md"><strong>Demo QA</strong><span>What was checked before the meeting.</span></a><a class="artifact-card" href="docs/11-presentation/meeting-runbook.md" data-path="docs/11-presentation/meeting-runbook.md"><strong>Meeting runbook</strong><span>Talk track, timings and fallback path.</span></a><a class="artifact-card" href="docs/11-presentation/client-send-pack-and-follow-up.md" data-path="docs/11-presentation/client-send-pack-and-follow-up.md"><strong>Client send pack</strong><span>Follow-up bundle and post-call actions.</span></a><a class="artifact-card" href="docs/11-presentation/client-action-pack.md" data-path="docs/11-presentation/client-action-pack.md"><strong>Client action pack</strong><span>Immediate client decisions and evidence asks.</span></a><a class="artifact-card" href="docs/11-presentation/build-map-coverage-matrix.md" data-path="docs/11-presentation/build-map-coverage-matrix.md"><strong>Coverage matrix</strong><span>Map from brief expectations to artifacts.</span></a>
         </div>
       </div>
     </section>
@@ -262,8 +389,8 @@
         <h2 id="next-title">Approve the route, then close the evidence.</h2>
         <p class="lead" style="margin-left:auto;margin-right:auto;">This is the client-facing decision surface for Angel Software Solutions. It keeps AngelServ product vocabulary, Top Spirit visual cues and source-linked proof in one place while making open evidence requests impossible to miss.</p>
         <div class="btnrow" style="justify-content:center;">
-          <a class="btn primary" href="mailto:hello@angelsoftware.solutions">Contact Angel Software Solutions</a>
-          <a class="btn ghost" href="assets/mockups/html/19-erp-decision-pack.html" data-path="assets/mockups/html/19-erp-decision-pack.html">Review Next-ERP Decision Pack</a>
+          <a class="btn primary" href="docs/11-presentation/client-action-pack.md" data-path="docs/11-presentation/client-action-pack.md">Open client action pack</a>
+          <a class="btn ghost" href="docs/08-scale/next-erp-recommendation-pack.md" data-path="docs/08-scale/next-erp-recommendation-pack.md">Review Next-ERP Decision Pack</a>
         </div>
       </div>
     </section>
@@ -277,13 +404,13 @@
   </footer>
 
   <script>
-    const proof = [('01', 'Export Layer', 'Classify exports before automation', 'ERP, CRM, bank, workbook and document inputs enter through a controlled layer first. This keeps early value work ERP-neutral while preserving a path to integrations later.'), ('02', 'Approval Envelope', 'AI drafts; named people commit', 'The command center makes authority visible. Financial, pricing, customer-facing and governance actions wait for a human owner before they become facts.'), ('03', 'Source-linked Audit Trail', 'Every number keeps its receipt', 'Claims link back to source, transform, approver and evidence status so demo-safe values never masquerade as validated client data.'), ('04', 'Business Glossary', 'Shared language for process and data', 'Terms, fields and process meanings get captured once, then reused across Power BI, agents, reports and steering materials.'), ('05', 'Opportunity Catalogue', 'A ranked backlog of value plays', 'Ideas are scored by value, risk, effort, evidence readiness and owner so the steering committee can decide what to pilot next.')];
+    const proof = [['01', 'Export Layer', 'Classify exports before automation', 'ERP, CRM, bank, workbook and document inputs enter through a controlled layer first. This keeps early value work ERP-neutral while preserving a path to integrations later.'], ['02', 'Approval Envelope', 'AI drafts; named people commit', 'The command center makes authority visible. Financial, pricing, customer-facing and governance actions wait for a human owner before they become facts.'], ['03', 'Source-linked Audit Trail', 'Every number keeps its receipt', 'Claims link back to source, transform, approver and evidence status so demo-safe values never masquerade as validated client data.'], ['04', 'Business Glossary', 'Shared language for process and data', 'Terms, fields and process meanings get captured once, then reused across Power BI, agents, reports and steering materials.'], ['05', 'Opportunity Catalogue', 'A ranked backlog of value plays', 'Ideas are scored by value, risk, effort, evidence readiness and owner so the steering committee can decide what to pilot next.']];
     const proofLinks = [
-      ['assets/images/cc-export-layer.svg','assets/mockups/storyboard-gallery.md'],
-      ['assets/images/cc-document-intake.svg','assets/mockups/rendered/07-agent-approval-envelope.svg'],
-      ['assets/images/cc-audit-trail.svg','assets/mockups/rendered/11-source-linked-audit-trail.svg'],
-      ['assets/images/cc-glossary-opportunity.svg','assets/mockups/html/13-business-glossary.html'],
-      ['assets/images/cc-glossary-opportunity.svg','assets/mockups/html/15-opportunity-catalogue-board.html']
+      ['assets/images/cc-export-layer.svg','docs/05-technical-setup/export-layer-setup-guide.md'],
+      ['assets/images/cc-document-intake.svg','docs/04-templates/approval-envelope-template.md'],
+      ['assets/images/cc-audit-trail.svg','docs/05-phase-0/source-linked-audit-trail-standard.md'],
+      ['assets/images/cc-glossary-opportunity.svg','docs/08-scale/living-business-glossary.md'],
+      ['assets/images/cc-glossary-opportunity.svg','docs/08-scale/opportunity-catalogue.md']
     ];
     document.querySelectorAll('.spine-button').forEach((button) => {
       button.addEventListener('click', () => {
