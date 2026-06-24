@@ -65,6 +65,7 @@
           <a class="text-slate-600 hover:text-cta transition" href="#walkthrough">Walkthrough</a>
           <a class="text-slate-600 hover:text-cta transition" href="#safety">Safety</a>
           <a class="text-slate-600 hover:text-cta transition" href="#architecture">Architecture</a>
+          <a class="text-slate-600 hover:text-cta transition" href="#pitch-pack">Pitch pack</a>
         </nav>
         <div class="hidden md:flex items-center gap-3">
           <a href="assets/mockups/walkthrough/index.html" class="inline-flex items-center gap-2 bg-cta text-white pl-4 pr-5 py-2.5 rounded-full text-sm font-bold hover:bg-cta-dark transition shadow-sm">
@@ -81,6 +82,7 @@
       <a href="#walkthrough" onclick="document.getElementById('mobMenu').classList.add('hidden')" class="block py-3 text-sm font-semibold text-slate-600 border-b border-slate-50">Walkthrough</a>
       <a href="#safety" onclick="document.getElementById('mobMenu').classList.add('hidden')" class="block py-3 text-sm font-semibold text-slate-600 border-b border-slate-50">Safety</a>
       <a href="#architecture" onclick="document.getElementById('mobMenu').classList.add('hidden')" class="block py-3 text-sm font-semibold text-slate-600 border-b border-slate-50">Architecture</a>
+      <a href="#pitch-pack" onclick="document.getElementById('mobMenu').classList.add('hidden')" class="block py-3 text-sm font-semibold text-slate-600 border-b border-slate-50">Pitch pack</a>
       <a href="assets/mockups/walkthrough/index.html" class="mt-3 flex items-center justify-center gap-2 bg-cta text-white py-3 rounded-xl font-bold text-sm">
         <i class="ph-fill ph-play-circle"></i> Launch demo
       </a>
@@ -364,6 +366,39 @@
     </div>
   </section>
 
+  <!-- Pitch pack -->
+  <section id="pitch-pack" class="py-16 md:py-24 bg-brand-pale">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-12 reveal">
+        <span class="text-cta font-bold text-sm uppercase tracking-wider">Pitch pack</span>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-brand mt-2 mb-4 tracking-tight">Demo artifacts, one click away.</h2>
+        <p class="text-slate-600">These public-facing artifacts are safe to share with the steering committee.</p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <a href="assets/mockups/walkthrough/index.html" class="group bg-white rounded-2xl border border-slate-200 p-6 card-hover reveal">
+          <div class="w-12 h-12 rounded-xl bg-cta/10 flex items-center justify-center mb-4"><i class="ph-fill ph-play-circle text-cta text-2xl"></i></div>
+          <h3 class="font-bold text-brand mb-2">Interactive walkthrough</h3>
+          <p class="text-sm text-slate-600">All eight beats, step-by-step, with keyboard and touch navigation.</p>
+        </a>
+        <a href="assets/mockups/storyboard-gallery.md" class="group bg-white rounded-2xl border border-slate-200 p-6 card-hover reveal">
+          <div class="w-12 h-12 rounded-xl bg-cta/10 flex items-center justify-center mb-4"><i class="ph-fill ph-images text-cta text-2xl"></i></div>
+          <h3 class="font-bold text-brand mb-2">Storyboard gallery</h3>
+          <p class="text-sm text-slate-600">Rendered Mermaid diagrams for the eight-core pitch narrative.</p>
+        </a>
+        <a href="assets/pitch/pitch-deck.md" class="group bg-white rounded-2xl border border-slate-200 p-6 card-hover reveal">
+          <div class="w-12 h-12 rounded-xl bg-cta/10 flex items-center justify-center mb-4"><i class="ph-fill ph-presentation-chart text-cta text-2xl"></i></div>
+          <h3 class="font-bold text-brand mb-2">Pitch deck</h3>
+          <p class="text-sm text-slate-600">Speaker notes and slide-by-slide narrative for the steering committee.</p>
+        </a>
+        <a href="assets/mockups/01-solution-architecture.png" class="group bg-white rounded-2xl border border-slate-200 p-6 card-hover reveal">
+          <div class="w-12 h-12 rounded-xl bg-cta/10 flex items-center justify-center mb-4"><i class="ph-fill ph-tree-structure text-cta text-2xl"></i></div>
+          <h3 class="font-bold text-brand mb-2">Architecture diagram</h3>
+          <p class="text-sm text-slate-600">High-level export-layer-first solution architecture.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <!-- Footer -->
   <footer class="bg-brand text-white py-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -373,14 +408,14 @@
             <div class="w-8 h-8 rounded-lg bg-cta text-white flex items-center justify-center"><i class="ph-fill ph-hexagon text-lg"></i></div>
             <span class="font-bold text-lg">Top Spirit Command Center</span>
           </div>
-          <p class="text-slate-400 text-sm max-w-md">A public demo site for the Angel Software Solutions engagement with Top Spirit / Marussia. All data is illustrative.</p>
+          <p class="text-slate-400 text-sm max-w-md">Public demo site for the Angel Software Solutions engagement with Top Spirit / Marussia. All demo data is illustrative.</p>
         </div>
         <div class="flex flex-wrap gap-3">
           <a href="assets/mockups/walkthrough/index.html" class="inline-flex items-center gap-2 bg-cta hover:bg-cta-dark text-white px-5 py-2.5 rounded-full text-sm font-bold transition">
             <i class="ph-fill ph-play-circle"></i> Launch demo
           </a>
           <a href="https://github.com/ademczuk/top-spirit-command-center" class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white px-5 py-2.5 rounded-full text-sm font-semibold transition border border-white/15">
-            <i class="ph-fill ph-github-logo"></i> Repo
+            <i class="ph-fill ph-github-logo"></i> Private repo
           </a>
         </div>
       </div>
