@@ -240,7 +240,7 @@
           ctx.setTransform(dpr, 0, 0, dpr, 0, 0); build();
         }
         function build() {
-          var count = Math.max(20, Math.min(40, Math.round((w * h) / 32000)));
+          var count = Math.max(28, Math.min(56, Math.round((w * h) / 22000)));
           nodes = [];
           for (var i = 0; i < count; i++) {
             var big = Math.random() < 0.36;
@@ -250,11 +250,11 @@
               r: big ? (9 + Math.random() * 15) : (1.4 + Math.random() * 4),
               big: big,
               warm: Math.random(),
-              baseA: big ? (0.08 + Math.random() * 0.10) : (0.40 + Math.random() * 0.45),
+              baseA: big ? (0.12 + Math.random() * 0.14) : (0.55 + Math.random() * 0.42),
               tw: Math.random() * Math.PI * 2,
-              tws: 0.005 + Math.random() * 0.013,
-              vx: (Math.random() - 0.5) * 0.11,
-              vy: (Math.random() - 0.5) * 0.07
+              tws: 0.013 + Math.random() * 0.024,
+              vx: (Math.random() - 0.5) * 0.32,
+              vy: (Math.random() - 0.5) * 0.20
             });
           }
         }
@@ -274,7 +274,7 @@
             n.x += n.vx; n.y += n.vy; n.tw += n.tws;
             if (n.x < -40) n.x = w + 40; else if (n.x > w + 40) n.x = -40;
             if (n.y < -40) n.y = h + 40; else if (n.y > h + 40) n.y = -40;
-            var a = n.baseA * (0.58 + 0.42 * Math.sin(n.tw));
+            var a = n.baseA * (0.5 + 0.5 * Math.sin(n.tw));
             if (a <= 0.002) continue;
             var cr = (214 + n.warm * 28) | 0, cg = (150 + n.warm * 50) | 0, cb = (68 + n.warm * 44) | 0;
             var par = n.big ? 1.5 : 0.6;
@@ -305,16 +305,13 @@
         }, { passive: true });
 
         size();
-        if (reduce) { frame(); }
-        else {
-          start();
-          if (typeof IntersectionObserver === "function") {
-            new IntersectionObserver(function (en) { if (en[0] && en[0].isIntersecting) start(); else stop(); }, { threshold: 0 }).observe(hero);
-          }
-          document.addEventListener("visibilitychange", function () {
-            if (document.visibilityState === "hidden") stop(); else if (onScreen()) start();
-          });
+        start();
+        if (typeof IntersectionObserver === "function") {
+          new IntersectionObserver(function (en) { if (en[0] && en[0].isIntersecting) start(); else stop(); }, { threshold: 0 }).observe(hero);
         }
+        document.addEventListener("visibilitychange", function () {
+          if (document.visibilityState === "hidden") stop(); else if (onScreen()) start();
+        });
       })();
       </script>
     </section>
