@@ -1,0 +1,374 @@
+{
+  "schema": "agentreef.top-spirit.brand-asset-manifest.v1",
+  "updated": "2026-06-24",
+  "tokenSource": "assets/brand/tokens.json",
+  "renderLog": "assets/brand/RENDER-LOG.md",
+  "status": "expected assets for TASK-72 to TASK-79",
+  "motionAssets": [
+    {
+      "id": "hero-motion-video",
+      "task": "TASK-72",
+      "owner": "tide",
+      "path": "assets/hero-bg.mp4",
+      "group": "motionHero",
+      "integrationPoint": "First-viewport motion background in docs/index.html",
+      "media": {
+        "type": "video/mp4",
+        "minBytes": 100000,
+        "signature": "ftyp"
+      },
+      "notes": "Grok-generated navy/gold motion hero shipped by Tide in commit 2ab6bfe. This augments the planned PNG lane but does not replace the pending 14 PNG renders."
+    },
+    {
+      "id": "hero-motion-poster",
+      "task": "TASK-72",
+      "owner": "tide",
+      "path": "assets/hero-poster.jpg",
+      "group": "motionHero",
+      "integrationPoint": "Poster and reduced-motion fallback for the first-viewport motion hero",
+      "dimensions": {
+        "width": 1280,
+        "height": 720,
+        "aspect": "16:9",
+        "exact": true
+      },
+      "notes": "Decorative poster for the motion hero. Markup should keep it aria-hidden with empty alt text."
+    }
+  ],
+  "globalRules": [
+    "PNG output unless an explicit later task changes format",
+    "no alcohol, bottles, glasses or liquid",
+    "no real faces; use faceless backs-only silhouettes only where required",
+    "no logos",
+    "no readable text, numbers, customer data or fabricated client evidence",
+    "navy ground, gold primary premium accent, reef teal minority platform accent"
+  ],
+  "assets": [
+    {
+      "id": "hero-bg",
+      "task": "TASK-72",
+      "owner": "tide",
+      "path": "assets/brand/hero-bg.png",
+      "group": "wideScenes",
+      "integrationPoint": "Hero background behind the first-viewport glass card",
+      "dimensions": {
+        "width": 1920,
+        "height": 1080,
+        "minWidth": 1376,
+        "minHeight": 768,
+        "aspect": "16:9"
+      },
+      "notes": "Low contrast, dark, uncluttered. White headline and glass card must stay legible.",
+      "integration": {
+        "altText": "",
+        "ariaHidden": true,
+        "decorative": true,
+        "selector": "[data-task76='hero-bg']",
+        "dataTask76": "hero-bg"
+      }
+    },
+    {
+      "id": "next-step-bg",
+      "task": "TASK-72",
+      "owner": "tide",
+      "path": "assets/brand/next-step-bg.png",
+      "group": "wideScenes",
+      "integrationPoint": "Closing next-step section backdrop",
+      "dimensions": {
+        "width": 1920,
+        "height": 1080,
+        "aspect": "16:9"
+      },
+      "notes": "Low contrast backdrop behind white copy and decision card.",
+      "integration": {
+        "altText": "",
+        "ariaHidden": true,
+        "decorative": true,
+        "selector": "[data-task76='next-step-bg']",
+        "dataTask76": "next-step-bg"
+      }
+    },
+    {
+      "id": "evidence-gates-texture-strip",
+      "task": "TASK-72",
+      "owner": "tide",
+      "path": "assets/brand/evidence-gates-texture.png",
+      "group": "wideScenes",
+      "integrationPoint": "Evidence-gates section headline texture strip",
+      "dimensions": {
+        "width": 1920,
+        "height": 600,
+        "aspect": "16:5"
+      },
+      "notes": "Pure material macro, no objects, no logos, no text. Center stays dark and even.",
+      "integration": {
+        "altText": "",
+        "ariaHidden": true,
+        "decorative": true,
+        "selector": "[data-task76='evidence-gates-texture']",
+        "dataTask76": "evidence-gates-texture"
+      }
+    },
+    {
+      "id": "og-social-card",
+      "task": "TASK-72",
+      "owner": "tide",
+      "path": "assets/brand/og-card.png",
+      "group": "wideScenes",
+      "integrationPoint": "Open Graph and Twitter summary_large_image card",
+      "dimensions": {
+        "width": 1200,
+        "height": 630,
+        "aspect": "1.91:1",
+        "exact": true
+      },
+      "notes": "No baked-in text. Leave clean title-safe space for metadata rendering.",
+      "integration": {
+        "altText": null,
+        "metaTags": {
+          "og:image": "https://ademczuk.github.io/top-spirit-command-center/assets/brand/og-card.png",
+          "twitter:image": "https://ademczuk.github.io/top-spirit-command-center/assets/brand/og-card.png",
+          "twitter:card": "summary_large_image"
+        },
+        "selector": "head"
+      }
+    },
+    {
+      "id": "capabilities-card-1-mapping",
+      "task": "TASK-73",
+      "owner": "tide",
+      "path": "assets/brand/capabilities/cap-1-mapping.png",
+      "group": "capabilities",
+      "integrationPoint": "Capability card: Process mapping",
+      "dimensions": {
+        "width": 1024,
+        "height": 1280,
+        "aspect": "4:5",
+        "exact": true
+      },
+      "notes": "Faceless figure from behind at abstract process map. No readable cards.",
+      "integration": {
+        "altText": "Process mapping capability: faceless operator reviewing an abstract workflow map",
+        "ariaHidden": false,
+        "decorative": false,
+        "selector": "[data-task76='capability-card'][data-capability='process-mapping'] img",
+        "dataTask76": "capability-card",
+        "dataCapability": "process-mapping"
+      }
+    },
+    {
+      "id": "capabilities-card-2-optimisation",
+      "task": "TASK-73",
+      "owner": "tide",
+      "path": "assets/brand/capabilities/cap-2-optimisation.png",
+      "group": "capabilities",
+      "integrationPoint": "Capability card: Process optimisation",
+      "dimensions": {
+        "width": 1024,
+        "height": 1280,
+        "aspect": "4:5",
+        "exact": true
+      },
+      "notes": "Premium warehouse aisle, no people. Echoes hero without duplicating it.",
+      "integration": {
+        "altText": "Process optimisation capability: premium warehouse aisle showing governed value flow",
+        "ariaHidden": false,
+        "decorative": false,
+        "selector": "[data-task76='capability-card'][data-capability='process-optimisation'] img",
+        "dataTask76": "capability-card",
+        "dataCapability": "process-optimisation"
+      }
+    },
+    {
+      "id": "capabilities-card-3-literacy",
+      "task": "TASK-73",
+      "owner": "tide",
+      "path": "assets/brand/capabilities/cap-3-literacy.png",
+      "group": "capabilities",
+      "integrationPoint": "Capability card: AI literacy",
+      "dimensions": {
+        "width": 1024,
+        "height": 1280,
+        "aspect": "4:5",
+        "exact": true
+      },
+      "notes": "Faceless silhouette at abstract whiteboard. No readable content.",
+      "integration": {
+        "altText": "AI literacy capability: faceless silhouette at an abstract whiteboard",
+        "ariaHidden": false,
+        "decorative": false,
+        "selector": "[data-task76='capability-card'][data-capability='ai-literacy'] img",
+        "dataTask76": "capability-card",
+        "dataCapability": "ai-literacy"
+      }
+    },
+    {
+      "id": "capabilities-card-4-apis",
+      "task": "TASK-73",
+      "owner": "tide",
+      "path": "assets/brand/capabilities/cap-4-apis.png",
+      "group": "capabilities",
+      "integrationPoint": "Capability card: APIs when justified",
+      "dimensions": {
+        "width": 1024,
+        "height": 1280,
+        "aspect": "4:5",
+        "exact": true
+      },
+      "notes": "Dark server or cabling detail. Premium governed, not sci-fi.",
+      "integration": {
+        "altText": "APIs when justified capability: dark governed cabling detail",
+        "ariaHidden": false,
+        "decorative": false,
+        "selector": "[data-task76='capability-card'][data-capability='apis-when-justified'] img",
+        "dataTask76": "capability-card",
+        "dataCapability": "apis-when-justified"
+      }
+    },
+    {
+      "id": "proof-spine-thumb-export-layer",
+      "task": "TASK-74",
+      "owner": "tide",
+      "path": "assets/brand/proof-spine/01-export-layer.png",
+      "group": "proofSpine",
+      "integrationPoint": "Proof spine step: Export Layer",
+      "dimensions": {
+        "width": 1024,
+        "height": 1024,
+        "aspect": "1:1",
+        "exact": true
+      },
+      "notes": "Base darker than #07111F panel. Gold marks gate and active line.",
+      "integration": {
+        "altText": "Export Layer: classified exports enter before automation",
+        "ariaHidden": false,
+        "decorative": false,
+        "selector": "[data-task76='proof-spine'][data-step='export-layer']",
+        "dataTask76": "proof-spine",
+        "dataStep": "export-layer"
+      }
+    },
+    {
+      "id": "proof-spine-thumb-approval-envelope",
+      "task": "TASK-74",
+      "owner": "tide",
+      "path": "assets/brand/proof-spine/02-approval-envelope.png",
+      "group": "proofSpine",
+      "integrationPoint": "Proof spine step: Approval Envelope",
+      "dimensions": {
+        "width": 1024,
+        "height": 1024,
+        "aspect": "1:1",
+        "exact": true
+      },
+      "notes": "Abstract envelope plane, teal approval node, gold seal/check accent.",
+      "integration": {
+        "altText": "Approval Envelope: named authority commits AI drafts",
+        "ariaHidden": false,
+        "decorative": false,
+        "selector": "[data-task76='proof-spine'][data-step='approval-envelope']",
+        "dataTask76": "proof-spine",
+        "dataStep": "approval-envelope"
+      }
+    },
+    {
+      "id": "proof-spine-thumb-audit-trail",
+      "task": "TASK-74",
+      "owner": "tide",
+      "path": "assets/brand/proof-spine/03-audit-trail.png",
+      "group": "proofSpine",
+      "integrationPoint": "Proof spine step: Source-linked Audit Trail",
+      "dimensions": {
+        "width": 1024,
+        "height": 1024,
+        "aspect": "1:1",
+        "exact": true
+      },
+      "notes": "Vertical ledger-node chain. Gold on verified/source-linked nodes.",
+      "integration": {
+        "altText": "Source-linked Audit Trail: claims link back to source and approver",
+        "ariaHidden": false,
+        "decorative": false,
+        "selector": "[data-task76='proof-spine'][data-step='audit-trail']",
+        "dataTask76": "proof-spine",
+        "dataStep": "audit-trail"
+      }
+    },
+    {
+      "id": "proof-spine-thumb-glossary",
+      "task": "TASK-74",
+      "owner": "tide",
+      "path": "assets/brand/proof-spine/04-glossary.png",
+      "group": "proofSpine",
+      "integrationPoint": "Proof spine step: Business Glossary",
+      "dimensions": {
+        "width": 1024,
+        "height": 1024,
+        "aspect": "1:1",
+        "exact": true
+      },
+      "notes": "Abstract term-card grid, teal connectors, gold canonical term marker.",
+      "integration": {
+        "altText": "Business Glossary: shared terms connect reports and agents",
+        "ariaHidden": false,
+        "decorative": false,
+        "selector": "[data-task76='proof-spine'][data-step='business-glossary']",
+        "dataTask76": "proof-spine",
+        "dataStep": "business-glossary"
+      }
+    },
+    {
+      "id": "proof-spine-thumb-opportunity-catalogue",
+      "task": "TASK-74",
+      "owner": "tide",
+      "path": "assets/brand/proof-spine/05-opportunity-catalogue.png",
+      "group": "proofSpine",
+      "integrationPoint": "Proof spine step: Opportunity Catalogue",
+      "dimensions": {
+        "width": 1024,
+        "height": 1024,
+        "aspect": "1:1",
+        "exact": true
+      },
+      "notes": "Abstract effort/value tiles, teal ranking lines, gold top-ranked tile.",
+      "integration": {
+        "altText": "Opportunity Catalogue: ranked value plays by effort, risk and evidence",
+        "ariaHidden": false,
+        "decorative": false,
+        "selector": "[data-task76='proof-spine'][data-step='opportunity-catalogue']",
+        "dataTask76": "proof-spine",
+        "dataStep": "opportunity-catalogue"
+      }
+    },
+    {
+      "id": "walkthrough-mockup",
+      "task": "TASK-75",
+      "owner": "tide",
+      "path": "assets/brand/walkthrough-control-room.png",
+      "group": "walkthrough",
+      "integrationPoint": "Walkthrough section control-room image",
+      "dimensions": {
+        "alternatives": [
+          {
+            "width": 1200,
+            "height": 1440,
+            "aspect": "5:6"
+          },
+          {
+            "width": 784,
+            "height": 943,
+            "aspect": "existing-card"
+          }
+        ]
+      },
+      "notes": "Hero-quality control-room render. Ratio used must be recorded in RENDER-LOG.md.",
+      "integration": {
+        "altText": "Walkthrough control room: governed beverage distribution overview",
+        "ariaHidden": false,
+        "decorative": false,
+        "selector": "[data-task76='walkthrough-image']",
+        "dataTask76": "walkthrough-image"
+      }
+    }
+  ]
+}

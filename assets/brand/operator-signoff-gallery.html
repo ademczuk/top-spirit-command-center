@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Top Spirit TASK-77 Image Sign-Off Gallery</title>
+  <style>
+    :root { --deep:#07111F; --surface:#101B2A; --panel:#13202F; --gold:#D6A94A; --teal:#0D9488; --muted:#AAB6C5; --paper:#F6F1E8; --line:#2A3A4F; --risk:#F0C36A; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--deep); color:#F8FAFC; font-family:Inter, Arial, sans-serif; }
+    main { max-width:1220px; margin:auto; padding:48px 24px 72px; }
+    h1,h2,h3 { margin:0; font-family:Georgia, serif; letter-spacing:0; }
+    h1 { max-width:920px; font-size:clamp(34px,5vw,64px); line-height:1.02; }
+    h2 { margin-top:56px; font-size:clamp(26px,3vw,40px); color:var(--gold); }
+    h3 { font-size:24px; }
+    p { color:var(--muted); line-height:1.6; max-width:840px; }
+    a { color:var(--gold); }
+    .kicker { color:var(--gold); font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:.18em; margin-bottom:18px; }
+    .summary { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:1px; margin:34px 0 18px; background:var(--line); border:1px solid var(--line); }
+    .summary div { background:var(--surface); padding:22px; }
+    .summary strong { display:block; color:var(--gold); font-size:28px; }
+    .summary span { color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.08em; }
+    .rules { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:28px 0; }
+    .rules div { border:1px solid var(--line); background:rgba(255,255,255,.03); padding:18px; color:#DDE5EE; }
+    .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:22px; margin-top:24px; }
+    .card { border:1px solid var(--line); background:linear-gradient(180deg,#13202F 0%,#0E1925 100%); box-shadow:0 18px 50px rgba(0,0,0,.3); }
+    .image-wrap { background:#07111F; border-bottom:1px solid var(--line); min-height:280px; display:grid; place-items:center; padding:14px; }
+    .image-wrap img { max-width:100%; max-height:430px; object-fit:contain; }
+    .meta { padding:22px; }
+    .status { display:inline-flex; align-items:center; min-height:30px; padding:0 10px; border:1px solid var(--line); color:#07111F; background:var(--gold); font-weight:800; font-size:12px; text-transform:uppercase; letter-spacing:.08em; }
+    .status.review { background:var(--risk); }
+    dl { display:grid; grid-template-columns:120px 1fr; gap:8px 16px; margin:18px 0 0; }
+    dt { color:var(--gold); font-weight:800; }
+    dd { margin:0; color:#DDE5EE; }
+    .decision { margin-top:24px; padding:20px; border-top:1px solid var(--line); color:#DDE5EE; }
+    .decision label { display:inline-flex; gap:8px; align-items:center; margin-right:18px; min-height:34px; }
+    code { color:var(--gold); }
+    @media (max-width: 820px) { main { padding:34px 16px 56px; } .summary,.rules,.grid { grid-template-columns:1fr; } dl { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="kicker">TASK-77 operator review</div>
+    <h1>Top Spirit static image sign-off gallery</h1>
+    <p>This gallery shows the 14 Tide-generated static PNGs before TASK-76 wiring. It is a review aid only; final approval still requires a written TASK-77 APPROVE or REVISE decision.</p>
+    <section class="summary" aria-label="Image set summary">
+      <div><strong>14</strong><span>Total images</span></div>
+      <div><strong>9</strong><span>QA pass</span></div>
+      <div><strong>5</strong><span>Review needed</span></div>
+      <div><strong>0</strong><span>Hard blockers in files</span></div>
+    </section>
+    <section class="rules" aria-label="Review rules">
+      <div>No alcohol, bottles, glasses, liquid, real faces, logos, readable text, customer data or fabricated client evidence.</div>
+      <div>Navy must dominate, gold is the primary premium accent, reef teal stays a minority platform accent.</div>
+    </section>
+    <p>Source files: <a href="manifest.json">manifest.json</a>, <a href="ASSET-LOCK.json">ASSET-LOCK.json</a>, <a href="PRE-INTEGRATION-VISUAL-QA.md">PRE-INTEGRATION-VISUAL-QA.md</a>, <a href="OPERATOR-SIGNOFF-PACKET.md">OPERATOR-SIGNOFF-PACKET.md</a>.</p>
+    <h2>Wide Backdrops And Metadata</h2>
+    <section class="grid">
+      <article class="card" data-asset-id="hero-bg">
+        <div class="image-wrap">
+          <img src="hero-bg.png" alt="hero-bg review image">
+        </div>
+        <div class="meta">
+          <span class="status pass">Pass</span>
+          <h3>hero-bg</h3>
+          <dl>
+            <dt>Task</dt><dd>TASK-72</dd>
+            <dt>Path</dt><dd><code>assets/brand/hero-bg.png</code></dd>
+            <dt>SHA-256</dt><dd><code>cdf32b4d00f1</code></dd>
+            <dt>Bytes</dt><dd>1854350</dd>
+            <dt>Dimensions</dt><dd>1920x1080, minimum 1376x768, 16:9</dd>
+            <dt>Use</dt><dd>Hero background behind the first-viewport glass card</dd>
+            <dt>QA note</dt><dd>Strong navy control-room scene, clear gold rail accent, restrained teal overlays, no visible alcohol, logo, face or readable text. Suitable as a decorative hero layer with scrim.</dd>
+            <dt>Route</dt><dd>Marlin contrast check after wiring</dd>
+          </dl>
+          <div class="decision" aria-label="Manual decision controls">
+            <label><input type="checkbox"> Approve</label>
+            <label><input type="checkbox"> Revise</label>
+            <label><input type="checkbox"> Ask Tide</label>
+          </div>
+        </div>
+      </article>
+      <article class="card" data-asset-id="next-step-bg">
+        <div class="image-wrap">
+          <img src="next-step-bg.png" alt="next-step-bg review image">
+        </div>
+        <div class="meta">
+          <span class="status pass">Pass</span>
+          <h3>next-step-bg</h3>
+          <dl>
+            <dt>Task</dt><dd>TASK-72</dd>
+            <dt>Path</dt><dd><code>assets/brand/next-step-bg.png</code></dd>
+            <dt>SHA-256</dt><dd><code>ab4bcc7d8568</code></dd>
+            <dt>Bytes</dt><dd>1488171</dd>
+            <dt>Dimensions</dt><dd>1920x1080, 16:9</dd>
+            <dt>Use</dt><dd>Closing next-step section backdrop</dd>
+            <dt>QA note</dt><dd>Low-contrast dark decision-room backdrop with gold table edge and muted teal schematic. Suitable behind closing copy if dimmed or overlaid.</dd>
+            <dt>Route</dt><dd>Marlin contrast check after wiring</dd>
+          </dl>
+          <div class="decision" aria-label="Manual decision controls">
+            <label><input type="checkbox"> Approve</label>
+            <label><input type="checkbox"> Revise</label>
+            <label><input type="checkbox"> Ask Tide</label>
+          </div>
+        </div>
+      </article>
+      <article class="card" data-asset-id="evidence-gates-texture-strip">
+        <div class="image-wrap">
+          <img src="evidence-gates-texture.png" alt="evidence-gates-texture-strip review image">
+        </div>
+        <div class="meta">
+          <span class="status pass">Pass</span>
+          <h3>evidence-gates-texture-strip</h3>
+          <dl>
+            <dt>Task</dt><dd>TASK-72</dd>
+            <dt>Path</dt><dd><code>assets/brand/evidence-gates-texture.png</code></dd>
+            <dt>SHA-256</dt><dd><code>a4d95b91c480</code></dd>
+            <dt>Bytes</dt><dd>1891698</dd>
+            <dt>Dimensions</dt><dd>1920x600, 16:5</dd>
+            <dt>Use</dt><dd>Evidence-gates section headline texture strip</dd>
+            <dt>QA note</dt><dd>Pure material texture, dark center, gold and clay detail. No objects or text.</dd>
+            <dt>Route</dt><dd>Marlin opacity check after wiring</dd>
+          </dl>
+          <div class="decision" aria-label="Manual decision controls">
+            <label><input type="checkbox"> Approve</label>
+            <label><input type="checkbox"> Revise</label>
+            <label><input type="checkbox"> Ask Tide</label>
+          </div>
+        </div>
+      </article>
+      <article class="card" data-asset-id="og-social-card">
+        <div class="image-wrap">
+          <img src="og-card.png" alt="og-social-card review image">
+        </div>
+        <div class="meta">
+          <span class="status review">Review needed</span>
+          <h3>og-social-card</h3>
+          <dl>
+            <dt>Task</dt><dd>TASK-72</dd>
+            <dt>Path</dt><dd><code>assets/brand/og-card.png</code></dd>
+            <dt>SHA-256</dt><dd><code>80f25bbc9b4f</code></dd>
+            <dt>Bytes</dt><dd>867594</dd>
+            <dt>Dimensions</dt><dd>1200x630 exact, 1.91:1</dd>
+            <dt>Use</dt><dd>Open Graph and Twitter summary_large_image card</dd>
+            <dt>QA note</dt><dd>On-palette and title-safe, but the upper-left embossing reads like faint letterforms at a glance. Verify in social preview crop that it does not look like baked-in text.</dd>
+            <dt>Route</dt><dd>Andrew sign-off or Tide re-render if preview looks textual</dd>
+          </dl>
+          <div class="decision" aria-label="Manual decision controls">
+            <label><input type="checkbox"> Approve</label>
+            <label><input type="checkbox"> Revise</label>
+            <label><input type="checkbox"> Ask Tide</label>
+          </div>
+        </div>
+      </article>
+    </section>
+    <h2>Capability Card Headers</h2>
+    <section class="grid">
+      <article class="card" data-asset-id="capabilities-card-1-mapping">
+        <div class="image-wrap">
+          <img src="capabilities/cap-1-mapping.png" alt="capabilities-card-1-mapping review image">
+        </div>
+        <div class="meta">
+          <span class="status review">Review needed</span>
+          <h3>capabilities-card-1-mapping</h3>
+          <dl>
+            <dt>Task</dt><dd>TASK-73</dd>
+            <dt>Path</dt><dd><code>assets/brand/capabilities/cap-1-mapping.png</code></dd>
+            <dt>SHA-256</dt><dd><code>8fa9a4edb559</code></dd>
+            <dt>Bytes</dt><dd>1092606</dd>
+            <dt>Dimensions</dt><dd>1024x1280 exact, 4:5</dd>
+            <dt>Use</dt><dd>Capability card: Process mapping</dd>
+            <dt>QA note</dt><dd>Correct process-map concept with backs-only silhouette, but it is much creamier and brighter than the other capability cards. It may overpower the dark card set.</dd>
+            <dt>Route</dt><dd>Andrew sign-off or Tide darken/re-render</dd>
+          </dl>
+          <div class="decision" aria-label="Manual decision controls">
+            <label><input type="checkbox"> Approve</label>
+            <label><input type="checkbox"> Revise</label>
+            <label><input type="checkbox"> Ask Tide</label>
+          </div>
+        </div>
+      </article>
+      <article class="card" data-asset-id="capabilities-card-2-optimisation">
+        <div class="image-wrap">
+          <img src="capabilities/cap-2-optimisation.png" alt="capabilities-card-2-optimisation review image">
+        </div>
+        <div class="meta">
+          <span class="status pass">Pass</span>
+          <h3>capabilities-card-2-optimisation</h3>
+          <dl>
+            <dt>Task</dt><dd>TASK-73</dd>
+            <dt>Path</dt><dd><code>assets/brand/capabilities/cap-2-optimisation.png</code></dd>
+            <dt>SHA-256</dt><dd><code>9648a3c36800</code></dd>
+            <dt>Bytes</dt><dd>1093273</dd>
+            <dt>Dimensions</dt><dd>1024x1280 exact, 4:5</dd>
+            <dt>Use</dt><dd>Capability card: Process optimisation</dd>
+            <dt>QA note</dt><dd>Cohesive navy warehouse abstraction, no people, strong gold route and restrained teal nodes.</dd>
+            <dt>Route</dt><dd>Marlin card crop check</dd>
+          </dl>
+          <div class="decision" aria-label="Manual decision controls">
+            <label><input type="checkbox"> Approve</label>
+            <label><input type="checkbox"> Revise</label>
+            <label><input type="checkbox"> Ask Tide</label>
+          </div>
+        </div>
+      </article>
+      <article class="card" data-asset-id="capabilities-card-3-literacy">
+        <div class="image-wrap">
+          <img src="capabilities/cap-3-literacy.png" alt="capabilities-card-3-literacy review image">
+        </div>
+        <div class="meta">
+          <span class="status review">Review needed</span>
+          <h3>capabilities-card-3-literacy</h3>
+          <dl>
+            <dt>Task</dt><dd>TASK-73</dd>
+            <dt>Path</dt><dd><code>assets/brand/capabilities/cap-3-literacy.png</code></dd>
+            <dt>SHA-256</dt><dd><code>24c0a5423eca</code></dd>
+            <dt>Bytes</dt><dd>1377148</dd>
+            <dt>Dimensions</dt><dd>1024x1280 exact, 4:5</dd>
+            <dt>Use</dt><dd>Capability card: AI literacy</dd>
+            <dt>QA note</dt><dd>Good backs-only literacy scene, but the whiteboard includes many text-like strokes and panel blocks. They are not readable, but should be checked at card size.</dd>
+            <dt>Route</dt><dd>Andrew sign-off or Tide simplify if it reads textual</dd>
+          </dl>
+          <div class="decision" aria-label="Manual decision controls">
+            <label><input type="checkbox"> Approve</label>
+            <label><input type="checkbox"> Revise</label>
+            <label><input type="checkbox"> Ask Tide</label>
+          </div>
+        </div>
+      </article>
+      <article class="card" data-asset-id="capabilities-card-4-apis">
+        <div class="image-wrap">
+          <img src="capabilities/cap-4-apis.png" alt="capabilities-card-4-apis review image">
+        </div>
+        <div class="meta">
+          <span class="status review">Review needed</span>
+          <h3>capabilities-card-4-apis</h3>
+          <dl>
+            <dt>Task</dt><dd>TASK-73</dd>
+            <dt>Path</dt><dd><code>assets/brand/capabilities/cap-4-apis.png</code></dd>
+            <dt>SHA-256</dt><dd><code>e6821d0edb9e</code></dd>
+            <dt>Bytes</dt><dd>1608421</dd>
+            <dt>Dimensions</dt><dd>1024x1280 exact, 4:5</dd>
+            <dt>Use</dt><dd>Capability card: APIs when justified</dd>
+            <dt>QA note</dt><dd>Strong governed-infrastructure feel, but small glyph-like marks appear on the gold strip. Treat as a no-readable-text risk until reviewed.</dd>
+            <dt>Route</dt><dd>Andrew sign-off or Tide remove glyph marks</dd>
+          </dl>
+          <div class="decision" aria-label="Manual decision controls">
+            <label><input type="checkbox"> Approve</label>
+            <label><input type="checkbox"> Revise</label>
+            <label><input type="checkbox"> Ask Tide</label>
+          </div>
+        </div>
+      </article>
+    </section>
+    <h2>Proof-Spine Thumbnails</h2>
+    <section class="grid">
+      <article class="card" data-asset-id="proof-spine-thumb-export-layer">
+        <div class="image-wrap">
+          <img src="proof-spine/01-export-layer.png" alt="proof-spine-thumb-export-layer review image">
+        </div>
+        <div class="meta">
+          <span class="status pass">Pass</span>
+          <h3>proof-spine-thumb-export-layer</h3>
+          <dl>
+            <dt>Task</dt><dd>TASK-74</dd>
+            <dt>Path</dt><dd><code>assets/brand/proof-spine/01-export-layer.png</code></dd>
+            <dt>SHA-256</dt><dd><code>ab44c70be757</code></dd>
+            <dt>Bytes</dt><dd>1210955</dd>
+            <dt>Dimensions</dt><dd>1024x1024 exact, 1:1</dd>
+            <dt>Use</dt><dd>Proof spine step: Export Layer</dd>
+            <dt>QA note</dt><dd>Clear abstract export-gate motif with dark base, gold path and restrained teal nodes.</dd>
+            <dt>Route</dt><dd>Marlin card-background check</dd>
+          </dl>
+          <div class="decision" aria-label="Manual decision controls">
+            <label><input type="checkbox"> Approve</label>
+            <label><input type="checkbox"> Revise</label>
+            <label><input type="checkbox"> Ask Tide</label>
+          </div>
+        </div>
+      </article>
+      <article class="card" data-asset-id="proof-spine-thumb-approval-envelope">
+        <div class="image-wrap">
+          <img src="proof-spine/02-approval-envelope.png" alt="proof-spine-thumb-approval-envelope review image">
+        </div>
+        <div class="meta">
+          <span class="status pass">Pass</span>
+          <h3>proof-spine-thumb-approval-envelope</h3>
+          <dl>
+            <dt>Task</dt><dd>TASK-74</dd>
+            <dt>Path</dt><dd><code>assets/brand/proof-spine/02-approval-envelope.png</code></dd>
+            <dt>SHA-256</dt><dd><code>233c55e413df</code></dd>
+            <dt>Bytes</dt><dd>1287625</dd>
+            <dt>Dimensions</dt><dd>1024x1024 exact, 1:1</dd>
+            <dt>Use</dt><dd>Proof spine step: Approval Envelope</dd>
+            <dt>QA note</dt><dd>Minimal approval-envelope abstraction, strong gold outline, no readable text.</dd>
+            <dt>Route</dt><dd>Marlin card-background check</dd>
+          </dl>
+          <div class="decision" aria-label="Manual decision controls">
+            <label><input type="checkbox"> Approve</label>
+            <label><input type="checkbox"> Revise</label>
+            <label><input type="checkbox"> Ask Tide</label>
+          </div>
+        </div>
+      </article>
+      <article class="card" data-asset-id="proof-spine-thumb-audit-trail">
+        <div class="image-wrap">
+          <img src="proof-spine/03-audit-trail.png" alt="proof-spine-thumb-audit-trail review image">
+        </div>
+        <div class="meta">
+          <span class="status pass">Pass</span>
+          <h3>proof-spine-thumb-audit-trail</h3>
+          <dl>
+            <dt>Task</dt><dd>TASK-74</dd>
+            <dt>Path</dt><dd><code>assets/brand/proof-spine/03-audit-trail.png</code></dd>
+            <dt>SHA-256</dt><dd><code>2bba2eb21716</code></dd>
+            <dt>Bytes</dt><dd>1075242</dd>
+            <dt>Dimensions</dt><dd>1024x1024 exact, 1:1</dd>
+            <dt>Use</dt><dd>Proof spine step: Source-linked Audit Trail</dd>
+            <dt>QA note</dt><dd>Clear vertical source-chain motif, dark base and gold verified nodes.</dd>
+            <dt>Route</dt><dd>Marlin card-background check</dd>
+          </dl>
+          <div class="decision" aria-label="Manual decision controls">
+            <label><input type="checkbox"> Approve</label>
+            <label><input type="checkbox"> Revise</label>
+            <label><input type="checkbox"> Ask Tide</label>
+          </div>
+        </div>
+      </article>
+      <article class="card" data-asset-id="proof-spine-thumb-glossary">
+        <div class="image-wrap">
+          <img src="proof-spine/04-glossary.png" alt="proof-spine-thumb-glossary review image">
+        </div>
+        <div class="meta">
+          <span class="status pass">Pass</span>
+          <h3>proof-spine-thumb-glossary</h3>
+          <dl>
+            <dt>Task</dt><dd>TASK-74</dd>
+            <dt>Path</dt><dd><code>assets/brand/proof-spine/04-glossary.png</code></dd>
+            <dt>SHA-256</dt><dd><code>8b985d2d35df</code></dd>
+            <dt>Bytes</dt><dd>709089</dd>
+            <dt>Dimensions</dt><dd>1024x1024 exact, 1:1</dd>
+            <dt>Use</dt><dd>Proof spine step: Business Glossary</dd>
+            <dt>QA note</dt><dd>Abstract term-card grid with canonical gold card and teal connectors. No text.</dd>
+            <dt>Route</dt><dd>Marlin card-background check</dd>
+          </dl>
+          <div class="decision" aria-label="Manual decision controls">
+            <label><input type="checkbox"> Approve</label>
+            <label><input type="checkbox"> Revise</label>
+            <label><input type="checkbox"> Ask Tide</label>
+          </div>
+        </div>
+      </article>
+      <article class="card" data-asset-id="proof-spine-thumb-opportunity-catalogue">
+        <div class="image-wrap">
+          <img src="proof-spine/05-opportunity-catalogue.png" alt="proof-spine-thumb-opportunity-catalogue review image">
+        </div>
+        <div class="meta">
+          <span class="status pass">Pass</span>
+          <h3>proof-spine-thumb-opportunity-catalogue</h3>
+          <dl>
+            <dt>Task</dt><dd>TASK-74</dd>
+            <dt>Path</dt><dd><code>assets/brand/proof-spine/05-opportunity-catalogue.png</code></dd>
+            <dt>SHA-256</dt><dd><code>19e2d3203540</code></dd>
+            <dt>Bytes</dt><dd>1386501</dd>
+            <dt>Dimensions</dt><dd>1024x1024 exact, 1:1</dd>
+            <dt>Use</dt><dd>Proof spine step: Opportunity Catalogue</dd>
+            <dt>QA note</dt><dd>Abstract effort/value grid, gold top-ranked tile and teal routing. No labels or numbers.</dd>
+            <dt>Route</dt><dd>Marlin card-background check</dd>
+          </dl>
+          <div class="decision" aria-label="Manual decision controls">
+            <label><input type="checkbox"> Approve</label>
+            <label><input type="checkbox"> Revise</label>
+            <label><input type="checkbox"> Ask Tide</label>
+          </div>
+        </div>
+      </article>
+    </section>
+    <h2>Walkthrough Control-Room Render</h2>
+    <section class="grid">
+      <article class="card" data-asset-id="walkthrough-mockup">
+        <div class="image-wrap">
+          <img src="walkthrough-control-room.png" alt="walkthrough-mockup review image">
+        </div>
+        <div class="meta">
+          <span class="status review">Review needed</span>
+          <h3>walkthrough-mockup</h3>
+          <dl>
+            <dt>Task</dt><dd>TASK-75</dd>
+            <dt>Path</dt><dd><code>assets/brand/walkthrough-control-room.png</code></dd>
+            <dt>SHA-256</dt><dd><code>f902318a7e2f</code></dd>
+            <dt>Bytes</dt><dd>1744245</dd>
+            <dt>Dimensions</dt><dd>1200x1440 5:6 or 784x943 existing-card</dd>
+            <dt>Use</dt><dd>Walkthrough section control-room image</dd>
+            <dt>QA note</dt><dd>Premium scene and page-compatible cream ground, but it contains chart-like pages, signature-like strokes and text-like dashboard marks. Not clearly readable, but higher risk because it is the largest client-facing image.</dd>
+            <dt>Route</dt><dd>Andrew sign-off or Tide simplify/re-render</dd>
+          </dl>
+          <div class="decision" aria-label="Manual decision controls">
+            <label><input type="checkbox"> Approve</label>
+            <label><input type="checkbox"> Revise</label>
+            <label><input type="checkbox"> Ask Tide</label>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+</body>
+</html>

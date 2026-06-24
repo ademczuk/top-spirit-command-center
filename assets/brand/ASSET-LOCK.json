@@ -1,0 +1,170 @@
+{
+  "schema": "agentreef.top-spirit.brand-asset-lock.v1",
+  "manifest": "assets/brand/manifest.json",
+  "manifestUpdated": "2026-06-24",
+  "staticAssets": [
+    {
+      "id": "hero-bg",
+      "task": "TASK-72",
+      "owner": "tide",
+      "group": "wideScenes",
+      "kind": "static",
+      "path": "assets/brand/hero-bg.png",
+      "bytes": 1854350,
+      "sha256": "cdf32b4d00f1b14bac7e7dab086d8055ff9f3b6d5d7c49a832da46ea48c182a5"
+    },
+    {
+      "id": "next-step-bg",
+      "task": "TASK-72",
+      "owner": "tide",
+      "group": "wideScenes",
+      "kind": "static",
+      "path": "assets/brand/next-step-bg.png",
+      "bytes": 1488171,
+      "sha256": "ab4bcc7d8568c12e17aa96cf06cd395cea492914b31662ada32842ce989953cc"
+    },
+    {
+      "id": "evidence-gates-texture-strip",
+      "task": "TASK-72",
+      "owner": "tide",
+      "group": "wideScenes",
+      "kind": "static",
+      "path": "assets/brand/evidence-gates-texture.png",
+      "bytes": 1891698,
+      "sha256": "a4d95b91c4805a67ae136aad9bbe8b96afd1be392c63c2a72b78406deacb51c6"
+    },
+    {
+      "id": "og-social-card",
+      "task": "TASK-72",
+      "owner": "tide",
+      "group": "wideScenes",
+      "kind": "static",
+      "path": "assets/brand/og-card.png",
+      "bytes": 867594,
+      "sha256": "80f25bbc9b4f8eaefeab989cf13003100ade4c77c53ea2412fea2e5d79a4296d"
+    },
+    {
+      "id": "capabilities-card-1-mapping",
+      "task": "TASK-73",
+      "owner": "tide",
+      "group": "capabilities",
+      "kind": "static",
+      "path": "assets/brand/capabilities/cap-1-mapping.png",
+      "bytes": 1092606,
+      "sha256": "8fa9a4edb5590485bc5b90c6a2be7be59bf37d7e93b43e1958ed8a295aabfe39"
+    },
+    {
+      "id": "capabilities-card-2-optimisation",
+      "task": "TASK-73",
+      "owner": "tide",
+      "group": "capabilities",
+      "kind": "static",
+      "path": "assets/brand/capabilities/cap-2-optimisation.png",
+      "bytes": 1093273,
+      "sha256": "9648a3c36800fedfbae3c52d16d607713f0d20756703859f1e2be278a511db37"
+    },
+    {
+      "id": "capabilities-card-3-literacy",
+      "task": "TASK-73",
+      "owner": "tide",
+      "group": "capabilities",
+      "kind": "static",
+      "path": "assets/brand/capabilities/cap-3-literacy.png",
+      "bytes": 1377148,
+      "sha256": "24c0a5423eca215e1547ed0fdcf0eac7a00d998c98f85ac6c562d5ba4238314b"
+    },
+    {
+      "id": "capabilities-card-4-apis",
+      "task": "TASK-73",
+      "owner": "tide",
+      "group": "capabilities",
+      "kind": "static",
+      "path": "assets/brand/capabilities/cap-4-apis.png",
+      "bytes": 1608421,
+      "sha256": "e6821d0edb9eb7a266da7615e030b2bca4960c36f986cffa8c035b6fda5b70a5"
+    },
+    {
+      "id": "proof-spine-thumb-export-layer",
+      "task": "TASK-74",
+      "owner": "tide",
+      "group": "proofSpine",
+      "kind": "static",
+      "path": "assets/brand/proof-spine/01-export-layer.png",
+      "bytes": 1210955,
+      "sha256": "ab44c70be757ff4fa8e6c058424a73a7360fbd8912a2e9246d61608fd438b8ce"
+    },
+    {
+      "id": "proof-spine-thumb-approval-envelope",
+      "task": "TASK-74",
+      "owner": "tide",
+      "group": "proofSpine",
+      "kind": "static",
+      "path": "assets/brand/proof-spine/02-approval-envelope.png",
+      "bytes": 1287625,
+      "sha256": "233c55e413df4386b51a082302db28a7da163b5f756d41cf2209a3859280436b"
+    },
+    {
+      "id": "proof-spine-thumb-audit-trail",
+      "task": "TASK-74",
+      "owner": "tide",
+      "group": "proofSpine",
+      "kind": "static",
+      "path": "assets/brand/proof-spine/03-audit-trail.png",
+      "bytes": 1075242,
+      "sha256": "2bba2eb217169b552ed1d53c2f4982bc07e708c38809c890f7f0567595e45191"
+    },
+    {
+      "id": "proof-spine-thumb-glossary",
+      "task": "TASK-74",
+      "owner": "tide",
+      "group": "proofSpine",
+      "kind": "static",
+      "path": "assets/brand/proof-spine/04-glossary.png",
+      "bytes": 709089,
+      "sha256": "8b985d2d35df59f64a018baa31a6c624865d7899586adc4572a8518c3876c41b"
+    },
+    {
+      "id": "proof-spine-thumb-opportunity-catalogue",
+      "task": "TASK-74",
+      "owner": "tide",
+      "group": "proofSpine",
+      "kind": "static",
+      "path": "assets/brand/proof-spine/05-opportunity-catalogue.png",
+      "bytes": 1386501,
+      "sha256": "19e2d3203540023bac7e068f5f7d06d4767442f6a7024dceecc558bc304c379a"
+    },
+    {
+      "id": "walkthrough-mockup",
+      "task": "TASK-75",
+      "owner": "tide",
+      "group": "walkthrough",
+      "kind": "static",
+      "path": "assets/brand/walkthrough-control-room.png",
+      "bytes": 1744245,
+      "sha256": "f902318a7e2fd7b5f1d8eabad10f5a6f063661126c850b4e4be36711331b87df"
+    }
+  ],
+  "motionAssets": [
+    {
+      "id": "hero-motion-video",
+      "task": "TASK-72",
+      "owner": "tide",
+      "group": "motionHero",
+      "kind": "motion",
+      "path": "assets/hero-bg.mp4",
+      "bytes": 232871,
+      "sha256": "10d392c12b02f08464aaef76dbfb783eec151dde1981d486b17bc986b77c89a4",
+      "mediaType": "video/mp4"
+    },
+    {
+      "id": "hero-motion-poster",
+      "task": "TASK-72",
+      "owner": "tide",
+      "group": "motionHero",
+      "kind": "motion",
+      "path": "assets/hero-poster.jpg",
+      "bytes": 35803,
+      "sha256": "c8f44413bb6725144f83d38cbdd1949078bdec5ca87a819363d3a0918e85ded5"
+    }
+  ]
+}
