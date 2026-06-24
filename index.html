@@ -147,7 +147,7 @@
     .mh-scene { z-index:0; opacity:1; filter:saturate(.98) contrast(1.05); }
     .mh-bg    { z-index:0; opacity:.34; mix-blend-mode:soft-light; }
     .mh-poster { z-index:0; opacity:.9; filter:saturate(.9) contrast(1.04); }
-    .mh-net    { z-index:1; display:block; opacity:1; }
+    .mh-net    { z-index:1; display:block; opacity:.42; }
     .mh-video  { z-index:2; display:none; }
     .mh-video.mh-video--ready { opacity:1; }
     .mh-scrim {
@@ -280,13 +280,13 @@
           ctx.setTransform(dpr, 0, 0, dpr, 0, 0); build();
         }
         function build() {
-          var count = Math.max(28, Math.min(56, Math.round((w * h) / 22000)));
+          var count = Math.max(18, Math.min(38, Math.round((w * h) / 27000)));
           nodes = [];
           for (var i = 0; i < count; i++) {
             var big = Math.random() < 0.36;
             nodes.push({
               x: Math.random() * w,
-              y: Math.random() * h * (0.12 + Math.random() * 0.78),
+              y: Math.random() * h * (0.0 + Math.random() * 0.42),
               r: big ? (9 + Math.random() * 15) : (1.4 + Math.random() * 4),
               big: big,
               warm: Math.random(),
