@@ -145,7 +145,7 @@
     .section-photo .wrap { position:relative; z-index:1; }
     .footer { padding:56px 25px; background:#07111F; color:#fff; border-top:1px solid var(--gold-line); } .footer .wrap { display:flex; justify-content:space-between; gap:30px; flex-wrap:wrap; } .footer p { color:#aeb8c4; margin:0; max-width:700px; line-height:1.6; font-size:14px; } .footer strong { color:#fff; } .footer code { color:var(--maroon); }
     /* ===== Motion hero (full-screen cinematic: video + canvas-network fallback) ===== */
-    .hero-motion { position:relative; min-height:calc(100svh - 70px); display:flex; align-items:flex-end; overflow:hidden; background:var(--deep); }
+    .hero-motion { position:relative; min-height:calc(100svh - 70px); display:flex; flex-direction:column; justify-content:flex-end; align-items:stretch; overflow:hidden; background:var(--deep); }
     .mh-poster, .mh-net, .mh-video, .mh-scene, .mh-bg { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; pointer-events:none; }
     .mh-scene { z-index:0; opacity:1; filter:saturate(.98) contrast(1.05); }
     .mh-bg    { z-index:0; opacity:.34; mix-blend-mode:soft-light; }
@@ -159,7 +159,7 @@
         linear-gradient(180deg, rgba(7,17,31,.62) 0%, rgba(7,17,31,.32) 34%, rgba(7,17,31,.94) 100%),
         radial-gradient(120% 95% at 74% 16%, transparent 0%, rgba(7,17,31,.28) 52%, rgba(7,17,31,.86) 100%);
     }
-    .hero-motion .hero-layout { position:relative; z-index:4; grid-template-columns:1fr; gap:34px; padding-top:110px; padding-bottom:64px; align-items:end; }
+    .hero-motion .hero-layout { position:relative; z-index:4; width:100%; grid-template-columns:1fr; gap:34px; padding-top:110px; padding-bottom:64px; align-items:end; }
     .hero-motion .hero-copy { max-width:920px; }
     .hero-motion .hero-kicker { color:var(--maroon); }
     .hero-motion h1 { color:#fff; text-shadow:0 2px 34px rgba(0,0,0,.5); }
@@ -167,7 +167,7 @@
     .hero-motion .lead { color:#dfe6ef; max-width:680px; }
     .hero-motion .btn.ghost { background:rgba(255,255,255,.04); color:#fff; border-color:rgba(246,241,232,.34); }
     .hero-motion .btn.ghost:hover { border-color:var(--maroon); color:var(--maroon); }
-    .hero-motion .brand-proof { position:relative; z-index:4; background:rgba(7,17,31,.55); border-top:1px solid rgba(214,169,74,.22); backdrop-filter:blur(8px); }
+    .hero-motion .brand-proof { position:relative; z-index:4; width:100%; background:rgba(7,17,31,.55); border-top:1px solid rgba(214,169,74,.22); backdrop-filter:blur(8px); }
     .hero-motion .proof-chip { background:transparent; }
     @media (prefers-reduced-motion: reduce) { .hero-motion .mh-video { display:none; } }
     @media (max-width: 640px) { .hero-motion .hero-layout { padding-top:84px; } }
@@ -222,7 +222,7 @@
              onerror="this.style.display='none'">
       </span>
       <!-- z-0 full-bleed bar-lounge scene: warm, demo-safe brand backdrop for the first viewport -->
-      <img class="mh-scene" src="assets/brand/hero-bar-scene.png" alt="" aria-hidden="true"
+      <img class="mh-scene" src="assets/brand/hero-bar-scene.webp" alt="" aria-hidden="true"
            onerror="this.style.display='none'">
       <!-- z-1 canvas particle-network: animated gold-on-dark fallback when the video is absent -->
       <canvas class="mh-net" aria-hidden="true"></canvas>
@@ -373,7 +373,7 @@
     </section>
 
     <section id="capability-beats" class="section tight section-photo" aria-labelledby="capbeat-title" style="background:var(--surface-2);">
-      <span class="section-bg" data-task76="sec-operations" aria-hidden="true" style="background-image:url(assets/brand/sec-operations.png);"></span>
+      <span class="section-bg" data-task76="sec-operations" aria-hidden="true" style="background-image:url(assets/brand/sec-operations.webp);"></span>
       <div class="wrap">
         <div class="eyebrow">Capability beats</div>
         <h2 id="capbeat-title">Four capabilities the sponsor can see, not just read about.</h2>
@@ -427,7 +427,7 @@
     </section>
 
     <section id="walkthrough" class="section walkthrough section-photo" aria-labelledby="walkthrough-title">
-      <span class="section-bg" data-task76="sec-walkthrough" aria-hidden="true" style="background-image:url(assets/brand/sec-walkthrough.png);"></span>
+      <span class="section-bg" data-task76="sec-walkthrough" aria-hidden="true" style="background-image:url(assets/brand/sec-walkthrough.webp);"></span>
       <div class="wrap">
         <div class="eyebrow">Walkthrough</div>
         <h2 id="walkthrough-title">One guided route. Clear from the first click.</h2>
@@ -499,7 +499,7 @@
     </section>
 
     <section id="artifacts" class="section section-photo" aria-labelledby="artifact-title">
-      <span class="section-bg" data-task76="sec-evidence" aria-hidden="true" style="background-image:url(assets/brand/sec-evidence.png);"></span>
+      <span class="section-bg" data-task76="sec-evidence" aria-hidden="true" style="background-image:url(assets/brand/sec-evidence.webp);"></span>
       <div class="wrap">
         <div class="eyebrow">Demo artifacts, one click away</div>
         <h2 id="artifact-title">The meeting pack is visible before anyone opens GitHub.</h2>
@@ -525,7 +525,7 @@
     </section>
 
     <section id="next-step" class="section section-photo" aria-labelledby="next-title">
-      <span class="section-bg" data-task76="next-step-bg" aria-hidden="true" style="background-image:url(assets/brand/sec-value.png);"></span>
+      <span class="section-bg" data-task76="next-step-bg" aria-hidden="true" style="background-image:url(assets/brand/next-step-bg.png);"></span>
       <div class="wrap" style="text-align:center;max-width:980px;">
         <div class="eyebrow">Next step</div>
         <h2 id="next-title">Approve the route, then close the evidence.</h2>
