@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pre-call storyboard gallery — eight-core storyboard plus interactive walkthrough — Top Spirit Command Center</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --deep:#07111F; --surface:#101B2A; --line:#1d2c40; --border:#2a3a4f;
+  --gold:#D6A94A; --teal:#0D9488; --cream:#F6F1E8; --paper:#FBF8F1;
+  --ink:#10243a; --muted:#5b6b7d; --clay:#B45309;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0; font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  color:var(--ink); background:linear-gradient(160deg,var(--deep) 0%,var(--surface) 100%);
+  background-attachment:fixed; line-height:1.65;
+}
+.topbar{
+  position:sticky; top:0; z-index:10; display:flex; align-items:center; justify-content:space-between;
+  gap:18px; padding:14px 28px; background:rgba(7,17,31,.92); backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--border);
+}
+.brand{display:flex; flex-direction:column; line-height:1.2;}
+.brand .name{color:#fff; font-weight:800; letter-spacing:-.01em; font-size:15px;}
+.brand .sub{color:var(--gold); font-size:11px; text-transform:uppercase; letter-spacing:.14em;}
+.back{
+  color:#cdd8e6; text-decoration:none; font-size:14px; font-weight:600; white-space:nowrap;
+  border:1px solid var(--border); padding:8px 14px; border-radius:9px; transition:all .15s;
+}
+.back:hover{color:#fff; border-color:var(--gold); background:rgba(214,169,74,.12);}
+.wrap{max-width:880px; margin:34px auto 60px; padding:0 22px;}
+.doc{
+  background:var(--paper); border-radius:16px; padding:54px 56px;
+  box-shadow:0 24px 60px rgba(0,0,0,.35); border:1px solid rgba(255,255,255,.06);
+}
+.doc h1,.doc h2,.doc h3,.doc h4{font-family:"Playfair Display",Georgia,serif; color:var(--deep); line-height:1.18; letter-spacing:-.01em;}
+.doc h1{font-size:34px; margin:0 0 8px; padding-bottom:16px; border-bottom:3px solid var(--gold);}
+.doc h2{font-size:25px; margin:38px 0 12px;}
+.doc h3{font-size:19px; margin:28px 0 8px;}
+.doc h4{font-size:16px; margin:22px 0 6px; font-family:Inter,sans-serif; font-weight:700;}
+.doc p{margin:12px 0;}
+.doc a{color:var(--teal); text-decoration:none; border-bottom:1px solid rgba(13,148,136,.3);}
+.doc a:hover{color:var(--clay); border-bottom-color:var(--clay);}
+.doc ul,.doc ol{padding-left:24px; margin:12px 0;}
+.doc li{margin:5px 0;}
+.doc strong{color:var(--deep);}
+.doc blockquote{
+  margin:18px 0; padding:12px 20px; border-left:4px solid var(--gold);
+  background:rgba(214,169,74,.08); color:var(--ink); border-radius:0 8px 8px 0;
+}
+.doc blockquote p{margin:6px 0;}
+.doc code{
+  font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace; font-size:.88em;
+  background:#eee6d6; color:#7a4d12; padding:2px 6px; border-radius:5px;
+}
+.doc pre{
+  background:var(--deep); color:#e6edf6; padding:18px 20px; border-radius:11px;
+  overflow:auto; font-size:13px; line-height:1.55; border:1px solid var(--border);
+}
+.doc pre code{background:none; color:inherit; padding:0;}
+.doc table{border-collapse:collapse; width:100%; margin:20px 0; font-size:14.5px; overflow:hidden; border-radius:10px;}
+.doc thead th{background:var(--deep); color:#fff; text-align:left; padding:11px 14px; font-weight:600;}
+.doc tbody td{padding:10px 14px; border-bottom:1px solid #e6ddca; vertical-align:top;}
+.doc tbody tr:nth-child(even){background:rgba(16,36,58,.035);}
+.doc tbody tr:last-child td{border-bottom:none;}
+.doc hr{border:none; border-top:1px solid #e0d6c0; margin:30px 0;}
+.doc img{max-width:100%; border-radius:10px;}
+.footer{max-width:880px; margin:0 auto 50px; padding:0 22px; color:#8ea2b8; font-size:12.5px; text-align:center;}
+.footer a{color:#bcd0e6;}
+@media (max-width:640px){.doc{padding:32px 22px;} .wrap{margin-top:20px;} .doc h1{font-size:27px;}}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><span class="name">Top Spirit Command Center</span><span class="sub">Angel Software Solutions</span></div>
+  <a class="back" href="../../docs/index.html">Back to command center</a>
+</header>
+<div class="wrap">
+  <article class="doc">
+<h1 id="pre-call-storyboard-gallery-eight-core-storyboard-plus-interactive-walkthrough">Pre-call storyboard gallery — eight-core storyboard plus interactive walkthrough</h1>
+<blockquote>
+<p>Rendered Mermaid diagrams for the core pitch storyboard described in <code>docs/03-mockup-pack.md</code>, a committed architecture PNG, and a single-file interactive walkthrough. The AI Steering Committee can see the value narrative <strong>without running any prompts</strong>.</p>
+<p><strong>Confidential — project team only.</strong> All diagrams use neutral placeholders; no real company names, logos or live data. Every number shown is an <strong>illustrative placeholder</strong> — the real figures are sourced from client exports during Phase 0 / Wave 1 and recorded in the Source-linked Audit Trail.</p>
+<p><strong>Human in control:</strong> these visuals exist to show that AI <em>proposes</em> and a named human <em>decides</em>. Nothing financial, pricing or customer-facing is ever auto-committed.</p>
+</blockquote>
+<hr />
+<h2 id="how-to-view">How to view</h2>
+<p>Each diagram has an editable <code>.mmd</code> Mermaid source and a committed offline <code>.svg</code> render in <code>rendered/</code>.</p>
+<ul>
+<li>Interactive walkthrough: open <a href="walkthrough/index.html"><code>walkthrough/index.html</code></a> directly in a browser for the eight-screen click-through demo.</li>
+<li>Architecture PNG: open <a href="01-solution-architecture.png"><code>01-solution-architecture.png</code></a> for a deck-safe rendered fallback.</li>
+<li>Offline SVGs: open <code>assets/mockups/rendered/*.svg</code> directly in a browser or attach them to the deck.</li>
+<li>HTML companion screens: open <a href="html/README.html"><code>html/README.md</code></a> for app-like mockups covering the non-Mermaid prompts.</li>
+<li>Mermaid Live Editor: <a href="https://mermaid.live">https://mermaid.live</a></li>
+<li>GitHub / GitLab markdown preview</li>
+<li>Any Mermaid CLI or VS Code plugin</li>
+<li>Regenerate SVGs/PNG with <code>python3 scripts/render_storyboard_mermaid.py</code></li>
+<li><code>assets/pitch/pitch-deck.md</code> references these files in speaking order</li>
+</ul>
+<p>Each <code>.mmd</code> file carries a <code>%%</code> identity header naming the Angel Software Solutions engagement and the source prompt it was rendered from (<code>docs/03-mockup-pack.md</code>), so the storyboard itself is traceable.</p>
+<hr />
+<h2 id="storyboard-order-pitch-sequence">Storyboard order (pitch sequence)</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Visual</th>
+<th>Source</th>
+<th>Offline SVG</th>
+<th>Steering-committee message</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Solution architecture</td>
+<td><a href="01-solution-architecture.mmd"><code>01-solution-architecture.mmd</code></a></td>
+<td><a href="rendered/01-solution-architecture.svg"><code>rendered/01-solution-architecture.svg</code></a></td>
+<td>The platform runs off your <strong>exports</strong>, stays inside <strong>M365 E3</strong>, and is unaffected by the pending ERP and BI decisions</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Process landscape</td>
+<td><a href="03-process-landscape.mmd"><code>03-process-landscape.mmd</code></a></td>
+<td><a href="rendered/03-process-landscape.svg"><code>rendered/03-process-landscape.svg</code></a></td>
+<td>Here is everything in scope, across customer, operations, finance and commercial — we go wave by wave</td>
+</tr>
+<tr>
+<td>3</td>
+<td>As-is order-to-cash</td>
+<td><a href="04-as-is-order-to-cash.mmd"><code>04-as-is-order-to-cash.mmd</code></a></td>
+<td><a href="rendered/04-as-is-order-to-cash.svg"><code>rendered/04-as-is-order-to-cash.svg</code></a></td>
+<td>Here is where your time and errors go today (manual re-entry, fragmented checks)</td>
+</tr>
+<tr>
+<td>4</td>
+<td>To-be order-to-cash</td>
+<td><a href="05-to-be-order-to-cash.mmd"><code>05-to-be-order-to-cash.mmd</code></a></td>
+<td><a href="rendered/05-to-be-order-to-cash.svg"><code>rendered/05-to-be-order-to-cash.svg</code></a></td>
+<td>The same process after redesign — AI drafts, <strong>a human approves</strong>, the audit trail captures it</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Agent + Approval Envelope</td>
+<td><a href="07-agent-approval-envelope.mmd"><code>07-agent-approval-envelope.mmd</code></a></td>
+<td><a href="rendered/07-agent-approval-envelope.svg"><code>rendered/07-agent-approval-envelope.svg</code></a></td>
+<td>A worked example of human-in-the-loop control on one operational decision</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Governance tiers</td>
+<td><a href="10-governance-tiers.mmd"><code>10-governance-tiers.mmd</code></a></td>
+<td><a href="rendered/10-governance-tiers.svg"><code>rendered/10-governance-tiers.svg</code></a></td>
+<td>Risk-based control: act-and-log, propose-and-approve, or assist-only — nothing financial is ever automated</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Source-linked Audit Trail</td>
+<td><a href="11-source-linked-audit-trail.mmd"><code>11-source-linked-audit-trail.mmd</code></a></td>
+<td><a href="rendered/11-source-linked-audit-trail.svg"><code>rendered/11-source-linked-audit-trail.svg</code></a></td>
+<td>Every figure traces back to its source export and its approver <em>(answers Cesar's "tip of the iceberg" point)</em></td>
+</tr>
+<tr>
+<td>8</td>
+<td>Value &amp; adoption dashboard</td>
+<td><a href="16-value-adoption-dashboard.mmd"><code>16-value-adoption-dashboard.mmd</code></a></td>
+<td><a href="rendered/16-value-adoption-dashboard.svg"><code>rendered/16-value-adoption-dashboard.svg</code></a></td>
+<td>How we prove it worked — measured savings <strong>and</strong> adoption, both traceable</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>The pitch has <strong>eight core storyboard visuals</strong> and can still be delivered as seven spoken beats by pairing the agent Approval Envelope with governance tiers. The interactive walkthrough mirrors the eight-screen client demo flow.</p>
+</blockquote>
+<hr />
+<h2 id="the-visuals">The visuals</h2>
+<h3 id="1-solution-architecture-it-runs-off-your-exports">1. Solution architecture — <em>"It runs off your exports."</em></h3>
+<p><strong>Message:</strong> sources stay where they are; files export into a governed Export Layer inside Microsoft 365 E3; AI and reporting sit downstream of a human gate. The platform is unaffected by the ERP migration and the BI-platform choice.</p>
+<p><strong>Source / audit trail:</strong> conceptual diagram — no client figures. Rendered from <code>docs/03-mockup-pack.md</code> prompt #1. Source systems shown (ERP, CRM, Warehouse, Bank, Pricing) are neutral placeholders to be confirmed against the Phase 0 export inventory.</p>
+<pre><code class="language-mermaid">flowchart TB
+    subgraph Sources[&quot;Source systems (file exports only)&quot;]
+        ERP[&quot;ERP\norders / invoices&quot;]
+        CRM[&quot;CRM / customer master&quot;]
+        WMS[&quot;Warehouse\nstock &amp; shipments&quot;]
+        Bank[&quot;Bank\npayments&quot;]
+        Pricing[&quot;Pricing engine\nprice lists&quot;]
+    end
+
+    subgraph ExportLayer[&quot;Export Layer — Microsoft 365 E3&quot;]
+        SP[&quot;SharePoint/OneDrive\norganised folders&quot;]
+        PA[&quot;Power Automate\ningestion &amp; routing&quot;]
+        Excel[&quot;Excel / JSON\nvalidated staging&quot;]
+    end
+
+    subgraph Intelligence[&quot;Intelligence &amp; control&quot;]
+        Agent[&quot;AI agents\npropose, never commit&quot;]
+        AE[&quot;Approval Envelope\nhuman decision gate&quot;]
+        Audit[&quot;Source-linked Audit Trail&quot;]
+    end
+
+    subgraph Outputs[&quot;Outputs&quot;]
+        PBI[&quot;Power BI Desktop\ndashboards&quot;]
+        Glossary[&quot;Business Glossary&quot;]
+        OppCat[&quot;Opportunity Catalogue&quot;]
+    end
+
+    ERP --&gt;|CSV / Excel| SP
+    CRM --&gt;|CSV / Excel| SP
+    WMS --&gt;|CSV / Excel| SP
+    Bank --&gt;|CSV / Excel| SP
+    Pricing --&gt;|CSV / Excel| SP
+
+    SP --&gt; PA
+    PA --&gt; Excel
+    Excel --&gt; Agent
+    Agent --&gt; AE
+    AE --&gt;|approved| Outputs
+    Agent --&gt; Audit
+    AE --&gt; Audit
+    Outputs --&gt; Audit
+</code></pre>
+<hr />
+<h3 id="2-process-landscape-here-is-everything-in-scope">2. Process landscape — <em>"Here is everything in scope."</em></h3>
+<p><strong>Message:</strong> the full cross-department picture — customer-facing, operations, finance and commercial — and how order-to-cash threads through them. We work it wave by wave, not all at once.</p>
+<p><strong>Source / audit trail:</strong> conceptual scope map rendered from prompt #3. The process inventory is illustrative and is confirmed in the Phase 0 process-landscape workshop before any work is scheduled.</p>
+<pre><code class="language-mermaid">flowchart LR
+    subgraph Cust[&quot;Customer-facing&quot;]
+        A1[&quot;PDF/email order intake&quot;]
+        A2[&quot;Delivery &amp; returns&quot;]
+        A3[&quot;Pricing queries&quot;]
+    end
+
+    subgraph Ops[&quot;Operations&quot;]
+        B1[&quot;Order entry &amp; validation&quot;]
+        B2[&quot;Stock allocation&quot;]
+        B3[&quot;Pick / pack / ship&quot;]
+    end
+
+    subgraph Finance[&quot;Finance&quot;]
+        C1[&quot;Invoicing&quot;]
+        C2[&quot;Bank reconciliation&quot;]
+        C3[&quot;Credit control&quot;]
+    end
+
+    subgraph Commercial[&quot;Commercial&quot;]
+        D1[&quot;Price-list updates&quot;]
+        D2[&quot;Promotions&quot;]
+        D3[&quot;Depletions reporting&quot;]
+    end
+
+    A1 --&gt; B1
+    A2 --&gt; B3
+    A3 --&gt; D1
+    B1 --&gt; B2 --&gt; B3 --&gt; C1 --&gt; C2
+    D1 --&gt; C1
+    D3 --&gt; C3
+</code></pre>
+<hr />
+<h3 id="3-as-is-order-to-cash-here-is-where-your-time-goes-today">3. As-is order-to-cash — <em>"Here is where your time goes today."</em></h3>
+<p><strong>Message:</strong> the current state. Steps in <strong>red</strong> are manual, duplicated or error-prone — re-keying orders by hand, checking price/stock/credit in separate places, reconciling payments manually.</p>
+<p><strong>Source / audit trail:</strong> the as-is map is drawn from Phase 0 process-mapping interviews and observation, not from a system export. Any "time lost / error rate" figures quoted alongside it on a slide are <strong>illustrative placeholders</strong> until the Wave 1 baseline measurement is captured and logged.</p>
+<pre><code class="language-mermaid">flowchart LR
+    A[&quot;Customer sends\nPDF/email order&quot;] --&gt; B[&quot;Customer Service\nmanually re-enters&quot;]
+    B --&gt; C[&quot;Separate checks:\nprice list, stock, credit&quot;]
+    C --&gt; D[&quot;ERP order created&quot;]
+    D --&gt; E[&quot;Warehouse picks&quot;]
+    E --&gt; F[&quot;Invoice created&quot;]
+    F --&gt; G[&quot;Finance reconciles\nbank payment&quot;]
+
+    style A fill:#e2e8f0
+    style B fill:#fee2e2
+    style C fill:#fee2e2
+    style D fill:#e2e8f0
+    style E fill:#e2e8f0
+    style F fill:#e2e8f0
+    style G fill:#fee2e2
+</code></pre>
+<p><em>(Red = manual / error-prone step. The semantic red/green used in the as-is and to-be maps sits within the Angel Software Solutions palette family — colour is used only to carry the "pain vs. automated" message.)</em></p>
+<hr />
+<h3 id="4-to-be-order-to-cash-the-same-process-redesigned-and-a-human-still-approves">4. To-be order-to-cash — <em>"The same process, redesigned — and a human still approves."</em></h3>
+<p><strong>Message:</strong> AI extracts and validates the order into the Export Layer; <strong>green</strong> steps are automated drafting; the <strong>amber diamonds are Approval Envelopes</strong> where a named human reviews before anything is committed. Every step also writes to the Source-linked Audit Trail.</p>
+<p><strong>Source / audit trail:</strong> rendered from prompt #5. Any "hours saved per week" annotations are <strong>illustrative placeholders</strong> — the real before/after is measured against the Wave 1 baseline and recorded per task in the value tracker (<code>docs/04-templates/</code>) and the audit log.</p>
+<pre><code class="language-mermaid">flowchart LR
+    A[&quot;Customer sends\nPDF/email order&quot;] --&gt; B[&quot;AI agent extracts\n&amp; validates draft&quot;]
+    B --&gt; C{&quot;Approval\nEnvelope&quot;}
+    C --&gt;|approve / edit| D[&quot;ERP-equivalent\norder drafted&quot;]
+    D --&gt; E[&quot;Warehouse picks&quot;]
+    E --&gt; F[&quot;Invoice created&quot;]
+    F --&gt; G[&quot;AI proposes\npayment matches&quot;]
+    G --&gt; H{&quot;Approval\nEnvelope&quot;}
+    H --&gt;|approve| I[&quot;Reconciliation\nposted&quot;]
+
+    B --&gt; J[&quot;Source-linked\nAudit Trail&quot;]
+    C --&gt; J
+    G --&gt; J
+    H --&gt; J
+
+    style B fill:#d1fae5
+    style C fill:#fef3c7
+    style D fill:#d1fae5
+    style G fill:#d1fae5
+    style H fill:#fef3c7
+    style J fill:#e0f2fe
+</code></pre>
+<hr />
+<h3 id="5-ai-agent-inside-an-approval-envelope-ai-proposes-your-people-decide">5. AI agent inside an Approval Envelope — <em>"AI proposes, your people decide."</em></h3>
+<p><strong>Message:</strong> a worked example of one operational decision. The agent extracts and validates, but high <em>and</em> low confidence both route to a <strong>human reviewer</strong> who can approve, edit or reject. Only on approval is anything committed — and the decision is logged.</p>
+<p><strong>Source / audit trail:</strong> rendered from prompt #7. The validation references (customer master, price list, stock) are neutral placeholders mapped to the Phase 0 export inventory; the reviewer is a named Customer Service team lead, not the AI.</p>
+<pre><code class="language-mermaid">flowchart TB
+    A[&quot;PDF/email order\narrives in Export Layer&quot;] --&gt; B[&quot;AI agent extracts\nheader + line items&quot;]
+    B --&gt; C[&quot;Validate against\ncustomer master, price list, stock&quot;]
+    C --&gt; D{&quot;Confidence &amp;\nvalidation result&quot;}
+    D --&gt;|high confidence, no exceptions| E[&quot;Draft order in\nApproval Envelope&quot;]
+    D --&gt;|low confidence or exception| F[&quot;Hold + flag for\nhuman review&quot;]
+    E --&gt; G[&quot;CS team lead\nreviews evidence&quot;]
+    F --&gt; G
+    G --&gt; H{&quot;Decision&quot;}
+    H --&gt;|Approve| I[&quot;Commit to downstream\nprocess / ERP&quot;]
+    H --&gt;|Edit| J[&quot;Update draft,\nre-route&quot;]
+    H --&gt;|Reject| K[&quot;Return to customer\nor queue&quot;]
+    I --&gt; L[&quot;Source-linked Audit Trail&quot;]
+    J --&gt; L
+    K --&gt; L
+
+    style B fill:#d1fae5
+    style E fill:#fef3c7
+    style G fill:#fef3c7
+    style I fill:#d1fae5
+    style L fill:#e0f2fe
+</code></pre>
+<hr />
+<h3 id="6-human-in-the-loop-governance-tiers-nothing-financial-is-ever-automated">6. Human-in-the-loop governance tiers — <em>"Nothing financial is ever automated."</em></h3>
+<p><strong>Message:</strong> the control model in one frame. Tier 1 (informational) may act and log; Tier 2 (operational) is propose-and-approve via the Approval Envelope; Tier 3 (financial / pricing / customer-facing) is a <strong>mandatory human decision</strong> — AI assists only. All three tiers write to the audit trail.</p>
+<p><strong>Source / audit trail:</strong> rendered from prompt #10. The tier definitions are the engagement's governance standard (see <code>docs/04-templates/</code> governance tiers + approval-envelope templates); no client data is shown.</p>
+<pre><code class="language-mermaid">flowchart TB
+    subgraph Tier1[&quot;Tier 1 — Informational / low-risk&quot;]
+        T1[&quot;AI acts &amp; logs\nno approval needed&quot;]
+    end
+
+    subgraph Tier2[&quot;Tier 2 — Operational&quot;]
+        T2[&quot;AI proposes\nHuman approves in\nApproval Envelope&quot;]
+    end
+
+    subgraph Tier3[&quot;Tier 3 — Financial / pricing / customer-facing&quot;]
+        T3[&quot;AI assists only\nMandatory human\ndecision&quot;]
+    end
+
+    UseCase[&quot;Use case&quot;] --&gt; Tier1
+    UseCase --&gt; Tier2
+    UseCase --&gt; Tier3
+
+    T1 --&gt; Audit[&quot;Source-linked Audit Trail&quot;]
+    T2 --&gt; Audit
+    T3 --&gt; Audit
+
+    style Tier1 fill:#d1fae5,stroke:#10b981
+    style Tier2 fill:#fef3c7,stroke:#f59e0b
+    style Tier3 fill:#fee2e2,stroke:#ef4444
+    style Audit fill:#e0f2fe,stroke:#0ea5e9
+</code></pre>
+<hr />
+<h3 id="7-source-linked-audit-trail-every-number-traces-back-to-its-source">7. Source-linked Audit Trail — <em>"Every number traces back to its source."</em></h3>
+<p><strong>Message:</strong> the trust clincher. Each action leaves a trace from the trigger export, through the AI action and the evidence shown to the approver, to the approver's decision and an immutable log row. This directly answers the "Power BI is just the tip of the iceberg" concern: the value is the traceability underneath.</p>
+<p><strong>Source / audit trail:</strong> rendered from prompt #11. On a live slide the headline figure (e.g. <em>"Net sales — May 2026: €X.Xm"</em>) would expand to its lineage — source export filename + sheet + cell range, export date, transformation applied, who/what produced it, and the approval record. The €X.Xm is an <strong>illustrative placeholder</strong>; the real figure would cite an export such as <code>net_sales_2026-05.xlsx</code> once Phase 0 confirms the source.</p>
+<pre><code class="language-mermaid">flowchart LR
+    A[&quot;Trigger\nsource export / file&quot;] --&gt; B[&quot;AI action\nextraction / match / draft&quot;]
+    B --&gt; C[&quot;Evidence\nconfidence, matched rows, rules&quot;]
+    C --&gt; D[&quot;Approver decision\napprove / edit / reject&quot;]
+    D --&gt; E[&quot;Outcome\nposted record / returned&quot;]
+    E --&gt; F[&quot;Immutable log row\ntimestamp, user, references&quot;]
+
+    style A fill:#e2e8f0
+    style B fill:#d1fae5
+    style C fill:#fef3c7
+    style D fill:#fef3c7
+    style E fill:#d1fae5
+    style F fill:#e0f2fe
+</code></pre>
+<hr />
+<h3 id="8-value-adoption-dashboard-here-is-how-we-prove-it-worked">8. Value &amp; adoption dashboard — <em>"Here is how we prove it worked."</em></h3>
+<p><strong>Message:</strong> the success-metrics view. The top half is value realised (hours saved, EUR value, automations live, cumulative savings); the bottom half is adoption (active users, tool usage, Approval Envelope completion, capability maturity). Crucially, every value claim links to a source export and every adoption metric links to the audit log.</p>
+<p><strong>Source / audit trail:</strong> rendered from prompt #16. All KPI values are <strong>illustrative placeholders</strong> — in delivery they are populated from the value tracker and the Source-linked Audit Trail, never hand-entered, so the savings are auditable rather than asserted.</p>
+<pre><code class="language-mermaid">flowchart TB
+    subgraph Value[&quot;Value realisation&quot;]
+        V1[&quot;Hours saved / week&quot;]
+        V2[&quot;EUR value realised&quot;]
+        V3[&quot;Automations live&quot;]
+        V4[&quot;Cumulative savings&quot;]
+    end
+
+    subgraph Adoption[&quot;Adoption&quot;]
+        A1[&quot;Active users&quot;]
+        A2[&quot;Report/tool sessions&quot;]
+        A3[&quot;Approval Envelope\ncompletion rate&quot;]
+        A4[&quot;Capability maturity\nmovement&quot;]
+    end
+
+    subgraph Traceability[&quot;Traceability&quot;]
+        T1[&quot;Each value claim → source export&quot;]
+        T2[&quot;Each adoption metric → audit log&quot;]
+    end
+
+    Value --&gt; Traceability
+    Adoption --&gt; Traceability
+
+    style Value fill:#f0fdfa,stroke:#0d9488
+    style Adoption fill:#eff6ff,stroke:#3b82f6
+    style Traceability fill:#fff7ed,stroke:#f97316
+</code></pre>
+<hr />
+<h2 id="notes-for-the-operator">Notes for the operator</h2>
+<ul>
+<li><strong>Illustrative only.</strong> Swap the sample order-to-cash flow, source systems and any quoted figures for Top Spirit's real processes and exports once the introductory call confirms scope and data sources. The <code>.mmd</code> files are the editable masters.</li>
+<li><strong>Human-in-control is the spine.</strong> Beats 4, 5 and 6 all hinge on a named human approver; beat 7 makes the decision auditable; beat 8 makes the value auditable. Keep that framing in the room.</li>
+<li><strong>Identity &amp; traceability.</strong> Each <code>.mmd</code> carries an Angel Software Solutions identity + source header. Palette: teal <code>#0D9488</code>, navy <code>#0F172A</code>, off-white <code>#F8FAFC</code>, with semantic red/green/amber reserved for the as-is/to-be and governance maps to carry meaning.</li>
+</ul>
+<hr />
+<p><em>Generated from the mockup prompts in <code>docs/03-mockup-pack.md</code>, using the context block in <code>assets/angel-context-block.md</code>. Angel Software Solutions — Export Layer · Approval Envelope · Source-linked Audit Trail.</em></p>
+  </article>
+</div>
+<footer class="footer">
+  <p>Private pre-call draft for Top Spirit (Marussia) and Angel Software Solutions. Demo values are illustrative; starter data is synthetic; client evidence gates remain explicit.</p>
+</footer>
+</body>
+</html>

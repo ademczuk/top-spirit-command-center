@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wave 1 — Governance model and Approval Envelopes — Top Spirit Command Center</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --deep:#07111F; --surface:#101B2A; --line:#1d2c40; --border:#2a3a4f;
+  --gold:#D6A94A; --teal:#0D9488; --cream:#F6F1E8; --paper:#FBF8F1;
+  --ink:#10243a; --muted:#5b6b7d; --clay:#B45309;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0; font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  color:var(--ink); background:linear-gradient(160deg,var(--deep) 0%,var(--surface) 100%);
+  background-attachment:fixed; line-height:1.65;
+}
+.topbar{
+  position:sticky; top:0; z-index:10; display:flex; align-items:center; justify-content:space-between;
+  gap:18px; padding:14px 28px; background:rgba(7,17,31,.92); backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--border);
+}
+.brand{display:flex; flex-direction:column; line-height:1.2;}
+.brand .name{color:#fff; font-weight:800; letter-spacing:-.01em; font-size:15px;}
+.brand .sub{color:var(--gold); font-size:11px; text-transform:uppercase; letter-spacing:.14em;}
+.back{
+  color:#cdd8e6; text-decoration:none; font-size:14px; font-weight:600; white-space:nowrap;
+  border:1px solid var(--border); padding:8px 14px; border-radius:9px; transition:all .15s;
+}
+.back:hover{color:#fff; border-color:var(--gold); background:rgba(214,169,74,.12);}
+.wrap{max-width:880px; margin:34px auto 60px; padding:0 22px;}
+.doc{
+  background:var(--paper); border-radius:16px; padding:54px 56px;
+  box-shadow:0 24px 60px rgba(0,0,0,.35); border:1px solid rgba(255,255,255,.06);
+}
+.doc h1,.doc h2,.doc h3,.doc h4{font-family:"Playfair Display",Georgia,serif; color:var(--deep); line-height:1.18; letter-spacing:-.01em;}
+.doc h1{font-size:34px; margin:0 0 8px; padding-bottom:16px; border-bottom:3px solid var(--gold);}
+.doc h2{font-size:25px; margin:38px 0 12px;}
+.doc h3{font-size:19px; margin:28px 0 8px;}
+.doc h4{font-size:16px; margin:22px 0 6px; font-family:Inter,sans-serif; font-weight:700;}
+.doc p{margin:12px 0;}
+.doc a{color:var(--teal); text-decoration:none; border-bottom:1px solid rgba(13,148,136,.3);}
+.doc a:hover{color:var(--clay); border-bottom-color:var(--clay);}
+.doc ul,.doc ol{padding-left:24px; margin:12px 0;}
+.doc li{margin:5px 0;}
+.doc strong{color:var(--deep);}
+.doc blockquote{
+  margin:18px 0; padding:12px 20px; border-left:4px solid var(--gold);
+  background:rgba(214,169,74,.08); color:var(--ink); border-radius:0 8px 8px 0;
+}
+.doc blockquote p{margin:6px 0;}
+.doc code{
+  font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace; font-size:.88em;
+  background:#eee6d6; color:#7a4d12; padding:2px 6px; border-radius:5px;
+}
+.doc pre{
+  background:var(--deep); color:#e6edf6; padding:18px 20px; border-radius:11px;
+  overflow:auto; font-size:13px; line-height:1.55; border:1px solid var(--border);
+}
+.doc pre code{background:none; color:inherit; padding:0;}
+.doc table{border-collapse:collapse; width:100%; margin:20px 0; font-size:14.5px; overflow:hidden; border-radius:10px;}
+.doc thead th{background:var(--deep); color:#fff; text-align:left; padding:11px 14px; font-weight:600;}
+.doc tbody td{padding:10px 14px; border-bottom:1px solid #e6ddca; vertical-align:top;}
+.doc tbody tr:nth-child(even){background:rgba(16,36,58,.035);}
+.doc tbody tr:last-child td{border-bottom:none;}
+.doc hr{border:none; border-top:1px solid #e0d6c0; margin:30px 0;}
+.doc img{max-width:100%; border-radius:10px;}
+.footer{max-width:880px; margin:0 auto 50px; padding:0 22px; color:#8ea2b8; font-size:12.5px; text-align:center;}
+.footer a{color:#bcd0e6;}
+@media (max-width:640px){.doc{padding:32px 22px;} .wrap{margin-top:20px;} .doc h1{font-size:27px;}}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><span class="name">Top Spirit Command Center</span><span class="sub">Angel Software Solutions</span></div>
+  <a class="back" href="../index.html">Back to command center</a>
+</header>
+<div class="wrap">
+  <article class="doc">
+<h1 id="wave-1-governance-model-and-approval-envelopes">Wave 1 — Governance model and Approval Envelopes</h1>
+<blockquote>
+<p>AI may propose, draft, extract, classify or recommend. Humans approve every financial, pricing and customer-facing action.</p>
+</blockquote>
+<h2 id="three-governance-tiers">Three governance tiers</h2>
+<table>
+<thead>
+<tr>
+<th>Tier</th>
+<th>Risk</th>
+<th>AI/automation permission</th>
+<th>Examples</th>
+<th>Approver</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>G1</td>
+<td>Informational / low risk</td>
+<td>May draft, summarise, classify or log automatically inside audit trail.</td>
+<td>Summarise process notes, classify non-sensitive exports, draft glossary candidate.</td>
+<td>Artifact owner review as needed.</td>
+</tr>
+<tr>
+<td>G2</td>
+<td>Operational</td>
+<td>AI proposes; named human approves before operational use.</td>
+<td>Order-field extraction, stock exception routing, report refresh issue triage.</td>
+<td>Process owner/BICC.</td>
+</tr>
+<tr>
+<td>G3</td>
+<td>Financial, pricing or customer-facing</td>
+<td>AI assists only; mandatory human decision and audit sign-off before use.</td>
+<td>Pricing changes, finance postings, customer emails, credit decisions, reconciliation posting.</td>
+<td>Finance/commercial owner plus escalation where needed.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="approval-envelope-flow">Approval Envelope flow</h2>
+<pre><code class="language-mermaid">flowchart LR
+  A[Trigger: file/report/process event] --&gt; B[AI or automation drafts output]
+  B --&gt; C[Confidence + source lineage + risk tier attached]
+  C --&gt; D{Human approval gate}
+  D --&gt;|Approve| E[Action used or committed]
+  D --&gt;|Edit| F[Human edits output]
+  F --&gt; E
+  D --&gt;|Reject| G[Logged rejection + feedback]
+  E --&gt; H[Audit trail record]
+  G --&gt; H
+</code></pre>
+<h2 id="approval-record-fields">Approval record fields</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Envelope ID</td>
+<td>Stable ID for the approval event.</td>
+</tr>
+<tr>
+<td>Trigger/source IDs</td>
+<td>Export/report/interview IDs.</td>
+</tr>
+<tr>
+<td>Proposed action</td>
+<td>What AI/automation suggested.</td>
+</tr>
+<tr>
+<td>Risk tier</td>
+<td>G1/G2/G3.</td>
+</tr>
+<tr>
+<td>Confidence/exception flags</td>
+<td>Why review is needed.</td>
+</tr>
+<tr>
+<td>Approver</td>
+<td>Named role/person.</td>
+</tr>
+<tr>
+<td>Outcome</td>
+<td>Approved, edited, rejected, escalated.</td>
+</tr>
+<tr>
+<td>Timestamp</td>
+<td>When decision was made.</td>
+</tr>
+<tr>
+<td>Downstream action</td>
+<td>What changed, if anything.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="steering-committee-decisions-needed">Steering committee decisions needed</h2>
+<ul>
+<li>Confirm risk-tier examples.</li>
+<li>Confirm approver roles by department.</li>
+<li>Confirm escalation for disputed outputs or unauthorised data exposure.</li>
+<li>Confirm whether any G1 actions may be auto-logged without per-item review.</li>
+</ul>
+  </article>
+</div>
+<footer class="footer">
+  <p>Private pre-call draft for Top Spirit (Marussia) and Angel Software Solutions. Demo values are illustrative; starter data is synthetic; client evidence gates remain explicit.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,29 @@
+transaction_id,date,bank_amount,currency,matched_invoice,invoice_amount,match_status,confidence,suggested_action,reviewer_required
+SYN-BNK-0001,2026-06-02,3000.00,EUR,INV-2026-1042,3000.00,matched,0.99,Auto-suggest match; queue for finance sign-off,no
+SYN-BNK-0002,2026-06-02,2700.00,EUR,INV-2026-1045,2700.00,matched,0.98,Auto-suggest match; queue for finance sign-off,no
+SYN-BNK-0003,2026-06-03,3525.00,EUR,INV-2026-1048,3525.00,matched,0.97,Auto-suggest match; queue for finance sign-off,no
+SYN-BNK-0004,2026-06-03,1350.00,EUR,INV-2026-1051,1350.00,matched,0.96,Auto-suggest match; queue for finance sign-off,no
+SYN-BNK-0005,2026-06-04,1200.00,EUR,INV-2026-1054,1368.00,partial,0.74,Short payment 168.00; hold residual and notify customer,yes
+SYN-BNK-0006,2026-06-04,4000.00,EUR,INV-2026-1057,4260.00,partial,0.71,Short payment 260.00; create part-paid follow-up,yes
+SYN-BNK-0007,2026-06-05,5100.00,EUR,INV-2026-1060,4860.00,partial,0.62,Overpayment 240.00; park credit and confirm with customer,yes
+SYN-BNK-0008,2026-06-05,2160.00,EUR,INV-2026-1042,3000.00,duplicate,0.55,Possible duplicate of SYN-BNK-0001; do not post until checked,yes
+SYN-BNK-0009,2026-06-06,950.00,EUR,,0.00,unmatched,0.30,Unallocated credit; no invoice reference found - route to AR,yes
+SYN-BNK-0010,2026-06-08,2937.50,EUR,INV-2026-1063,2937.50,matched,0.99,Auto-suggest match; queue for finance sign-off,no
+SYN-BNK-0011,2026-06-08,2700.01,EUR,INV-2026-1066,2700.00,exception,0.58,FX-rounding difference 0.01; tolerance review required,yes
+SYN-BNK-0012,2026-06-09,1846.80,EUR,INV-2026-1069,1846.80,matched,0.95,Auto-suggest match; queue for finance sign-off,no
+SYN-BNK-0013,2026-06-09,7350.00,EUR,INV-2026-1072,7350.00,matched,0.94,Auto-suggest match; queue for finance sign-off,no
+SYN-BNK-0014,2026-06-10,512.40,EUR,,0.00,unmatched,0.12,No candidate invoice; investigate payer reference,yes
+SYN-BNK-0015,2026-06-10,4260.00,EUR,INV-2026-1057,4260.00,matched,0.93,Auto-suggest match; queue for finance sign-off,no
+SYN-BNK-0016,2026-06-11,1080.00,EUR,INV-2026-1075,1080.00,matched,0.92,Auto-suggest match; queue for finance sign-off,no
+SYN-BNK-0017,2026-06-11,2856.00,EUR,INV-2026-1078,2856.00,matched,0.96,Auto-suggest match; queue for finance sign-off,no
+SYN-BNK-0018,2026-06-12,3300.00,EUR,INV-2026-1081,3168.00,partial,0.68,Overpayment 132.00; suspect bundled invoice - manual split,yes
+SYN-BNK-0019,2026-06-12,2025.00,EUR,INV-2026-1084,2025.00,matched,0.91,Auto-suggest match; queue for finance sign-off,no
+SYN-BNK-0020,2026-06-15,640.00,EUR,,0.00,exception,0.20,Negative/contra entry suspected; refer to finance,yes
+SYN-BNK-0021,2026-06-15,2700.00,EUR,INV-2026-1045,2700.00,duplicate,0.49,Same amount and reference as SYN-BNK-0002; verify before posting,yes
+SYN-BNK-0022,2026-06-16,4920.00,EUR,INV-2026-1087,4920.00,matched,0.97,Auto-suggest match; queue for finance sign-off,no
+SYN-BNK-0023,2026-06-16,1499.99,EUR,INV-2026-1090,1500.00,exception,0.60,FX-rounding difference 0.01; tolerance review required,yes
+SYN-BNK-0024,2026-06-17,2200.00,EUR,INV-2026-1093,2640.00,partial,0.66,Short payment 440.00; possible disputed line - hold,yes
+SYN-BNK-0025,2026-06-17,3960.00,EUR,INV-2026-1096,3960.00,matched,0.95,Auto-suggest match; queue for finance sign-off,no
+SYN-BNK-0026,2026-06-18,825.00,EUR,,0.00,unmatched,0.10,No invoice match within 90 days; send to exceptions desk,yes
+SYN-BNK-0027,2026-06-18,5400.00,EUR,INV-2026-1099,5400.00,matched,0.98,Auto-suggest match; queue for finance sign-off,no
+SYN-BNK-0028,2026-06-19,1710.00,EUR,INV-2026-1102,1710.00,matched,0.93,Auto-suggest match; queue for finance sign-off,no

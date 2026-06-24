@@ -1,0 +1,68 @@
+{
+  "_note": "SYNTHETIC illustrative export-layer connection inventory, no real credentials",
+  "_disclaimer": "Illustrative demo data for the AngelServ / Top Spirit process-review engagement. Fictional source systems and owners. No endpoints, hosts, credentials, real company names or personal data. Export-layer-first, human-in-the-loop.",
+  "generated_for": "08-document-order-intake and the wider export-layer review",
+  "currency": "EUR",
+  "connections": [
+    {
+      "name": "ERP sales and AR export",
+      "source_system": "Demo ERP (sales ledger and accounts receivable)",
+      "export_format": "CSV",
+      "cadence": "daily 06:00",
+      "owner_role": "Finance operations lead",
+      "gdpr_classification": "internal - customer financial data",
+      "status": "active",
+      "note": "Sales invoices plus open-item AR balances. Drop-folder export, no live connector. Feeds the reconciliation assistant."
+    },
+    {
+      "name": "Bank statement feed",
+      "source_system": "Demo banking portal export",
+      "export_format": "CSV",
+      "cadence": "daily 07:00",
+      "owner_role": "Treasury / cash management",
+      "gdpr_classification": "confidential - payment data",
+      "status": "active",
+      "note": "Statement lines exported manually. No account or bank-routing numbers retained in the demo set. Bank-to-invoice matching is suggestion-only."
+    },
+    {
+      "name": "CRM customer export",
+      "source_system": "Demo CRM (customer master)",
+      "export_format": "Excel",
+      "cadence": "weekly Monday",
+      "owner_role": "Sales operations",
+      "gdpr_classification": "internal - customer contact and trading terms",
+      "status": "active",
+      "note": "Customer names, channel, region, credit limit and payment terms. Used to enrich fuzzy name matching. Synthetic Austrian beverage accounts only."
+    },
+    {
+      "name": "Document and email order intake",
+      "source_system": "Shared mailbox and document drop",
+      "export_format": "PDF",
+      "cadence": "ad hoc / event-driven",
+      "owner_role": "Order desk",
+      "gdpr_classification": "internal - order documents",
+      "status": "active",
+      "note": "Purchase-order PDFs and order emails. AI drafts the order fields; a named operator approves before any ERP write-back (NO_WRITE_BACK by default)."
+    },
+    {
+      "name": "Price-list export",
+      "source_system": "Demo pricing master",
+      "export_format": "CSV",
+      "cadence": "monthly",
+      "owner_role": "Commercial / pricing manager",
+      "gdpr_classification": "internal - commercial pricing",
+      "status": "active",
+      "note": "Product code, category, unit price (EUR per bottle), validity dates and UOM. Reference data for order-line price validation."
+    },
+    {
+      "name": "Stock-availability export",
+      "source_system": "Demo warehouse management",
+      "export_format": "JSON",
+      "cadence": "every 4 hours",
+      "owner_role": "Logistics / warehouse supervisor",
+      "gdpr_classification": "internal - operational stock data",
+      "status": "planned",
+      "note": "On-hand and committed stock per SKU. Planned export to flag out-of-stock lines during order review. Not yet wired into the prototype."
+    }
+  ]
+}

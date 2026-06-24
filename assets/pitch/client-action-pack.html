@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Client action pack — external validation and sign-off work — Top Spirit Command Center</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --deep:#07111F; --surface:#101B2A; --line:#1d2c40; --border:#2a3a4f;
+  --gold:#D6A94A; --teal:#0D9488; --cream:#F6F1E8; --paper:#FBF8F1;
+  --ink:#10243a; --muted:#5b6b7d; --clay:#B45309;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0; font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  color:var(--ink); background:linear-gradient(160deg,var(--deep) 0%,var(--surface) 100%);
+  background-attachment:fixed; line-height:1.65;
+}
+.topbar{
+  position:sticky; top:0; z-index:10; display:flex; align-items:center; justify-content:space-between;
+  gap:18px; padding:14px 28px; background:rgba(7,17,31,.92); backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--border);
+}
+.brand{display:flex; flex-direction:column; line-height:1.2;}
+.brand .name{color:#fff; font-weight:800; letter-spacing:-.01em; font-size:15px;}
+.brand .sub{color:var(--gold); font-size:11px; text-transform:uppercase; letter-spacing:.14em;}
+.back{
+  color:#cdd8e6; text-decoration:none; font-size:14px; font-weight:600; white-space:nowrap;
+  border:1px solid var(--border); padding:8px 14px; border-radius:9px; transition:all .15s;
+}
+.back:hover{color:#fff; border-color:var(--gold); background:rgba(214,169,74,.12);}
+.wrap{max-width:880px; margin:34px auto 60px; padding:0 22px;}
+.doc{
+  background:var(--paper); border-radius:16px; padding:54px 56px;
+  box-shadow:0 24px 60px rgba(0,0,0,.35); border:1px solid rgba(255,255,255,.06);
+}
+.doc h1,.doc h2,.doc h3,.doc h4{font-family:"Playfair Display",Georgia,serif; color:var(--deep); line-height:1.18; letter-spacing:-.01em;}
+.doc h1{font-size:34px; margin:0 0 8px; padding-bottom:16px; border-bottom:3px solid var(--gold);}
+.doc h2{font-size:25px; margin:38px 0 12px;}
+.doc h3{font-size:19px; margin:28px 0 8px;}
+.doc h4{font-size:16px; margin:22px 0 6px; font-family:Inter,sans-serif; font-weight:700;}
+.doc p{margin:12px 0;}
+.doc a{color:var(--teal); text-decoration:none; border-bottom:1px solid rgba(13,148,136,.3);}
+.doc a:hover{color:var(--clay); border-bottom-color:var(--clay);}
+.doc ul,.doc ol{padding-left:24px; margin:12px 0;}
+.doc li{margin:5px 0;}
+.doc strong{color:var(--deep);}
+.doc blockquote{
+  margin:18px 0; padding:12px 20px; border-left:4px solid var(--gold);
+  background:rgba(214,169,74,.08); color:var(--ink); border-radius:0 8px 8px 0;
+}
+.doc blockquote p{margin:6px 0;}
+.doc code{
+  font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace; font-size:.88em;
+  background:#eee6d6; color:#7a4d12; padding:2px 6px; border-radius:5px;
+}
+.doc pre{
+  background:var(--deep); color:#e6edf6; padding:18px 20px; border-radius:11px;
+  overflow:auto; font-size:13px; line-height:1.55; border:1px solid var(--border);
+}
+.doc pre code{background:none; color:inherit; padding:0;}
+.doc table{border-collapse:collapse; width:100%; margin:20px 0; font-size:14.5px; overflow:hidden; border-radius:10px;}
+.doc thead th{background:var(--deep); color:#fff; text-align:left; padding:11px 14px; font-weight:600;}
+.doc tbody td{padding:10px 14px; border-bottom:1px solid #e6ddca; vertical-align:top;}
+.doc tbody tr:nth-child(even){background:rgba(16,36,58,.035);}
+.doc tbody tr:last-child td{border-bottom:none;}
+.doc hr{border:none; border-top:1px solid #e0d6c0; margin:30px 0;}
+.doc img{max-width:100%; border-radius:10px;}
+.footer{max-width:880px; margin:0 auto 50px; padding:0 22px; color:#8ea2b8; font-size:12.5px; text-align:center;}
+.footer a{color:#bcd0e6;}
+@media (max-width:640px){.doc{padding:32px 22px;} .wrap{margin-top:20px;} .doc h1{font-size:27px;}}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><span class="name">Top Spirit Command Center</span><span class="sub">Angel Software Solutions</span></div>
+  <a class="back" href="../../docs/index.html">Back to command center</a>
+</header>
+<div class="wrap">
+  <article class="doc">
+<h1 id="client-action-pack-external-validation-and-sign-off-work">Client action pack — external validation and sign-off work</h1>
+<blockquote>
+<p><strong>Backlog:</strong> TASK-39–TASK-45
+<strong>Status:</strong> Prepared by Angel / Anismin; completion requires Top Spirit / Marussia participants. Do not mark these Done until evidence is received.</p>
+</blockquote>
+<h2 id="why-these-tasks-remain-client-side">Why these tasks remain client-side</h2>
+<p>The repo can prepare templates, scripts, sample outputs and checklists. It cannot impersonate the BICC, run a live training session, obtain steering approval, collect real time samples, or prove adoption by business users. That would be consultant fan-fiction in a trench coat.</p>
+<h2 id="client-side-worklist">Client-side worklist</h2>
+<table>
+<thead>
+<tr>
+<th>Task</th>
+<th>Owner to confirm</th>
+<th>Evidence required</th>
+<th>Prepared artifact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TASK-39 BICC sign-off of export inventory</td>
+<td>BICC lead + data owners</td>
+<td>Signed export inventory with owner, availability, classification and GDPR flags</td>
+<td><a href="../../docs/05-phase-0/data-classification-and-export-inventory.html"><code>../../docs/05-phase-0/data-classification-and-export-inventory.md</code></a></td>
+</tr>
+<tr>
+<td>TASK-40 AI literacy session delivery and feedback</td>
+<td>Sponsor + training lead</td>
+<td>Attendance log (5+), feedback responses, refinement notes</td>
+<td><a href="../../docs/05-phase-0/ai-literacy-foundations-pilot.html"><code>../../docs/05-phase-0/ai-literacy-foundations-pilot.md</code></a></td>
+</tr>
+<tr>
+<td>TASK-41 O2C hours-saved validation</td>
+<td>Process owner + customer service / finance SMEs</td>
+<td>Time samples by step, agreed savings estimate, business-case update</td>
+<td><a href="../../docs/06-wave-1/order-to-cash-process-map.html"><code>../../docs/06-wave-1/order-to-cash-process-map.md</code></a></td>
+</tr>
+<tr>
+<td>TASK-42 Manual report confirmation</td>
+<td>Report owner + business users</td>
+<td>Side-by-side comparison, discrepancy log, formal sign-off</td>
+<td><a href="../../docs/06-wave-1/manual-report-consolidation-plan.html"><code>../../docs/06-wave-1/manual-report-consolidation-plan.md</code></a></td>
+</tr>
+<tr>
+<td>TASK-43 Governance / Approval Envelope review</td>
+<td>AI Steering Committee</td>
+<td>Meeting decision: approved / amended / deferred; approved thresholds</td>
+<td><a href="../../docs/06-wave-1/governance-approval-envelopes.html"><code>../../docs/06-wave-1/governance-approval-envelopes.md</code></a></td>
+</tr>
+<tr>
+<td>TASK-44 Opportunity catalogue prioritisation</td>
+<td>AI Steering Committee</td>
+<td>Effort/value/risk scores and agreed sequence</td>
+<td><a href="../../docs/08-scale/opportunity-catalogue.html"><code>../../docs/08-scale/opportunity-catalogue.md</code></a></td>
+</tr>
+<tr>
+<td>TASK-45 Handover evidence</td>
+<td>BICC + report/tool owners</td>
+<td>Refresh/run performed by client team; no critical external support; maturity tracker updated</td>
+<td><a href="../../docs/12-closeout/handover-evidence-checklist.html"><code>../../docs/12-closeout/handover-evidence-checklist.md</code></a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="evidence-capture-template">Evidence capture template</h2>
+<p>Use this table in meeting notes or a controlled project tracker:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Task ID</td>
+<td>TASK-__</td>
+</tr>
+<tr>
+<td>Evidence type</td>
+<td>Sign-off / attendance / time sample / decision / refresh proof</td>
+</tr>
+<tr>
+<td>Source document or export</td>
+<td></td>
+</tr>
+<tr>
+<td>Date received</td>
+<td></td>
+</tr>
+<tr>
+<td>Owner / reviewer</td>
+<td></td>
+</tr>
+<tr>
+<td>Decision</td>
+<td>Approved / amended / rejected / pending</td>
+</tr>
+<tr>
+<td>Follow-up action</td>
+<td></td>
+</tr>
+<tr>
+<td>Audit-trail reference</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="recommended-order">Recommended order</h2>
+<ol>
+<li><strong>TASK-39</strong> — Export inventory sign-off. Everything else depends on knowing which exports are available and permitted.</li>
+<li><strong>TASK-41 / TASK-42</strong> — Time and report validation. These generate quantified value evidence.</li>
+<li><strong>TASK-43 / TASK-44</strong> — Steering decisions. Use the evidence to approve governance and prioritise the roadmap.</li>
+<li><strong>TASK-40 / TASK-45</strong> — Capability proof. Run training and show the client team can operate the tool/report.</li>
+</ol>
+<h2 id="human-wording-for-the-client">Human wording for the client</h2>
+<blockquote>
+<p>"We have prepared the artifacts and sample operating model. The next step is evidence collection and sign-off from your owners: BICC export confirmation, one process time baseline, one report validation, and steering approval of the governance model. We will not treat sample outputs as live facts until those checks are complete."</p>
+</blockquote>
+<h2 id="backlog-handling-rule">Backlog handling rule</h2>
+<p>Keep TASK-39–TASK-45 <strong>To Do</strong> until the external evidence exists. Append evidence references when received, then check acceptance criteria and mark Done. Anything else is just a spreadsheet wearing a fake moustache.</p>
+  </article>
+</div>
+<footer class="footer">
+  <p>Private pre-call draft for Top Spirit (Marussia) and Angel Software Solutions. Demo values are illustrative; starter data is synthetic; client evidence gates remain explicit.</p>
+</footer>
+</body>
+</html>

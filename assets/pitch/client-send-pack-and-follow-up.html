@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Client send-pack and post-call follow-up kit — Top Spirit Command Center</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --deep:#07111F; --surface:#101B2A; --line:#1d2c40; --border:#2a3a4f;
+  --gold:#D6A94A; --teal:#0D9488; --cream:#F6F1E8; --paper:#FBF8F1;
+  --ink:#10243a; --muted:#5b6b7d; --clay:#B45309;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0; font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  color:var(--ink); background:linear-gradient(160deg,var(--deep) 0%,var(--surface) 100%);
+  background-attachment:fixed; line-height:1.65;
+}
+.topbar{
+  position:sticky; top:0; z-index:10; display:flex; align-items:center; justify-content:space-between;
+  gap:18px; padding:14px 28px; background:rgba(7,17,31,.92); backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--border);
+}
+.brand{display:flex; flex-direction:column; line-height:1.2;}
+.brand .name{color:#fff; font-weight:800; letter-spacing:-.01em; font-size:15px;}
+.brand .sub{color:var(--gold); font-size:11px; text-transform:uppercase; letter-spacing:.14em;}
+.back{
+  color:#cdd8e6; text-decoration:none; font-size:14px; font-weight:600; white-space:nowrap;
+  border:1px solid var(--border); padding:8px 14px; border-radius:9px; transition:all .15s;
+}
+.back:hover{color:#fff; border-color:var(--gold); background:rgba(214,169,74,.12);}
+.wrap{max-width:880px; margin:34px auto 60px; padding:0 22px;}
+.doc{
+  background:var(--paper); border-radius:16px; padding:54px 56px;
+  box-shadow:0 24px 60px rgba(0,0,0,.35); border:1px solid rgba(255,255,255,.06);
+}
+.doc h1,.doc h2,.doc h3,.doc h4{font-family:"Playfair Display",Georgia,serif; color:var(--deep); line-height:1.18; letter-spacing:-.01em;}
+.doc h1{font-size:34px; margin:0 0 8px; padding-bottom:16px; border-bottom:3px solid var(--gold);}
+.doc h2{font-size:25px; margin:38px 0 12px;}
+.doc h3{font-size:19px; margin:28px 0 8px;}
+.doc h4{font-size:16px; margin:22px 0 6px; font-family:Inter,sans-serif; font-weight:700;}
+.doc p{margin:12px 0;}
+.doc a{color:var(--teal); text-decoration:none; border-bottom:1px solid rgba(13,148,136,.3);}
+.doc a:hover{color:var(--clay); border-bottom-color:var(--clay);}
+.doc ul,.doc ol{padding-left:24px; margin:12px 0;}
+.doc li{margin:5px 0;}
+.doc strong{color:var(--deep);}
+.doc blockquote{
+  margin:18px 0; padding:12px 20px; border-left:4px solid var(--gold);
+  background:rgba(214,169,74,.08); color:var(--ink); border-radius:0 8px 8px 0;
+}
+.doc blockquote p{margin:6px 0;}
+.doc code{
+  font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace; font-size:.88em;
+  background:#eee6d6; color:#7a4d12; padding:2px 6px; border-radius:5px;
+}
+.doc pre{
+  background:var(--deep); color:#e6edf6; padding:18px 20px; border-radius:11px;
+  overflow:auto; font-size:13px; line-height:1.55; border:1px solid var(--border);
+}
+.doc pre code{background:none; color:inherit; padding:0;}
+.doc table{border-collapse:collapse; width:100%; margin:20px 0; font-size:14.5px; overflow:hidden; border-radius:10px;}
+.doc thead th{background:var(--deep); color:#fff; text-align:left; padding:11px 14px; font-weight:600;}
+.doc tbody td{padding:10px 14px; border-bottom:1px solid #e6ddca; vertical-align:top;}
+.doc tbody tr:nth-child(even){background:rgba(16,36,58,.035);}
+.doc tbody tr:last-child td{border-bottom:none;}
+.doc hr{border:none; border-top:1px solid #e0d6c0; margin:30px 0;}
+.doc img{max-width:100%; border-radius:10px;}
+.footer{max-width:880px; margin:0 auto 50px; padding:0 22px; color:#8ea2b8; font-size:12.5px; text-align:center;}
+.footer a{color:#bcd0e6;}
+@media (max-width:640px){.doc{padding:32px 22px;} .wrap{margin-top:20px;} .doc h1{font-size:27px;}}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><span class="name">Top Spirit Command Center</span><span class="sub">Angel Software Solutions</span></div>
+  <a class="back" href="../../docs/index.html">Back to command center</a>
+</header>
+<div class="wrap">
+  <article class="doc">
+<h1 id="client-send-pack-and-post-call-follow-up-kit">Client send-pack and post-call follow-up kit</h1>
+<blockquote>
+<p><strong>Backlog:</strong> TASK-49
+<strong>Purpose:</strong> prevent accidental oversharing, give the client a clean pack, and make the next decision easy.</p>
+</blockquote>
+<h2 id="send-pack-rule">Send-pack rule</h2>
+<p>Only send client-facing artifacts that are polished, neutral, and safe. Keep operational coordination, internal swarm notes, raw backlog chatter and agent dispatch evidence out of the client pack unless explicitly requested internally.</p>
+<h2 id="pre-call-pack">Pre-call pack</h2>
+<p>Send <strong>before</strong> the call if the goal is to give the sponsor context without overwhelming them:</p>
+<table>
+<thead>
+<tr>
+<th>Artifact</th>
+<th style="text-align: right;">Send?</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../../assets/pitch/executive-one-pager.html"><code>../../assets/pitch/executive-one-pager.md</code></a></td>
+<td style="text-align: right;">Yes</td>
+<td>Executive framing and next-step context.</td>
+</tr>
+<tr>
+<td><a href="../../assets/pitch/pitch-deck.html"><code>../../assets/pitch/pitch-deck.md</code></a></td>
+<td style="text-align: right;">Optional</td>
+<td>Send if the sponsor wants pre-read slides; otherwise use live.</td>
+</tr>
+<tr>
+<td><a href="../../docs/02-engagement-at-a-glance.html"><code>../../docs/02-engagement-at-a-glance.md</code></a></td>
+<td style="text-align: right;">Optional</td>
+<td>Good for BICC / delivery lead pre-read.</td>
+</tr>
+<tr>
+<td><a href="../../docs/05-technical-setup/export-layer-setup-guide.html"><code>../../docs/05-technical-setup/export-layer-setup-guide.md</code></a></td>
+<td style="text-align: right;">Optional / BICC only</td>
+<td>Useful if technical readiness is already being discussed.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="in-call-pack">In-call pack</h2>
+<p>Use live, but do not necessarily send yet:</p>
+<table>
+<thead>
+<tr>
+<th>Artifact</th>
+<th>Use in call</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../../assets/mockups/walkthrough/index.html"><code>../../assets/mockups/walkthrough/index.html</code></a></td>
+<td>Yes</td>
+<td>Interactive eight-screen guided demo; single local HTML file, no live data.</td>
+</tr>
+<tr>
+<td><a href="../../assets/mockups/storyboard-gallery.html"><code>../../assets/mockups/storyboard-gallery.md</code></a></td>
+<td>Yes</td>
+<td>Offline storyboard gallery; no live data.</td>
+</tr>
+<tr>
+<td><a href="../../docs/06-wave-1/power-bi-desktop-pilot-build-pack.html"><code>../../docs/06-wave-1/power-bi-desktop-pilot-build-pack.md</code></a></td>
+<td>Yes</td>
+<td>Show export-only report build approach.</td>
+</tr>
+<tr>
+<td><a href="../../outputs/wave1/power-bi-pilot-net-sales-report.html"><code>../../outputs/wave1/power-bi-pilot-net-sales-report.md</code></a></td>
+<td>Yes</td>
+<td>Label as sample output.</td>
+</tr>
+<tr>
+<td><a href="../../docs/08-scale/next-erp-recommendation-pack.html"><code>../../docs/08-scale/next-erp-recommendation-pack.md</code></a></td>
+<td>Yes, if ERP question arises</td>
+<td>Vendor-neutral; decision framework, not vendor recommendation.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="post-call-pack">Post-call pack</h2>
+<p>Send after the call with a short note and agreed next steps:</p>
+<table>
+<thead>
+<tr>
+<th>Artifact</th>
+<th style="text-align: right;">Send?</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pitch deck / one-pager</td>
+<td style="text-align: right;">Yes</td>
+<td>Meeting record.</td>
+</tr>
+<tr>
+<td>Presentation runbook excerpts</td>
+<td style="text-align: right;">No</td>
+<td>Internal speaker notes; summarize instead.</td>
+</tr>
+<tr>
+<td><a href="../../docs/09-commercial/fixed-scope-pilot-commercial-plan.html"><code>../../docs/09-commercial/fixed-scope-pilot-commercial-plan.md</code></a></td>
+<td style="text-align: right;">Yes, once commercial discussion starts</td>
+<td>Shows fixed-scope pilot shape.</td>
+</tr>
+<tr>
+<td><a href="client-action-pack.html"><code>client-action-pack.md</code></a></td>
+<td style="text-align: right;">Yes, edited to client-friendly owner names</td>
+<td>Clarifies what Top Spirit needs to provide.</td>
+</tr>
+<tr>
+<td>Source templates</td>
+<td style="text-align: right;">Yes, selectively</td>
+<td>Send templates relevant to agreed next step only.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="internal-only-hold-back">Internal-only / hold back</h2>
+<p>Do <strong>not</strong> send these externally by default:</p>
+<ul>
+<li><code>backlog/</code> task files and AgentReef dispatch rows.</li>
+<li><code>docs/10-agentreef-dispatch-log.md</code> unless explicitly requested internally.</li>
+<li>Raw internal notes, tool outputs, mesh-chat evidence, or automation logs.</li>
+<li>Any file containing credentials, tokens, secret state, private keys, or unrelated client material.</li>
+</ul>
+<h2 id="decision-options-for-the-call">Decision options for the call</h2>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Decision</th>
+<th>When to choose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>A — Start Phase 0 / Wave 1 pilot</strong></td>
+<td>Name sponsor/BICC lead, confirm exports, schedule workshops and agree pilot use case.</td>
+<td>Recommended if the approach fits and there is appetite to move.</td>
+</tr>
+<tr>
+<td><strong>B — Run a short scoping workshop first</strong></td>
+<td>Book a 60–90 minute process/export validation workshop before committing to Phase 0.</td>
+<td>Choose if stakeholders need more confidence or export availability is unclear.</td>
+</tr>
+<tr>
+<td><strong>C — Defer</strong></td>
+<td>No pilot until ERP/BI decision is clearer.</td>
+<td>Choose only if leadership refuses interim value delivery. Flag opportunity cost.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="post-call-follow-up-email">Post-call follow-up email</h2>
+<p>Subject: <code>Top Spirit × Angel Software Solutions — next steps from AI/process automation call</code></p>
+<pre><code class="language-text">Hi [Name],
+
+Thank you for the discussion today. My read is that the useful next step is to keep the ERP/BI decision evidence-gated while starting a fixed-scope Phase 0 / Wave 1 pilot that creates value now from file exports inside Microsoft 365 E3.
+
+Suggested next steps:
+1. Confirm the steering sponsor and BICC counterpart.
+2. Confirm the first representative exports we can use for the export inventory and Power BI/reporting pilot.
+3. Book the Phase 0 workshops: export inventory, order-to-cash process map, glossary/definition alignment and governance/Approval Envelope review.
+4. Agree whether the first Wave 1 value case is the consolidated manual report, Power BI pilot, or order-to-cash intake flow.
+
+Attached / linked:
+- Executive one-pager and pitch deck
+- Engagement-at-a-glance summary
+- Export Layer setup guide
+- Fixed-scope pilot plan
+- Client action checklist
+
+Best,
+[Name]
+</code></pre>
+<h2 id="commercial-pilot-alignment">Commercial / pilot alignment</h2>
+<p>The send-pack aligns to <a href="../../docs/09-commercial/fixed-scope-pilot-commercial-plan.html"><code>../../docs/09-commercial/fixed-scope-pilot-commercial-plan.md</code></a>: a bounded Phase 0 / Wave 1 pilot with clear dependencies, no uncontrolled ERP commitment, no live connector promise, and measurable value criteria.</p>
+  </article>
+</div>
+<footer class="footer">
+  <p>Private pre-call draft for Top Spirit (Marussia) and Angel Software Solutions. Demo values are illustrative; starter data is synthetic; client evidence gates remain explicit.</p>
+</footer>
+</body>
+</html>
