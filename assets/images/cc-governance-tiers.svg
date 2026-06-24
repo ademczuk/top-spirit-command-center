@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 420" role="img" aria-label="Governance tiers shield illustration">
+<defs><linearGradient id="g" x1="0" x2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#f3f3f3"/></linearGradient></defs>
+<rect width="500" height="420" fill="url(#g)"/>
+<circle cx="436" cy="72" r="96" fill="#8b2e38" opacity=".08"/>
+<circle cx="66" cy="344" r="120" fill="#1b0104" opacity=".05"/>
+<path d="M250 66l150 56v104c0 82-63 142-150 174-87-32-150-92-150-174V122l150-56z" fill="#fff" stroke="#8b2e38" stroke-width="10"/>
+<path d="M156 158h188M156 220h188M156 282h188" stroke="#393939" stroke-width="13" stroke-linecap="round" opacity=".45"/>
+<circle cx="250" cy="220" r="34" fill="#8b2e38"/>
+</svg>

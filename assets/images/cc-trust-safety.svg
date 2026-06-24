@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 420" role="img" aria-label="Trust and safety approval shield">
+<defs><linearGradient id="g" x1="0" x2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#f3f3f3"/></linearGradient></defs>
+<rect width="500" height="420" fill="url(#g)"/>
+<circle cx="436" cy="72" r="96" fill="#8b2e38" opacity=".08"/>
+<circle cx="66" cy="344" r="120" fill="#1b0104" opacity=".05"/>
+<path d="M250 70l136 58v92c0 78-54 132-136 168-82-36-136-90-136-168v-92l136-58z" fill="#fff" stroke="#393939" stroke-width="9"/>
+<circle cx="250" cy="196" r="52" fill="#8b2e38"/>
+<path d="M250 164v64M218 196h64" stroke="#fff" stroke-width="10" stroke-linecap="round"/>
+<path d="M164 306c38-26 134-26 172 0" stroke="#8b2e38" stroke-width="10" stroke-linecap="round" fill="none"/>
+</svg>

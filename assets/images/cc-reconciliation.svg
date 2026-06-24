@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 420" role="img" aria-label="Financial reconciliation matching illustration">
+<defs><linearGradient id="g" x1="0" x2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#f3f3f3"/></linearGradient></defs>
+<rect width="500" height="420" fill="url(#g)"/>
+<circle cx="436" cy="72" r="96" fill="#8b2e38" opacity=".08"/>
+<circle cx="66" cy="344" r="120" fill="#1b0104" opacity=".05"/>
+<rect x="70" y="86" width="150" height="250" rx="12" fill="#fff" stroke="#393939" stroke-width="8"/>
+<rect x="276" y="86" width="150" height="250" rx="12" fill="#fff" stroke="#393939" stroke-width="8"/>
+<path d="M116 148h62M116 204h62M116 260h62M318 148h62M318 204h62M318 260h62" stroke="#393939" stroke-width="8" stroke-linecap="round" opacity=".42"/>
+<path d="M210 156c34 0 34 48 68 48M210 258c34 0 34-54 68-54" stroke="#8b2e38" stroke-width="9" fill="none" stroke-linecap="round"/>
+<circle cx="250" cy="204" r="28" fill="#8b2e38"/>
+</svg>

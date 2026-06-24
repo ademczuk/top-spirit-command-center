@@ -4,376 +4,298 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Top Spirit Command Center — Angel Software Solutions</title>
-  <meta name="description" content="AngelServ command center for the Top Spirit (Marussia) process-review, automation and AI-literacy engagement: exports, approvals, audit trails and client evidence gates.">
-  <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            ink: '#000000',
-            'ink-2': '#111111',
-            paper: '#ffffff',
-            'paper-warm': '#f3f3f3',
-            reef: '#a83232',
-            'reef-dark': '#8b2e38',
-            'reef-soft': '#f9e9ea',
-            gold: '#9CA3AF',
-            clay: '#4e4e4e',
-          },
-          fontFamily: {
-            sans: ['Inter', 'system-ui', 'sans-serif'],
-            serif: ['Playfair Display', 'Georgia', 'serif'],
-            mono: ['IBM Plex Mono', 'ui-monospace', 'SFMono-Regular', 'Consolas', 'monospace'],
-          }
-        }
-      }
-    }
-  </script>
+  <meta name="description" content="Top Spirit (Marussia) AngelServ command center: a client-ready walkthrough for export-layer value, approval envelopes, audit trails, AI literacy and ERP decision support.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;900&display=swap" rel="stylesheet">
-  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
   <style>
-    * { -webkit-font-smoothing: antialiased; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body { background: #ffffff; }
-    :focus-visible { outline: 3px solid rgba(168, 50, 50, .45); outline-offset: 3px; }
-    .hero-grid {
-      background:
-        radial-gradient(circle at 8% 12%, rgba(168, 50, 50, .10), transparent 34%),
-        radial-gradient(circle at 84% 16%, rgba(243, 243, 243, .9), transparent 32%),
-        linear-gradient(135deg, #f3f3f3 0%, #ffffff 48%, #f3f3f3 100%);
+    :root {
+      --white:#ffffff; --surface:#f3f3f3; --surface-2:#fafafa; --black:#000000; --deep:#1b0104;
+      --muted:#4e4e4e; --border:#393939; --line:#e6e6e6; --maroon:#8b2e38; --red:#a83232;
+      --soft-red:#f4e7e9; --green:#76c65f; --blue:#569ff7; --max:1180px; --grid:5px;
     }
-    .receipt-grid {
-      background-image:
-        linear-gradient(rgba(0,0,0,.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0,0,0,.035) 1px, transparent 1px);
-      background-size: 36px 36px;
-      mask-image: linear-gradient(to bottom, black, transparent 82%);
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; background:var(--white); }
+    body { margin:0; font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; color:var(--black); background:var(--white); -webkit-font-smoothing:antialiased; }
+    img { max-width:100%; display:block; }
+    a { color:inherit; }
+    :focus-visible { outline:3px solid rgba(139,46,56,.44); outline-offset:4px; }
+    .topbar { position:sticky; top:0; z-index:50; background:rgba(0,0,0,.92); color:#fff; border-bottom:1px solid rgba(255,255,255,.12); backdrop-filter:blur(16px); }
+    .nav { max-width:var(--max); margin:auto; height:70px; padding:0 25px; display:flex; align-items:center; justify-content:space-between; gap:30px; }
+    .brand { text-decoration:none; letter-spacing:.04em; display:flex; flex-direction:column; line-height:1; }
+    .brand-main { font-weight:900; font-size:25px; } .brand-main span { color:var(--maroon); }
+    .brand-sub { font-size:8px; color:#cfcfcf; letter-spacing:.22em; margin-top:5px; text-transform:uppercase; }
+    .navlinks { display:flex; align-items:center; gap:32px; font-size:14px; font-weight:800; }
+    .navlinks a { color:#fff; text-decoration:none; opacity:.9; } .navlinks a:hover { color:#ffb7bf; opacity:1; }
+    .nav-cta { border:1px solid rgba(255,255,255,.28); padding:13px 20px; min-height:44px; display:inline-flex; align-items:center; text-decoration:none; font-weight:900; background:var(--maroon); }
+    .mobile-button { display:none; background:transparent; color:#fff; border:1px solid rgba(255,255,255,.25); padding:10px 12px; font-weight:900; }
+    .mobile-menu { display:none; border-top:1px solid rgba(255,255,255,.12); padding:10px 25px 25px; }
+    .mobile-menu a { display:block; padding:14px 0; color:#fff; text-decoration:none; border-bottom:1px solid rgba(255,255,255,.1); font-weight:800; }
+    .section { padding:95px 25px; } .section.tight { padding-top:55px; padding-bottom:55px; }
+    .wrap { max-width:var(--max); margin:auto; }
+    .eyebrow { color:var(--maroon); font-size:12px; font-weight:900; text-transform:uppercase; letter-spacing:.22em; }
+    h1,h2,h3 { font-family:"Playfair Display", Georgia, serif; margin:0; color:var(--black); }
+    h1 { font-size:clamp(48px,8vw,104px); line-height:.92; letter-spacing:-.055em; max-width:920px; }
+    h2 { font-size:clamp(36px,5vw,74px); line-height:.98; letter-spacing:-.04em; }
+    h3 { font-size:clamp(25px,2.5vw,37px); line-height:1.05; letter-spacing:-.025em; }
+    p { line-height:1.62; } .lead { font-size:clamp(18px,2vw,23px); line-height:1.52; color:var(--muted); max-width:760px; }
+    .btnrow { display:flex; flex-wrap:wrap; gap:12px; margin-top:30px; }
+    .btn { display:inline-flex; align-items:center; justify-content:center; gap:10px; min-height:50px; padding:16px 24px; border:1px solid var(--border); text-decoration:none; font-weight:900; transition:transform .18s ease, background .18s ease, color .18s ease, border .18s ease; }
+    .btn:hover { transform:translateY(-2px); } .btn.primary { background:var(--maroon); color:#fff; border-color:var(--maroon); } .btn.primary:hover { background:var(--red); } .btn.ghost { background:#fff; color:var(--black); }
+    .hero { position:relative; min-height:calc(100vh - 70px); overflow:hidden; background:linear-gradient(180deg,#fff 0%,#fff 66%,var(--surface) 66%,var(--surface) 100%); }
+    .hero-layout { max-width:var(--max); margin:auto; padding:78px 25px 95px; display:grid; grid-template-columns:1.02fr .98fr; gap:55px; align-items:center; }
+    .hero-copy { position:relative; z-index:2; } .hero-copy .red { color:var(--maroon); }
+    .hero-kicker { display:inline-flex; align-items:center; gap:10px; font-weight:900; font-size:12px; letter-spacing:.16em; text-transform:uppercase; margin-bottom:25px; color:var(--maroon); }
+    .hero-kicker::before { content:""; width:42px; height:2px; background:var(--maroon); display:block; }
+    .hero-image-card { background:#000; color:#fff; position:relative; min-height:620px; overflow:hidden; box-shadow:0 28px 70px rgba(0,0,0,.22); }
+    .hero-image-card img.hero-photo { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:.68; filter:saturate(.85) contrast(1.04); }
+    .hero-image-card::after { content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(0,0,0,.1),rgba(0,0,0,.8)); }
+    .hero-panel { position:absolute; left:25px; right:25px; bottom:25px; z-index:2; border:1px solid rgba(255,255,255,.22); background:rgba(0,0,0,.58); backdrop-filter:blur(12px); padding:24px; }
+    .hero-panel img { width:100%; max-height:150px; object-fit:contain; margin-top:18px; background:rgba(255,255,255,.92); padding:12px; }
+    .brand-proof { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+    .proof-chip { background:#fff; padding:22px 25px; } .proof-chip strong { display:block; font-size:13px; text-transform:uppercase; letter-spacing:.13em; color:var(--maroon); } .proof-chip span { display:block; margin-top:6px; color:var(--muted); font-size:14px; }
+    .photo-trio { display:grid; grid-template-columns:repeat(3,1fr); gap:30px; margin-top:50px; }
+    .brand-card { background:var(--surface); padding:40px 35px; min-height:520px; text-align:center; position:relative; }
+    .brand-card img { width:230px; height:230px; object-fit:cover; margin:0 auto 54px; }
+    .brand-card .badge { position:absolute; top:268px; left:50%; transform:translateX(-50%); width:76px; height:76px; border-radius:999px; background:var(--maroon); color:#fff; display:grid; place-items:center; border:8px solid var(--surface); font-weight:900; }
+    .brand-card p { color:#111; font-size:15px; }
+    .split { display:grid; grid-template-columns:.88fr 1.12fr; gap:55px; align-items:start; }
+    .spine-buttons { display:grid; gap:12px; margin-top:28px; }
+    .spine-button { appearance:none; text-align:left; background:#fff; border:1px solid var(--line); padding:20px; cursor:pointer; transition:.18s ease; }
+    .spine-button strong { display:block; font-size:15px; color:var(--black); } .spine-button span { color:var(--muted); display:block; margin-top:6px; }
+    .spine-button[aria-selected="true"] { background:var(--black); color:#fff; border-color:var(--black); box-shadow:-5px 0 0 var(--maroon); }
+    .spine-button[aria-selected="true"] strong,.spine-button[aria-selected="true"] span { color:#fff; }
+    .spine-panel { background:var(--surface); border:1px solid var(--line); padding:36px; min-height:450px; }
+    .spine-panel img { width:100%; max-height:250px; object-fit:contain; background:#fff; border:1px solid var(--line); margin-bottom:25px; }
+    .spine-panel .number { color:var(--maroon); font-family:"Playfair Display",serif; font-size:72px; line-height:.8; font-weight:800; }
+    .grid-4 { display:grid; grid-template-columns:repeat(4,1fr); gap:22px; margin-top:45px; }
+    .cap-card { background:#fff; border:1px solid var(--line); text-decoration:none; min-height:100%; display:flex; flex-direction:column; transition:.18s ease; }
+    .cap-card:hover { transform:translateY(-4px); box-shadow:0 18px 45px rgba(0,0,0,.09); border-color:rgba(139,46,56,.44); }
+    .cap-card img { background:var(--surface); width:100%; aspect-ratio:1.22/1; object-fit:cover; border-bottom:1px solid var(--line); }
+    .cap-card div { padding:22px; } .cap-card h3 { font-size:27px; } .cap-card p { color:var(--muted); font-size:14px; margin-bottom:0; }
+    .workstreams { background:var(--black); color:#fff; } .workstreams h2,.workstreams h3 { color:#fff; } .workstreams .lead { color:#d6d6d6; }
+    .work-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:rgba(255,255,255,.2); border:1px solid rgba(255,255,255,.2); margin-top:42px; }
+    .work-card { background:#070707; padding:28px; min-height:230px; } .work-card b { color:#ffbdc4; text-transform:uppercase; font-size:12px; letter-spacing:.16em; } .work-card p { color:#d2d2d2; }
+    .artifact-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:40px; }
+    .artifact-card { border:1px solid var(--line); background:#fff; padding:24px; min-height:172px; text-decoration:none; position:relative; transition:.18s ease; }
+    .artifact-card::after { content:"→"; position:absolute; right:22px; top:18px; color:var(--maroon); font-weight:900; } .artifact-card:hover { background:var(--soft-red); border-color:var(--maroon); }
+    .artifact-card strong { display:block; font-family:"Playfair Display",serif; font-size:27px; letter-spacing:-.02em; } .artifact-card span { display:block; margin-top:10px; color:var(--muted); font-size:14px; line-height:1.5; }
+    .gate-list { display:grid; gap:12px; margin-top:35px; }
+    .gate { display:grid; grid-template-columns:110px 1fr; gap:20px; background:#fff; border:1px solid var(--line); padding:20px; }
+    .gate code { font-family:Inter, sans-serif; font-weight:900; color:#fff; background:var(--maroon); display:inline-flex; align-items:center; justify-content:center; min-height:42px; padding:0 14px; }
+    .gate strong { display:block; } .gate span { color:var(--muted); font-size:14px; line-height:1.5; }
+    .walkthrough { background:linear-gradient(90deg,var(--surface) 0%,var(--surface) 50%,#fff 50%,#fff 100%); }
+    .walk-card { display:grid; grid-template-columns:.9fr 1.1fr; gap:1px; background:var(--border); border:1px solid var(--border); margin-top:42px; min-width:0; }
+    .walk-pane { background:#fff; padding:36px; min-width:0; } .walk-pane.dark { background:#090909; color:#fff; } .walk-pane.dark h3 { color:#fff; } .walk-pane.dark p { color:#d8d8d8; }
+    .walk-pane img { border:1px solid rgba(255,255,255,.25); background:#fff; margin-top:22px; }
+    .footer { padding:45px 25px; background:#000; color:#fff; } .footer .wrap { display:flex; justify-content:space-between; gap:25px; flex-wrap:wrap; } .footer p { color:#bbb; margin:0; max-width:700px; }
+    @keyframes softIn { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:none; } }
+    .reveal { animation:softIn .45s ease both; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } *,*::before,*::after { animation-duration:.01ms!important; animation-iteration-count:1!important; transition-duration:.01ms!important; } .reveal { animation:none; } }
+    @media (max-width: 980px) {
+      .navlinks { display:none; } .mobile-button { display:block; } .mobile-menu.open { display:block; }
+      .hero-layout,.split,.walk-card { grid-template-columns:1fr; } .hero-image-card { min-height:480px; }
+      .brand-proof { grid-template-columns:repeat(2,1fr); } .photo-trio,.grid-4,.artifact-grid,.work-grid { grid-template-columns:1fr 1fr; }
     }
-    .glass { background: rgba(255,255,255,.9); border: 1px solid rgba(0,0,0,.08); box-shadow: inset 0 1px 0 rgba(255,255,255,.5); }
-    .paper-card { box-shadow: 0 18px 50px rgba(0, 0, 0, .08), 0 1px 0 rgba(0, 0, 0, .04); }
-    .card-hover { transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease; }
-    .card-hover:hover { transform: translateY(-3px); box-shadow: 0 22px 60px rgba(0, 0, 0, .10); border-color: rgba(168, 50, 50, .28); }
-    .lineage-button[aria-selected="true"] { background: #a83232; color: white; border-color: #a83232; box-shadow: 0 12px 30px rgba(168, 50, 50, .24); }
-    .lineage-button[aria-selected="true"] .lineage-kicker { color: #f9e9ea; }
-    .lineage-button[aria-selected="true"] .lineage-detail { color: white; }
-    .path-rail::before { content: ''; position: absolute; left: 1.35rem; top: 2.4rem; bottom: 2.4rem; width: 2px; background: linear-gradient(#a83232, #4e4e4e); opacity: .5; }
-    .reveal { opacity: 1; transform: none; }
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
+    @media (max-width: 640px) {
+      .nav { height:62px; padding:0 16px; } .brand-main { font-size:20px; } .brand-sub { display:none; }
+      .hero-layout,.section { padding-left:16px; padding-right:16px; } .hero-layout { padding-top:50px; } h1 { font-size:51px; } h2 { font-size:39px; }
+      .brand-proof,.photo-trio,.grid-4,.artifact-grid,.work-grid { grid-template-columns:1fr; } .gate { grid-template-columns:1fr; }
+      .brand-card { min-height:auto; } .hero-image-card { min-height:420px; }
     }
   </style>
 </head>
-<body class="text-ink font-sans">
-  <header class="bg-white sticky top-0 z-40 border-b border-slate-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16 md:h-[72px]">
-        <a href="#top" class="flex items-center gap-2.5 flex-shrink-0" aria-label="Top Spirit Command Center home">
-          <div class="w-9 h-9 md:w-10 md:h-10 rounded-xl bg-reef text-white flex items-center justify-center shadow-sm">
-            <i class="ph-fill ph-hexagon text-xl" aria-hidden="true"></i>
-          </div>
-          <div class="leading-tight">
-            <div class="text-[15px] md:text-base font-extrabold text-ink tracking-tight">Top Spirit Command Center</div>
-            <div class="text-[10px] md:text-xs text-slate-500 font-semibold">AngelServ by Angel Software Solutions</div>
-          </div>
-        </a>
-        <nav class="hidden lg:flex items-center gap-7 text-[13px] font-bold" aria-label="Primary navigation">
-          <a class="text-slate-600 hover:text-reef transition" href="#proof-spine">Proof spine</a>
-          <a class="text-slate-600 hover:text-reef transition" href="#capabilities">Capabilities</a>
-          <a class="text-slate-600 hover:text-reef transition" href="#artifacts">Artifacts</a>
-          <a class="text-slate-600 hover:text-reef transition" href="#evidence-gates">Evidence gates</a>
-          <a class="text-slate-600 hover:text-reef transition" href="#next-step">Next step</a>
-        </nav>
-        <div class="hidden md:flex items-center gap-3">
-          <a href="assets/mockups/walkthrough/index.html" data-path="assets/mockups/walkthrough/index.html" class="inline-flex items-center gap-2 bg-reef text-white pl-4 pr-5 py-2.5 rounded-full text-sm font-extrabold hover:bg-reef-dark transition shadow-sm">
-            <i class="ph-fill ph-play-circle text-sm" aria-hidden="true"></i> Launch walkthrough
-          </a>
-        </div>
-        <button type="button" onclick="document.getElementById('mobMenu').classList.toggle('hidden')" class="lg:hidden w-11 h-11 flex items-center justify-center rounded-xl hover:bg-slate-100 transition" aria-controls="mobMenu" aria-label="Open navigation menu">
-          <i class="ph ph-list text-xl text-slate-700" aria-hidden="true"></i>
-        </button>
-      </div>
+<body>
+  <header class="topbar">
+    <div class="nav">
+      <a href="#top" class="brand" aria-label="Top Spirit command center home"><span class="brand-main"><span>TOP</span>SPIRIT</span><span class="brand-sub">Top Marken · Top Service · Top Kompetenz</span></a>
+      <nav class="navlinks" aria-label="Primary navigation">
+        <a href="#walkthrough">Walkthrough</a><a href="#proof-spine">Proof spine</a><a href="#capabilities">Capabilities</a><a href="#artifacts">Artifacts</a><a href="#evidence-gates">Evidence gates</a>
+        <a class="nav-cta" href="assets/mockups/walkthrough/index.html" data-path="assets/mockups/walkthrough/index.html">Launch walkthrough</a>
+      </nav>
+      <button class="mobile-button" type="button" onclick="document.getElementById('mobileMenu').classList.toggle('open')" aria-controls="mobileMenu" aria-label="Toggle navigation">Menu</button>
     </div>
-    <div id="mobMenu" class="hidden lg:hidden border-t border-slate-100 bg-white pb-4 px-4">
-      <a href="#proof-spine" onclick="document.getElementById('mobMenu').classList.add('hidden')" class="block py-3 text-sm font-bold text-slate-600 border-b border-slate-50">Proof spine</a>
-      <a href="#capabilities" onclick="document.getElementById('mobMenu').classList.add('hidden')" class="block py-3 text-sm font-bold text-slate-600 border-b border-slate-50">Capabilities</a>
-      <a href="#artifacts" onclick="document.getElementById('mobMenu').classList.add('hidden')" class="block py-3 text-sm font-bold text-slate-600 border-b border-slate-50">Artifacts</a>
-      <a href="#evidence-gates" onclick="document.getElementById('mobMenu').classList.add('hidden')" class="block py-3 text-sm font-bold text-slate-600 border-b border-slate-50">Evidence gates</a>
-      <a href="assets/mockups/walkthrough/index.html" data-path="assets/mockups/walkthrough/index.html" class="mt-3 flex items-center justify-center gap-2 bg-reef text-white py-3 rounded-xl font-extrabold text-sm">
-        <i class="ph-fill ph-play-circle" aria-hidden="true"></i> Launch walkthrough
-      </a>
-    </div>
+    <div id="mobileMenu" class="mobile-menu"><a href="#walkthrough">Walkthrough</a><a href="#proof-spine">Proof spine</a><a href="#capabilities">Capabilities</a><a href="#artifacts">Artifacts</a><a href="assets/mockups/walkthrough/index.html" data-path="assets/mockups/walkthrough/index.html">Launch walkthrough</a></div>
   </header>
 
   <main id="top">
-    <section class="relative overflow-hidden hero-grid text-ink">
-      <div class="absolute inset-0 receipt-grid" aria-hidden="true"></div>
-      <div class="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-16 md:py-24">
-        <div class="grid lg:grid-cols-[1.04fr_.96fr] gap-10 lg:gap-14 items-center min-h-[560px]">
-          <div>
-            <div class="inline-flex items-center gap-2 bg-paper-warm text-reef text-xs font-bold px-3 py-1.5 rounded-full mb-6 border border-reef/15">
-              <i class="ph-fill ph-shield-check text-sm text-reef" aria-hidden="true"></i>
-              AngelServ delivery spine · Microsoft 365 E3 · Top Spirit (Marussia)
-            </div>
-            <h1 class="font-serif text-4xl sm:text-5xl md:text-6xl font-black leading-[1.04] mb-6 tracking-tight max-w-3xl">
-              AI proposes.<br>
-              People decide.<br>
-              Every claim keeps a <span class="text-reef">receipt</span>.
-            </h1>
-            <p class="text-base sm:text-lg text-slate-600 mb-8 leading-relaxed max-w-2xl">
-              A client-ready command center for process review, automation and AI literacy. It shows how Angel Software Solutions turns exports into approval envelopes, audit trails and steering decisions without live connectors or fake certainty.
-            </p>
-            <div class="flex flex-col sm:flex-row gap-3">
-              <a href="assets/mockups/walkthrough/index.html" data-path="assets/mockups/walkthrough/index.html" class="inline-flex items-center justify-center gap-2 bg-reef text-white px-7 py-3.5 rounded-full font-extrabold text-base hover:bg-reef-dark transition shadow-lg shadow-black/25 active:scale-[0.98]">
-                <i class="ph-fill ph-play-circle" aria-hidden="true"></i> Start interactive walkthrough
-              </a>
-              <a href="#proof-spine" class="inline-flex items-center justify-center gap-2 bg-white text-ink px-6 py-3.5 rounded-full font-bold text-sm border border-slate-200 hover:bg-paper-warm transition">
-                <i class="ph ph-git-branch" aria-hidden="true"></i> See the proof spine
-              </a>
-            </div>
-            <div class="flex flex-wrap items-center gap-4 mt-8 text-xs text-slate-500 font-semibold">
-              <span class="flex items-center gap-1.5"><i class="ph-fill ph-cloud-check text-reef" aria-hidden="true"></i> Export-layer first</span>
-              <span class="flex items-center gap-1.5"><i class="ph-fill ph-user-circle-check text-reef" aria-hidden="true"></i> Human sign-off</span>
-              <span class="flex items-center gap-1.5"><i class="ph-fill ph-fingerprint text-reef" aria-hidden="true"></i> Source-linked Audit Trail</span>
-            </div>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-layout">
+        <div class="hero-copy reveal">
+          <div class="hero-kicker">AngelServ by Angel Software Solutions · Top Spirit (Marussia)</div>
+          <h1 id="hero-title"><span class="red">Value</span> before ERP. Control before automation.</h1>
+          <p class="lead">A client-ready command center for process review, automation and AI literacy: Top Spirit brand rhythm on the surface, Export Layer discipline underneath, and every decision wrapped in an Approval Envelope.</p>
+          <div class="btnrow">
+            <a class="btn primary" href="assets/mockups/walkthrough/index.html" data-path="assets/mockups/walkthrough/index.html">Start the walkthrough</a>
+            <a class="btn ghost" href="#artifacts">Open the evidence pack</a>
           </div>
+        </div>
+        <figure class="hero-image-card reveal" aria-label="Top Spirit style hero image with command-center proof overlay">
+          <img class="hero-photo" src="assets/images/topspirit-hero.webp" alt="Top Spirit hospitality bar scene used as a visual reference for the command-center hero">
+          <figcaption class="hero-panel">
+            <div class="eyebrow">Steering read</div>
+            <h3 style="color:#fff;margin-top:8px;">AI can propose improvements now. People still decide what becomes operational.</h3>
+            <p>Demo values are illustrative until client evidence gates close.</p>
+            <img src="assets/images/cc-hero-diagram.svg" alt="Abstract data-flow from exports into an approval controlled command center">
+          </figcaption>
+        </figure>
+      </div>
+      <div class="brand-proof" aria-label="Hero proof points">
+        <div class="proof-chip"><strong>Export Layer</strong><span>Start with governed files before integrations.</span></div>
+        <div class="proof-chip"><strong>Approval Envelope</strong><span>AI drafts stay behind named human authority.</span></div>
+        <div class="proof-chip"><strong>Source-linked Audit Trail</strong><span>Every claim points back to source and status.</span></div>
+        <div class="proof-chip"><strong>Next-ERP ready</strong><span>Brownfield, greenfield and phased paths remain visible.</span></div>
+      </div>
+    </section>
 
-          <div class="glass rounded-[2rem] p-4 sm:p-5 lg:p-6 paper-card">
-            <div class="rounded-[1.5rem] bg-paper-warm border border-slate-100 overflow-hidden">
-              <div class="flex items-center justify-between px-4 py-3 border-b border-slate-100">
-                <div class="flex items-center gap-2">
-                  <span class="w-2.5 h-2.5 rounded-full bg-red-400"></span>
-                  <span class="w-2.5 h-2.5 rounded-full bg-slate-300"></span>
-                  <span class="w-2.5 h-2.5 rounded-full bg-reef/30"></span>
-                </div>
-                <span class="font-mono text-[11px] text-slate-500">angelserv / top-spirit / demo-safe</span>
-              </div>
-              <div class="p-5 sm:p-6 space-y-4 path-rail relative">
-                <div class="relative flex gap-4 pl-10">
-                  <span class="absolute left-0 top-1 w-11 h-11 rounded-2xl bg-reef text-white flex items-center justify-center font-mono text-sm font-bold">01</span>
-                  <div>
-                    <p class="font-bold text-ink">Exports enter the controlled layer</p>
-                    <p class="text-sm text-slate-500">ERP, CRM, bank and workbook files are classified before anything proposes action.</p>
-                  </div>
-                </div>
-                <div class="relative flex gap-4 pl-10">
-                  <span class="absolute left-0 top-1 w-11 h-11 rounded-2xl bg-white text-reef flex items-center justify-center font-mono text-sm font-bold border border-slate-100">02</span>
-                  <div>
-                    <p class="font-bold text-ink">Agents draft inside an Approval Envelope</p>
-                    <p class="text-sm text-slate-500">Financial, pricing and customer-facing moves wait for a named human decision.</p>
-                  </div>
-                </div>
-                <div class="relative flex gap-4 pl-10">
-                  <span class="absolute left-0 top-1 w-11 h-11 rounded-2xl bg-white text-reef flex items-center justify-center font-mono text-sm font-bold border border-slate-100">03</span>
-                  <div>
-                    <p class="font-bold text-ink">Outputs carry the receipt</p>
-                    <p class="text-sm text-slate-500">Each figure points back to source, transform, approver and state: illustrative, draft, client-needed or ready-to-demo.</p>
-                  </div>
-                </div>
-                <div class="mt-5 rounded-2xl bg-reef-soft text-ink p-4">
-                  <p class="text-xs uppercase tracking-[.18em] font-black text-reef-dark">Steering read</p>
-                  <p class="font-serif text-xl font-black tracking-tight mt-1">Value can start before ERP is settled. Control stays visible while it does.</p>
-                </div>
-              </div>
+    <section class="section" aria-labelledby="brand-fit-title">
+      <div class="wrap">
+        <div class="eyebrow">Brand fit from npxskillui</div>
+        <h2 id="brand-fit-title">Looks like Top Spirit. Behaves like a control room.</h2>
+        <p class="lead">The redesign uses the SkillUI extraction from <a href="https://www.topspirit.at/en/">topspirit.at</a>: white canvas, pale surface panels, black editorial type, maroon/red accents, Playfair Display headings, Inter body copy and generous 5px-grid spacing. Translation, not cosplay; no client data is embedded.</p>
+        <div class="photo-trio">
+          <article class="brand-card"><img src="assets/images/topspirit-events.webp" alt="Top Spirit events visual card"><span class="badge">01</span><h3>Experience-led</h3><p>The page borrows Top Spirit's large photographic card rhythm, then uses it to frame process evidence instead of generic SaaS tiles.</p></article>
+          <article class="brand-card"><img src="assets/images/topspirit-hospitality.webp" alt="Top Spirit hospitality visual card"><span class="badge">02</span><h3>Hospitality-grade</h3><p>Plenty of white space, serif headings and restrained maroon accents make the command center feel like a client presentation, not a terminal cave.</p></article>
+          <article class="brand-card"><img src="assets/images/topspirit-retail.webp" alt="Top Spirit retail visual card"><span class="badge">03</span><h3>Retail-clear</h3><p>Every section tells a sponsor what to click, what proof exists, and what still needs a business owner.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="walkthrough" class="section walkthrough" aria-labelledby="walkthrough-title">
+      <div class="wrap">
+        <div class="eyebrow">Walkthrough</div>
+        <h2 id="walkthrough-title">One guided route. No treasure-map nonsense.</h2>
+        <p class="lead">The walkthrough is still the spine of the site. The page now introduces it with brand-matched imagery, clear CTAs and a sponsor-safe promise: proposed value, visible controls, honest blockers.</p>
+        <div class="walk-card">
+          <div class="walk-pane dark">
+            <h3>What the client sees first</h3>
+            <p>A concise route from exports to approved decisions: process maps, Power BI pilot, automation candidates, literacy handover, privacy and data classification, then the Next-ERP Decision Pack.</p>
+            <a class="btn primary" href="assets/mockups/walkthrough/index.html" data-path="assets/mockups/walkthrough/index.html">Launch interactive walkthrough</a>
+            <img src="assets/images/cc-trust-safety.svg" alt="Trust and safety shield showing human-in-the-loop control">
+          </div>
+          <div class="walk-pane">
+            <h3>What stays visible</h3>
+            <p>Decision status, evidence source, client owner, open blockers and whether a value claim is illustrative, draft, client-needed or ready for demo.</p>
+            <div class="grid-4" style="grid-template-columns:repeat(2,1fr);margin-top:25px;">
+              <a class="artifact-card" href="assets/mockups/storyboard-gallery.md" data-path="assets/mockups/storyboard-gallery.md"><strong>Storyboard</strong><span>Presentation path.</span></a>
+              <a class="artifact-card" href="assets/pitch/pitch-deck.md" data-path="assets/pitch/pitch-deck.md"><strong>Pitch deck</strong><span>Steering narrative.</span></a>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="py-5 bg-white border-b border-slate-200">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          <div class="flex items-center gap-3"><div class="w-10 h-10 bg-reef-soft rounded-xl flex items-center justify-center"><i class="ph-fill ph-microsoft-logo text-reef" aria-hidden="true"></i></div><div class="text-xs"><p class="font-black text-ink">Microsoft 365 E3</p><p class="text-slate-500">No new licence assumption</p></div></div>
-          <div class="flex items-center gap-3"><div class="w-10 h-10 bg-reef-soft rounded-xl flex items-center justify-center"><i class="ph-fill ph-hand-heart text-reef" aria-hidden="true"></i></div><div class="text-xs"><p class="font-black text-ink">Approval before action</p><p class="text-slate-500">AI drafts; people commit</p></div></div>
-          <div class="flex items-center gap-3"><div class="w-10 h-10 bg-reef-soft rounded-xl flex items-center justify-center"><i class="ph-fill ph-road-horizon text-reef" aria-hidden="true"></i></div><div class="text-xs"><p class="font-black text-ink">ERP-neutral</p><p class="text-slate-500">Brownfield, greenfield or phased</p></div></div>
-          <div class="flex items-center gap-3"><div class="w-10 h-10 bg-reef-soft rounded-xl flex items-center justify-center"><i class="ph-fill ph-warning-circle text-reef" aria-hidden="true"></i></div><div class="text-xs"><p class="font-black text-ink">Demo values are illustrative</p><p class="text-slate-500">Client evidence still gated</p></div></div>
+    <section id="proof-spine" class="section" aria-labelledby="proof-title">
+      <div class="wrap split">
+        <div>
+          <div class="eyebrow">Proof spine</div>
+          <h2 id="proof-title">Five controls, not five buzzwords.</h2>
+          <p class="lead">The original command-center vocabulary remains explicit because it is the governance model. Click through the proof spine; each step maps to an artifact the client can inspect.</p>
+          <div class="spine-buttons" role="tablist" aria-label="AngelServ proof spine">
+            <button class="spine-button" type="button" role="tab" id="tab-0" aria-controls="panel-0" aria-selected="true" data-index="0"><strong>01 · Export Layer</strong><span>Classify exports before automation</span></button><button class="spine-button" type="button" role="tab" id="tab-1" aria-controls="panel-1" aria-selected="false" data-index="1"><strong>02 · Approval Envelope</strong><span>AI drafts; named people commit</span></button><button class="spine-button" type="button" role="tab" id="tab-2" aria-controls="panel-2" aria-selected="false" data-index="2"><strong>03 · Source-linked Audit Trail</strong><span>Every number keeps its receipt</span></button><button class="spine-button" type="button" role="tab" id="tab-3" aria-controls="panel-3" aria-selected="false" data-index="3"><strong>04 · Business Glossary</strong><span>Shared language for process and data</span></button><button class="spine-button" type="button" role="tab" id="tab-4" aria-controls="panel-4" aria-selected="false" data-index="4"><strong>05 · Opportunity Catalogue</strong><span>A ranked backlog of value plays</span></button>
+          </div>
+        </div>
+        <article class="spine-panel" id="proofPanel" aria-live="polite">
+          <img id="proofImage" src="assets/images/cc-export-layer.svg" alt="Export Layer visual proof card">
+          <div class="number" id="proofNumber">01</div>
+          <h3 id="proofHeading">Export Layer</h3>
+          <p id="proofText">ERP, CRM, bank, workbook and document inputs enter through a controlled layer first. This keeps early value work ERP-neutral while preserving a path to integrations later.</p>
+          <a class="btn ghost" href="docs/05-technical-setup/export-layer-setup-guide.md" data-path="docs/05-technical-setup/export-layer-setup-guide.md">Open source artifact</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="capabilities" class="section tight" aria-labelledby="cap-title" style="background:var(--surface);">
+      <div class="wrap">
+        <div class="eyebrow">Capability beats</div>
+        <h2 id="cap-title">Eight things the sponsor can understand in one glance.</h2>
+        <p class="lead">The command center still covers the working system. It just stops dressing like a haunted server rack at a board meeting.</p>
+        <div class="grid-4">
+          <a class="cap-card" href="docs/05-technical-setup/export-layer-setup-guide.md" data-path="docs/05-technical-setup/export-layer-setup-guide.md"><img src="assets/images/cc-export-layer.svg" alt="Export Layer visual"><div><h3>Export Layer</h3><p>Start with files the business already owns, classify them, and keep the future API decision separate from the first value proof.</p></div></a><a class="cap-card" href="assets/mockups/html/08-document-order-intake.html" data-path="assets/mockups/html/08-document-order-intake.html"><img src="assets/images/cc-document-intake.svg" alt="Document Intake visual"><div><h3>Document Intake</h3><p>Turn PDF/email order intake into a controlled draft workflow that never bypasses review.</p></div></a><a class="cap-card" href="assets/mockups/html/09-financial-reconciliation-assistant.html" data-path="assets/mockups/html/09-financial-reconciliation-assistant.html"><img src="assets/images/cc-reconciliation.svg" alt="Reconciliation visual"><div><h3>Reconciliation</h3><p>Match bank statement lines, invoices and exceptions with visible reasoning and approval state.</p></div></a><a class="cap-card" href="docs/06-wave-1/governance-approval-envelopes.md" data-path="docs/06-wave-1/governance-approval-envelopes.md"><img src="assets/images/cc-governance-tiers.svg" alt="Governance Tiers visual"><div><h3>Governance Tiers</h3><p>Separate low-risk suggestions from manager approval and steering-level decisions.</p></div></a><a class="cap-card" href="docs/05-phase-0/source-linked-audit-trail-standard.md" data-path="docs/05-phase-0/source-linked-audit-trail-standard.md"><img src="assets/images/cc-audit-trail.svg" alt="Audit Trail visual"><div><h3>Audit Trail</h3><p>Show source references, transformations and sign-offs before a result gets reused.</p></div></a><a class="cap-card" href="assets/mockups/html/15-opportunity-catalogue-board.html" data-path="assets/mockups/html/15-opportunity-catalogue-board.html"><img src="assets/images/cc-glossary-opportunity.svg" alt="Glossary + Opportunities visual"><div><h3>Glossary + Opportunities</h3><p>Connect the Business Glossary to an Opportunity Catalogue the client can prioritise.</p></div></a><a class="cap-card" href="docs/08-scale/value-adoption-dashboard-spec.md" data-path="docs/08-scale/value-adoption-dashboard-spec.md"><img src="assets/images/cc-trust-safety.svg" alt="Value &amp; Adoption visual"><div><h3>Value & Adoption</h3><p>Track savings hypotheses, owner adoption and sustainment without inventing client numbers.</p></div></a><a class="cap-card" href="docs/08-scale/next-erp-recommendation-pack.md" data-path="docs/08-scale/next-erp-recommendation-pack.md"><img src="assets/images/cc-next-erp.svg" alt="Next-ERP Decision Pack visual"><div><h3>Next-ERP Decision Pack</h3><p>Give leadership a brownfield/greenfield/phased view with evidence, risks and transition logic.</p></div></a>
         </div>
       </div>
     </section>
 
-    <section id="capabilities" class="py-16 md:py-24 bg-paper">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="max-w-3xl mx-auto text-center mb-12">
-          <span class="text-reef font-black text-sm uppercase tracking-wider">Engagement coverage</span>
-          <h2 class="font-serif text-3xl md:text-5xl font-black text-ink mt-2 mb-4 tracking-tight">Original brief coverage, translated into command-center proof.</h2>
-          <p class="text-slate-600 text-lg">AngelServ is the delivery approach; Angel Software Solutions is the company/vendor. This page keeps that naming consistent while preserving the source brief's expectations.</p>
-        </div>
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
-          <article class="bg-white rounded-2xl p-6 border border-slate-200 card-hover"><div class="w-11 h-11 rounded-xl bg-reef-soft text-reef flex items-center justify-center mb-4"><i class="ph-fill ph-map-trifold text-2xl" aria-hidden="true"></i></div><h3 class="font-serif font-black text-ink mb-2">Process mapping</h3><p class="text-sm text-slate-600">End-to-end process maps built from exports, reports and interviews, with source lineage attached.</p></article>
-          <article class="bg-white rounded-2xl p-6 border border-slate-200 card-hover"><div class="w-11 h-11 rounded-xl bg-reef-soft text-reef flex items-center justify-center mb-4"><i class="ph-fill ph-arrows-clockwise text-2xl" aria-hidden="true"></i></div><h3 class="font-serif font-black text-ink mb-2">Process optimisation</h3><p class="text-sm text-slate-600">Target-state redesign ranked by effort, risk and value, without pretending client validation already happened.</p></article>
-          <article class="bg-white rounded-2xl p-6 border border-slate-200 card-hover"><div class="w-11 h-11 rounded-xl bg-reef-soft text-reef flex items-center justify-center mb-4"><i class="ph-fill ph-graduation-cap text-2xl" aria-hidden="true"></i></div><h3 class="font-serif font-black text-ink mb-2">AI literacy</h3><p class="text-sm text-slate-600">Co-delivery and training so the BICC and SMEs can maintain the tools after handover.</p></article>
-          <article class="bg-white rounded-2xl p-6 border border-slate-200 card-hover"><div class="w-11 h-11 rounded-xl bg-reef-soft text-reef flex items-center justify-center mb-4"><i class="ph-fill ph-plugs-connected text-2xl" aria-hidden="true"></i></div><h3 class="font-serif font-black text-ink mb-2">APIs when justified</h3><p class="text-sm text-slate-600">Start with exports and add integrations only when the business case clears the evidence bar.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section id="proof-spine" class="py-16 md:py-24 bg-white border-y border-slate-200">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid lg:grid-cols-[.95fr_1.05fr] gap-10 lg:gap-12 items-start">
-          <div>
-            <span class="text-reef font-black text-sm uppercase tracking-wider">Proof spine</span>
-            <h2 class="font-serif text-3xl md:text-5xl font-black text-ink mt-2 mb-5 tracking-tight">Five proof steps, each tied to an artifact.</h2>
-            <p class="text-slate-600 text-lg mb-7">This restores the original command-center contract in a client-readable format. Export Layer, Approval Envelope, Source-linked Audit Trail, Business Glossary and Opportunity Catalogue are visible as decision controls rather than buried terminology.</p>
-            <div class="space-y-3" role="tablist" aria-label="AngelServ proof spine">
-              <button type="button" class="lineage-button w-full text-left rounded-2xl border border-slate-200 p-4 bg-white" role="tab" aria-selected="true" data-title="Export Layer" data-path="assets/mockups/rendered/01-solution-architecture.svg" data-state="Ready to demo" data-detail="Source exports are registered, classified and owned before they feed reports, agents or Power BI pilots."><span class="lineage-kicker block text-xs uppercase tracking-[.16em] font-black text-reef">01 · ready-to-demo</span><span class="lineage-detail block font-black text-ink mt-1">Export Layer</span></button>
-              <button type="button" class="lineage-button w-full text-left rounded-2xl border border-slate-200 p-4 bg-white" role="tab" aria-selected="false" data-title="Approval Envelope" data-path="assets/mockups/rendered/07-agent-approval-envelope.svg" data-state="Human decision gate" data-detail="AI drafts order, finance and customer-facing changes, but a named person reviews and signs before commit."><span class="lineage-kicker block text-xs uppercase tracking-[.16em] font-black text-reef">02 · approval required</span><span class="lineage-detail block font-black text-ink mt-1">Approval Envelope</span></button>
-              <button type="button" class="lineage-button w-full text-left rounded-2xl border border-slate-200 p-4 bg-white" role="tab" aria-selected="false" data-title="Source-linked Audit Trail" data-path="assets/mockups/rendered/11-source-linked-audit-trail.svg" data-state="Traceability layer" data-detail="Each published figure carries source export, transformation version, approver, status and history."><span class="lineage-kicker block text-xs uppercase tracking-[.16em] font-black text-reef">03 · receipt attached</span><span class="lineage-detail block font-black text-ink mt-1">Source-linked Audit Trail</span></button>
-              <button type="button" class="lineage-button w-full text-left rounded-2xl border border-slate-200 p-4 bg-white" role="tab" aria-selected="false" data-title="Business Glossary" data-path="assets/mockups/html/13-business-glossary.html" data-state="SME-owned definitions" data-detail="Net sales, GP, depletions and local business logic become governed definitions instead of folklore."><span class="lineage-kicker block text-xs uppercase tracking-[.16em] font-black text-reef">04 · definitions owned</span><span class="lineage-detail block font-black text-ink mt-1">Business Glossary</span></button>
-              <button type="button" class="lineage-button w-full text-left rounded-2xl border border-slate-200 p-4 bg-white" role="tab" aria-selected="false" data-title="Opportunity Catalogue" data-path="assets/mockups/html/15-opportunity-catalogue-board.html" data-state="Prioritisation board" data-detail="Automation and AI candidates are ranked by evidence, effort, risk and owner, not by anecdote."><span class="lineage-kicker block text-xs uppercase tracking-[.16em] font-black text-reef">05 · ranked by evidence</span><span class="lineage-detail block font-black text-ink mt-1">Opportunity Catalogue</span></button>
-            </div>
-          </div>
-          <div class="bg-ink text-white rounded-[2rem] overflow-hidden paper-card sticky top-24">
-            <div class="p-5 border-b border-white/10 flex items-center justify-between gap-3">
-              <div><p class="font-mono text-xs text-reef-soft">selected-proof-object</p><h3 id="lineageTitle" class="font-serif text-2xl font-black mt-1">Export Layer</h3></div>
-              <span id="lineageState" class="bg-reef-soft text-ink text-xs font-black rounded-full px-3 py-1">Ready to demo</span>
-            </div>
-            <div class="p-5 sm:p-7">
-              <p id="lineageDetail" class="text-slate-300 text-lg leading-relaxed mb-6">Source exports are registered, classified and owned before they feed reports, agents or Power BI pilots.</p>
-              <a id="lineageLink" href="assets/mockups/rendered/01-solution-architecture.svg" data-path="assets/mockups/rendered/01-solution-architecture.svg" class="inline-flex items-center gap-2 bg-white text-ink px-5 py-3 rounded-full font-black hover:bg-reef-soft transition">
-                Open linked artifact <i class="ph ph-arrow-up-right" aria-hidden="true"></i>
-              </a>
-              <div class="mt-7 rounded-2xl bg-white/5 border border-white/10 p-4 font-mono text-xs text-slate-300 overflow-auto">
-                <p>&gt; source_state: illustrative</p>
-                <p>&gt; client_data: blocked until exports + SME review</p>
-                <p>&gt; publish_rule: approval envelope before action</p>
-              </div>
-            </div>
-          </div>
+    <section class="section workstreams" aria-labelledby="work-title">
+      <div class="wrap">
+        <div class="eyebrow">Brief coverage</div>
+        <h2 id="work-title">The design now names the missing business lanes instead of hoping nobody asks.</h2>
+        <p class="lead">Peer review called out gaps beyond the proof spine. This pass surfaces them as sponsor-readable workstreams without pretending they are finished.</p>
+        <div class="work-grid">
+          <article class="work-card"><b>Phase 0</b><h3>Privacy and data classification</h3><p>Export inventory, GDPR posture and evidence status are first-class, not a footnote.</p></article>
+          <article class="work-card"><b>Wave 1</b><h3>BICC Power BI Desktop pilot</h3><p>The manual report rebuild remains the first credible value demonstrator.</p></article>
+          <article class="work-card"><b>Adoption</b><h3>AI literacy capability plan</h3><p>Training, handover and maintainability are visible gates before maturity claims.</p></article>
+          <article class="work-card"><b>Value</b><h3>Before / after optimisation</h3><p>Process changes are ranked, but measured savings wait for client time data.</p></article>
+          <article class="work-card"><b>Scale</b><h3>Opportunity Catalogue</h3><p>Each candidate receives value, risk, effort, evidence and owner treatment.</p></article>
+          <article class="work-card"><b>ERP</b><h3>Next ERP advice</h3><p>Brownfield, greenfield and phased recommendations stay connected to evidence.</p></article>
         </div>
       </div>
     </section>
 
-    <section id="walkthrough" class="py-16 md:py-24 bg-paper-warm">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid lg:grid-cols-2 gap-10 items-center">
-          <div>
-            <span class="text-reef font-black text-sm uppercase tracking-wider">Interactive demo</span>
-            <h2 class="font-serif text-3xl md:text-5xl font-black text-ink mt-2 mb-4 tracking-tight">Walk through the controlled flow before the call.</h2>
-            <p class="text-slate-700 mb-6 text-lg leading-relaxed">No login, no live data, no mystery connector. The walkthrough shows how exports become approvals, approvals become audit trails, and audit trails become safer decisions for the BICC and steering committee.</p>
-            <ul class="space-y-3 mb-8">
-              <li class="flex items-start gap-3 text-sm text-slate-700"><i class="ph-fill ph-check-circle text-reef mt-0.5" aria-hidden="true"></i> Keyboard and touch friendly</li>
-              <li class="flex items-start gap-3 text-sm text-slate-700"><i class="ph-fill ph-check-circle text-reef mt-0.5" aria-hidden="true"></i> Shows the AngelServ receipt model from source to sign-off</li>
-              <li class="flex items-start gap-3 text-sm text-slate-700"><i class="ph-fill ph-check-circle text-reef mt-0.5" aria-hidden="true"></i> Neutral placeholder data only; Demo values are illustrative</li>
-            </ul>
-            <a href="assets/mockups/walkthrough/index.html" data-path="assets/mockups/walkthrough/index.html" class="inline-flex items-center gap-2 bg-reef text-white px-7 py-3.5 rounded-full font-black text-base hover:bg-reef-dark transition shadow-lg shadow-black/20">
-              <i class="ph-fill ph-play-circle" aria-hidden="true"></i> Launch the walkthrough
-            </a>
-          </div>
-          <div class="rounded-[2rem] border border-slate-200 overflow-hidden shadow-xl bg-white p-3">
-            <img src="assets/mockups/01-solution-architecture.png" alt="Top Spirit export-layer-first solution architecture" class="w-full h-auto rounded-[1.4rem]">
-          </div>
+    <section id="artifacts" class="section" aria-labelledby="artifact-title">
+      <div class="wrap">
+        <div class="eyebrow">Demo artifacts, one click away</div>
+        <h2 id="artifact-title">The meeting pack is visible before anyone opens GitHub.</h2>
+        <p class="lead">Nine artifact cards give Marlin, Joey, Keith, Will, and the client reviewer the same source map. No spelunking. No stale thread archaeology. No “where was that deck again?” goblin bite.</p>
+        <div class="artifact-grid">
+          <a class="artifact-card" href="assets/mockups/walkthrough/index.html" data-path="assets/mockups/walkthrough/index.html"><strong>Walkthrough</strong><span>Interactive guided route through the command center.</span></a><a class="artifact-card" href="assets/mockups/storyboard-gallery.md" data-path="assets/mockups/storyboard-gallery.md"><strong>Storyboard</strong><span>Eight-core storyboard for the client presentation.</span></a><a class="artifact-card" href="assets/mockups/html/README.md" data-path="assets/mockups/html/README.md"><strong>HTML companion screens</strong><span>Runnable mockup screens for the workstreams.</span></a><a class="artifact-card" href="assets/pitch/pitch-deck.md" data-path="assets/pitch/pitch-deck.md"><strong>Pitch deck</strong><span>Steering-committee narrative and slide outline.</span></a>
         </div>
       </div>
     </section>
 
-    <section id="artifacts" class="py-16 md:py-24 bg-white border-y border-slate-200">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="max-w-3xl mb-11">
-          <span class="text-reef font-black text-sm uppercase tracking-wider">Presentation pack</span>
-          <h2 class="font-serif text-3xl md:text-5xl font-black text-ink mt-2 mb-4 tracking-tight">One-click artifacts for the steering path.</h2>
-          <p class="text-slate-600 text-lg">Public-facing demo artifacts for the steering path. Internal meeting runbook, QA report and client action pack are maintained in the private delivery repo.</p>
+    <section id="evidence-gates" class="section" aria-labelledby="gates-title" style="background:var(--surface);">
+      <div class="wrap split">
+        <div>
+          <div class="eyebrow">Client evidence gates</div>
+          <h2 id="gates-title">Honest blockers make the page safer, not weaker.</h2>
+          <p class="lead">TASK-39 through TASK-45 stay visible because a premium client page should not launder unfinished validation into fake certainty.</p>
         </div>
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          <a href="assets/mockups/walkthrough/index.html" data-path="assets/mockups/walkthrough/index.html" class="group bg-paper rounded-2xl border border-slate-200 p-6 card-hover"><p class="font-mono text-xs text-reef font-bold mb-3">01 / demo</p><h3 class="font-serif font-black text-ink mb-2">Interactive walkthrough</h3><p class="text-sm text-slate-600">Step through all eight beats from source export to decision pack.</p></a>
-          <a href="assets/mockups/storyboard-gallery.md" data-path="assets/mockups/storyboard-gallery.md" class="group bg-paper rounded-2xl border border-slate-200 p-6 card-hover"><p class="font-mono text-xs text-reef font-bold mb-3">02 / narrative</p><h3 class="font-serif font-black text-ink mb-2">Storyboard gallery</h3><p class="text-sm text-slate-600">Rendered pitch visuals for the engagement story.</p></a>
-          <a href="assets/mockups/html/README.md" data-path="assets/mockups/html/README.md" class="group bg-paper rounded-2xl border border-slate-200 p-6 card-hover"><p class="font-mono text-xs text-reef font-bold mb-3">03 / screens</p><h3 class="font-serif font-black text-ink mb-2">HTML companion screens</h3><p class="text-sm text-slate-600">Screen-level mockups for the command-center flow.</p></a>
-          <a href="assets/pitch/pitch-deck.md" data-path="assets/pitch/pitch-deck.md" class="group bg-paper rounded-2xl border border-slate-200 p-6 card-hover"><p class="font-mono text-xs text-reef font-bold mb-3">04 / pitch</p><h3 class="font-serif font-black text-ink mb-2">Pitch deck</h3><p class="text-sm text-slate-600">Slide narrative and speaker notes for steering sponsors.</p></a>
-          
-          
-          
-          
-          
+        <div class="gate-list">
+          <article class="gate"><code>TASK-39</code><div><strong>BICC sign-off of export inventory</strong><span>Client evidence needed before export scope is final.</span></div></article><article class="gate"><code>TASK-40</code><div><strong>AI literacy Foundations session feedback</strong><span>Attendance and confidence feedback still gates adoption claims.</span></div></article><article class="gate"><code>TASK-41</code><div><strong>Order-to-cash hours-saved validation</strong><span>Measured savings require client time data; Demo values are illustrative.</span></div></article><article class="gate"><code>TASK-42</code><div><strong>Business-user confirmation of manual report</strong><span>The rebuilt report needs user acceptance before it becomes a proof point.</span></div></article><article class="gate"><code>TASK-43</code><div><strong>Steering review of governance model</strong><span>Approval Envelope tiers need steering committee confirmation.</span></div></article><article class="gate"><code>TASK-44</code><div><strong>Opportunity Catalogue prioritisation</strong><span>Leaders still need to rank and fund the pilot lane.</span></div></article><article class="gate"><code>TASK-45</code><div><strong>Team maintaining tools after handover</strong><span>Sustainment evidence is required before claiming operating maturity.</span></div></article>
         </div>
       </div>
     </section>
 
-    <section id="evidence-gates" class="py-16 md:py-24 bg-paper">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid lg:grid-cols-[.9fr_1.1fr] gap-10 items-start">
-          <div>
-            <span class="text-reef font-black text-sm uppercase tracking-wider">Client evidence gates</span>
-            <h2 class="font-serif text-3xl md:text-5xl font-black text-ink mt-2 mb-4 tracking-tight">Clear blockers beat fake certainty.</h2>
-            <p class="text-slate-600 text-lg">The page stays honest about what is draft-ready versus what needs Top Spirit (Marussia), BICC and steering input. No fake approvals. No unsupported confidence. Value claims need receipts before they move from demo to decision.</p>
-          </div>
-          <div class="grid sm:grid-cols-2 gap-4">
-            <div class="bg-white rounded-2xl border border-slate-200 p-5"><p class="font-mono text-xs text-reef font-bold">TASK-39</p><h3 class="font-serif font-black text-ink mt-1">BICC sign-off of export inventory</h3><p class="text-sm text-slate-600 mt-2">Needed before export coverage can be called complete.</p></div>
-            <div class="bg-white rounded-2xl border border-slate-200 p-5"><p class="font-mono text-xs text-reef font-bold">TASK-40</p><h3 class="font-serif font-black text-ink mt-1">AI literacy session feedback</h3><p class="text-sm text-slate-600 mt-2">Needed before handover capability is claimed.</p></div>
-            <div class="bg-white rounded-2xl border border-slate-200 p-5"><p class="font-mono text-xs text-reef font-bold">TASK-41</p><h3 class="font-serif font-black text-ink mt-1">Hours-saved validation</h3><p class="text-sm text-slate-600 mt-2">Requires client time data for order-to-cash value claims.</p></div>
-            <div class="bg-white rounded-2xl border border-slate-200 p-5"><p class="font-mono text-xs text-reef font-bold">TASK-42</p><h3 class="font-serif font-black text-ink mt-1">Manual report confirmation</h3><p class="text-sm text-slate-600 mt-2">Business users must confirm the consolidated report logic.</p></div>
-            <div class="bg-white rounded-2xl border border-slate-200 p-5"><p class="font-mono text-xs text-reef font-bold">TASK-43</p><h3 class="font-serif font-black text-ink mt-1">Governance model review</h3><p class="text-sm text-slate-600 mt-2">Steering committee review of Approval Envelopes remains open.</p></div>
-            <div class="bg-white rounded-2xl border border-slate-200 p-5"><p class="font-mono text-xs text-reef font-bold">TASK-44 / TASK-45</p><h3 class="font-serif font-black text-ink mt-1">Prioritisation and maintenance evidence</h3><p class="text-sm text-slate-600 mt-2">Opportunity ranking and team-owned maintenance need client proof.</p></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="next-step" class="py-16 md:py-24 bg-ink text-white">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid lg:grid-cols-[1fr_.9fr] gap-10 items-center">
-          <div>
-            <span class="text-reef font-black text-sm uppercase tracking-wider">Recommended next move</span>
-            <h2 class="font-serif text-3xl md:text-5xl font-black mt-2 mb-4 tracking-tight">Approve one controlled Wave 1 lane.</h2>
-            <p class="text-slate-300 text-lg leading-relaxed">Pick a narrow report, reconciliation or document-intake lane. Provide sample exports, owners and review windows. Angel Software Solutions uses AngelServ to produce a traceable pilot pack the steering committee can accept, reject or resize.</p>
-          </div>
-          <div class="rounded-[2rem] bg-white text-ink p-6 sm:p-8 paper-card">
-            <p class="text-xs uppercase tracking-[.18em] font-black text-reef">Decision packet</p>
-            <ol class="mt-4 space-y-4 text-sm text-slate-700">
-              <li class="flex gap-3"><span class="font-mono text-reef font-black">01</span><span>Choose the first export-backed lane and name the BICC owner.</span></li>
-              <li class="flex gap-3"><span class="font-mono text-reef font-black">02</span><span>Confirm approval boundaries for finance, pricing and customer-facing outputs.</span></li>
-              <li class="flex gap-3"><span class="font-mono text-reef font-black">03</span><span>Use the client action pack to close the evidence gates before claiming measured value.</span></li>
-            </ol>
-            
-          </div>
+    <section id="next-step" class="section" aria-labelledby="next-title">
+      <div class="wrap" style="text-align:center;max-width:980px;">
+        <div class="eyebrow">Next step</div>
+        <h2 id="next-title">Approve the route, then close the evidence.</h2>
+        <p class="lead" style="margin-left:auto;margin-right:auto;">This is the client-facing decision surface for Angel Software Solutions. It keeps AngelServ product vocabulary, Top Spirit visual cues and source-linked proof in one place while making open evidence requests impossible to miss.</p>
+        <div class="btnrow" style="justify-content:center;">
+          <a class="btn primary" href="mailto:hello@angelsoftware.solutions">Contact Angel Software Solutions</a>
+          <a class="btn ghost" href="docs/08-scale/next-erp-recommendation-pack.md" data-path="docs/08-scale/next-erp-recommendation-pack.md">Review Next-ERP Decision Pack</a>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="bg-ink text-white py-12">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-        <div>
-          <div class="flex items-center gap-2 mb-2">
-            <div class="w-8 h-8 rounded-lg bg-reef text-white flex items-center justify-center"><i class="ph-fill ph-hexagon text-lg" aria-hidden="true"></i></div>
-            <span class="font-black text-lg">Top Spirit Command Center</span>
-          </div>
-          <p class="text-slate-400 text-sm max-w-xl">Public demo site for the Angel Software Solutions engagement with Top Spirit (Marussia). All demo data is illustrative; client-only evidence remains gated until Top Spirit provides exports, attendance, validation and sign-off.</p>
-        </div>
-        <div class="flex flex-wrap gap-3">
-          <a href="assets/mockups/walkthrough/index.html" data-path="assets/mockups/walkthrough/index.html" class="inline-flex items-center gap-2 bg-reef hover:bg-reef-dark text-white px-5 py-2.5 rounded-full text-sm font-black transition">
-            <i class="ph-fill ph-play-circle" aria-hidden="true"></i> Launch walkthrough
-          </a>
-          <a href="https://github.com/ademczuk/top-spirit-command-center" class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white px-5 py-2.5 rounded-full text-sm font-bold transition border border-white/15">
-            <i class="ph-fill ph-github-logo" aria-hidden="true"></i> Public repo
-          </a>
-        </div>
-      </div>
-      <div class="border-t border-white/10 mt-8 pt-8 text-xs text-slate-500 flex flex-col sm:flex-row justify-between gap-2">
-        <span>© 2026 Angel Software Solutions.</span>
-        <span>Built for demonstration and portfolio purposes.</span>
-      </div>
+  <footer class="footer">
+    <div class="wrap">
+      <p><strong>Top Spirit Command Center</strong> · Private pre-call draft for Top Spirit (Marussia) and Angel Software Solutions. Demo values are illustrative; starter data is synthetic; client evidence gates remain explicit.</p>
+      <p>Brand system extracted with <code>npx skillui@1.3.4</code>.</p>
     </div>
   </footer>
 
   <script>
-    const buttons = Array.from(document.querySelectorAll('.lineage-button'));
-    const title = document.getElementById('lineageTitle');
-    const state = document.getElementById('lineageState');
-    const detail = document.getElementById('lineageDetail');
-    const link = document.getElementById('lineageLink');
-    buttons.forEach((button) => {
+    const proof = [('01', 'Export Layer', 'Classify exports before automation', 'ERP, CRM, bank, workbook and document inputs enter through a controlled layer first. This keeps early value work ERP-neutral while preserving a path to integrations later.'), ('02', 'Approval Envelope', 'AI drafts; named people commit', 'The command center makes authority visible. Financial, pricing, customer-facing and governance actions wait for a human owner before they become facts.'), ('03', 'Source-linked Audit Trail', 'Every number keeps its receipt', 'Claims link back to source, transform, approver and evidence status so demo-safe values never masquerade as validated client data.'), ('04', 'Business Glossary', 'Shared language for process and data', 'Terms, fields and process meanings get captured once, then reused across Power BI, agents, reports and steering materials.'), ('05', 'Opportunity Catalogue', 'A ranked backlog of value plays', 'Ideas are scored by value, risk, effort, evidence readiness and owner so the steering committee can decide what to pilot next.')];
+    const proofLinks = [
+      ['assets/images/cc-export-layer.svg','docs/05-technical-setup/export-layer-setup-guide.md'],
+      ['assets/images/cc-document-intake.svg','docs/04-templates/approval-envelope-template.md'],
+      ['assets/images/cc-audit-trail.svg','docs/05-phase-0/source-linked-audit-trail-standard.md'],
+      ['assets/images/cc-glossary-opportunity.svg','docs/08-scale/living-business-glossary.md'],
+      ['assets/images/cc-glossary-opportunity.svg','docs/08-scale/opportunity-catalogue.md']
+    ];
+    document.querySelectorAll('.spine-button').forEach((button) => {
       button.addEventListener('click', () => {
-        buttons.forEach((b) => b.setAttribute('aria-selected', 'false'));
-        button.setAttribute('aria-selected', 'true');
-        title.textContent = button.dataset.title;
-        state.textContent = button.dataset.state;
-        detail.textContent = button.dataset.detail;
-        link.href = button.dataset.path;
-        link.dataset.path = button.dataset.path;
+        const idx = Number(button.dataset.index);
+        document.querySelectorAll('.spine-button').forEach(b => b.setAttribute('aria-selected', b === button ? 'true' : 'false'));
+        document.getElementById('proofNumber').textContent = proof[idx][0];
+        document.getElementById('proofHeading').textContent = proof[idx][1];
+        document.getElementById('proofText').textContent = proof[idx][3];
+        const img = document.getElementById('proofImage');
+        img.src = proofLinks[idx][0]; img.alt = proof[idx][1] + ' visual proof card';
+        const link = document.querySelector('#proofPanel a');
+        link.href = proofLinks[idx][1]; link.dataset.path = proofLinks[idx][1];
       });
     });
   </script>

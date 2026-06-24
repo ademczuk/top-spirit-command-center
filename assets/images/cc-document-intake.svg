@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 420" role="img" aria-label="Document intake Approval Envelope illustration">
+<defs><linearGradient id="g" x1="0" x2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#f3f3f3"/></linearGradient></defs>
+<rect width="500" height="420" fill="url(#g)"/>
+<circle cx="436" cy="72" r="96" fill="#8b2e38" opacity=".08"/>
+<circle cx="66" cy="344" r="120" fill="#1b0104" opacity=".05"/>
+<rect x="82" y="118" width="300" height="190" rx="16" fill="#fff" stroke="#393939" stroke-width="8"/>
+<path d="M92 132l140 102 140-102" stroke="#8b2e38" stroke-width="9" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="382" cy="116" r="54" fill="#8b2e38"/>
+<path d="M358 116l16 16 34-40" stroke="#fff" stroke-width="10" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

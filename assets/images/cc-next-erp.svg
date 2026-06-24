@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 420" role="img" aria-label="Next ERP decision pack illustration">
+<defs><linearGradient id="g" x1="0" x2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#f3f3f3"/></linearGradient></defs>
+<rect width="500" height="420" fill="url(#g)"/>
+<circle cx="436" cy="72" r="96" fill="#8b2e38" opacity=".08"/>
+<circle cx="66" cy="344" r="120" fill="#1b0104" opacity=".05"/>
+<path d="M82 282h124l44-126 44 126h124" stroke="#393939" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity=".5"/>
+<rect x="84" y="94" width="138" height="92" rx="14" fill="#fff" stroke="#8b2e38" stroke-width="8"/>
+<rect x="278" y="94" width="138" height="92" rx="14" fill="#fff" stroke="#393939" stroke-width="8"/>
+<circle cx="250" cy="282" r="48" fill="#8b2e38"/>
+<path d="M228 282l16 16 34-40" stroke="#fff" stroke-width="9" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

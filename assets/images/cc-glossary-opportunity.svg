@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 420" role="img" aria-label="Business Glossary and Opportunity Catalogue illustration">
+<defs><linearGradient id="g" x1="0" x2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#f3f3f3"/></linearGradient></defs>
+<rect width="500" height="420" fill="url(#g)"/>
+<circle cx="436" cy="72" r="96" fill="#8b2e38" opacity=".08"/>
+<circle cx="66" cy="344" r="120" fill="#1b0104" opacity=".05"/>
+<rect x="86" y="86" width="320" height="288" rx="18" fill="#fff" stroke="#393939" stroke-width="8"/>
+<path d="M132 148h156M132 204h230M132 260h184M132 316h210" stroke="#393939" stroke-width="9" stroke-linecap="round" opacity=".42"/>
+<circle cx="342" cy="150" r="42" fill="#8b2e38"/>
+<path d="M322 150h40M342 130v40" stroke="#fff" stroke-width="8" stroke-linecap="round"/>
+</svg>
