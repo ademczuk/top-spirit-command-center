@@ -271,7 +271,7 @@
           ctx.globalCompositeOperation = "lighter";
           for (var i = 0; i < nodes.length; i++) {
             var n = nodes[i];
-            n.x += n.vx; n.y += n.vy; n.tw += n.tws;
+            if (!reduce) { n.x += n.vx; n.y += n.vy; } n.tw += n.tws;
             if (n.x < -40) n.x = w + 40; else if (n.x > w + 40) n.x = -40;
             if (n.y < -40) n.y = h + 40; else if (n.y > h + 40) n.y = -40;
             var a = n.baseA * (0.5 + 0.5 * Math.sin(n.tw));
