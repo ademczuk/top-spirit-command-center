@@ -137,9 +137,12 @@
     #next-step, #evidence-gates { position:relative; overflow:hidden; }
     #next-step .wrap, #evidence-gates .wrap { position:relative; z-index:1; }
     .section-bg { position:absolute; inset:0; z-index:0; background-size:cover; background-position:center; pointer-events:none; }
-    #next-step .section-bg { opacity:.3; }
     #evidence-gates .section-bg { opacity:.22; background-position:center top; }
-    #next-step::after, #evidence-gates::after { content:""; position:absolute; inset:0; z-index:0; pointer-events:none; background:linear-gradient(180deg,rgba(7,17,31,.78),rgba(16,27,42,.92)); }
+    #evidence-gates::after { content:""; position:absolute; inset:0; z-index:0; pointer-events:none; background:linear-gradient(180deg,rgba(7,17,31,.78),rgba(16,27,42,.92)); }
+    .section-photo { position:relative; }
+    .section-photo .section-bg { opacity:.6; z-index:0; }
+    .section-photo::after { content:""; position:absolute; inset:0; z-index:0; pointer-events:none; background:linear-gradient(110deg, rgba(7,17,31,.93) 0%, rgba(7,17,31,.72) 40%, rgba(7,17,31,.42) 100%); }
+    .section-photo .wrap { position:relative; z-index:1; }
     .footer { padding:56px 25px; background:#07111F; color:#fff; border-top:1px solid var(--gold-line); } .footer .wrap { display:flex; justify-content:space-between; gap:30px; flex-wrap:wrap; } .footer p { color:#aeb8c4; margin:0; max-width:700px; line-height:1.6; font-size:14px; } .footer strong { color:#fff; } .footer code { color:var(--maroon); }
     /* ===== Motion hero (full-screen cinematic: video + canvas-network fallback) ===== */
     .hero-motion { position:relative; min-height:calc(100svh - 70px); display:flex; align-items:flex-end; overflow:hidden; background:var(--deep); }
@@ -369,7 +372,8 @@
       </div>
     </section>
 
-    <section id="capability-beats" class="section tight" aria-labelledby="capbeat-title" style="background:var(--surface-2);">
+    <section id="capability-beats" class="section tight section-photo" aria-labelledby="capbeat-title" style="background:var(--surface-2);">
+      <span class="section-bg" data-task76="sec-operations" aria-hidden="true" style="background-image:url(assets/brand/sec-operations.png);"></span>
       <div class="wrap">
         <div class="eyebrow">Capability beats</div>
         <h2 id="capbeat-title">Four capabilities the sponsor can see, not just read about.</h2>
@@ -422,7 +426,8 @@
       </div>
     </section>
 
-    <section id="walkthrough" class="section walkthrough" aria-labelledby="walkthrough-title">
+    <section id="walkthrough" class="section walkthrough section-photo" aria-labelledby="walkthrough-title">
+      <span class="section-bg" data-task76="sec-walkthrough" aria-hidden="true" style="background-image:url(assets/brand/sec-walkthrough.png);"></span>
       <div class="wrap">
         <div class="eyebrow">Walkthrough</div>
         <h2 id="walkthrough-title">One guided route. Clear from the first click.</h2>
@@ -493,7 +498,8 @@
       </div>
     </section>
 
-    <section id="artifacts" class="section" aria-labelledby="artifact-title">
+    <section id="artifacts" class="section section-photo" aria-labelledby="artifact-title">
+      <span class="section-bg" data-task76="sec-evidence" aria-hidden="true" style="background-image:url(assets/brand/sec-evidence.png);"></span>
       <div class="wrap">
         <div class="eyebrow">Demo artifacts, one click away</div>
         <h2 id="artifact-title">The meeting pack is visible before anyone opens GitHub.</h2>
@@ -518,8 +524,8 @@
       </div>
     </section>
 
-    <section id="next-step" class="section" aria-labelledby="next-title">
-      <span class="section-bg" data-task76="next-step-bg" aria-hidden="true" style="background-image:url(assets/brand/next-step-bg.png);"></span>
+    <section id="next-step" class="section section-photo" aria-labelledby="next-title">
+      <span class="section-bg" data-task76="next-step-bg" aria-hidden="true" style="background-image:url(assets/brand/sec-value.png);"></span>
       <div class="wrap" style="text-align:center;max-width:980px;">
         <div class="eyebrow">Next step</div>
         <h2 id="next-title">Approve the route, then close the evidence.</h2>
