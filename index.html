@@ -4,29 +4,33 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Top Spirit Command Center — Angel Software Solutions</title>
-  <meta name="description" content="Premium Top Spirit / Marussia engagement walkthrough by Angel Software Solutions: Export Layer, Approval Envelope, Source-linked Audit Trail, and evidence pack." />
+  <meta name="description" content="Client-facing Top Spirit / Marussia command center by Angel Software Solutions: value, safety rails, Export Layer, Approval Envelope, Source-linked Audit Trail, and presentation pack." />
   <style>
     :root {
-      color-scheme: dark;
-      --abyss: #050b0e;
-      --ink: #071014;
-      --ink-2: #101b22;
-      --ink-3: #16262d;
-      --terminal: #c7f9e9;
-      --reef: #45d6c7;
-      --reef-2: #1b8f85;
-      --gold: #d6a94a;
-      --paper: #f4efe3;
-      --paper-2: #dfd3bd;
-      --paper-ink: #182225;
-      --danger: #d46a5b;
-      --muted: #91a6ad;
-      --line: rgba(199, 249, 233, .18);
-      --line-strong: rgba(69, 214, 199, .42);
-      --shadow: 0 24px 80px rgba(0, 0, 0, .38);
-      --mono: "IBM Plex Mono", "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+      color-scheme: light dark;
+      --night: #071115;
+      --night-2: #0d1b21;
+      --panel: #10232a;
+      --panel-2: #16313a;
+      --paper: #f7f1e6;
+      --paper-2: #eadcc5;
+      --ink: #182428;
+      --muted: #6d8084;
+      --mist: #d9eee9;
+      --reef: #3ed7c2;
+      --reef-dark: #08776f;
+      --gold: #d8a64f;
+      --clay: #d8745f;
+      --green: #62c98e;
+      --line: rgba(247, 241, 230, .14);
+      --line-dark: rgba(7, 17, 21, .12);
+      --shadow: 0 28px 90px rgba(0, 0, 0, .32);
+      --radius-xl: 32px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
       --sans: "Space Grotesk", "Sora", "Segoe UI", system-ui, sans-serif;
       --body: "Inter", "Segoe UI", system-ui, sans-serif;
+      --mono: "IBM Plex Mono", "SFMono-Regular", Consolas, "Liberation Mono", monospace;
     }
 
     * { box-sizing: border-box; }
@@ -36,69 +40,72 @@
       min-height: 100vh;
       font-family: var(--body);
       background:
-        radial-gradient(circle at 18% 8%, rgba(69, 214, 199, .18), transparent 32rem),
-        radial-gradient(circle at 82% 6%, rgba(214, 169, 74, .14), transparent 28rem),
-        linear-gradient(180deg, var(--abyss) 0%, #08151a 44%, #091014 100%);
-      color: var(--terminal);
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      background-image:
-        linear-gradient(rgba(199, 249, 233, .035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(199, 249, 233, .03) 1px, transparent 1px);
-      background-size: 28px 28px;
-      mask-image: linear-gradient(180deg, rgba(0,0,0,.72), rgba(0,0,0,.08) 72%, transparent);
+        radial-gradient(circle at 12% 4%, rgba(62, 215, 194, .18), transparent 28rem),
+        radial-gradient(circle at 88% 0%, rgba(216, 166, 79, .17), transparent 28rem),
+        linear-gradient(180deg, #071115 0%, #0b171c 42%, #101b1f 100%);
+      color: var(--mist);
     }
 
     a { color: inherit; }
-    .shell { width: min(1180px, calc(100% - 36px)); margin: 0 auto; }
+    .wrap { width: min(1180px, calc(100% - 36px)); margin-inline: auto; }
+    .skip { position: absolute; left: -999px; top: 12px; z-index: 30; padding: 10px 14px; border-radius: 999px; background: var(--paper); color: var(--ink); }
+    .skip:focus { left: 18px; }
 
     .topbar {
       position: sticky;
       top: 0;
-      z-index: 10;
+      z-index: 20;
+      background: rgba(7, 17, 21, .82);
       backdrop-filter: blur(18px);
-      background: rgba(5, 11, 14, .82);
       border-bottom: 1px solid var(--line);
     }
 
     .nav {
-      min-height: 72px;
+      min-height: 74px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 20px;
+      gap: 22px;
     }
 
     .brand {
-      display: flex;
+      display: inline-flex;
       align-items: center;
       gap: 12px;
       min-width: 0;
       text-decoration: none;
     }
 
-    .mark {
-      width: 42px;
-      height: 42px;
-      border-radius: 14px 4px 14px 4px;
+    .brand-mark {
+      width: 44px;
+      height: 44px;
+      border-radius: 16px;
       display: grid;
       place-items: center;
-      font-family: var(--mono);
-      font-weight: 800;
-      color: var(--abyss);
+      color: var(--night);
       background: linear-gradient(135deg, var(--reef), var(--gold));
-      box-shadow: 0 0 36px rgba(69, 214, 199, .28);
+      font: 900 15px/1 var(--mono);
+      box-shadow: 0 18px 50px rgba(62, 215, 194, .22);
     }
 
-    .brand-title { font-family: var(--sans); font-weight: 850; letter-spacing: -.035em; color: #f5fffb; }
-    .brand-sub { display: block; margin-top: 2px; font: 12px/1.2 var(--mono); color: var(--muted); }
+    .brand strong {
+      display: block;
+      color: #fffaf0;
+      font: 850 17px/1 var(--sans);
+      letter-spacing: -.03em;
+      white-space: nowrap;
+    }
 
-    .navlinks { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; justify-content: flex-end; }
+    .brand span {
+      display: block;
+      margin-top: 3px;
+      color: #9ab1b2;
+      font: 700 11px/1 var(--mono);
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+
+    .navlinks { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 8px; }
     .navlinks a {
       min-height: 42px;
       display: inline-flex;
@@ -106,496 +113,587 @@
       border: 1px solid transparent;
       border-radius: 999px;
       padding: 9px 13px;
-      color: var(--muted);
-      font: 700 13px/1 var(--body);
+      color: #aec4c2;
       text-decoration: none;
+      font-weight: 800;
+      font-size: 13px;
     }
-    .navlinks a:hover, .navlinks a:focus-visible { color: var(--terminal); border-color: var(--line-strong); outline: none; }
-    .navlinks .cta { color: var(--abyss); background: var(--reef); border-color: var(--reef); }
-    .navlinks .cta:hover, .navlinks .cta:focus-visible { color: var(--abyss); box-shadow: 0 0 0 4px rgba(69,214,199,.18); }
+    .navlinks a:hover, .navlinks a:focus-visible { color: #fffaf0; border-color: rgba(62, 215, 194, .48); outline: none; }
+    .navlinks .nav-cta { background: var(--reef); color: var(--night); border-color: var(--reef); }
+    .navlinks .nav-cta:hover, .navlinks .nav-cta:focus-visible { color: var(--night); box-shadow: 0 0 0 4px rgba(62, 215, 194, .16); }
+
+    main { overflow: clip; }
+    section { padding: clamp(54px, 7vw, 96px) 0; }
 
     .hero {
+      min-height: calc(100vh - 74px);
       display: grid;
-      grid-template-columns: minmax(0, .95fr) minmax(340px, .82fr);
-      gap: clamp(26px, 4vw, 58px);
+      grid-template-columns: minmax(0, .98fr) minmax(360px, .78fr);
+      gap: clamp(26px, 5vw, 64px);
       align-items: center;
-      padding: clamp(54px, 8vw, 104px) 0 62px;
+      padding-block: clamp(46px, 6vw, 84px);
     }
 
-    .kicker {
+    .eyebrow-row { display: flex; flex-wrap: wrap; gap: 9px; margin-bottom: 22px; }
+    .chip {
       display: inline-flex;
-      gap: 10px;
       align-items: center;
-      margin-bottom: 20px;
-      color: var(--reef);
-      font: 700 12px/1 var(--mono);
-      letter-spacing: .08em;
-      text-transform: uppercase;
+      gap: 7px;
+      min-height: 32px;
+      border: 1px solid rgba(247, 241, 230, .16);
+      border-radius: 999px;
+      padding: 7px 11px;
+      color: #d9eee9;
+      background: rgba(255, 255, 255, .045);
+      font: 800 12px/1 var(--mono);
+      letter-spacing: .02em;
+      white-space: nowrap;
     }
-    .pulse { width: 8px; height: 8px; border-radius: 50%; background: var(--reef); box-shadow: 0 0 0 8px rgba(69,214,199,.12); }
+    .chip::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--reef); box-shadow: 0 0 0 5px rgba(62, 215, 194, .1); }
+    .chip.gold::before { background: var(--gold); box-shadow: 0 0 0 5px rgba(216, 166, 79, .12); }
+    .chip.safe::before { background: var(--green); box-shadow: 0 0 0 5px rgba(98, 201, 142, .12); }
 
-    h1, h2, h3 { font-family: var(--sans); color: #f7fffb; margin: 0; letter-spacing: -.055em; }
-    h1 { font-size: clamp(42px, 7vw, 86px); line-height: .92; max-width: 850px; text-wrap: balance; }
-    h2 { font-size: clamp(30px, 4.6vw, 58px); line-height: .96; text-wrap: balance; }
-    h3 { font-size: clamp(20px, 2.1vw, 28px); line-height: 1; }
-    p { line-height: 1.65; }
+    h1, h2, h3 { margin: 0; font-family: var(--sans); letter-spacing: -.055em; color: #fffaf0; text-wrap: balance; }
+    h1 { font-size: clamp(44px, 7.2vw, 86px); line-height: .9; max-width: 880px; }
+    h2 { font-size: clamp(32px, 4.4vw, 58px); line-height: .97; }
+    h3 { font-size: clamp(21px, 2.1vw, 29px); line-height: 1.05; }
+    p { line-height: 1.62; }
 
-    .lead { max-width: 680px; margin: 22px 0 0; color: #cce3dd; font-size: clamp(17px, 1.5vw, 20px); }
+    .lead {
+      max-width: 680px;
+      margin: 22px 0 0;
+      color: #cfe5df;
+      font-size: clamp(18px, 1.55vw, 21px);
+    }
+
     .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
     .button {
-      min-height: 46px;
+      min-height: 48px;
       display: inline-flex;
       align-items: center;
-      gap: 9px;
-      padding: 12px 16px;
-      border-radius: 14px;
-      border: 1px solid var(--line-strong);
+      justify-content: center;
+      gap: 10px;
+      border: 1px solid rgba(247, 241, 230, .18);
+      border-radius: 16px;
+      padding: 13px 17px;
+      color: #fffaf0;
       text-decoration: none;
-      font-weight: 850;
-      color: var(--terminal);
-      background: rgba(16, 27, 34, .84);
+      font-weight: 900;
+      background: rgba(255, 255, 255, .06);
+      transition: transform .16s ease, box-shadow .16s ease, border-color .16s ease;
     }
-    .button.primary { background: var(--reef); color: var(--abyss); border-color: var(--reef); }
-    .button:hover, .button:focus-visible { outline: none; box-shadow: 0 0 0 4px rgba(69,214,199,.16); transform: translateY(-1px); }
+    .button.primary { background: var(--reef); border-color: var(--reef); color: var(--night); }
+    .button.paper { background: var(--paper); border-color: var(--paper); color: var(--ink); }
+    .button:hover, .button:focus-visible { transform: translateY(-2px); border-color: rgba(62, 215, 194, .7); box-shadow: 0 0 0 4px rgba(62, 215, 194, .15); outline: none; }
 
-    .console {
-      border: 1px solid var(--line-strong);
-      border-radius: 28px;
-      overflow: hidden;
-      background: linear-gradient(180deg, rgba(16,27,34,.98), rgba(5,11,14,.94));
+    .proof-strip {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      max-width: 780px;
+      margin-top: 28px;
+    }
+    .mini-proof {
+      border: 1px solid rgba(247, 241, 230, .14);
+      border-radius: 18px;
+      padding: 14px;
+      background: rgba(255, 255, 255, .045);
+    }
+    .mini-proof b { display: block; color: #fffaf0; font-family: var(--sans); letter-spacing: -.03em; }
+    .mini-proof span { display: block; margin-top: 5px; color: #9fb4b3; font-size: 13px; }
+
+    .decision-card {
+      border: 1px solid rgba(247, 241, 230, .18);
+      border-radius: var(--radius-xl);
+      padding: 18px;
+      background:
+        linear-gradient(180deg, rgba(247, 241, 230, .97), rgba(234, 220, 197, .96));
+      color: var(--ink);
       box-shadow: var(--shadow);
     }
-    .console-head {
+
+    .decision-head {
       display: flex;
       justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-      min-height: 54px;
-      padding: 0 18px;
-      border-bottom: 1px solid var(--line);
-      font-family: var(--mono);
-      color: var(--muted);
-      font-size: 12px;
+      align-items: start;
+      gap: 16px;
+      padding: 6px 6px 16px;
+      border-bottom: 1px solid rgba(7, 17, 21, .12);
     }
-    .lights { display: flex; gap: 7px; }
-    .lights i { width: 10px; height: 10px; border-radius: 50%; background: var(--muted); opacity: .8; }
-    .lights i:nth-child(1) { background: var(--danger); }
-    .lights i:nth-child(2) { background: var(--gold); }
-    .lights i:nth-child(3) { background: var(--reef); }
-    .console-body { padding: 20px; }
-    .prompt { font: 13px/1.65 var(--mono); color: var(--terminal); margin: 0; white-space: pre-wrap; }
-    .prompt .muted { color: var(--muted); }
-    .prompt .gold { color: var(--gold); }
-    .prompt .reef { color: var(--reef); }
+    .decision-head span { color: #607073; font: 800 12px/1 var(--mono); text-transform: uppercase; letter-spacing: .06em; }
+    .decision-head strong { display: block; margin-top: 8px; color: var(--ink); font: 900 clamp(24px, 3vw, 34px)/.95 var(--sans); letter-spacing: -.05em; }
+    .seal { border-radius: 999px; padding: 8px 10px; background: #dff6ed; color: #0a594e; font: 900 11px/1 var(--mono); white-space: nowrap; }
 
-    .status-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 18px; }
-    .status {
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      padding: 14px;
-      background: rgba(7, 16, 20, .72);
-    }
-    .status b { display: block; color: #fffced; font-family: var(--sans); letter-spacing: -.03em; }
-    .status span { display: block; margin-top: 5px; font: 12px/1.35 var(--mono); color: var(--muted); }
-
-    section { padding: clamp(52px, 7vw, 96px) 0; }
-    .section-head { display: flex; justify-content: space-between; gap: 24px; align-items: end; margin-bottom: 28px; }
-    .section-head p { max-width: 530px; color: var(--muted); margin: 0; }
-    .tag { color: var(--gold); font: 700 12px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; }
-
-    .rail-panel {
+    .value-stack { display: grid; gap: 12px; margin-top: 16px; }
+    .value-card {
       display: grid;
-      grid-template-columns: minmax(0, 1.05fr) minmax(300px, .65fr);
-      gap: 18px;
-      border: 1px solid var(--line);
-      border-radius: 30px;
-      padding: 18px;
-      background: rgba(7, 16, 20, .72);
+      grid-template-columns: auto 1fr;
+      gap: 12px;
+      align-items: start;
+      border: 1px solid rgba(7, 17, 21, .11);
+      border-radius: 20px;
+      padding: 15px;
+      background: rgba(255, 255, 255, .56);
+    }
+    .value-card i {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: var(--night);
+      color: var(--reef);
+      font-style: normal;
+      font-weight: 900;
+      font-family: var(--mono);
+    }
+    .value-card b { display: block; font: 900 17px/1.1 var(--sans); letter-spacing: -.035em; color: var(--ink); }
+    .value-card span { display: block; margin-top: 4px; color: #536367; font-size: 14px; line-height: 1.45; }
+
+    .section-head { display: flex; justify-content: space-between; align-items: end; gap: 24px; margin-bottom: 28px; }
+    .section-head p { max-width: 560px; margin: 0; color: #a9bdb9; }
+    .tag { display: block; margin-bottom: 11px; color: var(--gold); font: 900 12px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; }
+
+    .cards-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+    .card {
+      border: 1px solid rgba(247, 241, 230, .14);
+      border-radius: var(--radius-lg);
+      padding: 22px;
+      background: rgba(255, 255, 255, .055);
+      box-shadow: 0 18px 60px rgba(0,0,0,.16);
+    }
+    .card .icon {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 18px;
+      margin-bottom: 18px;
+      color: var(--night);
+      background: linear-gradient(135deg, var(--reef), #bdeede);
+      font: 900 17px/1 var(--mono);
+    }
+    .card p { color: #b4c8c4; margin: 12px 0 0; }
+    .card ul { margin: 17px 0 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+    .card li { display: flex; gap: 8px; color: #d5e8e3; font-size: 14px; }
+    .card li::before { content: "•"; color: var(--reef); font-weight: 900; }
+
+    .paper-block {
+      border-radius: var(--radius-xl);
+      padding: clamp(22px, 4vw, 38px);
+      background: var(--paper);
+      color: var(--ink);
       box-shadow: var(--shadow);
     }
-    .lineage {
-      display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
-      gap: 12px;
-      align-items: stretch;
+    .paper-block h2, .paper-block h3 { color: var(--ink); }
+    .paper-block .section-head p { color: #607073; }
+    .paper-block .tag { color: #9b6c18; }
+
+    .artifact-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+    .artifact {
+      min-height: 154px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 16px;
+      border: 1px solid rgba(7,17,21,.12);
+      border-radius: 22px;
+      padding: 17px;
+      background: rgba(255,255,255,.62);
+      color: var(--ink);
+      text-decoration: none;
+      transition: transform .16s ease, box-shadow .16s ease, border-color .16s ease;
     }
+    .artifact:hover, .artifact:focus-visible { transform: translateY(-3px); border-color: rgba(8,119,111,.55); box-shadow: 0 16px 44px rgba(7,17,21,.14); outline: none; }
+    .artifact small { color: #67787a; font: 900 11px/1 var(--mono); letter-spacing: .05em; text-transform: uppercase; }
+    .artifact b { display: block; color: var(--ink); font: 900 20px/1.05 var(--sans); letter-spacing: -.04em; }
+    .artifact span { display: block; margin-top: 7px; color: #536367; font-size: 14px; line-height: 1.4; }
+    .artifact em { color: var(--reef-dark); font-style: normal; font-weight: 900; }
+
+    .flow-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, .72fr);
+      gap: 18px;
+      border: 1px solid rgba(247, 241, 230, .14);
+      border-radius: var(--radius-xl);
+      padding: 18px;
+      background: rgba(255, 255, 255, .055);
+    }
+    .flow-buttons { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; }
     .step {
-      position: relative;
-      min-height: 148px;
-      border: 1px solid var(--line);
+      min-height: 136px;
+      border: 1px solid rgba(247, 241, 230, .14);
       border-radius: 20px;
-      padding: 16px;
-      color: var(--terminal);
-      background: rgba(16, 27, 34, .76);
+      padding: 15px;
+      background: rgba(7, 17, 21, .42);
+      color: #d9eee9;
       text-align: left;
       cursor: pointer;
       font: inherit;
     }
-    .step::after {
-      content: "";
-      position: absolute;
-      right: -13px;
-      top: 50%;
-      width: 13px;
-      height: 1px;
-      background: var(--line-strong);
-    }
-    .step:last-child::after { display: none; }
-    .step:hover, .step:focus-visible, .step.active { outline: none; border-color: var(--reef); box-shadow: 0 0 0 4px rgba(69,214,199,.10); }
-    .step-num { color: var(--gold); font: 800 12px/1 var(--mono); }
-    .step-title { display: block; margin-top: 18px; color: #fff; font-family: var(--sans); font-size: 18px; font-weight: 850; letter-spacing: -.04em; }
-    .step-state { display: block; margin-top: 10px; color: var(--muted); font: 12px/1.35 var(--mono); }
-    .detail {
-      border-radius: 22px;
-      padding: 18px;
-      background: var(--paper);
-      color: var(--paper-ink);
-    }
-    .detail h3 { color: var(--paper-ink); }
-    .detail p { margin: 12px 0 0; color: #3d4a4d; }
-    .trace {
-      display: grid;
-      gap: 8px;
-      margin-top: 18px;
-      font: 12px/1.55 var(--mono);
-    }
-    .trace div { padding: 9px 10px; border-radius: 12px; background: rgba(7, 16, 20, .08); }
+    .step b { display: block; color: var(--gold); font: 900 12px/1 var(--mono); }
+    .step strong { display: block; margin-top: 18px; color: #fffaf0; font: 900 18px/1.05 var(--sans); letter-spacing: -.04em; }
+    .step span { display: block; margin-top: 9px; color: #a9bdb9; font-size: 12px; line-height: 1.35; }
+    .step:hover, .step:focus-visible, .step.active { outline: none; border-color: var(--reef); box-shadow: 0 0 0 4px rgba(62,215,194,.11); }
 
-    .rail-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    .rail-card {
-      position: relative;
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      padding: 22px;
-      min-height: 260px;
-      background: linear-gradient(180deg, rgba(16,27,34,.86), rgba(7,16,20,.72));
-      overflow: hidden;
-    }
-    .rail-card::before {
-      content: attr(data-id);
-      position: absolute;
-      right: 18px;
-      top: 16px;
-      color: rgba(199, 249, 233, .16);
-      font: 900 54px/.8 var(--mono);
-    }
-    .rail-card h3 { max-width: 230px; }
-    .rail-card p { color: #cce3dd; margin-top: 18px; }
-    .rail-card code { color: var(--reef); font-family: var(--mono); }
-
-    .artifact-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
-    .artifact {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      min-height: 220px;
-      border: 1px solid rgba(24,34,37,.18);
+    .flow-detail {
       border-radius: 24px;
       padding: 20px;
-      text-decoration: none;
       background: var(--paper);
-      color: var(--paper-ink);
-      box-shadow: 0 20px 60px rgba(0,0,0,.18);
+      color: var(--ink);
     }
-    .artifact:hover, .artifact:focus-visible { outline: none; transform: translateY(-3px); box-shadow: 0 28px 72px rgba(0,0,0,.28); }
-    .artifact b { font-family: var(--sans); font-size: 22px; letter-spacing: -.05em; }
-    .artifact span { margin-top: 12px; color: #566164; line-height: 1.5; }
-    .artifact small { margin-top: 18px; font: 12px/1.35 var(--mono); color: #667174; word-break: break-word; }
-
-    .paper {
-      border-radius: 30px;
-      background: var(--paper);
-      color: var(--paper-ink);
-      padding: clamp(28px, 5vw, 54px);
-      box-shadow: var(--shadow);
-    }
-    .paper h2, .paper h3 { color: var(--paper-ink); }
-    .paper .section-head p { color: #566164; }
-
-    .blockers { display: grid; gap: 10px; margin-top: 22px; }
-    .blocker {
-      display: grid;
-      grid-template-columns: 96px 1fr minmax(150px, .4fr);
-      gap: 16px;
-      align-items: center;
-      padding: 14px 0;
-      border-top: 1px solid rgba(24,34,37,.14);
-    }
-    .blocker:first-child { border-top: 0; }
-    .task-id { font: 800 12px/1 var(--mono); color: #7a4a3f; }
-    .blocker b { font-family: var(--sans); letter-spacing: -.025em; }
-    .badge {
-      justify-self: start;
-      border-radius: 999px;
-      padding: 7px 10px;
-      font: 800 11px/1 var(--mono);
-      background: rgba(212,106,91,.12);
-      color: #7a342a;
-      border: 1px solid rgba(212,106,91,.32);
-      text-transform: uppercase;
-      letter-spacing: .04em;
-    }
-
-    .split { display: grid; grid-template-columns: .85fr 1.15fr; gap: 18px; align-items: stretch; }
-    .operator-card {
-      border: 1px solid var(--line);
-      border-radius: 26px;
-      padding: 24px;
-      background: rgba(16, 27, 34, .72);
-    }
-    .operator-card p { color: #cce3dd; }
-    .ledger { display: grid; gap: 10px; margin-top: 18px; }
-    .ledger-row {
-      display: grid;
-      grid-template-columns: 150px 1fr;
+    .flow-detail h3 { color: var(--ink); }
+    .flow-detail p { color: #516164; margin: 12px 0 0; }
+    .evidence-list { display: grid; gap: 9px; margin-top: 18px; }
+    .evidence-list a {
+      display: flex;
+      justify-content: space-between;
       gap: 12px;
-      padding: 13px 0;
-      border-top: 1px solid var(--line);
+      border: 1px solid rgba(7,17,21,.11);
+      border-radius: 14px;
+      padding: 10px 12px;
+      color: var(--ink);
+      background: rgba(255,255,255,.58);
+      text-decoration: none;
+      font: 800 12px/1.25 var(--mono);
     }
-    .ledger-row:first-child { border-top: 0; }
-    .ledger-row span:first-child { color: var(--gold); font: 800 12px/1.35 var(--mono); }
-    .ledger-row span:last-child { color: #e4f6ef; }
+    .evidence-list a:hover, .evidence-list a:focus-visible { outline: none; border-color: rgba(8,119,111,.45); box-shadow: 0 0 0 4px rgba(8,119,111,.1); }
+    .evidence-list span { color: #667578; }
 
-    .footer {
-      padding: 42px 0 62px;
-      border-top: 1px solid var(--line);
-      color: var(--muted);
+    .gate-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+    .gate {
+      border: 1px solid rgba(247, 241, 230, .14);
+      border-radius: 22px;
+      padding: 18px;
+      background: rgba(255, 255, 255, .052);
     }
-    .footer-grid { display: grid; grid-template-columns: 1fr auto; gap: 22px; align-items: center; }
-    .footer code { color: var(--reef); font-family: var(--mono); }
+    .gate small { color: var(--gold); font: 900 12px/1 var(--mono); }
+    .gate b { display: block; margin-top: 12px; color: #fffaf0; font: 900 19px/1.08 var(--sans); letter-spacing: -.035em; }
+    .gate span { display: block; margin-top: 9px; color: #a9bdb9; font-size: 14px; line-height: 1.45; }
 
-    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
-
-    @media (prefers-reduced-motion: no-preference) {
-      .button, .artifact, .step { transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease; }
-      .console { animation: rise .5s ease-out both; }
-      @keyframes rise { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+    .meeting-path {
+      display: grid;
+      grid-template-columns: .75fr 1fr;
+      gap: 18px;
+      align-items: stretch;
     }
+    .ask-card {
+      border-radius: var(--radius-xl);
+      padding: 26px;
+      background: linear-gradient(135deg, var(--reef), #a5eddc);
+      color: var(--night);
+    }
+    .ask-card h3 { color: var(--night); font-size: clamp(28px, 4vw, 46px); }
+    .ask-card p { color: #13373a; margin-bottom: 0; }
+    .agenda { display: grid; gap: 10px; }
+    .agenda-row {
+      display: grid;
+      grid-template-columns: 76px 1fr;
+      gap: 14px;
+      align-items: center;
+      border: 1px solid rgba(247, 241, 230, .14);
+      border-radius: 20px;
+      padding: 14px;
+      background: rgba(255,255,255,.052);
+    }
+    .agenda-row time { color: var(--gold); font: 900 13px/1 var(--mono); }
+    .agenda-row b { display: block; color: #fffaf0; }
+    .agenda-row span { display: block; margin-top: 4px; color: #a9bdb9; font-size: 14px; }
+
+    footer { padding: 36px 0 56px; color: #8fa4a1; }
+    .footer-line { border-top: 1px solid var(--line); padding-top: 18px; display: flex; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
+    .footer-line a { color: #d9eee9; font-weight: 800; text-decoration: none; }
+    .footer-line a:hover, .footer-line a:focus-visible { color: var(--reef); outline: none; }
 
     @media (max-width: 980px) {
-      .hero, .rail-panel, .split { grid-template-columns: 1fr; }
-      .lineage, .rail-cards, .artifact-grid { grid-template-columns: 1fr; }
-      .step::after { display: none; }
-      .section-head { display: block; }
-      .section-head p { margin-top: 12px; }
-      .status-grid { grid-template-columns: 1fr; }
-      .nav { align-items: flex-start; padding: 14px 0; }
-      .navlinks { display: none; }
-      h1 { font-size: clamp(40px, 13vw, 64px); }
+      .hero, .flow-panel, .meeting-path { grid-template-columns: 1fr; }
+      .hero { min-height: auto; }
+      .artifact-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .cards-3, .gate-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .flow-buttons { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
 
-    @media (max-width: 640px) {
-      .shell { width: min(100% - 24px, 1180px); }
-      .hero { padding-top: 42px; }
-      .console-body, .rail-card, .operator-card, .artifact { padding: 16px; }
-      .paper { padding: 24px 18px; }
-      .blocker { grid-template-columns: 1fr; gap: 6px; }
-      .footer-grid { grid-template-columns: 1fr; }
+    @media (max-width: 720px) {
+      .wrap { width: min(100% - 28px, 1180px); }
+      .nav { align-items: flex-start; flex-direction: column; padding: 14px 0; }
+      .navlinks { justify-content: flex-start; }
+      .navlinks a { min-height: 38px; padding: 8px 10px; font-size: 12px; }
+      h1 { font-size: clamp(42px, 15vw, 64px); }
+      .lead { font-size: 17px; }
+      .proof-strip, .artifact-grid, .cards-3, .gate-grid, .flow-buttons { grid-template-columns: 1fr; }
+      .decision-card, .paper-block, .flow-panel { border-radius: 24px; }
+      .section-head { display: block; }
+      .section-head p { margin-top: 14px; }
+      .brand strong { white-space: normal; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .001ms !important;
+        animation-duration: .001ms !important;
+        animation-iteration-count: 1 !important;
+      }
     }
   </style>
 </head>
 <body>
+  <a class="skip" href="#artifacts">Skip to demo artifacts</a>
   <header class="topbar">
-    <div class="shell nav">
+    <nav class="wrap nav" aria-label="Primary">
       <a class="brand" href="#top" aria-label="Top Spirit Command Center home">
-        <span class="mark">AR</span>
-        <span><span class="brand-title">Top Spirit Command Center</span><span class="brand-sub">Angel Software Solutions · AgentReef-style evidence room</span></span>
+        <span class="brand-mark">AS</span>
+        <span>
+          <strong>Top Spirit Command Center</strong>
+          <span>Angel Software Solutions</span>
+        </span>
       </a>
-      <nav class="navlinks" aria-label="Primary navigation">
-        <a href="#lineage">Lineage rail</a>
-        <a href="#rails">Controls</a>
-        <a href="#evidence">Evidence</a>
-        <a href="#blockers">Client blockers</a>
-        <a class="cta" href="assets/mockups/walkthrough/index.html" data-path="assets/mockups/walkthrough/index.html">Open walkthrough</a>
-      </nav>
-    </div>
+      <div class="navlinks" aria-label="Page sections">
+        <a href="#value">Value</a>
+        <a href="#artifacts">Demo pack</a>
+        <a href="#control">Controls</a>
+        <a href="#blockers">Client gates</a>
+        <a href="assets/mockups/walkthrough/index.html" data-path="assets/mockups/walkthrough/index.html" class="nav-cta">Open walkthrough</a>
+      </div>
+    </nav>
   </header>
 
   <main id="top">
-    <section class="shell hero" aria-labelledby="hero-title">
+    <section class="wrap hero" aria-labelledby="hero-title">
       <div>
-        <div class="kicker"><span class="pulse" aria-hidden="true"></span> agentreef command posture · demo-safe</div>
-        <h1 id="hero-title">Value now. Control intact.</h1>
-        <p class="lead">A premium launch point for the Top Spirit (Marussia) engagement pack: export-based delivery, human approval boundaries, and a source-linked audit trail that survives the next ERP decision.</p>
-        <div class="hero-actions">
-          <a class="button primary" href="assets/mockups/walkthrough/index.html" data-path="assets/mockups/walkthrough/index.html">Open guided walkthrough →</a>
-          <a class="button" href="#evidence">Review evidence map</a>
+        <div class="eyebrow-row" aria-label="Core message">
+          <span class="chip">Value before ERP</span>
+          <span class="chip safe">Approval before action</span>
+          <span class="chip gold">Evidence over theatre</span>
+        </div>
+        <h1 id="hero-title">Value now. Controls intact.</h1>
+        <p class="lead">A client-facing command center for Top Spirit (Marussia): show where Angel Software Solutions can create early value with exports, human approvals, and source-linked evidence before any ERP decision is forced.</p>
+        <div class="hero-actions" aria-label="Primary actions">
+          <a class="button primary" href="assets/mockups/walkthrough/index.html" data-path="assets/mockups/walkthrough/index.html">Open guided walkthrough</a>
+          <a class="button" href="#artifacts">Review evidence pack</a>
+          <a class="button" href="docs/11-presentation/client-action-pack.md" data-path="docs/11-presentation/client-action-pack.md">Client action pack</a>
+        </div>
+        <div class="proof-strip" aria-label="First viewport safety rails">
+          <div class="mini-proof"><b>Export Layer first</b><span>Starts from representative files and mappings, not risky ERP writes.</span></div>
+          <div class="mini-proof"><b>Approval Envelope</b><span>Every AI-assisted output is reviewed before it becomes a business action.</span></div>
+          <div class="mini-proof"><b>Source-linked Audit Trail</b><span>Claims trace back to files, owners, and sign-off gates.</span></div>
         </div>
       </div>
 
-      <aside class="console" aria-label="Engagement control console">
-        <div class="console-head"><span class="lights" aria-hidden="true"><i></i><i></i><i></i></span><span>reefctl / top-spirit / pre-call-pack</span></div>
-        <div class="console-body">
-          <pre class="prompt"><span class="muted">$</span> reefctl trace --engagement top-spirit
-<span class="reef">OK</span> export-layer: file-based, ERP-neutral
-<span class="reef">OK</span> approval-envelope: human decides before downstream action
-<span class="reef">OK</span> source-linked-audit-trail: every claim points back to evidence
-<span class="gold">WAIT</span> client evidence: TASK-39..TASK-45 still requires Top Spirit / Marussia sign-off</pre>
-          <div class="status-grid" aria-label="Current evidence status">
-            <div class="status"><b>Demo pack</b><span>ready to review</span></div>
-            <div class="status"><b>Client data</b><span>not included</span></div>
-            <div class="status"><b>ERP path</b><span>brownfield / greenfield neutral</span></div>
+      <aside class="decision-card" aria-label="Decision cockpit summary">
+        <div class="decision-head">
+          <div>
+            <span>Steering view</span>
+            <strong>See the pilot path in one screen.</strong>
           </div>
+          <span class="seal">Demo-safe</span>
+        </div>
+        <div class="value-stack">
+          <div class="value-card"><i>01</i><div><b>Pick the first value lane</b><span>Manual reporting, order intake, reconciliation, glossary, and opportunity catalogue are framed as controlled pilot lanes.</span></div></div>
+          <div class="value-card"><i>02</i><div><b>Keep authority with people</b><span>Approval Envelopes make the control boundary visible instead of hiding it behind automation language.</span></div></div>
+          <div class="value-card"><i>03</i><div><b>Know what is still missing</b><span>Client-only evidence gates are called out, including TASK-39 through TASK-45. Demo values are illustrative.</span></div></div>
         </div>
       </aside>
     </section>
 
-    <section id="lineage" class="shell" aria-labelledby="lineage-title">
+    <section class="wrap" id="value" aria-labelledby="value-title">
       <div class="section-head">
-        <div><div class="tag">signature interaction</div><h2 id="lineage-title">The proof is the rail.</h2></div>
-        <p>Every artifact in the story moves through a visible chain: source export, classification, Approval Envelope, human sign-off, and decision output. Click a node; the console bites back with receipts.</p>
-      </div>
-
-      <div class="rail-panel">
-        <div class="lineage" role="list" aria-label="Source-linked delivery lineage">
-          <button class="step active" data-step="0" role="listitem"><span class="step-num">01</span><span class="step-title">Source export</span><span class="step-state">csv · xlsx · json · illustrative</span></button>
-          <button class="step" data-step="1" role="listitem"><span class="step-num">02</span><span class="step-title">Classification</span><span class="step-state">owner · GDPR · sensitivity</span></button>
-          <button class="step" data-step="2" role="listitem"><span class="step-num">03</span><span class="step-title">Approval Envelope</span><span class="step-state">AI proposes · human decides</span></button>
-          <button class="step" data-step="3" role="listitem"><span class="step-num">04</span><span class="step-title">Audit Trail</span><span class="step-state">prompt · source · output · decision</span></button>
-          <button class="step" data-step="4" role="listitem"><span class="step-num">05</span><span class="step-title">Decision output</span><span class="step-state">Power BI · roadmap · ERP pack</span></button>
+        <div>
+          <span class="tag">Client-facing story</span>
+          <h2 id="value-title">Less terminal. More decision surface.</h2>
         </div>
-        <div class="detail" aria-live="polite">
-          <h3 id="detail-title">Source export</h3>
-          <p id="detail-copy">Top Spirit keeps source systems where they are. Governed exports become the safe input layer for automation and reporting.</p>
-          <div class="trace" id="detail-trace">
-            <div>source: assets/starter-data/*.csv</div>
-            <div>state: illustrative sample only</div>
-            <div>owner action: TASK-39 export inventory sign-off</div>
-          </div>
-        </div>
+        <p>The page now leads with value, safety, and proof objects. The technical machinery is still there, but it supports the pitch instead of swallowing it like a dashboard kraken in a waistcoat.</p>
+      </div>
+      <div class="cards-3">
+        <article class="card">
+          <span class="icon">V</span>
+          <h3>Value that can start now</h3>
+          <p>Show how Top Spirit can test useful AI work with exports and operating knowledge before committing to a large platform decision.</p>
+          <ul>
+            <li>Manual report rebuild path</li>
+            <li>Order-to-cash review queue</li>
+            <li>Opportunity catalogue for prioritisation</li>
+          </ul>
+        </article>
+        <article class="card">
+          <span class="icon">S</span>
+          <h3>Safety rails in plain view</h3>
+          <p>The control model is not a footnote. It is visible in the first viewport and repeated through each proof step.</p>
+          <ul>
+            <li>Approval Envelope before action</li>
+            <li>GDPR and data classification posture</li>
+            <li>No live ERP dependency for the first wave</li>
+          </ul>
+        </article>
+        <article class="card">
+          <span class="icon">E</span>
+          <h3>Evidence one click away</h3>
+          <p>Every demo asset is a direct link, so the meeting can move from executive story to source proof without a file-hunt ritual sacrifice.</p>
+          <ul>
+            <li>Walkthrough, storyboard, pitch deck</li>
+            <li>Demo QA and send pack</li>
+            <li>Client action pack and meeting runbook</li>
+          </ul>
+        </article>
       </div>
     </section>
 
-    <section id="rails" class="shell" aria-labelledby="rails-title">
-      <div class="section-head">
-        <div><div class="tag">operating rails</div><h2 id="rails-title">Controls before theatrics.</h2></div>
-        <p>The site is dark and terminal-native because the work is operational. The client-facing promise is simple: create usable artifacts without bypassing human accountability.</p>
-      </div>
-      <div class="rail-cards">
-        <article class="rail-card" data-id="01"><h3>Export Layer</h3><p>File-based intake keeps the engagement ERP-neutral. The first job is to know which exports exist, who owns them, and how they can be used.</p><code>input: governed files</code></article>
-        <article class="rail-card" data-id="02"><h3>Approval Envelope</h3><p>AI can draft, classify, suggest, and route. A named human approves operational or decision-critical actions before they matter downstream.</p><code>rule: propose ≠ commit</code></article>
-        <article class="rail-card" data-id="03"><h3>Source-linked Audit Trail</h3><p>Reports and recommendations need a path back to source, transformation, prompt, reviewer, and decision. No ghost numbers in a tuxedo.</p><code>output: traceable claims</code></article>
-      </div>
-    </section>
-
-    <section id="evidence" class="shell paper" aria-labelledby="evidence-title">
-      <div class="section-head">
-        <div><div class="tag">evidence map</div><h2 id="evidence-title">Open the pack from one control room.</h2></div>
-        <p>The site points to the existing presentation materials. Demo values are illustrative; the client action pack names what only Top Spirit / Marussia can validate.</p>
-      </div>
-      <div class="artifact-grid">
-        <a class="artifact" href="assets/mockups/walkthrough/index.html" data-path="assets/mockups/walkthrough/index.html"><b>Guided walkthrough</b><span>Eight-screen interactive interface story for Export Layer, approvals, reconciliation, governance, audit trail, adoption, glossary, and ERP decision support.</span><small>assets/mockups/walkthrough/index.html</small></a>
-        <a class="artifact" href="assets/mockups/storyboard-gallery.md" data-path="assets/mockups/storyboard-gallery.md"><b>Storyboard gallery</b><span>Deck-safe process and architecture visuals, including the source-linked operating model.</span><small>assets/mockups/storyboard-gallery.md</small></a>
-        <a class="artifact" href="assets/mockups/html/README.md" data-path="assets/mockups/html/README.md"><b>HTML companion screens</b><span>Static mockup pack for the individual engagement artifacts and dashboards.</span><small>assets/mockups/html/README.md</small></a>
-        <a class="artifact" href="assets/pitch/pitch-deck.md" data-path="assets/pitch/pitch-deck.md"><b>Pitch deck</b><span>Presenter-friendly narrative for value now, safety rails, and the ERP-neutral path.</span><small>assets/pitch/pitch-deck.md</small></a>
-        <a class="artifact" href="docs/11-presentation/demo-qa-report.md" data-path="docs/11-presentation/demo-qa-report.md"><b>Demo QA report</b><span>Asset inventory, offline fallback, presenter checks, and known demo boundaries.</span><small>docs/11-presentation/demo-qa-report.md</small></a>
-        <a class="artifact" href="docs/11-presentation/meeting-runbook.md" data-path="docs/11-presentation/meeting-runbook.md"><b>Meeting runbook</b><span>Agenda, talk tracks, speaker notes, objections, and next-step ask.</span><small>docs/11-presentation/meeting-runbook.md</small></a>
-        <a class="artifact" href="docs/11-presentation/client-send-pack-and-follow-up.md" data-path="docs/11-presentation/client-send-pack-and-follow-up.md"><b>Send pack</b><span>Pre-call, in-call, and follow-up material with internal-only exclusions.</span><small>docs/11-presentation/client-send-pack-and-follow-up.md</small></a>
-        <a class="artifact" href="docs/11-presentation/client-action-pack.md" data-path="docs/11-presentation/client-action-pack.md"><b>Client action pack</b><span>The honest list of sign-offs, validation, attendance, and evidence the repo cannot invent.</span><small>docs/11-presentation/client-action-pack.md</small></a>
-      </div>
-    </section>
-
-    <section id="blockers" class="shell" aria-labelledby="blockers-title">
-      <div class="paper">
+    <section class="wrap" id="artifacts" aria-labelledby="artifacts-title">
+      <div class="paper-block">
         <div class="section-head">
-          <div><div class="tag">honesty layer</div><h2 id="blockers-title">Client evidence stays visible.</h2></div>
-          <p>The work is prepared; these tasks remain open until Top Spirit / Marussia provides the evidence. No consultant fan-fiction in a command shell.</p>
+          <div>
+            <span class="tag">One-click demo pack</span>
+            <h2 id="artifacts-title">Open the right artifact without spelunking the repo.</h2>
+          </div>
+          <p>These links are repository-local and verifier-checked. They are safe to mirror into the public Pages site.</p>
         </div>
-        <div class="blockers" aria-label="Client-only blockers">
-          <div class="blocker"><span class="task-id">TASK-39</span><b>BICC sign-off of export inventory</b><span class="badge">client needed</span></div>
-          <div class="blocker"><span class="task-id">TASK-40</span><b>AI literacy session delivery and feedback</b><span class="badge">client needed</span></div>
-          <div class="blocker"><span class="task-id">TASK-41</span><b>Order-to-cash hours-saved validation</b><span class="badge">client needed</span></div>
-          <div class="blocker"><span class="task-id">TASK-42</span><b>Manual report confirmation by business users</b><span class="badge">client needed</span></div>
-          <div class="blocker"><span class="task-id">TASK-43</span><b>Steering review of governance and Approval Envelopes</b><span class="badge">client needed</span></div>
-          <div class="blocker"><span class="task-id">TASK-44</span><b>Opportunity Catalogue prioritisation</b><span class="badge">client needed</span></div>
-          <div class="blocker"><span class="task-id">TASK-45</span><b>Evidence that the team maintains tools after handover</b><span class="badge">client needed</span></div>
+        <div class="artifact-grid">
+          <a class="artifact" href="assets/mockups/walkthrough/index.html" data-path="assets/mockups/walkthrough/index.html"><small>Live demo</small><b>Guided walkthrough</b><span>Eight-screen client path from engagement start to value dashboard.</span><em>Open →</em></a>
+          <a class="artifact" href="assets/mockups/storyboard-gallery.md" data-path="assets/mockups/storyboard-gallery.md"><small>Story</small><b>Storyboard gallery</b><span>Diagram-backed sequence for the consulting narrative.</span><em>Open →</em></a>
+          <a class="artifact" href="assets/pitch/pitch-deck.md" data-path="assets/pitch/pitch-deck.md"><small>Pitch</small><b>Executive deck</b><span>Meeting-ready deck for steering sponsors.</span><em>Open →</em></a>
+          <a class="artifact" href="docs/11-presentation/demo-qa-report.md" data-path="docs/11-presentation/demo-qa-report.md"><small>QA</small><b>Demo QA report</b><span>Known limitations, fallback path, and presentation checks.</span><em>Open →</em></a>
+          <a class="artifact" href="docs/11-presentation/client-send-pack-and-follow-up.md" data-path="docs/11-presentation/client-send-pack-and-follow-up.md"><small>Send pack</small><b>Follow-up kit</b><span>Post-call handoff material and client next steps.</span><em>Open →</em></a>
+          <a class="artifact" href="docs/11-presentation/client-action-pack.md" data-path="docs/11-presentation/client-action-pack.md"><small>Action</small><b>Client action pack</b><span>Inputs needed to turn the demo into Wave 1 work.</span><em>Open →</em></a>
+          <a class="artifact" href="docs/11-presentation/meeting-runbook.md" data-path="docs/11-presentation/meeting-runbook.md"><small>Runbook</small><b>Meeting path</b><span>Talk track, decisions, and fallback plan.</span><em>Open →</em></a>
+          <a class="artifact" href="assets/mockups/html/README.md" data-path="assets/mockups/html/README.md"><small>Screens</small><b>HTML companions</b><span>App-like supporting screens for process and value conversations.</span><em>Open →</em></a>
         </div>
       </div>
     </section>
 
-    <section class="shell" aria-labelledby="erp-title">
-      <div class="split">
-        <div class="operator-card">
-          <div class="tag">erp-neutral path</div>
-          <h2 id="erp-title">Brownfield or greenfield, the evidence still pays rent.</h2>
-          <p>The engagement builds a working evidence layer before the ERP decision finishes. Export inventory, glossary, approval rules, and adoption data all help steer brownfield, greenfield, or phased change.</p>
+    <section class="wrap" id="control" aria-labelledby="control-title">
+      <div class="section-head">
+        <div>
+          <span class="tag">How control stays intact</span>
+          <h2 id="control-title">Five proof steps, each tied to an artifact.</h2>
         </div>
-        <div class="operator-card">
-          <h3>Operator ledger</h3>
-          <div class="ledger">
-            <div class="ledger-row"><span>Now</span><span>Prepare sample artifacts, walkthrough, source-linked proof model, and client action pack.</span></div>
-            <div class="ledger-row"><span>Next</span><span>Collect export inventory sign-off, one process time baseline, one report validation, and steering governance review.</span></div>
-            <div class="ledger-row"><span>Then</span><span>Use confirmed evidence to prioritise the Opportunity Catalogue and ERP decision pack.</span></div>
+        <p>Use the buttons to move from source files to decision governance. This keeps the Source-linked Audit Trail visible without dumping a wall of technical text on the client.</p>
+      </div>
+      <div class="flow-panel">
+        <div class="flow-buttons" role="tablist" aria-label="Control flow steps">
+          <button class="step active" type="button" role="tab" aria-selected="true" data-step="0" data-path="docs/05-technical-setup/export-layer-setup-guide.md"><b>01</b><strong>Export Layer</strong><span>Representative files first.</span></button>
+          <button class="step" type="button" role="tab" aria-selected="false" data-step="1" data-path="docs/05-phase-0/source-linked-audit-trail-standard.md"><b>02</b><strong>Source trail</strong><span>Trace every claim.</span></button>
+          <button class="step" type="button" role="tab" aria-selected="false" data-step="2" data-path="docs/04-templates/approval-envelope-template.md"><b>03</b><strong>Approval Envelope</strong><span>Human sign-off boundary.</span></button>
+          <button class="step" type="button" role="tab" aria-selected="false" data-step="3" data-path="docs/08-scale/opportunity-catalogue.md"><b>04</b><strong>Prioritise</strong><span>Value, effort, risk.</span></button>
+          <button class="step" type="button" role="tab" aria-selected="false" data-step="4" data-path="docs/08-scale/value-adoption-dashboard-spec.md"><b>05</b><strong>Track value</strong><span>Adoption and benefits.</span></button>
+        </div>
+        <aside class="flow-detail" aria-live="polite">
+          <h3 id="step-title">Export Layer</h3>
+          <p id="step-copy">Start with representative exports and a clear classification rule. No live ERP write access is needed to prove the first wave.</p>
+          <div class="evidence-list" id="step-links">
+            <a href="docs/05-technical-setup/export-layer-setup-guide.md" data-path="docs/05-technical-setup/export-layer-setup-guide.md"><span>Open</span> Export setup guide</a>
+            <a href="docs/05-phase-0/data-classification-and-export-inventory.md" data-path="docs/05-phase-0/data-classification-and-export-inventory.md"><span>Open</span> Data classification rule</a>
           </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="wrap" id="blockers" aria-labelledby="blockers-title">
+      <div class="section-head">
+        <div>
+          <span class="tag">Client evidence gates</span>
+          <h2 id="blockers-title">Clear blockers beat fake certainty.</h2>
+        </div>
+        <p>Demo values are illustrative until Top Spirit provides representative exports, mappings, owners, and sign-off. The site does not claim client approval that has not happened.</p>
+      </div>
+      <div class="gate-grid">
+        <article class="gate"><small>TASK-39</small><b>BICC export sign-off</b><span>Required before source inventory becomes client-approved evidence.</span></article>
+        <article class="gate"><small>TASK-40</small><b>AI literacy feedback</b><span>Required before adoption claims can move beyond the session plan.</span></article>
+        <article class="gate"><small>TASK-41</small><b>Hours-saved validation</b><span>Required before savings figures become more than sample mechanics.</span></article>
+        <article class="gate"><small>TASK-45</small><b>Maintenance evidence</b><span>Required before the team can claim durable ownership after handover.</span></article>
+      </div>
+    </section>
+
+    <section class="wrap" aria-labelledby="meeting-title">
+      <div class="meeting-path">
+        <div class="ask-card">
+          <span class="tag">Decision ask</span>
+          <h3 id="meeting-title">Approve the first controlled Wave 1 lane.</h3>
+          <p>Pick the safest high-value starting lane, confirm the required exports and owners, and decide which Approval Envelope rules must be active before pilot outputs are used.</p>
+          <div class="hero-actions">
+            <a class="button paper" href="docs/11-presentation/meeting-runbook.md" data-path="docs/11-presentation/meeting-runbook.md">Open meeting runbook</a>
+          </div>
+        </div>
+        <div class="agenda" aria-label="Suggested meeting flow">
+          <div class="agenda-row"><time>00–10</time><div><b>Frame value before ERP</b><span>Explain why exports can prove useful work without forcing platform choice.</span></div></div>
+          <div class="agenda-row"><time>10–35</time><div><b>Walk through the demo</b><span>Use the guided walkthrough and supporting storyboard.</span></div></div>
+          <div class="agenda-row"><time>35–55</time><div><b>Inspect controls</b><span>Show Export Layer, Approval Envelope, and Source-linked Audit Trail.</span></div></div>
+          <div class="agenda-row"><time>55–75</time><div><b>Name blockers</b><span>Review TASK-39 through TASK-45 and assign owners.</span></div></div>
+          <div class="agenda-row"><time>75–90</time><div><b>Confirm next action</b><span>Agree the first Wave 1 lane and the evidence needed to proceed.</span></div></div>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="shell footer-grid">
-      <div>Angel Software Solutions · Top Spirit (Marussia) pre-call command center. Demo values are illustrative; no real client exports are included.</div>
-      <div><code>reefctl status: evidence-before-claims</code></div>
+  <footer>
+    <div class="wrap footer-line">
+      <span>Built for Top Spirit (Marussia) by Angel Software Solutions. Demo values are illustrative until client evidence gates close.</span>
+      <a href="docs/DESIGN.md" data-path="docs/DESIGN.md">Design contract</a>
     </div>
   </footer>
 
   <script>
-    const pathPrefix = (() => {
-      const path = window.location.pathname || "";
-      return /\/docs\/index\.html$|\/docs\/$/.test(path) || path.endsWith('/docs/index.html') ? '../' : './';
-    })();
-
-    document.querySelectorAll('[data-path]').forEach((anchor) => {
-      anchor.setAttribute('href', pathPrefix + anchor.dataset.path);
-    });
-
-    const details = [
+    const steps = [
       {
-        title: 'Source export',
-        copy: 'Top Spirit keeps source systems where they are. Governed exports become the safe input layer for automation and reporting.',
-        trace: ['source: assets/starter-data/*.csv', 'state: illustrative sample only', 'owner action: TASK-39 export inventory sign-off']
-      },
-      {
-        title: 'Classification',
-        copy: 'Each file gets owner, sensitivity, GDPR, and usage labels before any automation consumes it.',
-        trace: ['artifact: docs/05-phase-0/data-classification-and-export-inventory.md', 'state: prepared template', 'owner action: BICC and data-owner confirmation']
-      },
-      {
-        title: 'Approval Envelope',
-        copy: 'AI can propose order, reconciliation, report, or governance actions. Named humans approve before downstream impact.',
-        trace: ['artifact: docs/06-wave-1/governance-approval-envelopes.md', 'state: steering review required', 'owner action: TASK-43 approval thresholds']
+        title: 'Export Layer',
+        copy: 'Start with representative exports and a clear classification rule. No live ERP write access is needed to prove the first wave.',
+        links: [
+          ['Export setup guide', 'docs/05-technical-setup/export-layer-setup-guide.md'],
+          ['Data classification rule', 'docs/05-phase-0/data-classification-and-export-inventory.md']
+        ]
       },
       {
         title: 'Source-linked Audit Trail',
-        copy: 'Every demo claim is designed to expand back to source, transformation, prompt, reviewer, and decision event.',
-        trace: ['artifact: assets/mockups/walkthrough/index.html#audit-trail', 'state: demo-ready pattern', 'owner action: validate against real exports later']
+        copy: 'Keep each claim tied to a source file, transformation, reviewer, and decision note so the pilot remains inspectable.',
+        links: [
+          ['Audit trail standard', 'docs/05-phase-0/source-linked-audit-trail-standard.md'],
+          ['Lineage sample', 'outputs/wave1/power-bi-pilot-lineage.csv']
+        ]
       },
       {
-        title: 'Decision output',
-        copy: 'Validated evidence feeds the Power BI path, Opportunity Catalogue, Business Glossary, and ERP decision pack.',
-        trace: ['artifact: assets/pitch/pitch-deck.md', 'state: pre-call draft', 'owner action: steering prioritisation via TASK-44']
+        title: 'Approval Envelope',
+        copy: 'AI-assisted work is framed as a draft until a named human approves the envelope for use.',
+        links: [
+          ['Approval template', 'docs/04-templates/approval-envelope-template.md'],
+          ['Governance model', 'docs/06-wave-1/governance-approval-envelopes.md']
+        ]
+      },
+      {
+        title: 'Opportunity Catalogue',
+        copy: 'Candidate automations are compared by value, effort, risk, and evidence readiness before anyone commits to delivery.',
+        links: [
+          ['Opportunity catalogue', 'docs/08-scale/opportunity-catalogue.md'],
+          ['Value one-pager', 'assets/mockups/html/14-business-case-one-pager.html']
+        ]
+      },
+      {
+        title: 'Value tracking',
+        copy: 'Adoption and benefit tracking starts after the pilot launches, so delivery can be judged against observed use.',
+        links: [
+          ['Dashboard spec', 'docs/08-scale/value-adoption-dashboard-spec.md'],
+          ['Sample value dashboard', 'docs/08-scale/value-adoption-dashboard-sample.md']
+        ]
       }
     ];
 
-    const buttons = [...document.querySelectorAll('.step')];
-    const title = document.querySelector('#detail-title');
-    const copy = document.querySelector('#detail-copy');
-    const trace = document.querySelector('#detail-trace');
+    const buttons = Array.from(document.querySelectorAll('.step'));
+    const title = document.getElementById('step-title');
+    const copy = document.getElementById('step-copy');
+    const links = document.getElementById('step-links');
 
-    function activate(index) {
-      const item = details[index];
-      buttons.forEach((button, i) => button.classList.toggle('active', i === index));
-      title.textContent = item.title;
-      copy.textContent = item.copy;
-      trace.innerHTML = item.trace.map((line) => `<div>${line}</div>`).join('');
+    function selectStep(index) {
+      const step = steps[index];
+      if (!step) return;
+      buttons.forEach((button, i) => {
+        button.classList.toggle('active', i === index);
+        button.setAttribute('aria-selected', String(i === index));
+      });
+      title.textContent = step.title;
+      copy.textContent = step.copy;
+      links.innerHTML = step.links.map(([label, href]) => `<a href="${href}" data-path="${href}"><span>Open</span> ${label}</a>`).join('');
     }
 
-    buttons.forEach((button, index) => {
-      button.addEventListener('click', () => activate(index));
-      button.addEventListener('keydown', (event) => {
-        if (event.key === 'ArrowRight') buttons[Math.min(buttons.length - 1, index + 1)].focus();
-        if (event.key === 'ArrowLeft') buttons[Math.max(0, index - 1)].focus();
-      });
+    buttons.forEach((button) => {
+      button.addEventListener('click', () => selectStep(Number(button.dataset.step)));
     });
   </script>
 </body>

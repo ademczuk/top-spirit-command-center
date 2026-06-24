@@ -1,0 +1,6 @@
+customer_id,customer_name,channel,region,credit_limit_eur,payment_terms,active
+CUST-1001,Tirolean Beverages Ltd,on-trade,Tyrol,50000,30 days,1
+CUST-1002,Alpine Retail Group,off-trade,Salzburg,120000,14 days,1
+CUST-1003,Vienna Wine Merchants,off-trade,Vienna,85000,30 days,1
+CUST-1004,Salzburg Gastronomy AG,on-trade,Salzburg,35000,7 days,1
+CUST-1005,Graz Spirits Select,on-trade,Styria,45000,14 days,1

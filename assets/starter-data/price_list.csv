@@ -1,0 +1,7 @@
+product_code,product_name,category,unit_price_eur,valid_from,valid_to,uom
+SPI-001,Premium Grüner Veltliner,white wine,12.50,2026-01-01,2099-12-31,bottle
+SPI-002,Reserve Riesling,white wine,15.00,2026-01-01,2099-12-31,bottle
+SPI-003,Blaufränkisch Classic,red wine,11.75,2026-01-01,2099-12-31,bottle
+SPI-004,Zweigelt Reserve,red wine,14.25,2026-01-01,2099-12-31,bottle
+SPI-005,Premium Sekt Brut,sparkling,18.00,2026-01-01,2099-12-31,bottle
+SPI-006,Alpine Herb Liqueur,spirits,22.50,2026-01-01,2099-12-31,bottle

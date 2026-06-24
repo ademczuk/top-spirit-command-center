@@ -1,0 +1,10 @@
+Order reference: ORD-2026-0618-001
+Customer: Tirolean Beverages Ltd
+Customer ID: CUST-1001
+Delivery date requested: 2026-06-25
+
+Items:
+- SPI-003 Blaufränkisch Classic - 120 bottles
+- SPI-005 Premium Sekt Brut - 60 bottles
+
+Notes: Please confirm stock before dispatch. Standard delivery to Tyrol depot.
