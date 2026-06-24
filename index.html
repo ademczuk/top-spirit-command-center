@@ -195,6 +195,72 @@
       .spine-panel,.walk-pane { padding:26px; } .spine-panel .number { font-size:54px; }
       .brand-card { min-height:auto; padding:30px 22px 28px; } .hero-image-card { min-height:420px; }
       .grid-4[style] { grid-template-columns:1fr !important; }
+      .hero-flow { grid-template-columns:1fr; }
+    }
+
+    /* ===== Hero 3-stage flow (replaces the old 4 proof chips) ===== */
+    .hero-flow { position:relative; z-index:4; width:100%; display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:rgba(214,169,74,.22); border-top:1px solid rgba(214,169,74,.22); }
+    .flow-step { background:rgba(7,17,31,.62); backdrop-filter:blur(8px); padding:24px 26px; text-decoration:none; display:block; transition:background .2s ease; }
+    .flow-step:hover { background:rgba(16,27,42,.82); }
+    .flow-num { display:inline-flex; align-items:center; justify-content:center; width:30px; height:30px; border-radius:999px; background:var(--maroon); color:#07111F; font-weight:900; font-size:14px; margin-bottom:12px; }
+    .flow-step strong { display:block; color:#fff; font-size:17px; letter-spacing:.01em; margin-bottom:6px; }
+    .flow-step .flow-sub { display:block; color:#cdd6e1; font-size:14px; line-height:1.5; }
+
+    /* ===== 3-stage row (compacted: one section, 3 columns side by side) ===== */
+    .section.stages { padding:38px 25px 36px; } .section.detail { padding:36px 25px; }
+    .section#next-step { padding:44px 25px; }
+    .stages-head { max-width:760px; margin-bottom:20px; }
+    .stages-head .eyebrow { margin-bottom:0; }
+    .stages-row { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; align-items:stretch; }
+    .stage-col { display:flex; flex-direction:column; gap:10px; min-width:0; }
+    .stage-head { margin-bottom:0; }
+    .stage-tag { display:inline-block; color:var(--maroon); text-transform:uppercase; font-size:11px; font-weight:900; letter-spacing:.18em; margin-bottom:6px; }
+    .stage-col h3 { font-family:"Playfair Display",Georgia,serif; font-size:clamp(22px,2.2vw,29px); line-height:1.05; margin-bottom:6px; }
+    .stage-lead { color:var(--muted); font-size:14px; line-height:1.5; margin:0; }
+    .stage-block { background:var(--card-grad); border:1px solid var(--line); border-radius:4px; padding:20px; min-width:0; box-shadow:var(--shadow-sm); }
+    .stage-block.measure { border-color:var(--gold-line); box-shadow:inset 4px 0 0 var(--teal), var(--shadow-sm); }
+    .stage-block b { display:inline-block; color:var(--maroon); text-transform:uppercase; font-size:11px; font-weight:900; letter-spacing:.16em; margin-bottom:10px; }
+    .stage-block.measure b { color:var(--teal); }
+    .stage-block p { color:var(--muted); font-size:13.5px; line-height:1.55; margin:0; }
+    .stages-cta { margin:26px 0 0; } .stages-cta .btn { margin-top:0; }
+    #next-step .eyebrow { margin-bottom:12px; } #next-step h2 { font-size:clamp(24px,3vw,38px); }
+    #next-step .lead { margin-top:16px; } #next-step .btnrow { margin-top:24px; }
+    .detail .eyebrow { margin-bottom:12px; }
+    .detail h2 { max-width:30ch; font-size:clamp(21px,2.4vw,29px); }
+    .detail .accordion:first-of-type { margin-top:18px; }
+
+    /* ===== Accordions (collapsed by default, keyboard-accessible) ===== */
+    .accordion { border:1px solid var(--line); border-radius:4px; background:var(--card-grad); margin-top:10px; overflow:hidden; }
+    .acc-h { margin:0; font-family:Inter,sans-serif; }
+    .acc-trigger { width:100%; appearance:none; cursor:pointer; background:transparent; border:0; color:var(--black); text-align:left; padding:15px 22px; min-height:50px; display:flex; align-items:center; justify-content:space-between; gap:18px; font-family:Inter,sans-serif; font-weight:800; font-size:15px; letter-spacing:.01em; transition:background .18s ease; }
+    .acc-trigger:hover { background:rgba(214,169,74,.06); color:var(--maroon); }
+    .acc-trigger[aria-expanded="true"] { color:var(--maroon); border-bottom:1px solid var(--line); }
+    .acc-chevron { flex:0 0 auto; width:11px; height:11px; border-right:2px solid var(--maroon); border-bottom:2px solid var(--maroon); transform:rotate(45deg); transition:transform .2s ease; margin-bottom:3px; }
+    .acc-trigger[aria-expanded="true"] .acc-chevron { transform:rotate(225deg); margin-bottom:-3px; }
+    .acc-panel { padding:0; }
+    .acc-panel[hidden] { display:none; }
+    .acc-inner { padding:28px 24px; }
+    .acc-note { color:var(--muted); font-size:14px; line-height:1.6; margin:0 0 22px; max-width:760px; }
+    .acc-inner .capability-grid, .acc-inner .gate-list, .acc-inner .artifact-grid, .acc-inner .walk-card, .acc-inner .beat-card { margin-top:0; }
+    .acc-inner .beat-card { margin-top:22px; }
+    .acc-inner .gate-list { margin-top:22px; }
+    .acc-inner .walk-card { margin-top:26px; }
+    .ctrl { display:grid; grid-template-columns:64px 1fr; gap:18px; align-items:start; padding:18px 0; border-bottom:1px solid var(--line); }
+    .ctrl:first-child { padding-top:0; } .ctrl:last-of-type { border-bottom:0; }
+    .ctrl-thumb { width:64px; height:64px; object-fit:cover; border-radius:4px; border:1px solid var(--gold-line); background:var(--surface-2); }
+    .ctrl strong { display:block; color:var(--maroon); font-size:16px; margin-bottom:6px; }
+    .ctrl p { color:var(--muted); font-size:14px; line-height:1.6; margin:0; }
+    .acc-sub { font-family:Inter,sans-serif; font-size:12px; font-weight:900; text-transform:uppercase; letter-spacing:.16em; color:var(--maroon); margin:26px 0 14px; padding-top:22px; border-top:1px solid var(--line); }
+    .acc-photo { position:relative; border-radius:3px; overflow:hidden; }
+    .acc-photo .section-bg { opacity:.5; }
+    .acc-photo::after { content:""; position:absolute; inset:0; z-index:0; pointer-events:none; background:linear-gradient(160deg, rgba(7,17,31,.92) 0%, rgba(7,17,31,.78) 100%); }
+    .acc-photo-inner { position:relative; z-index:1; padding:26px; }
+    @media (max-width: 900px) { .stages-row { grid-template-columns:1fr; gap:18px; } .section.stages { padding:48px 25px; } }
+    @media (max-width: 640px) {
+      .hero-flow { grid-template-columns:1fr; }
+      .section.stages { padding:44px 16px; }
+      .ctrl { grid-template-columns:48px 1fr; gap:14px; } .ctrl-thumb { width:48px; height:48px; }
+      .acc-trigger { padding:18px 18px; font-size:15px; } .acc-inner { padding:22px 18px; }
     }
   </style>
 </head>
@@ -203,12 +269,12 @@
     <div class="nav">
       <a href="#top" class="brand" aria-label="Top Spirit command center home"><span class="brand-main"><span>TOP</span>SPIRIT</span><span class="brand-sub">Top Marken · Top Service · Top Kompetenz</span></a>
       <nav class="navlinks" aria-label="Primary navigation">
-        <a href="#walkthrough">Walkthrough</a><a href="#proof-spine">Proof spine</a><a href="#capabilities">Capabilities</a><a href="#artifacts">Artifacts</a><a href="#evidence-gates">Evidence gates</a>
-        <a class="nav-cta" href="assets/mockups/walkthrough/index.html" data-path="assets/mockups/walkthrough/index.html">Launch walkthrough</a>
+        <a href="#prepare">Prepare</a><a href="#build">Build</a><a href="#operate">Operate</a>
+        <a class="nav-cta" href="assets/mockups/walkthrough/index.html" data-path="assets/mockups/walkthrough/index.html">See the pilot</a>
       </nav>
       <button class="mobile-button" type="button" onclick="document.getElementById('mobileMenu').classList.toggle('open')" aria-controls="mobileMenu" aria-label="Toggle navigation">Menu</button>
     </div>
-    <div id="mobileMenu" class="mobile-menu"><a href="#walkthrough">Walkthrough</a><a href="#proof-spine">Proof spine</a><a href="#capabilities">Capabilities</a><a href="#artifacts">Artifacts</a><a href="assets/mockups/walkthrough/index.html" data-path="assets/mockups/walkthrough/index.html">Launch walkthrough</a></div>
+    <div id="mobileMenu" class="mobile-menu"><a href="#prepare">Prepare</a><a href="#build">Build</a><a href="#operate">Operate</a><a href="assets/mockups/walkthrough/index.html" data-path="assets/mockups/walkthrough/index.html">See the pilot</a></div>
   </header>
 
   <main id="top">
@@ -237,19 +303,18 @@
       <div class="hero-layout">
         <div class="hero-copy reveal">
           <div class="hero-kicker">AngelServ by Angel Software Solutions · Top Spirit (Marussia)</div>
-          <h1 id="hero-title"><span class="red">Value</span> before ERP. Control before automation.</h1>
-          <p class="lead">A client-ready command center for process review, automation and AI literacy: Top Spirit brand rhythm on the surface, Export Layer discipline underneath, and every decision wrapped in an Approval Envelope.</p>
+          <h1 id="hero-title">Decisions you can <span class="red">defend</span>, before you spend on a new ERP.</h1>
+          <p class="lead">A guided pilot that turns the files you already have into audit-ready decisions. Every number traces back to its source and a named owner. No new platform to start.</p>
           <div class="btnrow">
-            <a class="btn primary" href="assets/mockups/walkthrough/index.html" data-path="assets/mockups/walkthrough/index.html">Start the walkthrough</a>
-            <a class="btn ghost" href="#artifacts">Open the evidence pack</a>
+            <a class="btn primary" href="assets/mockups/walkthrough/index.html" data-path="assets/mockups/walkthrough/index.html">See the pilot</a>
           </div>
         </div>
       </div>
-      <div class="brand-proof" aria-label="Hero proof points">
-        <div class="proof-chip"><strong>Export Layer</strong><span>Start with governed files before integrations.</span></div>
-        <div class="proof-chip"><strong>Approval Envelope</strong><span>AI drafts stay behind named human authority.</span></div>
-        <div class="proof-chip"><strong>Source-linked Audit Trail</strong><span>Every claim points back to source and status.</span></div>
-        <div class="proof-chip"><strong>Next-ERP ready</strong><span>Brownfield, greenfield and phased paths remain visible.</span></div>
+      <!-- Hero 3-stage flow row replaces the old 4 proof chips. Prepare / Build / Operate is the spine of the whole page. -->
+      <div class="hero-flow" aria-label="The pilot in three stages">
+        <a class="flow-step" href="#prepare"><span class="flow-num">1</span><strong>Prepare</strong><span class="flow-sub">Get your files clean, owned and safe to use.</span></a>
+        <a class="flow-step" href="#build"><span class="flow-num">2</span><strong>Build</strong><span class="flow-sub">Turn them into a working pilot people can trust.</span></a>
+        <a class="flow-step" href="#operate"><span class="flow-num">3</span><strong>Operate</strong><span class="flow-sub">Run it, track the value, decide on the next ERP.</span></a>
       </div>
 
       <script>
@@ -358,181 +423,234 @@
       </script>
     </section>
 
-    <section class="section" aria-labelledby="brand-fit-title">
-      <div class="wrap">
-        <div class="eyebrow">Brand fit from npxskillui</div>
-        <h2 id="brand-fit-title">Looks like Top Spirit. Behaves like a control room.</h2>
-        <p class="lead">The redesign uses the SkillUI extraction from <a href="https://www.topspirit.at/en/">topspirit.at</a> for channel rhythm, photographic cards, Playfair Display headings, Inter body copy and generous 5px-grid spacing. The active generated-image lane carries that into a deep navy, gold, reef teal and clay control-room system. Translation, not imitation; no client data is embedded.</p>
-        <div class="brand-channel-grid">
-          <article class="brand-card"><img src="assets/images/topspirit-events.webp" alt="Top Spirit events visual card"><span class="badge">01</span><h3>Events rhythm</h3><p>The page borrows Top Spirit's large photographic card rhythm, then uses it to frame process evidence instead of generic SaaS tiles.</p></article>
-          <article class="brand-card"><img src="assets/images/topspirit-hospitality.webp" alt="Top Spirit hospitality visual card"><span class="badge">02</span><h3>Hospitality-grade</h3><p>White space, serif headings and restrained maroon accents make the command center feel like a client presentation, not an internal operations screen.</p></article>
-          <article class="brand-card"><img src="assets/images/topspirit-retail.webp" alt="Top Spirit retail visual card"><span class="badge">03</span><h3>Retail-clear</h3><p>Every section tells a sponsor what to click, what proof exists, and what still needs a business owner.</p></article>
-          <article class="brand-card"><img src="assets/images/topspirit-hero.webp" alt="Top Spirit campaigns visual card"><span class="badge">04</span><h3>Campaign-ready</h3><p>Top Spirit's campaign energy becomes a clear decision path: adoption, value tracking, next actions and evidence requests stay visible.</p></article>
-        </div>
-      </div>
-    </section>
+    <!--
+      ============================================================================
+      OLD SECTION  ->  NEW 3-STAGE MAPPING (TASK-99). Nothing dropped, only moved.
+      ----------------------------------------------------------------------------
+      PREPARE  (id=#prepare)
+        - Export Layer  (was: hero proof chip + proof-spine 01 + capabilities Export Layer)
+        - Data classification  (was: Phase 0 phase-cell + workstream "Phase 0")
+        - Privacy / GDPR (Phase 0)  (was: Phase 0 phase-cell + evidence gate TASK-39)
+        - Business Glossary  (was: proof-spine 04 + capabilities Glossary)
+      BUILD  (id=#build)
+        - Process maps (order-to-cash)  (was: capability-beats cap-1 + workstream / phase-row Wave 1)
+        - Power BI Desktop pilot  (was: workstream Wave 1 BICC + phase-row Wave 1 + evidence gate TASK-42)
+        - Document / order intake  (was: capabilities Document Intake)
+        - Financial reconciliation  (was: capabilities Reconciliation)
+        - Approval Envelopes  (was: hero proof chip + proof-spine 02 + capabilities Governance Tiers + gate TASK-43)
+        - Ranked automation candidates (Wave 1)  (was: capability-beats cap-2 optimisation + workstream Value + gate TASK-41)
+      OPERATE  (id=#operate)
+        - Adoption + AI literacy handover  (was: capability-beats cap-3 + workstream Adoption + gates TASK-40, TASK-45)
+        - Value / before-after tracking  (was: capabilities Value & Adoption + workstream Value)
+        - Source-linked Audit Trail  (was: hero proof chip + proof-spine 03 + capabilities Audit Trail)
+        - Opportunity Catalogue  (was: proof-spine 05 + capabilities Glossary+Opportunities + workstream Scale + gate TASK-44)
+        - Next-ERP Decision Pack (Wave 2 / Scale)  (was: hero proof chip + capabilities Next-ERP + workstream ERP + phase-row Wave 2)
+      SUPPORTING (relocated into collapsed accordions, default closed):
+        - Brand-fit cards, capability detail, M365 budget, proof spine controls,
+          artifact pack, evidence gates  -> stage accordions below.
+      ============================================================================
+    -->
 
-    <section id="capability-beats" class="section tight section-photo" aria-labelledby="capbeat-title" style="background:var(--surface-2);">
+    <!-- ===================== 3-stage row (compacted: one section, 3 columns) ===================== -->
+    <section id="stages" class="section stages section-photo" aria-label="The pilot in three stages: Prepare, Build, Operate" style="background:var(--surface-2);">
       <span class="section-bg" data-task76="sec-operations" aria-hidden="true" style="background-image:url(assets/brand/sec-operations.webp);"></span>
       <div class="wrap">
-        <div class="eyebrow">Capability beats</div>
-        <h2 id="capbeat-title">Four capabilities the sponsor can see, not just read about.</h2>
-        <p class="lead">Each capability shows the work, names its backlog item and keeps the API question separate from the first value proof. Process mapping comes first; integrations only when the evidence justifies them.</p>
-        <div class="capability-grid">
-          <article class="capability-card" data-task76="capability-card" data-capability="process-mapping">
-            <img src="assets/brand/capabilities/cap-1-mapping.png" alt="Process mapping capability: faceless operator reviewing an abstract workflow map">
-            <div class="cap-body"><b>TASK-96 · Process mapping</b><h3>Process Mapping deliverable</h3><p>Order-to-cash and report flows mapped as a shared as-is picture, so every later automation or value claim points back to a process step the business recognises.</p></div>
+        <div class="stages-head">
+          <div class="eyebrow">The pilot in three stages</div>
+        </div>
+        <div class="stages-row">
+          <!-- STAGE 1: PREPARE -->
+          <article id="prepare" class="stage-col" aria-labelledby="prepare-title">
+            <div class="stage-head">
+              <span class="stage-tag">Stage 1</span>
+              <h3 id="prepare-title">Prepare</h3>
+              <p class="stage-lead">Get your files clean, owned and safe to use, before anything automated touches them.</p>
+            </div>
+            <div class="stage-block">
+              <b>What you get</b>
+              <p>Your exports from ERP, bank and spreadsheets gathered into one governed Export Layer, the files you already own, with each field classified and given a named owner. A plain-word Business Glossary so everyone reads the same number the same way. Privacy and GDPR posture settled before any tool runs.</p>
+            </div>
+            <div class="stage-block measure">
+              <b>How we measure it</b>
+              <p>A signed export inventory listing every source file, its owner and its GDPR classification. Status is Ready only when the inventory is complete and the data owner has confirmed it. No automation runs against an unclassified file.</p>
+            </div>
           </article>
-          <article class="capability-card" data-task76="capability-card" data-capability="process-optimisation">
-            <img src="assets/brand/capabilities/cap-2-optimisation.png" alt="Process optimisation capability: premium warehouse aisle showing governed value flow">
-            <div class="cap-body"><b>Wave 1 · Optimisation</b><h3>Before and after value</h3><p>Candidate changes are ranked by value, effort and risk. Measured savings wait for client time data; demo values stay illustrative until evidence lands.</p></div>
+          <!-- STAGE 2: BUILD -->
+          <article id="build" class="stage-col" aria-labelledby="build-title">
+            <div class="stage-head">
+              <span class="stage-tag">Stage 2</span>
+              <h3 id="build-title">Build</h3>
+              <p class="stage-lead">Turn the prepared files into a working pilot your team can actually trust.</p>
+            </div>
+            <div class="stage-block">
+              <b>What you get</b>
+              <p>Your order-to-cash flow mapped as a shared picture. A Power BI Desktop pilot that rebuilds one manual report. Document intake and bank reconciliation as draft workflows that never skip review. Every action sits inside an Approval Envelope: an AI draft becomes a decision only once a named person commits it. Plus a ranked shortlist of automation candidates.</p>
+            </div>
+            <div class="stage-block measure">
+              <b>How we measure it</b>
+              <p>One rebuilt report a business user has accepted, and one order-to-cash map the team recognizes. Each automation candidate carries a value, effort and risk score. Demo numbers stay labeled illustrative until client time data validates them.</p>
+            </div>
           </article>
-          <article class="capability-card" data-task76="capability-card" data-capability="ai-literacy">
-            <img src="assets/brand/capabilities/cap-3-literacy.png" alt="AI literacy capability: faceless silhouette at an abstract whiteboard">
-            <div class="cap-body"><b>Adoption · Literacy</b><h3>AI literacy capability plan</h3><p>Foundations sessions, handover and maintainability are visible gates before any maturity claim. Training is a deliverable, not an afterthought.</p></div>
-          </article>
-          <article class="capability-card" data-task76="capability-card" data-capability="apis-when-justified">
-            <img src="assets/brand/capabilities/cap-4-apis.png" alt="APIs when justified capability: dark governed cabling detail">
-            <div class="cap-body"><b>TASK-91 · APIs when justified</b><h3>APIs and integration decision-framework</h3><p>A simple test for each integration: does it remove a real bottleneck, is the data owner ready, and does the value beat the build cost. Files first, APIs when justified.</p></div>
+          <!-- STAGE 3: OPERATE -->
+          <article id="operate" class="stage-col" aria-labelledby="operate-title">
+            <div class="stage-head">
+              <span class="stage-tag">Stage 3</span>
+              <h3 id="operate-title">Operate</h3>
+              <p class="stage-lead">Run it, track the value, and decide on the next ERP with evidence in hand.</p>
+            </div>
+            <div class="stage-block">
+              <b>What you get</b>
+              <p>An adoption and AI literacy handover so your own people keep the tools running. Before-and-after value tracking against the real baseline. A source-linked Audit Trail where every number points back to its source, owner and status. A ranked Opportunity Catalogue and a Next-ERP Decision Pack covering the brownfield, greenfield and phased routes.</p>
+            </div>
+            <div class="stage-block measure">
+              <b>How we measure it</b>
+              <p>Owner usage tracked, not licence count, with a sustainment sign-off after handover. The Next-ERP Decision Pack delivered as one document with evidence per option. Every claim on the page links to its source artifact, or it is marked open.</p>
+            </div>
           </article>
         </div>
-        <div class="beat-grid">
-          <article class="beat-card">
-            <b>TASK-93 · Budget and co-delivery</b>
-            <h3>M365 E3 budget and co-delivery principles</h3>
-            <p>The pilot is scoped to run inside tooling the client already pays for, then grow only where value is proven.</p>
-            <ul>
-              <li>Build on existing Microsoft 365 E3 licensing: Power BI Desktop, SharePoint, Teams and Excel before new spend.</li>
-              <li>Co-delivery, not hand-off: client owners work alongside the team so the capability stays in-house.</li>
-              <li>New cost is requested only against a named value play with an owner and evidence.</li>
-            </ul>
-          </article>
-          <article class="beat-card">
-            <b>Operating model</b>
-            <h3>How the budget stays honest</h3>
-            <p>Every spend line maps to a backlog item and an evidence gate, so the steering committee can see what a euro buys.</p>
-            <ul>
-              <li>No surprise platform fees: the Export Layer keeps early value ERP-neutral.</li>
-              <li>Adoption is measured by owner usage, not licence count.</li>
-              <li>Sustainment evidence is required before claiming operating maturity.</li>
-            </ul>
-          </article>
-        </div>
-        <div class="phase-row" data-task66="phasing" aria-label="Delivery phasing">
-          <div class="phase-cell"><b>Phase 0</b><h3>Privacy and classification</h3><p>Export inventory, GDPR posture and data classification are completed first. No automation runs against data that has not been classified.</p></div>
-          <div class="phase-cell"><b>Wave 1</b><h3>Power BI pilot and process maps</h3><p>The manual report rebuild and the order-to-cash map become the first credible value demonstrators, governed by Approval Envelopes.</p></div>
-          <div class="phase-cell"><b>Wave 2</b><h3>Scale and Next-ERP decision</h3><p>Ranked opportunities, the Business Glossary and the Next-ERP Decision Pack open the path to integrations and a funded backlog.</p></div>
-        </div>
+        <p class="stages-cta"><a class="btn primary" href="assets/mockups/walkthrough/index.html" data-path="assets/mockups/walkthrough/index.html">See the pilot</a></p>
       </div>
     </section>
 
-    <section id="walkthrough" class="section walkthrough section-photo" aria-labelledby="walkthrough-title">
+    <!-- ===================== Detail (all accordions, collapsed by default) ===================== -->
+    <section id="detail" class="section tight detail section-photo" aria-labelledby="detail-title" style="background:var(--surface);">
       <span class="section-bg" data-task76="sec-walkthrough" aria-hidden="true" style="background-image:url(assets/brand/sec-walkthrough.webp);"></span>
       <div class="wrap">
-        <div class="eyebrow">Walkthrough</div>
-        <h2 id="walkthrough-title">One guided route. Clear from the first click.</h2>
-        <p class="lead">The walkthrough is still the spine of the site. The page now introduces it with brand-matched imagery, clear CTAs and a sponsor-safe promise: proposed value, visible controls, honest blockers.</p>
-        <div class="walk-card">
-          <div class="walk-pane dark">
-            <h3>What the client sees first</h3>
-            <p>A concise route from exports to approved decisions: process maps, Power BI pilot, automation candidates, literacy handover, privacy and data classification, then the Next-ERP Decision Pack.</p>
-            <a class="btn primary" href="assets/mockups/walkthrough/index.html" data-path="assets/mockups/walkthrough/index.html">Launch interactive walkthrough</a>
-            <img data-task76="walkthrough-image" src="assets/brand/walkthrough-control-room.png" alt="Walkthrough control room: governed beverage distribution overview">
+        <div class="eyebrow">The detail, on demand</div>
+        <h2 id="detail-title">Open a stage for the controls, artifacts and open evidence.</h2>
+
+        <!-- Accordion: PREPARE detail (controls + Phase 0 gate merged into one bar). Collapsed by default. -->
+        <div class="accordion">
+          <h3 class="acc-h"><button class="acc-trigger" type="button" aria-expanded="false" aria-controls="acc-prepare-1"><span>Prepare: controls and the privacy gate</span><span class="acc-chevron" aria-hidden="true"></span></button></h3>
+          <div class="acc-panel" id="acc-prepare-1" role="region" hidden>
+            <div class="acc-inner">
+              <div class="ctrl">
+                <img class="ctrl-thumb" data-task76="proof-spine" data-step="export-layer" src="assets/brand/proof-spine/01-export-layer.png" alt="Export Layer: classified files enter before automation">
+                <div><strong>Export Layer</strong><p>The Export Layer is the governed front door for your files. ERP, CRM, bank, workbook and document inputs enter here first, classified, so early value work stays neutral to whichever ERP you choose later.</p></div>
+              </div>
+              <div class="ctrl">
+                <img class="ctrl-thumb" data-task76="proof-spine" data-step="business-glossary" src="assets/brand/proof-spine/04-glossary.png" alt="Business Glossary: shared terms across reports and tools">
+                <div><strong>Business Glossary</strong><p>The Business Glossary is a shared dictionary of your terms and fields, captured once and reused across Power BI, reports and assistants, so a word like net sales means one agreed thing everywhere.</p></div>
+              </div>
+              <h4 class="acc-sub">Privacy and classification gate</h4>
+              <div class="gate-list">
+                <article class="gate"><code>TASK-39</code><div><strong>BICC sign-off of export inventory</strong><span>Client evidence needed before export scope is final.</span></div></article>
+              </div>
+              <p class="acc-note">Phase 0 first: export inventory, GDPR posture and data classification are completed before any pilot is built. This blocker stays visible so unfinished checks never read as done.</p>
+            </div>
           </div>
-          <div class="walk-pane">
-            <h3>What stays visible</h3>
-            <p>Decision status, evidence source, client owner, open blockers and whether a value claim is illustrative, draft, client-needed or ready for demo.</p>
-            <div class="grid-4" style="grid-template-columns:repeat(2,1fr);margin-top:25px;">
-              <a class="artifact-card" href="assets/mockups/storyboard-gallery.html" data-path="assets/mockups/storyboard-gallery.html"><strong>Storyboard</strong><span>Presentation path.</span></a>
-              <a class="artifact-card" href="assets/pitch/pitch-deck.html" data-path="assets/pitch/pitch-deck.html"><strong>Pitch deck</strong><span>Steering narrative.</span></a>
+        </div>
+
+        <!-- Accordion: BUILD detail (4 capability cards + Approval Envelope/budget/gates merged into one bar). Collapsed by default. -->
+        <div class="accordion">
+          <h3 class="acc-h"><button class="acc-trigger" type="button" aria-expanded="false" aria-controls="acc-build-1"><span>Build: what gets built, plus the gates</span><span class="acc-chevron" aria-hidden="true"></span></button></h3>
+          <div class="acc-panel" id="acc-build-1" role="region" hidden>
+            <div class="acc-inner">
+              <div class="capability-grid">
+                <article class="capability-card" data-task76="capability-card" data-capability="process-mapping">
+                  <img src="assets/brand/capabilities/cap-1-mapping.png" alt="Process mapping: an operator reviewing an abstract workflow map">
+                  <div class="cap-body"><b>Process maps</b><h3>Order-to-cash, mapped</h3><p>Your order-to-cash and report flows drawn as one shared as-is picture, so every later automation points back to a step the business recognizes.</p></div>
+                </article>
+                <article class="capability-card" data-task76="capability-card" data-capability="process-optimisation">
+                  <img src="assets/brand/capabilities/cap-2-optimisation.png" alt="Process optimization: a premium warehouse aisle showing governed value flow">
+                  <div class="cap-body"><b>Wave 1</b><h3>Ranked automation candidates</h3><p>Candidate changes ranked by value, effort and risk. Measured savings wait for client time data; demo values stay illustrative until evidence lands.</p></div>
+                </article>
+                <article class="capability-card" data-task76="capability-card" data-capability="ai-literacy">
+                  <img src="assets/brand/capabilities/cap-3-literacy.png" alt="Document and order intake: a silhouette reviewing an abstract draft queue">
+                  <div class="cap-body"><b>Intake</b><h3>Document and order intake</h3><p>PDF and email orders become a controlled draft workflow that never bypasses a human review step before anything is committed.</p></div>
+                </article>
+                <article class="capability-card" data-task76="capability-card" data-capability="apis-when-justified">
+                  <img src="assets/brand/capabilities/cap-4-apis.png" alt="Reconciliation and integrations: governed cabling detail">
+                  <div class="cap-body"><b>Reconciliation</b><h3>Reconciliation, files first</h3><p>Bank lines, invoices and exceptions matched with visible reasoning. An integration is added only when it removes a real bottleneck and the value beats the build cost.</p></div>
+                </article>
+              </div>
+              <h4 class="acc-sub">Approval Envelope, budget and the build gates</h4>
+              <div class="ctrl">
+                <img class="ctrl-thumb" data-task76="proof-spine" data-step="approval-envelope" src="assets/brand/proof-spine/02-approval-envelope.png" alt="Approval Envelope: a named person commits an AI draft">
+                <div><strong>Approval Envelope</strong><p>An Approval Envelope keeps authority visible. Financial, pricing and customer-facing actions wait behind a named human owner. The AI drafts; a person decides.</p></div>
+              </div>
+              <div class="beat-card">
+                <b>Budget and co-delivery</b>
+                <h3>Built on tools you already pay for</h3>
+                <p>The pilot runs inside your existing Microsoft 365 E3 licensing first: Power BI Desktop, SharePoint, Teams and Excel. Client owners work alongside the team so the capability stays in-house. New cost is requested only against a named value play with an owner and evidence.</p>
+              </div>
+              <div class="gate-list">
+                <article class="gate"><code>TASK-41</code><div><strong>Order-to-cash hours-saved validation</strong><span>Measured savings require client time data. Demo values are illustrative.</span></div></article>
+                <article class="gate"><code>TASK-42</code><div><strong>Business-user confirmation of the rebuilt report</strong><span>The rebuilt report needs user acceptance before it becomes a proof point.</span></div></article>
+                <article class="gate"><code>TASK-43</code><div><strong>Steering review of the governance model</strong><span>Approval Envelope tiers need steering committee confirmation.</span></div></article>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Accordion: OPERATE detail (controls + pilot route + meeting pack + evidence gates merged into one bar). Collapsed by default. -->
+        <div class="accordion">
+          <h3 class="acc-h"><button class="acc-trigger" type="button" aria-expanded="false" aria-controls="acc-operate-1"><span>Operate: controls, the pilot route, the pack and the gates</span><span class="acc-chevron" aria-hidden="true"></span></button></h3>
+          <div class="acc-panel" id="acc-operate-1" role="region" hidden>
+            <div class="acc-inner">
+              <div class="ctrl">
+                <img class="ctrl-thumb" data-task76="proof-spine" data-step="audit-trail" src="assets/brand/proof-spine/03-audit-trail.png" alt="Source-linked Audit Trail: claims link back to source and approver">
+                <div><strong>Source-linked Audit Trail</strong><p>The Audit Trail keeps every number's receipt. Each claim links to its source, transform, approver and status, so demo-safe values never pass as validated client data.</p></div>
+              </div>
+              <div class="ctrl">
+                <img class="ctrl-thumb" data-task76="proof-spine" data-step="opportunity-catalogue" src="assets/brand/proof-spine/05-opportunity-catalogue.png" alt="Opportunity Catalogue: ranked value plays by effort, risk and evidence">
+                <div><strong>Opportunity Catalogue</strong><p>The Opportunity Catalogue is a ranked backlog of value plays, each scored by value, risk, effort, evidence readiness and owner, so leaders decide what to fund next.</p></div>
+              </div>
+              <div class="walk-card">
+                <div class="walk-pane dark">
+                  <h3>See the pilot in one guided route</h3>
+                  <p>A concise route from your files to approved decisions: process maps, the Power BI pilot, automation candidates, the literacy handover, and the Next-ERP Decision Pack.</p>
+                  <a class="btn primary" href="assets/mockups/walkthrough/index.html" data-path="assets/mockups/walkthrough/index.html">See the pilot</a>
+                  <img data-task76="walkthrough-image" src="assets/brand/walkthrough-control-room.png" alt="Pilot control room: governed beverage distribution overview">
+                </div>
+                <div class="walk-pane">
+                  <h3>What stays visible the whole way</h3>
+                  <p>Decision status, evidence source, owner, open blockers, and whether a value claim is illustrative, draft, client-needed or ready for demo.</p>
+                  <div class="grid-4" style="grid-template-columns:repeat(2,1fr);margin-top:25px;">
+                    <a class="artifact-card" href="assets/mockups/storyboard-gallery.html" data-path="assets/mockups/storyboard-gallery.html"><strong>Storyboard</strong><span>Presentation path.</span></a>
+                    <a class="artifact-card" href="assets/pitch/pitch-deck.html" data-path="assets/pitch/pitch-deck.html"><strong>Pitch deck</strong><span>Steering narrative.</span></a>
+                  </div>
+                </div>
+              </div>
+
+              <h4 class="acc-sub">The meeting pack, one click away</h4>
+              <div class="section-photo acc-photo">
+                <span class="section-bg" data-task76="sec-evidence" aria-hidden="true" style="background-image:url(assets/brand/sec-evidence.webp);"></span>
+                <div class="acc-photo-inner">
+                  <p class="acc-note">The same source map for the delivery team and the client reviewer. No repository hunting.</p>
+                  <div class="artifact-grid">
+                    <a class="artifact-card" href="assets/mockups/walkthrough/index.html" data-path="assets/mockups/walkthrough/index.html"><strong>Walkthrough</strong><span>Interactive guided route through the pilot.</span></a><a class="artifact-card" href="assets/mockups/storyboard-gallery.html" data-path="assets/mockups/storyboard-gallery.html"><strong>Storyboard</strong><span>Seven-core storyboard for the client presentation.</span></a><a class="artifact-card" href="assets/mockups/html/README.html" data-path="assets/mockups/html/README.html"><strong>HTML companion screens</strong><span>Runnable mockup screens for the workstreams.</span></a><a class="artifact-card" href="assets/pitch/pitch-deck.html" data-path="assets/pitch/pitch-deck.html"><strong>Pitch deck</strong><span>Steering-committee narrative and slide outline.</span></a><a class="artifact-card" href="assets/pitch/demo-qa-report.html" data-path="assets/pitch/demo-qa-report.html"><strong>Demo QA</strong><span>What was checked before the meeting.</span></a><a class="artifact-card" href="assets/pitch/meeting-runbook.html" data-path="assets/pitch/meeting-runbook.html"><strong>Meeting runbook</strong><span>Talk track, timings and fallback path.</span></a><a class="artifact-card" href="assets/pitch/client-send-pack-and-follow-up.html" data-path="assets/pitch/client-send-pack-and-follow-up.html"><strong>Client send pack</strong><span>Follow-up bundle and post-call actions.</span></a><a class="artifact-card" href="assets/pitch/client-action-pack.html" data-path="assets/pitch/client-action-pack.html"><strong>Client action pack</strong><span>Immediate client decisions and evidence asks.</span></a><a class="artifact-card" href="assets/pitch/build-map-coverage-matrix.html" data-path="assets/pitch/build-map-coverage-matrix.html"><strong>Coverage matrix</strong><span>Map from brief expectations to artifacts.</span></a>
+                  </div>
+                </div>
+              </div>
+
+              <h4 class="acc-sub">Open evidence gates</h4>
+              <div class="section-photo acc-photo">
+                <span class="section-bg" data-task76="evidence-gates-texture" aria-hidden="true" style="background-image:url(assets/brand/evidence-gates-texture.png);"></span>
+                <div class="acc-photo-inner">
+                  <p class="acc-note">Honest blockers keep the page safe. Open checks stay visible instead of being laundered into false certainty.</p>
+                  <div class="gate-list">
+                    <article class="gate"><code>TASK-40</code><div><strong>AI literacy Foundations session feedback</strong><span>Attendance and confidence feedback still gates adoption claims.</span></div></article>
+                    <article class="gate"><code>TASK-44</code><div><strong>Opportunity Catalogue prioritization</strong><span>Leaders still need to rank and fund the pilot lane.</span></div></article>
+                    <article class="gate"><code>TASK-45</code><div><strong>Team maintaining tools after handover</strong><span>Sustainment evidence is required before claiming operating maturity.</span></div></article>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="proof-spine" class="section" aria-labelledby="proof-title">
-      <div class="wrap split">
-        <div>
-          <div class="eyebrow">Proof spine</div>
-          <h2 id="proof-title">Five controls, not five buzzwords.</h2>
-          <p class="lead">The original command-center vocabulary remains explicit because it is the governance model. Click through the proof spine; each step maps to an artifact the client can inspect.</p>
-          <div class="spine-buttons" role="tablist" aria-label="AngelServ proof spine">
-            <button class="spine-button" type="button" role="tab" id="tab-0" aria-controls="panel-0" aria-selected="true" data-index="0"><img class="spine-thumb" data-task76="proof-spine" data-step="export-layer" src="assets/brand/proof-spine/01-export-layer.png" alt="Export Layer: classified exports enter before automation"><div><strong>01 · Export Layer</strong><span>Classify exports before automation</span></div></button><button class="spine-button" type="button" role="tab" id="tab-1" aria-controls="panel-1" aria-selected="false" data-index="1"><img class="spine-thumb" data-task76="proof-spine" data-step="approval-envelope" src="assets/brand/proof-spine/02-approval-envelope.png" alt="Approval Envelope: named authority commits AI drafts"><div><strong>02 · Approval Envelope</strong><span>AI drafts; named people commit</span></div></button><button class="spine-button" type="button" role="tab" id="tab-2" aria-controls="panel-2" aria-selected="false" data-index="2"><img class="spine-thumb" data-task76="proof-spine" data-step="audit-trail" src="assets/brand/proof-spine/03-audit-trail.png" alt="Source-linked Audit Trail: claims link back to source and approver"><div><strong>03 · Source-linked Audit Trail</strong><span>Every number keeps its receipt</span></div></button><button class="spine-button" type="button" role="tab" id="tab-3" aria-controls="panel-3" aria-selected="false" data-index="3"><img class="spine-thumb" data-task76="proof-spine" data-step="business-glossary" src="assets/brand/proof-spine/04-glossary.png" alt="Business Glossary: shared terms connect reports and agents"><div><strong>04 · Business Glossary</strong><span>Shared language for process and data</span></div></button><button class="spine-button" type="button" role="tab" id="tab-4" aria-controls="panel-4" aria-selected="false" data-index="4"><img class="spine-thumb" data-task76="proof-spine" data-step="opportunity-catalogue" src="assets/brand/proof-spine/05-opportunity-catalogue.png" alt="Opportunity Catalogue: ranked value plays by effort, risk and evidence"><div><strong>05 · Opportunity Catalogue</strong><span>A ranked backlog of value plays</span></div></button>
-          </div>
-        </div>
-        <article class="spine-panel" id="proofPanel" aria-live="polite">
-          <img id="proofImage" src="assets/images/cc-export-layer.svg" alt="Export Layer visual proof card">
-          <div class="number" id="proofNumber">01</div>
-          <h3 id="proofHeading">Export Layer</h3>
-          <p id="proofText">ERP, CRM, bank, workbook and document inputs enter through a controlled layer first. This keeps early value work ERP-neutral while preserving a path to integrations later.</p>
-          <a class="btn ghost" href="#artifacts" data-path="#artifacts">Open source artifact</a>
-        </article>
-      </div>
-    </section>
-
-    <section id="capabilities" class="section tight" aria-labelledby="cap-title" style="background:var(--surface);">
-      <div class="wrap">
-        <div class="eyebrow">Capability beats</div>
-        <h2 id="cap-title">Eight things the sponsor can understand in one glance.</h2>
-        <p class="lead">The command center still covers the working system. It now presents the operating model in a boardroom-ready format.</p>
-        <div class="grid-4">
-          <a class="cap-card" href="#artifacts" data-path="#artifacts"><img src="assets/images/cc-export-layer.svg" alt="Export Layer visual"><div><h3>Export Layer</h3><p>Start with files the business already owns, classify them, and keep the future API decision separate from the first value proof.</p></div></a><a class="cap-card" href="assets/mockups/html/08-document-order-intake.html" data-path="assets/mockups/html/08-document-order-intake.html"><img src="assets/images/cc-document-intake.svg" alt="Document Intake visual"><div><h3>Document Intake</h3><p>Turn PDF/email order intake into a controlled draft workflow that never bypasses review.</p></div></a><a class="cap-card" href="assets/mockups/html/09-financial-reconciliation-assistant.html" data-path="assets/mockups/html/09-financial-reconciliation-assistant.html"><img src="assets/images/cc-reconciliation.svg" alt="Reconciliation visual"><div><h3>Reconciliation</h3><p>Match bank statement lines, invoices and exceptions with visible reasoning and approval state.</p></div></a><a class="cap-card" href="docs/06-wave-1/governance-approval-envelopes.html" data-path="docs/06-wave-1/governance-approval-envelopes.html"><img src="assets/images/cc-governance-tiers.svg" alt="Governance Tiers visual"><div><h3>Governance Tiers</h3><p>Separate low-risk suggestions from manager approval and steering-level decisions.</p></div></a><a class="cap-card" href="docs/05-phase-0/source-linked-audit-trail-standard.html" data-path="docs/05-phase-0/source-linked-audit-trail-standard.html"><img src="assets/images/cc-audit-trail.svg" alt="Audit Trail visual"><div><h3>Audit Trail</h3><p>Show source references, transformations and sign-offs before a result gets reused.</p></div></a><a class="cap-card" href="assets/mockups/html/15-opportunity-catalogue-board.html" data-path="assets/mockups/html/15-opportunity-catalogue-board.html"><img src="assets/images/cc-glossary-opportunity.svg" alt="Glossary + Opportunities visual"><div><h3>Glossary + Opportunities</h3><p>Connect the Business Glossary to an Opportunity Catalogue the client can prioritise.</p></div></a><a class="cap-card" href="#artifacts" data-path="#artifacts"><img src="assets/images/cc-trust-safety.svg" alt="Value &amp; Adoption visual"><div><h3>Value & Adoption</h3><p>Track savings hypotheses, owner adoption and sustainment without inventing client numbers.</p></div></a><a class="cap-card" href="#artifacts" data-path="#artifacts"><img src="assets/images/cc-next-erp.svg" alt="Next-ERP Decision Pack visual"><div><h3>Next-ERP Decision Pack</h3><p>Give leadership a brownfield/greenfield/phased view with evidence, risks and transition logic.</p></div></a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section workstreams" aria-labelledby="work-title">
-      <div class="wrap">
-        <div class="eyebrow">Brief coverage</div>
-        <h2 id="work-title">The design now names the missing business lanes instead of hoping nobody asks.</h2>
-        <p class="lead">Peer review called out gaps beyond the proof spine. This pass surfaces them as sponsor-readable workstreams without pretending they are finished.</p>
-        <div class="work-grid">
-          <article class="work-card"><b>Phase 0</b><h3>Privacy and data classification</h3><p>Export inventory, GDPR posture and evidence status are first-class, not a footnote.</p></article>
-          <article class="work-card"><b>Wave 1</b><h3>BICC Power BI Desktop pilot</h3><p>The manual report rebuild remains the first credible value demonstrator.</p></article>
-          <article class="work-card"><b>Adoption</b><h3>AI literacy capability plan</h3><p>Training, handover and maintainability are visible gates before maturity claims.</p></article>
-          <article class="work-card"><b>Value</b><h3>Before / after optimisation</h3><p>Process changes are ranked, but measured savings wait for client time data.</p></article>
-          <article class="work-card"><b>Scale</b><h3>Opportunity Catalogue</h3><p>Each candidate receives value, risk, effort, evidence and owner treatment.</p></article>
-          <article class="work-card"><b>ERP</b><h3>Next ERP advice</h3><p>Brownfield, greenfield and phased recommendations stay connected to evidence.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section id="artifacts" class="section section-photo" aria-labelledby="artifact-title">
-      <span class="section-bg" data-task76="sec-evidence" aria-hidden="true" style="background-image:url(assets/brand/sec-evidence.webp);"></span>
-      <div class="wrap">
-        <div class="eyebrow">Demo artifacts, one click away</div>
-        <h2 id="artifact-title">The meeting pack is visible before anyone opens GitHub.</h2>
-        <p class="lead">Nine artifact cards give the delivery team and client reviewer the same source map. No repository hunting, no stale handoffs, no uncertainty about the deck.</p>
-        <div class="artifact-grid">
-          <a class="artifact-card" href="assets/mockups/walkthrough/index.html" data-path="assets/mockups/walkthrough/index.html"><strong>Walkthrough</strong><span>Interactive guided route through the command center.</span></a><a class="artifact-card" href="assets/mockups/storyboard-gallery.html" data-path="assets/mockups/storyboard-gallery.html"><strong>Storyboard</strong><span>Seven-core storyboard for the client presentation.</span></a><a class="artifact-card" href="assets/mockups/html/README.html" data-path="assets/mockups/html/README.html"><strong>HTML companion screens</strong><span>Runnable mockup screens for the workstreams.</span></a><a class="artifact-card" href="assets/pitch/pitch-deck.html" data-path="assets/pitch/pitch-deck.html"><strong>Pitch deck</strong><span>Steering-committee narrative and slide outline.</span></a><a class="artifact-card" href="assets/pitch/demo-qa-report.html" data-path="assets/pitch/demo-qa-report.html"><strong>Demo QA</strong><span>What was checked before the meeting.</span></a><a class="artifact-card" href="assets/pitch/meeting-runbook.html" data-path="assets/pitch/meeting-runbook.html"><strong>Meeting runbook</strong><span>Talk track, timings and fallback path.</span></a><a class="artifact-card" href="assets/pitch/client-send-pack-and-follow-up.html" data-path="assets/pitch/client-send-pack-and-follow-up.html"><strong>Client send pack</strong><span>Follow-up bundle and post-call actions.</span></a><a class="artifact-card" href="assets/pitch/client-action-pack.html" data-path="assets/pitch/client-action-pack.html"><strong>Client action pack</strong><span>Immediate client decisions and evidence asks.</span></a><a class="artifact-card" href="assets/pitch/build-map-coverage-matrix.html" data-path="assets/pitch/build-map-coverage-matrix.html"><strong>Coverage matrix</strong><span>Map from brief expectations to artifacts.</span></a>
-        </div>
-      </div>
-    </section>
-
-    <section id="evidence-gates" class="section" aria-labelledby="gates-title" style="background:var(--surface);">
-      <span class="section-bg" data-task76="evidence-gates-texture" aria-hidden="true" style="background-image:url(assets/brand/evidence-gates-texture.png);"></span>
-      <div class="wrap split">
-        <div>
-          <div class="eyebrow">Client evidence gates</div>
-          <h2 id="gates-title">Honest blockers make the page safer, not weaker.</h2>
-          <p class="lead">TASK-39 through TASK-45 stay visible because a premium client page should not launder unfinished validation into fake certainty.</p>
-        </div>
-        <div class="gate-list">
-          <article class="gate"><code>TASK-39</code><div><strong>BICC sign-off of export inventory</strong><span>Client evidence needed before export scope is final.</span></div></article><article class="gate"><code>TASK-40</code><div><strong>AI literacy Foundations session feedback</strong><span>Attendance and confidence feedback still gates adoption claims.</span></div></article><article class="gate"><code>TASK-41</code><div><strong>Order-to-cash hours-saved validation</strong><span>Measured savings require client time data; Demo values are illustrative.</span></div></article><article class="gate"><code>TASK-42</code><div><strong>Business-user confirmation of manual report</strong><span>The rebuilt report needs user acceptance before it becomes a proof point.</span></div></article><article class="gate"><code>TASK-43</code><div><strong>Steering review of governance model</strong><span>Approval Envelope tiers need steering committee confirmation.</span></div></article><article class="gate"><code>TASK-44</code><div><strong>Opportunity Catalogue prioritisation</strong><span>Leaders still need to rank and fund the pilot lane.</span></div></article><article class="gate"><code>TASK-45</code><div><strong>Team maintaining tools after handover</strong><span>Sustainment evidence is required before claiming operating maturity.</span></div></article>
-        </div>
-      </div>
-    </section>
-
+    <!-- ===================== Closing decision surface ===================== -->
     <section id="next-step" class="section section-photo" aria-labelledby="next-title">
       <span class="section-bg" data-task76="next-step-bg" aria-hidden="true" style="background-image:url(assets/brand/next-step-bg.png);"></span>
       <div class="wrap" style="text-align:center;max-width:980px;">
         <div class="eyebrow">Next step</div>
-        <h2 id="next-title">Approve the route, then close the evidence.</h2>
-        <p class="lead" style="margin-left:auto;margin-right:auto;">This is the client-facing decision surface for Angel Software Solutions. It keeps AngelServ product vocabulary, Top Spirit visual cues and source-linked proof in one place while making open evidence requests impossible to miss.</p>
+        <h2 id="next-title">Approve the route. Then close the open evidence.</h2>
+        <p class="lead" style="margin-left:auto;margin-right:auto;">Prepare, Build and Operate in one place: your files, a working pilot, and a defensible Next-ERP decision. Open evidence requests stay impossible to miss.</p>
         <div class="btnrow" style="justify-content:center;">
-          <a class="btn primary" href="assets/pitch/client-action-pack.html" data-path="assets/pitch/client-action-pack.html">Open client action pack</a>
-          <a class="btn ghost" href="#artifacts" data-path="#artifacts">Review Next-ERP Decision Pack</a>
+          <a class="btn primary" href="assets/mockups/walkthrough/index.html" data-path="assets/mockups/walkthrough/index.html">See the pilot</a>
         </div>
       </div>
     </section>
@@ -546,25 +664,13 @@
   </footer>
 
   <script>
-    const proof = [['01', 'Export Layer', 'Classify exports before automation', 'ERP, CRM, bank, workbook and document inputs enter through a controlled layer first. This keeps early value work ERP-neutral while preserving a path to integrations later.'], ['02', 'Approval Envelope', 'AI drafts; named people commit', 'The command center makes authority visible. Financial, pricing, customer-facing and governance actions wait for a human owner before they become facts.'], ['03', 'Source-linked Audit Trail', 'Every number keeps its receipt', 'Claims link back to source, transform, approver and evidence status so demo-safe values never masquerade as validated client data.'], ['04', 'Business Glossary', 'Shared language for process and data', 'Terms, fields and process meanings get captured once, then reused across Power BI, agents, reports and steering materials.'], ['05', 'Opportunity Catalogue', 'A ranked backlog of value plays', 'Ideas are scored by value, risk, effort, evidence readiness and owner so the steering committee can decide what to pilot next.']];
-    const proofLinks = [
-      ['assets/images/cc-export-layer.svg','#artifacts'],
-      ['assets/images/cc-document-intake.svg','docs/04-templates/approval-envelope-template.html'],
-      ['assets/images/cc-audit-trail.svg','docs/05-phase-0/source-linked-audit-trail-standard.html'],
-      ['assets/images/cc-glossary-opportunity.svg','docs/08-scale/living-business-glossary.html'],
-      ['assets/images/cc-glossary-opportunity.svg','docs/08-scale/opportunity-catalogue.html']
-    ];
-    document.querySelectorAll('.spine-button').forEach((button) => {
-      button.addEventListener('click', () => {
-        const idx = Number(button.dataset.index);
-        document.querySelectorAll('.spine-button').forEach(b => b.setAttribute('aria-selected', b === button ? 'true' : 'false'));
-        document.getElementById('proofNumber').textContent = proof[idx][0];
-        document.getElementById('proofHeading').textContent = proof[idx][1];
-        document.getElementById('proofText').textContent = proof[idx][3];
-        const img = document.getElementById('proofImage');
-        img.src = proofLinks[idx][0]; img.alt = proof[idx][1] + ' visual proof card';
-        const link = document.querySelector('#proofPanel a');
-        link.href = proofLinks[idx][1]; link.dataset.path = proofLinks[idx][1];
+    // Accordion toggles. Each trigger is a <button aria-expanded> controlling its panel (aria-controls).
+    document.querySelectorAll('.acc-trigger').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const panel = document.getElementById(btn.getAttribute('aria-controls'));
+        const open = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', open ? 'false' : 'true');
+        if (panel) { if (open) { panel.hidden = true; } else { panel.hidden = false; } }
       });
     });
   </script>
