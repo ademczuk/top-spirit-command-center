@@ -1,0 +1,5 @@
+invoice_id,customer,due_date,open_amount
+INV-1001,Sample Retailer A,2026-05-21,11000
+INV-1002,Sample Restaurant B,2026-05-22,8250
+INV-1003,Sample Wine Shop C,2026-05-23,4150
+INV-1004,Sample Retailer A,2026-05-24,9300

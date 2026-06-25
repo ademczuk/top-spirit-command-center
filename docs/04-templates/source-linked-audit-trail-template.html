@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Source-linked Audit Trail template  -  Top Spirit Command Center</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --deep:#07111F; --surface:#101B2A; --line:#1d2c40; --border:#2a3a4f;
+  --gold:#D6A94A; --teal:#0D9488; --cream:#F6F1E8; --paper:#FBF8F1;
+  --ink:#10243a; --muted:#5b6b7d; --clay:#B45309;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0; font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  color:var(--ink); background:linear-gradient(160deg,var(--deep) 0%,var(--surface) 100%);
+  background-attachment:fixed; line-height:1.65;
+}
+.topbar{
+  position:sticky; top:0; z-index:10; display:flex; align-items:center; justify-content:space-between;
+  gap:18px; padding:14px 28px; background:rgba(7,17,31,.92); backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--border);
+}
+.brand{display:flex; flex-direction:column; line-height:1.2;}
+.brand .name{color:#fff; font-weight:800; letter-spacing:-.01em; font-size:15px;}
+.brand .sub{color:var(--gold); font-size:11px; text-transform:uppercase; letter-spacing:.14em;}
+.back{
+  color:#cdd8e6; text-decoration:none; font-size:14px; font-weight:600; white-space:nowrap;
+  border:1px solid var(--border); padding:8px 14px; border-radius:9px; transition:all .15s;
+}
+.back:hover{color:#fff; border-color:var(--gold); background:rgba(214,169,74,.12);}
+.wrap{max-width:880px; margin:34px auto 60px; padding:0 22px;}
+.doc{
+  background:var(--paper); border-radius:16px; padding:54px 56px;
+  box-shadow:0 24px 60px rgba(0,0,0,.35); border:1px solid rgba(255,255,255,.06);
+}
+.doc h1,.doc h2,.doc h3,.doc h4{font-family:"Playfair Display",Georgia,serif; color:var(--deep); line-height:1.18; letter-spacing:-.01em;}
+.doc h1{font-size:34px; margin:0 0 8px; padding-bottom:16px; border-bottom:3px solid var(--gold);}
+.doc h2{font-size:25px; margin:38px 0 12px;}
+.doc h3{font-size:19px; margin:28px 0 8px;}
+.doc h4{font-size:16px; margin:22px 0 6px; font-family:Inter,sans-serif; font-weight:700;}
+.doc p{margin:12px 0;}
+.doc a{color:var(--teal); text-decoration:none; border-bottom:1px solid rgba(13,148,136,.3);}
+.doc a:hover{color:var(--clay); border-bottom-color:var(--clay);}
+.doc ul,.doc ol{padding-left:24px; margin:12px 0;}
+.doc li{margin:5px 0;}
+.doc strong{color:var(--deep);}
+.doc blockquote{
+  margin:18px 0; padding:12px 20px; border-left:4px solid var(--gold);
+  background:rgba(214,169,74,.08); color:var(--ink); border-radius:0 8px 8px 0;
+}
+.doc blockquote p{margin:6px 0;}
+.doc code{
+  font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace; font-size:.88em;
+  background:#eee6d6; color:#7a4d12; padding:2px 6px; border-radius:5px;
+}
+.doc pre{
+  background:var(--deep); color:#e6edf6; padding:18px 20px; border-radius:11px;
+  overflow:auto; font-size:13px; line-height:1.55; border:1px solid var(--border);
+}
+.doc pre code{background:none; color:inherit; padding:0;}
+.doc table{border-collapse:collapse; width:100%; margin:20px 0; font-size:14.5px; overflow:hidden; border-radius:10px;}
+.doc thead th{background:var(--deep); color:#fff; text-align:left; padding:11px 14px; font-weight:600;}
+.doc tbody td{padding:10px 14px; border-bottom:1px solid #e6ddca; vertical-align:top;}
+.doc tbody tr:nth-child(even){background:rgba(16,36,58,.035);}
+.doc tbody tr:last-child td{border-bottom:none;}
+.doc hr{border:none; border-top:1px solid #e0d6c0; margin:30px 0;}
+.doc img{max-width:100%; border-radius:10px;}
+.footer{max-width:880px; margin:0 auto 50px; padding:0 22px; color:#8ea2b8; font-size:12.5px; text-align:center;}
+.footer a{color:#bcd0e6;}
+@media (max-width:640px){.doc{padding:32px 22px;} .wrap{margin-top:20px;} .doc h1{font-size:27px;}}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><span class="name">Top Spirit Command Center</span><span class="sub">Angel Software Solutions</span></div>
+  <a class="back" href="../../index.html">Back to command center</a>
+</header>
+<div class="wrap">
+  <article class="doc">
+<h1 id="source-linked-audit-trail-template">Source-linked Audit Trail template</h1>
+<blockquote>
+<p>Reusable template + filled example for capturing a traceable record of every AI/agent action and human decision.</p>
+<p><strong>Project-team working preview.</strong> Every Tier 2 and Tier 3 action must write to this trail.</p>
+</blockquote>
+<hr />
+<h2 id="1-purpose">1. Purpose</h2>
+<p>The Source-linked Audit Trail is the third Angel Software Solutions pillar. It ensures that every figure, decision and automated action can be traced back to:</p>
+<ul>
+<li>the source export or trigger file;</li>
+<li>the AI/agent action and version;</li>
+<li>the evidence shown to the human approver;</li>
+<li>the human decision and timestamp;</li>
+<li>the final outcome.</li>
+</ul>
+<hr />
+<h2 id="2-minimum-log-schema">2. Minimum log schema</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>event_id</code></td>
+<td>Unique identifier</td>
+<td><code>EVT-2026-0001</code></td>
+</tr>
+<tr>
+<td><code>timestamp_utc</code></td>
+<td>When the event was recorded</td>
+<td><code>2026-06-22T09:14:22Z</code></td>
+</tr>
+<tr>
+<td><code>use_case_id</code></td>
+<td>Opportunity / use case reference</td>
+<td><code>OPP-008</code></td>
+</tr>
+<tr>
+<td><code>tier</code></td>
+<td>Governance tier</td>
+<td><code>2</code></td>
+</tr>
+<tr>
+<td><code>trigger_file</code></td>
+<td>Source export or input file</td>
+<td><code>orders_in/order_2026-06-18.pdf</code></td>
+</tr>
+<tr>
+<td><code>agent_name</code></td>
+<td>Name/version of the AI agent</td>
+<td><code>order-intake-agent-v1.2</code></td>
+</tr>
+<tr>
+<td><code>agent_action</code></td>
+<td>What the agent did</td>
+<td><code>extract_order_draft</code></td>
+</tr>
+<tr>
+<td><code>proposal</code></td>
+<td>Summary of the AI proposal</td>
+<td><code>draft order for CUST-1001, 120x SPI-003, 60x SPI-005</code></td>
+</tr>
+<tr>
+<td><code>evidence_refs</code></td>
+<td>Files/rows/rules used</td>
+<td><code>customer_master.csv:row-3; price_list.csv:row-4; stock_availability.csv:row-3</code></td>
+</tr>
+<tr>
+<td><code>confidence_score</code></td>
+<td>Overall confidence (0 - 1)</td>
+<td><code>0.94</code></td>
+</tr>
+<tr>
+<td><code>approver</code></td>
+<td>Human who decided</td>
+<td><code>cs-team-lead@topspirit.example</code></td>
+</tr>
+<tr>
+<td><code>decision</code></td>
+<td>approve / edit / reject / escalate</td>
+<td><code>approve</code></td>
+</tr>
+<tr>
+<td><code>decision_notes</code></td>
+<td>Free-text rationale</td>
+<td><code>Prices and stock confirmed; customer within credit limit</code></td>
+</tr>
+<tr>
+<td><code>outcome_ref</code></td>
+<td>Reference to the committed output</td>
+<td><code>drafts/order_2026-06-18_approved.json</code></td>
+</tr>
+<tr>
+<td><code>gdpr_classification</code></td>
+<td>Data classification of trigger</td>
+<td><code>Internal</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="3-blank-template">3. Blank template</h2>
+<pre><code class="language-markdown">| event_id | timestamp_utc | use_case_id | tier | trigger_file | agent_name | agent_action | proposal | evidence_refs | confidence_score | approver | decision | decision_notes | outcome_ref | gdpr_classification |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| | | | | | | | | | | | | | | |
+</code></pre>
+<hr />
+<h2 id="4-filled-example-pdf-order-intake">4. Filled example  -  PDF order intake</h2>
+<table>
+<thead>
+<tr>
+<th>event_id</th>
+<th>timestamp_utc</th>
+<th>use_case_id</th>
+<th>tier</th>
+<th>trigger_file</th>
+<th>agent_name</th>
+<th>agent_action</th>
+<th>proposal</th>
+<th>evidence_refs</th>
+<th>confidence_score</th>
+<th>approver</th>
+<th>decision</th>
+<th>decision_notes</th>
+<th>outcome_ref</th>
+<th>gdpr_classification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>EVT-2026-0142</td>
+<td>2026-06-22T09:14:22Z</td>
+<td>OPP-008</td>
+<td>2</td>
+<td><code>orders_in/order_2026-06-18.pdf</code></td>
+<td>order-intake-agent-v1.2</td>
+<td>extract_order_draft</td>
+<td>Draft order: CUST-1001, 120x SPI-003, 60x SPI-005, delivery 2026-06-25</td>
+<td><code>customer_master.csv:CUST-1001</code>; <code>price_list.csv:SPI-003,SPI-005</code>; <code>stock_availability.csv:SPI-003,SPI-005</code></td>
+<td>0.94</td>
+<td>cs-team-lead@topspirit.example</td>
+<td>approve</td>
+<td>Prices and stock confirmed; customer within credit limit</td>
+<td><code>drafts/order_2026-06-18_approved.json</code></td>
+<td>Internal</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="5-storage-and-access">5. Storage and access</h2>
+<ul>
+<li>Store as an append-only CSV or SharePoint list in the <code>Audit</code> library.</li>
+<li>Read access: AI Steering Committee, BICC, process owners, auditors.</li>
+<li>Write access: agent service account and approval flows only.</li>
+<li>Retain for engagement lifetime + 2 years.</li>
+</ul>
+<hr />
+<h2 id="6-link-to-other-artifacts">6. Link to other artifacts</h2>
+<table>
+<thead>
+<tr>
+<th>Artifact</th>
+<th>How the audit trail uses it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Governance Tiers</td>
+<td>Defines which actions must be logged and approved.</td>
+</tr>
+<tr>
+<td>Approval Envelope</td>
+<td>Provides the human decision and evidence.</td>
+</tr>
+<tr>
+<td>Opportunity Catalogue</td>
+<td>Supplies the <code>use_case_id</code> and value claim.</td>
+</tr>
+<tr>
+<td>Export Layer</td>
+<td>Provides the <code>trigger_file</code> and <code>evidence_refs</code>.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><em>Template version 1.0  -  Angel Software Solutions engagement pack.</em></p>
+  </article>
+</div>
+<footer class="footer">
+  <p>Illustrative pre-call preview for Top Spirit (Marussia) and Angel Software Solutions. Demo values are synthetic; client evidence gates remain explicit.</p>
+</footer>
+</body>
+</html>

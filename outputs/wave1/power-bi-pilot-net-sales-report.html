@@ -1,0 +1,122 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Power BI pilot net-sales report</title><style>body{font-family:Inter,system-ui,sans-serif;margin:0;background:#0f172a;color:#e5e7eb;line-height:1.6}.wrap{max-width:980px;margin:0 auto;padding:48px 24px}a{color:#93c5fd}pre{white-space:pre-wrap;background:#111827;border:1px solid #374151;border-radius:12px;padding:12px;overflow:auto}h1,h2,h3{color:#fff}</style></head><body><main class="wrap"><p><a href="../../index.html">Back to command center</a></p><p><strong>Illustrative synthetic report.</strong> No live client data.</p><h1>OUT-PBI-W1-001  -  Wave 1 Sales &amp; Depletions Pilot (rendered report)</h1>
+
+<p>&gt; This is the on-screen content of the Power BI Desktop pilot, rendered as markdown because no `.pbix` authoring tool is available in this environment. Build instructions, model and DAX are in `docs/06-wave-1/power-bi-desktop-pilot-build-pack.md`.</p>
+<p>&gt;</p>
+<p>&gt; **All figures below are ILLUSTRATIVE**, computed from the synthetic `assets/starter-data/` pack  -  **not Top Spirit (Marussia) data.** Gross Profit uses a clearly-labelled placeholder cost (60% of net) and must not be read as real profit until `EXP-ERP-COST-001` is supplied and a Finance SME signs off.</p>
+<p>&gt;</p>
+<p>&gt; **Human-in-control:** every figure here is a draft for BICC/Finance reconciliation, not an approved number. Nothing on this report is &quot;trusted&quot; until the §7b reconciliation in the build pack is signed (`DEC-BICC-001`).</p>
+
+<p>**Report period:** 2026-06-15  to  2026-06-19 (starter sample) · **Last refreshed:** illustrative · **Source:** `EXP-ERP-SALES-001` + dimensions</p>
+
+<p>---</p>
+
+<h2>Page 1  -  Executive summary</h2>
+
+<p>**KPI cards**</p>
+
+<pre>| Net Sales | Gross Profit *(illustrative)* | GP % *(illustrative)* | Depletions |</pre>
+<pre>|---|---|---|---|</pre>
+<pre>| **€11,752.50** | **€4,701.00** | **40.0%** | **830 bottles** |</pre>
+
+<p>&gt; Source: `SUM(net_amount_eur)` and `SUM(quantity)` over `EXP-ERP-SALES-001`. GP = Net Sales − placeholder cost (`CALC-COST-PLACEHOLDER-001`, 60% of net). GP card is greyed/flagged &quot;ILLUSTRATIVE  -  placeholder cost&quot; on the live report.</p>
+
+<p>**Net sales trend (by invoice date)**</p>
+
+<pre>| Date | Net Sales (€) |</pre>
+<pre>|---|---|</pre>
+<pre>| 2026-06-15 | 4,300.00 |</pre>
+<pre>| 2026-06-16 | 2,250.00 |</pre>
+<pre>| 2026-06-17 | 2,937.50 |</pre>
+<pre>| 2026-06-18 | 1,125.00 |</pre>
+<pre>| 2026-06-19 | 1,140.00 |</pre>
+
+<p>&gt; Caveat shown on page: six invoice lines over one week  -  trend is for shape only, not a real pattern.</p>
+
+<p>---</p>
+
+<h2>Page 2  -  By channel</h2>
+
+<p>**Net Sales &amp; Depletions by channel**</p>
+
+<pre>| Channel | Net Sales (€) | Gross Profit *(illustrative, €)* | Depletions (bottles) |</pre>
+<pre>|---|---|---|---|</pre>
+<pre>| off-trade | 6,550.00 | 2,620.00 | 450 |</pre>
+<pre>| on-trade | 5,202.50 | 2,081.00 | 380 |</pre>
+<pre>| **Total** | **11,752.50** | **4,701.00** | **830** |</pre>
+
+<p>**Channel × category matrix (Net Sales €)**</p>
+
+<pre>| Channel | White wine | Red wine | Sparkling | Spirits | Total |</pre>
+<pre>|---|---|---|---|---|---|</pre>
+<pre>| off-trade | 4,750.00 |  -  | 1,800.00 |  -  | 6,550.00 |</pre>
+<pre>| on-trade |  -  | 4,077.50 |  -  | 1,125.00 | 5,202.50 |</pre>
+<pre>| **Total** | **4,750.00** | **4,077.50** | **1,800.00** | **1,125.00** | **11,752.50** |</pre>
+
+<p>&gt; Source: `EXP-ERP-SALES-001` joined to `EXP-CRM-CUST-001` (`customer_id`  to  channel) and `EXP-ERP-PRICE-001` (`product_code`  to  category). No customer names are shown (GDPR-safe by design).</p>
+
+<p>---</p>
+
+<h2>Page 3  -  By product / category</h2>
+
+<p>**Net Sales &amp; Depletions by product**</p>
+
+<pre>| Product code | Product | Category | Depletions (bottles) | Net Sales (€) |</pre>
+<pre>|---|---|---|---|---|</pre>
+<pre>| SPI-003 | Blaufränkisch Classic | red wine | 250 | 2,937.50 |</pre>
+<pre>| SPI-001 | Premium Grüner Veltliner | white wine | 200 | 2,500.00 |</pre>
+<pre>| SPI-002 | Reserve Riesling | white wine | 150 | 2,250.00 |</pre>
+<pre>| SPI-005 | Premium Sekt Brut | sparkling | 100 | 1,800.00 |</pre>
+<pre>| SPI-004 | Zweigelt Reserve | red wine | 80 | 1,140.00 |</pre>
+<pre>| SPI-006 | Alpine Herb Liqueur | spirits | 50 | 1,125.00 |</pre>
+<pre>| **Total** | | | **830** | **11,752.50** |</pre>
+
+<p>**By category**</p>
+
+<pre>| Category | Net Sales (€) | Depletions (bottles) | % of net sales |</pre>
+<pre>|---|---|---|---|</pre>
+<pre>| white wine | 4,750.00 | 350 | 40.4% |</pre>
+<pre>| red wine | 4,077.50 | 330 | 34.7% |</pre>
+<pre>| sparkling | 1,800.00 | 100 | 15.3% |</pre>
+<pre>| spirits | 1,125.00 | 50 | 9.6% |</pre>
+
+<p>---</p>
+
+<h2>Page 4  -  Stock context</h2>
+
+<p>Depletions in the period against latest stock on hand (`EXP-WMS-STOCK-001`, updated 2026-06-22). A simple early &quot;running low&quot; signal  -  **informational only (governance tier G1)**; any reorder is a human decision.</p>
+
+<pre>| Product | Depletions (period) | Stock available | Cover (periods) | Watch? |</pre>
+<pre>|---|---|---|---|---|</pre>
+<pre>| SPI-004 Zweigelt Reserve | 80 | 95 | ~1.2 | ⚠ low |</pre>
+<pre>| SPI-002 Reserve Riesling | 150 | 180 | ~1.2 | ⚠ low |</pre>
+<pre>| SPI-006 Alpine Herb Liqueur | 50 | 75 | ~1.5 | ⚠ watch |</pre>
+<pre>| SPI-003 Blaufränkisch Classic | 250 | 310 | ~1.2 | ⚠ low |</pre>
+<pre>| SPI-001 Premium Grüner Veltliner | 200 | 420 | ~2.1 | ok |</pre>
+<pre>| SPI-005 Premium Sekt Brut | 100 | 240 | ~2.4 | ok |</pre>
+
+<p>&gt; &quot;Cover&quot; = stock available ÷ period depletions, illustrative only. The report flags; a human in logistics decides whether to reorder.</p>
+
+<p>---</p>
+
+<h2>Page 5  -  Source &amp; lineage (the audit trail, on the report)</h2>
+
+<pre>| Table | Export ID | Source file | Classification | Last refresh | Reviewer |</pre>
+<pre>|---|---|---|---|---|---|</pre>
+<pre>| Sales (fact) | `EXP-ERP-SALES-001` | `sales_invoices.csv` | Restricted | illustrative | Finance SME |</pre>
+<pre>| Customers | `EXP-CRM-CUST-001` | `customer_master.csv` | Confidential | illustrative | BICC |</pre>
+<pre>| Products / price | `EXP-ERP-PRICE-001` | `price_list.csv` | Internal | illustrative | BICC |</pre>
+<pre>| Stock | `EXP-WMS-STOCK-001` | `stock_availability.csv` | Internal | illustrative | Logistics |</pre>
+<pre>| Cost | `EXP-ERP-COST-001` | **not yet supplied** | Restricted |  -  | Finance SME |</pre>
+
+<p>**Open definition questions shown on the report:**</p>
+
+<p>1. Are credit notes / rebates already netted in `net_amount_eur`? (Finance SME)</p>
+<p>2. Standard vs landed cost for GP? (Finance SME  -  **blocks real GP**)</p>
+<p>3. Is &quot;depletions&quot; sell-out or sell-in? (Logistics / BICC)</p>
+<p>4. Calendar vs fiscal period? (Finance)</p>
+
+<p>**Reconciliation status:** `OUT-PBI-W1-001`  -  **pending** (`DEC-BICC-001` not yet signed).</p>
+
+<p>---</p>
+
+<p>*Version 1.0  -  Angel Software Solutions engagement pack. Figures illustrative, from synthetic starter data; not Top Spirit (Marussia) values. Field-level lineage in `power-bi-pilot-lineage.csv`.*</p></main></body></html>

@@ -1,0 +1,11 @@
+From: buyer@example.invalid
+To: orders@example.invalid
+Subject: May replenishment order
+
+Please deliver on 2026-06-28 to Sample Retailer A.
+Order:
+- Brand A Riesling 0.75L x 24 @ 12.50
+- Brand B Gin 0.70L x 12 @ 22.00
+
+Regards,
+Sample Buyer

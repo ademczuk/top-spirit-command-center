@@ -1,0 +1,5 @@
+bank_txn_id,suggested_invoice,confidence,signals,exception_reason,finance_approval_status,posting
+BANK-001,INV-1001,100,invoice-reference;amount-exact;payer-customer,,PENDING_HUMAN_APPROVAL,NO_AUTO_POSTING
+BANK-002,INV-1002,100,invoice-reference;amount-exact;payer-customer,,PENDING_HUMAN_APPROVAL,NO_AUTO_POSTING
+BANK-003,,0,,NO_MATCH,PENDING_HUMAN_APPROVAL,NO_AUTO_POSTING
+BANK-004,INV-1004,100,invoice-reference;amount-exact;payer-customer,,PENDING_HUMAN_APPROVAL,NO_AUTO_POSTING

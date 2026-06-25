@@ -1,0 +1,5 @@
+invoice_id,date,customer,channel,brand,category,gross_sales,discounts,credit_notes,vat,cost,depletion_qty
+INV-1001,2026-05-02,Sample Retailer A,off-trade,Brand A,Wine,12000,600,0,0,7200,180
+INV-1002,2026-05-06,Sample Restaurant B,on-trade,Brand B,Spirits,8500,250,0,0,5100,72
+INV-1003,2026-05-13,Sample Wine Shop C,specialist,Brand C,Sekt,4300,100,50,0,2600,48
+INV-1004,2026-05-20,Sample Retailer A,off-trade,Brand B,Spirits,9700,400,0,0,6100,96

@@ -5,7 +5,7 @@
 
 ## Send-pack rule
 
-Only send client-facing artifacts that are polished, neutral, and safe. Keep operational coordination, internal swarm notes, raw backlog chatter and agent dispatch evidence out of the client pack unless explicitly requested internally.
+Only send client-facing artifacts that are polished, neutral, and safe. Keep operational coordination, internal working notes, raw backlog chatter and internal tooling output out of the client pack unless explicitly requested internally.
 
 ## Pre-call pack
 
@@ -46,22 +46,22 @@ Send after the call with a short note and agreed next steps:
 
 Do **not** send these externally by default:
 
-- `backlog/` task files and AgentReef dispatch rows.
-- `docs/10-agentreef-dispatch-log.md` unless explicitly requested internally.
-- Raw internal notes, tool outputs, mesh-chat evidence, or automation logs.
+- internal task files and dispatch notes.
+- internal working log unless explicitly requested internally.
+- Raw internal notes, tool outputs, internal coordination notes, or coordination logs.
 - Any file containing credentials, tokens, secret state, private keys, or unrelated client material.
 
 ## Decision options for the call
 
 | Option | Decision | When to choose |
 |---|---|---|
-| **A — Start Phase 0 / Wave 1 pilot** | Name sponsor/BICC lead, confirm exports, schedule workshops and agree pilot use case. | Recommended if the approach fits and there is appetite to move. |
-| **B — Run a short scoping workshop first** | Book a 60–90 minute process/export validation workshop before committing to Phase 0. | Choose if stakeholders need more confidence or export availability is unclear. |
-| **C — Defer** | No pilot until ERP/BI decision is clearer. | Choose only if leadership refuses interim value delivery. Flag opportunity cost. |
+| **A  -  Start Phase 0 / Wave 1 pilot** | Name sponsor/BICC lead, confirm exports, schedule workshops and agree pilot use case. | Recommended if the approach fits and there is appetite to move. |
+| **B  -  Run a short scoping workshop first** | Book a 60 - 90 minute process/export validation workshop before committing to Phase 0. | Choose if stakeholders need more confidence or export availability is unclear. |
+| **C  -  Defer** | No pilot until ERP/BI decision is clearer. | Choose only if leadership refuses interim value delivery. Flag opportunity cost. |
 
 ## Post-call follow-up email
 
-Subject: `Top Spirit × Angel Software Solutions — next steps from AI/process automation call`
+Subject: `Top Spirit × Angel Software Solutions  -  next steps from AI/process automation call`
 
 ```text
 Hi [Name],

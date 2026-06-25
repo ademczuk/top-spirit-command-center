@@ -1,6 +1,6 @@
-# Top Spirit × Angel Software Solutions — Executive one-pager
+# Top Spirit × Angel Software Solutions  -  Executive one-pager
 
-> **Confidential — steering committee only.** Pre-call leave-behind. All numbers illustrative; scope, timeline and commercials to be agreed in the introductory call.
+> **Steering-committee preview.** Pre-call leave-behind. All numbers illustrative; scope, timeline and commercials to be agreed in the introductory call.
 
 ---
 
@@ -8,7 +8,7 @@
 
 Top Spirit is preparing an ERP migration and a future BI-platform decision. Meanwhile, Customer Service, Finance and Commercial teams spend significant time re-keying orders, reconciling payments and building manual reports.
 
-Angel Software Solutions proposes a **process-review + automation + AI-literacy** programme that creates value **now** — without waiting for the ERP decision and without new software licences.
+Angel Software Solutions proposes a **process-review + automation + AI-literacy** programme that creates value **now**  -  without waiting for the ERP decision and without new software licences.
 
 ---
 
@@ -20,9 +20,9 @@ Angel Software Solutions proposes a **process-review + automation + AI-literacy*
 
 ## Three pillars
 
-1. **Current- and target-state modelling** — end-to-end process maps built from exports, reports and interviews.
-2. **AI agents inside Approval Envelopes** — AI proposes; humans approve anything that matters.
-3. **Source-linked Audit Trail** — every figure traces back to the export it came from.
+1. **Current- and target-state modelling**  -  end-to-end process maps built from exports, reports and interviews.
+2. **AI agents inside Approval Envelopes**  -  AI proposes; humans approve anything that matters.
+3. **Source-linked Audit Trail**  -  every figure traces back to the export it came from.
 
 ---
 
@@ -30,9 +30,9 @@ Angel Software Solutions proposes a **process-review + automation + AI-literacy*
 
 | Phase | Weeks | Outcome |
 |---|---|---|
-| **Phase 0 — Foundations** | 1–4 | Data-classification rule, export inventory, AI-literacy pilot, first knowledge capture |
-| **Wave 1 — First value** | 5–10 | One process mapped end-to-end; one manual report consolidated; one Power BI report rebuilt; governance model drafted |
-| **Wave 2+ — Scale** | 11+ | Document order-intake automation; financial reconciliation; Business Glossary at scale; next-ERP recommendation |
+| **Phase 0  -  Foundations** | 1 - 4 | Data-classification rule, export inventory, AI-literacy pilot, first knowledge capture |
+| **Wave 1  -  First value** | 5 - 10 | One process mapped end-to-end; one manual report consolidated; one Power BI report rebuilt; governance model drafted |
+| **Wave 2+  -  Scale** | 11+ | Document order-intake automation; financial reconciliation; Business Glossary at scale; next-ERP recommendation |
 
 ---
 
@@ -59,4 +59,4 @@ Introductory call: confirm scope, dependencies, steering committee sponsor and B
 
 ---
 
-*Angel Software Solutions — Export Layer · Approval Envelope · Source-linked Audit Trail*
+*Angel Software Solutions  -  Export Layer · Approval Envelope · Source-linked Audit Trail*

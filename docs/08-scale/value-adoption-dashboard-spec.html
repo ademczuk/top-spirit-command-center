@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scale  -  Value realisation and adoption dashboard spec  -  Top Spirit Command Center</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --deep:#07111F; --surface:#101B2A; --line:#1d2c40; --border:#2a3a4f;
+  --gold:#D6A94A; --teal:#0D9488; --cream:#F6F1E8; --paper:#FBF8F1;
+  --ink:#10243a; --muted:#5b6b7d; --clay:#B45309;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0; font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  color:var(--ink); background:linear-gradient(160deg,var(--deep) 0%,var(--surface) 100%);
+  background-attachment:fixed; line-height:1.65;
+}
+.topbar{
+  position:sticky; top:0; z-index:10; display:flex; align-items:center; justify-content:space-between;
+  gap:18px; padding:14px 28px; background:rgba(7,17,31,.92); backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--border);
+}
+.brand{display:flex; flex-direction:column; line-height:1.2;}
+.brand .name{color:#fff; font-weight:800; letter-spacing:-.01em; font-size:15px;}
+.brand .sub{color:var(--gold); font-size:11px; text-transform:uppercase; letter-spacing:.14em;}
+.back{
+  color:#cdd8e6; text-decoration:none; font-size:14px; font-weight:600; white-space:nowrap;
+  border:1px solid var(--border); padding:8px 14px; border-radius:9px; transition:all .15s;
+}
+.back:hover{color:#fff; border-color:var(--gold); background:rgba(214,169,74,.12);}
+.wrap{max-width:880px; margin:34px auto 60px; padding:0 22px;}
+.doc{
+  background:var(--paper); border-radius:16px; padding:54px 56px;
+  box-shadow:0 24px 60px rgba(0,0,0,.35); border:1px solid rgba(255,255,255,.06);
+}
+.doc h1,.doc h2,.doc h3,.doc h4{font-family:"Playfair Display",Georgia,serif; color:var(--deep); line-height:1.18; letter-spacing:-.01em;}
+.doc h1{font-size:34px; margin:0 0 8px; padding-bottom:16px; border-bottom:3px solid var(--gold);}
+.doc h2{font-size:25px; margin:38px 0 12px;}
+.doc h3{font-size:19px; margin:28px 0 8px;}
+.doc h4{font-size:16px; margin:22px 0 6px; font-family:Inter,sans-serif; font-weight:700;}
+.doc p{margin:12px 0;}
+.doc a{color:var(--teal); text-decoration:none; border-bottom:1px solid rgba(13,148,136,.3);}
+.doc a:hover{color:var(--clay); border-bottom-color:var(--clay);}
+.doc ul,.doc ol{padding-left:24px; margin:12px 0;}
+.doc li{margin:5px 0;}
+.doc strong{color:var(--deep);}
+.doc blockquote{
+  margin:18px 0; padding:12px 20px; border-left:4px solid var(--gold);
+  background:rgba(214,169,74,.08); color:var(--ink); border-radius:0 8px 8px 0;
+}
+.doc blockquote p{margin:6px 0;}
+.doc code{
+  font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace; font-size:.88em;
+  background:#eee6d6; color:#7a4d12; padding:2px 6px; border-radius:5px;
+}
+.doc pre{
+  background:var(--deep); color:#e6edf6; padding:18px 20px; border-radius:11px;
+  overflow:auto; font-size:13px; line-height:1.55; border:1px solid var(--border);
+}
+.doc pre code{background:none; color:inherit; padding:0;}
+.doc table{border-collapse:collapse; width:100%; margin:20px 0; font-size:14.5px; overflow:hidden; border-radius:10px;}
+.doc thead th{background:var(--deep); color:#fff; text-align:left; padding:11px 14px; font-weight:600;}
+.doc tbody td{padding:10px 14px; border-bottom:1px solid #e6ddca; vertical-align:top;}
+.doc tbody tr:nth-child(even){background:rgba(16,36,58,.035);}
+.doc tbody tr:last-child td{border-bottom:none;}
+.doc hr{border:none; border-top:1px solid #e0d6c0; margin:30px 0;}
+.doc img{max-width:100%; border-radius:10px;}
+.footer{max-width:880px; margin:0 auto 50px; padding:0 22px; color:#8ea2b8; font-size:12.5px; text-align:center;}
+.footer a{color:#bcd0e6;}
+@media (max-width:640px){.doc{padding:32px 22px;} .wrap{margin-top:20px;} .doc h1{font-size:27px;}}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><span class="name">Top Spirit Command Center</span><span class="sub">Angel Software Solutions</span></div>
+  <a class="back" href="../../index.html">Back to command center</a>
+</header>
+<div class="wrap">
+  <article class="doc">
+<h1 id="scale-value-realisation-and-adoption-dashboard-spec">Scale  -  Value realisation and adoption dashboard spec</h1>
+<blockquote>
+<p>Shows whether the engagement is saving time and being used in practice  -  and proves it.
+AI/automation can <em>propose</em> the numbers; <strong>a human owner approves every value claim before it appears on the dashboard.</strong> Each figure traces back to a source export and an audit-trail record.</p>
+<p><strong>Project-team working preview.</strong> Built on file exports, inside Microsoft 365 E3 (Excel / Power BI Desktop). Companion sample: <code>value-adoption-dashboard-sample.md</code> and the CSV logs in <code>outputs/scale/</code>.</p>
+</blockquote>
+<hr />
+<h2 id="1-purpose">1. Purpose</h2>
+<p>The dashboard turns the engagement's "Measured savings" and "Adoption" success metrics into reviewed evidence for the AI Steering Committee. It answers three questions every month:</p>
+<ol>
+<li><strong>Are we saving time?</strong>  -  hours saved per automated task (AC #1).</li>
+<li><strong>Is it being used?</strong>  -  adoption of rebuilt reports and tools by real users (AC #2).</li>
+<li><strong>Is the picture current?</strong>  -  refreshed and reviewed at least monthly (AC #3).</li>
+</ol>
+<p>No figure is "live" until the named value owner has approved it against its source. This keeps a human in control of the savings story, not just the automations.</p>
+<hr />
+<h2 id="2-kpi-definitions">2. KPI definitions</h2>
+<table>
+<thead>
+<tr>
+<th>KPI</th>
+<th>Definition</th>
+<th>Source export / system</th>
+<th>Owner who approves</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hours saved to date</td>
+<td>Sum of <em>approved</em> hours saved per live automation/report rebuild.</td>
+<td>Value-realisation log (<code>outputs/scale/value_realisation_log.csv</code>), reviewed against each baseline time sample.</td>
+<td>BICC + value owner</td>
+</tr>
+<tr>
+<td>EUR value realised</td>
+<td>Hours saved × loaded hourly rate (client-supplied, illustrative until confirmed).</td>
+<td>Value-realisation log + HR-confirmed rate.</td>
+<td>Finance</td>
+</tr>
+<tr>
+<td>Automations / tools live</td>
+<td>Count of use cases in live/adopted status.</td>
+<td>Opportunity catalogue (<code>docs/08-scale/opportunity-catalogue.md</code>).</td>
+<td>BICC</td>
+</tr>
+<tr>
+<td>Rebuilt reports adopted</td>
+<td>Reports actually used by the target team in the current period.</td>
+<td>BICC usage/adoption log (<code>outputs/scale/adoption_log.csv</code>).</td>
+<td>Report owner</td>
+</tr>
+<tr>
+<td>Approval Envelope completion</td>
+<td>Decisions completed in the human approval queue, with edits/rejections tracked.</td>
+<td>Approval Envelope log (<code>docs/06-wave-1/governance-approval-envelopes.md</code>).</td>
+<td>Process owner</td>
+</tr>
+<tr>
+<td>Training completion</td>
+<td>People completing AI-literacy modules, by role.</td>
+<td>Training attendance/feedback register.</td>
+<td>AI-literacy lead</td>
+</tr>
+<tr>
+<td>Glossary coverage</td>
+<td>Key terms with an agreed owner, source and review date.</td>
+<td>Business glossary (<code>docs/08-scale/business-glossary-seed.md</code>).</td>
+<td>BICC</td>
+</tr>
+</tbody>
+</table>
+<p>Every KPI row on the dashboard carries the source export ID and the audit-trail reference that backs it; a KPI with no reviewed source is shown as <strong>"Unverified  -  not counted"</strong>, never as a savings number.</p>
+<hr />
+<h2 id="3-hours-saved-log-ac-1">3. Hours-saved log (AC #1)</h2>
+<p>One row per automated task. Hours saved are <strong>derived, then reviewed</strong>  -  never self-reported by the tool.</p>
+<p><strong>Schema</strong> (<code>outputs/scale/value_realisation_log.csv</code>):</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>opportunity_id</code></td>
+<td>Links to the opportunity catalogue (e.g. <code>OPP-001</code>).</td>
+</tr>
+<tr>
+<td><code>automation_name</code></td>
+<td>Human-readable use case.</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td>idea / approved / piloting / live / deferred.</td>
+</tr>
+<tr>
+<td><code>baseline_minutes_per_task</code></td>
+<td>Measured manual time from a dated time sample.</td>
+</tr>
+<tr>
+<td><code>automated_minutes_per_task</code></td>
+<td>Measured post-change time (incl. human review).</td>
+</tr>
+<tr>
+<td><code>tasks_per_period</code></td>
+<td>Volume from a source export (e.g. order count).</td>
+</tr>
+<tr>
+<td><code>period</code></td>
+<td>Period the volume covers (e.g. <code>2026-06</code>).</td>
+</tr>
+<tr>
+<td><code>hours_saved_per_month</code></td>
+<td><code>tasks_per_period × (baseline − automated) / 60</code>.</td>
+</tr>
+<tr>
+<td><code>loaded_hourly_rate_eur</code></td>
+<td>Client-confirmed rate (illustrative until HR-confirmed).</td>
+</tr>
+<tr>
+<td><code>eur_value_per_year</code></td>
+<td><code>hours_saved_per_month × 12 × rate</code>.</td>
+</tr>
+<tr>
+<td><code>evidence_ref</code></td>
+<td>Time sample / task log that backs the baseline and volume.</td>
+</tr>
+<tr>
+<td><code>source_export_id</code></td>
+<td>Export the volume came from (e.g. <code>EXP-ERP-SALES-001</code>).</td>
+</tr>
+<tr>
+<td><code>reviewer</code></td>
+<td>Named owner who approved the row.</td>
+</tr>
+<tr>
+<td><code>review_status</code></td>
+<td>PENDING_HUMAN_APPROVAL / APPROVED.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Formula</strong>  -  <code>hours_saved_per_month = tasks_per_period × (baseline_minutes_per_task − automated_minutes_per_task) / 60</code>.</p>
+<p>Controls: the baseline must be a <em>dated, sampled</em> measurement (not a guess); the automated time must include the human review step so savings are not overstated; a row only counts toward "Hours saved to date" once <code>review_status = APPROVED</code>.</p>
+<hr />
+<h2 id="4-adoption-metrics-ac-2">4. Adoption metrics (AC #2)</h2>
+<p>Adoption is collected <em>from users</em>, not assumed from deployment. A tool that is live but unused scores zero.</p>
+<p><strong>Schema</strong> (<code>outputs/scale/adoption_log.csv</code>):</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>tool_or_report_name</code></td>
+<td>Artifact being measured.</td>
+</tr>
+<tr>
+<td><code>audience</code></td>
+<td>Target user group.</td>
+</tr>
+<tr>
+<td><code>metric</code></td>
+<td>unique viewers / sessions / decisions completed / old workbook retired / terms reviewed.</td>
+</tr>
+<tr>
+<td><code>period</code></td>
+<td>Month the value covers.</td>
+</tr>
+<tr>
+<td><code>value</code></td>
+<td>Observed value.</td>
+</tr>
+<tr>
+<td><code>target</code></td>
+<td>Agreed target for the period.</td>
+</tr>
+<tr>
+<td><code>collection_method</code></td>
+<td>How it was captured (BICC log, meeting evidence, owner confirmation, approval log).</td>
+</tr>
+<tr>
+<td><code>source_ref</code></td>
+<td>Evidence link / audit reference.</td>
+</tr>
+<tr>
+<td><code>owner</code></td>
+<td>Person who confirmed the metric.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Artifact / tool</th>
+<th>Target users</th>
+<th>Adoption signal</th>
+<th>Collection method</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Power BI Desktop pilot</td>
+<td>BICC + report users</td>
+<td>Refreshed and used in monthly review</td>
+<td>BICC log / meeting evidence</td>
+</tr>
+<tr>
+<td>Consolidated report</td>
+<td>Report owner / users</td>
+<td>Old manual workbook retired or reduced</td>
+<td>Owner confirmation</td>
+</tr>
+<tr>
+<td>Business glossary</td>
+<td>BICC / SMEs</td>
+<td>Terms searched / updated / reviewed</td>
+<td>Change log</td>
+</tr>
+<tr>
+<td>Approval queue (order intake, reconciliation)</td>
+<td>Process owners</td>
+<td>Decisions completed; edits/rejections tracked</td>
+<td>Approval Envelope log</td>
+</tr>
+<tr>
+<td>AI-literacy modules</td>
+<td>All trained roles</td>
+<td>Completion by role</td>
+<td>Attendance register</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="5-traceability">5. Traceability</h2>
+<ul>
+<li>Each <strong>value</strong> claim  to  its source export and the time sample that set the baseline.</li>
+<li>Each <strong>adoption</strong> metric  to  the collection method and audit-log reference.</li>
+<li>The dashboard renders these as columns, so any number can be challenged and traced in one step. This is the Source-linked Audit Trail applied to the savings story itself.</li>
+</ul>
+<p>Dashboard layout mockup: <code>assets/mockups/16-value-adoption-dashboard.mmd</code>.</p>
+<hr />
+<h2 id="6-monthly-update-routine-ac-3">6. Monthly update routine (AC #3)</h2>
+<p>Run on a fixed day each month (suggested: first working day), by the BICC or value owner:</p>
+<ol>
+<li>Pull the value-realisation log and adoption log from the export layer.</li>
+<li>Verify source-linked evidence for any <strong>new or changed</strong> savings; reject rows without a reviewed baseline.</li>
+<li>Confirm adoption metrics with the named owners; flag stalled or zero-use tools.</li>
+<li>Recompute hours saved, EUR value and "automations live"; mark unverified rows as not counted.</li>
+<li>Update the one-page steering-committee summary (<code>value-adoption-dashboard-sample.md</code> is the template).</li>
+<li>Record decisions, approvals and exceptions in the audit trail.</li>
+</ol>
+<p>Cadence aligns with the value-realisation tracker template: weekly capture during active pilots, <strong>monthly review with the AI Steering Committee</strong>, quarterly reconciliation against business-case estimates.</p>
+<hr />
+<h2 id="7-what-stays-a-client-run-activity">7. What stays a client-run activity</h2>
+<ul>
+<li>Collecting real adoption signals from users (BICC + process owners).</li>
+<li>Confirming the loaded hourly rate with HR/Finance (replaces the illustrative placeholder).</li>
+<li>Running the monthly review and recording every approval.</li>
+</ul>
+<p>Angel Software Solutions supplies the spec, the schemas, the formulas, the sample and the routine; the client owns the recurring data collection and every approval decision.</p>
+<hr />
+<p><em>Spec version 1.1  -  Angel Software Solutions engagement pack. Companion sample: <code>value-adoption-dashboard-sample.md</code>, <code>outputs/scale/value_realisation_log.csv</code>, <code>outputs/scale/adoption_log.csv</code>.</em></p>
+  </article>
+</div>
+<footer class="footer">
+  <p>Illustrative pre-call preview for Top Spirit (Marussia) and Angel Software Solutions. Demo values are synthetic; client evidence gates remain explicit.</p>
+</footer>
+</body>
+</html>

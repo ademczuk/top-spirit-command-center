@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Wave 1  -  Governance model and Approval Envelopes  -  Top Spirit Command Center</title>
+<title>Phase 0  -  AI literacy pilot: Foundations  -  Top Spirit Command Center</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
@@ -82,111 +82,104 @@ body{
 </header>
 <div class="wrap">
   <article class="doc">
-<h1 id="wave-1-governance-model-and-approval-envelopes">Wave 1  -  Governance model and Approval Envelopes</h1>
+<h1 id="phase-0-ai-literacy-pilot-foundations">Phase 0  -  AI literacy pilot: Foundations</h1>
 <blockquote>
-<p>AI may propose, draft, extract, classify or recommend. Humans approve every financial, pricing and customer-facing action.</p>
+<p>Goal: make the team safe and useful with LLMs before any agent touches financial, pricing or customer-facing work.</p>
 </blockquote>
-<h2 id="three-governance-tiers">Three governance tiers</h2>
-<table>
-<thead>
-<tr>
-<th>Tier</th>
-<th>Risk</th>
-<th>AI/automation permission</th>
-<th>Examples</th>
-<th>Approver</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>G1</td>
-<td>Informational / low risk</td>
-<td>May draft, summarise, classify or log automatically inside audit trail.</td>
-<td>Summarise process notes, classify non-sensitive exports, draft glossary candidate.</td>
-<td>Artifact owner review as needed.</td>
-</tr>
-<tr>
-<td>G2</td>
-<td>Operational</td>
-<td>AI proposes; named human approves before operational use.</td>
-<td>Order-field extraction, stock exception routing, report refresh issue triage.</td>
-<td>Process owner/BICC.</td>
-</tr>
-<tr>
-<td>G3</td>
-<td>Financial, pricing or customer-facing</td>
-<td>AI assists only; mandatory human decision and audit sign-off before use.</td>
-<td>Pricing changes, finance postings, customer emails, credit decisions, reconciliation posting.</td>
-<td>Finance/commercial owner plus escalation where needed.</td>
-</tr>
-</tbody>
-</table>
-<h2 id="approval-envelope-flow">Approval Envelope flow</h2>
-<pre><code class="language-mermaid">flowchart LR
-  A[Trigger: file/report/process event] --&gt; B[AI or automation drafts output]
-  B --&gt; C[Confidence + source lineage + risk tier attached]
-  C --&gt; D{Human approval gate}
-  D --&gt;|Approve| E[Action used or committed]
-  D --&gt;|Edit| F[Human edits output]
-  F --&gt; E
-  D --&gt;|Reject| G[Logged rejection + feedback]
-  E --&gt; H[Audit trail record]
-  G --&gt; H
-</code></pre>
-<h2 id="approval-record-fields">Approval record fields</h2>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Purpose</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Envelope ID</td>
-<td>Stable ID for the approval event.</td>
-</tr>
-<tr>
-<td>Trigger/source IDs</td>
-<td>Export/report/interview IDs.</td>
-</tr>
-<tr>
-<td>Proposed action</td>
-<td>What AI/automation suggested.</td>
-</tr>
-<tr>
-<td>Risk tier</td>
-<td>G1/G2/G3.</td>
-</tr>
-<tr>
-<td>Confidence/exception flags</td>
-<td>Why review is needed.</td>
-</tr>
-<tr>
-<td>Approver</td>
-<td>Named role/person.</td>
-</tr>
-<tr>
-<td>Outcome</td>
-<td>Approved, edited, rejected, escalated.</td>
-</tr>
-<tr>
-<td>Timestamp</td>
-<td>When decision was made.</td>
-</tr>
-<tr>
-<td>Downstream action</td>
-<td>What changed, if anything.</td>
-</tr>
-</tbody>
-</table>
-<h2 id="steering-committee-decisions-needed">Steering committee decisions needed</h2>
+<h2 id="audience">Audience</h2>
 <ul>
-<li>Confirm risk-tier examples.</li>
-<li>Confirm approver roles by department.</li>
-<li>Confirm escalation for disputed outputs or unauthorised data exposure.</li>
-<li>Confirm whether any G1 actions may be auto-logged without per-item review.</li>
+<li>BICC / BI counterpart.</li>
+<li>Finance, sales/commercial, customer service/order management, logistics and procurement SMEs.</li>
+<li>AI Steering Committee sponsor or delegate.</li>
 </ul>
+<h2 id="module-1-what-llms-are-good-and-bad-at">Module 1: What LLMs are good and bad at</h2>
+<p><strong>Outcomes</strong>
+- Explain that LLMs generate probabilistic text and need verification.
+- Recognise hallucination, stale knowledge and over-confident answers.
+- Use LLMs for drafting, summarising, extraction assistance and QA checklists, not unsupervised decisions.</p>
+<p><strong>Exercise</strong>
+- Give the model a neutral sales-report narrative and ask for assumptions, missing sources and validation questions.</p>
+<h2 id="module-2-data-classification-in-practice">Module 2: Data classification in practice</h2>
+<p><strong>Outcomes</strong>
+- Apply T0/T1/T2/T3 classification to common exports and reports.
+- Decide what can be pasted into which tool.
+- Redact or aggregate before using AI where possible.</p>
+<p><strong>Exercise</strong>
+- Classify five sample snippets: public portfolio text, anonymised process notes, customer sales table, price list, bank export.</p>
+<h2 id="module-3-prompting-with-source-discipline">Module 3: Prompting with source discipline</h2>
+<p><strong>Outcomes</strong>
+- Ask for source-linked outputs and uncertainty markers.
+- Require the model to separate facts, assumptions and recommendations.
+- Avoid pasting uncontrolled personal or confidential data.</p>
+<p><strong>Exercise prompt skeleton</strong></p>
+<pre><code class="language-text">You are helping document a process from authorised internal notes.
+Return:
+1. facts directly supported by the notes,
+2. assumptions that need SME validation,
+3. open questions,
+4. draft process steps with source IDs.
+Do not invent missing data.
+</code></pre>
+<h2 id="module-4-approval-envelopes">Module 4: Approval Envelopes</h2>
+<p><strong>Outcomes</strong>
+- Understand that AI proposes and humans decide.
+- Identify actions that require mandatory approval: pricing, financial postings, customer-facing emails, master-data changes.
+- Read an Approval Envelope log.</p>
+<p><strong>Exercise</strong>
+- Sort ten example AI outputs into: may auto-log, needs operational approval, or financial/customer-facing mandatory approval.</p>
+<h2 id="pilot-session-format">Pilot session format</h2>
+<table>
+<thead>
+<tr>
+<th>Segment</th>
+<th style="text-align: right;">Duration</th>
+<th>Activity</th>
+<th>Artifact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Intro and guardrails</td>
+<td style="text-align: right;">10 min</td>
+<td>Explain T0-T3 and human-in-loop rule</td>
+<td>Data-classification handout</td>
+</tr>
+<tr>
+<td>LLM capability demo</td>
+<td style="text-align: right;">20 min</td>
+<td>Prompting exercise with safe notes</td>
+<td>Prompt workbook</td>
+</tr>
+<tr>
+<td>Approval Envelope lab</td>
+<td style="text-align: right;">25 min</td>
+<td>Classify actions and design approvals</td>
+<td>Approval worksheet</td>
+</tr>
+<tr>
+<td>Role-specific breakouts</td>
+<td style="text-align: right;">30 min</td>
+<td>Finance/BICC/Sales examples</td>
+<td>Use-case notes</td>
+</tr>
+<tr>
+<td>Debrief</td>
+<td style="text-align: right;">15 min</td>
+<td>Feedback and Wave 1 training needs</td>
+<td>Feedback log</td>
+</tr>
+</tbody>
+</table>
+<h2 id="feedback-capture">Feedback capture</h2>
+<ul>
+<li>Confidence before/after: 1-5.</li>
+<li>"I can safely classify data before using AI": yes/no/comment.</li>
+<li>"I can explain when AI may propose but not decide": yes/no/comment.</li>
+<li>Top three workflows where AI could help.</li>
+<li>Top three concerns/blockers.</li>
+</ul>
+<h2 id="completion-evidence">Completion evidence</h2>
+<p>This repo contains the pilot module outline and exercises. Real completion requires attendance evidence from at least five client team members and feedback collection after the session.</p>
   </article>
 </div>
 <footer class="footer">
