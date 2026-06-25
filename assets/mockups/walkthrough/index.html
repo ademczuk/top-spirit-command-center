@@ -146,7 +146,7 @@
           <div class="card col-4 soft"><h3>Incoming exports</h3><div class="list"><div class="row"><span><b class="file">sales_invoice_lines_may.csv</b><br><span class="tiny">Net sales, GP, depletions</span></span><span class="badge amber">owner review</span></div><div class="row"><span><b class="file">open_invoices_week_22.xlsx</b><br><span class="tiny">Finance reconciliation source</span></span><span class="badge amber">classified</span></div><div class="row"><span><b class="file">stock_on_hand.json</b><br><span class="tiny">Warehouse availability</span></span><span class="badge green">approved</span></div></div></div>
           <div class="card col-4"><h3>Control checks</h3><p><b data-demo-field="glossary-coverage">46/80</b> glossary terms reviewed.</p><p><b data-demo-field="exports-pending">1</b> export connection still pending owner confirmation.</p><p><b data-demo-field="write-back-count">0</b> rows written back without approval.</p><button class="control" data-path="../../../docs/05-phase-0/data-classification-and-export-inventory.html">Open classification guide</button></div>
           <div class="card col-4"><h3>Knowledge capture</h3><p>Process maps and definitions come from exports plus SME input, not guesswork.</p><button class="control secondary" data-path="../../../docs/05-phase-0/knowledge-capture-and-input-pack.html">Open input pack</button></div>
-          <div class="card col-12 demo-panel" id="syntheticDemoPanel"><h3>Synthetic export processor</h3><p class="demo-status" data-demo-field="demo-status">Ready to load synthetic/illustrative CSV, JSON and text exports from the repo sample pack.</p><div class="demo-metrics"><div class="metric-tile"><span class="tiny">Sales invoice net</span><b data-demo-field="sales-net">synthetic pending</b></div><div class="metric-tile"><span class="tiny">Approval queue</span><b data-demo-field="approval-queue">synthetic pending</b></div><div class="metric-tile"><span class="tiny">Reconciliation suggestions</span><b data-demo-field="reconciliation-summary">synthetic pending</b></div><div class="metric-tile"><span class="tiny">Monthly hours saved</span><b data-demo-field="hours-saved">synthetic pending</b></div></div><div class="lineage event-log" id="demoEventLog"><div>event_stream: idle</div><div>source_pack: assets/starter-data + data/samples + outputs/* (synthetic only)</div></div></div>
+          <div class="card col-12 demo-panel" id="syntheticDemoPanel"><h3>Synthetic export processor</h3><p class="demo-status" data-demo-field="demo-status">Ready to load synthetic/illustrative CSV, JSON and text exports from the repo sample pack.</p><div class="demo-metrics"><div class="metric-tile"><span class="tiny">Sales invoice net</span><b data-demo-field="sales-net">Sample data</b></div><div class="metric-tile"><span class="tiny">Approval queue</span><b data-demo-field="approval-queue">Sample data</b></div><div class="metric-tile"><span class="tiny">Reconciliation suggestions</span><b data-demo-field="reconciliation-summary">Sample data</b></div><div class="metric-tile"><span class="tiny">Monthly hours saved</span><b data-demo-field="hours-saved">Sample data</b></div></div><div class="lineage event-log" id="demoEventLog"><div>Stream idle</div><div>Sample data loaded (illustrative only)</div></div></div>
         </div></div></div>
       </section>
 <section class="slide" data-step="2" data-title="Build">
@@ -156,17 +156,17 @@
           <div class="card col-4"><h3>Manual report rebuild</h3><p>One manual report becomes a source-linked Power BI Desktop pilot built from classified file exports.</p><button class="control secondary" data-path="../../../docs/06-wave-1/manual-report-consolidation-plan.html">Open consolidation plan</button></div>
           <div class="card col-4 soft"><h3>BICC pilot</h3><p>Power BI Desktop proves the BI track without adding licences or live connectors.</p><button class="control secondary" data-path="../../../docs/06-wave-1/power-bi-desktop-pilot-build-pack.html">Open pilot build pack</button></div>
           <div class="card col-6"><h3>Order intake Approval Envelope</h3><p><b data-demo-field="order-lines">2</b> synthetic draft lines loaded; status <b data-demo-field="approval-status">PENDING_HUMAN_REVIEW</b>; write-back <b data-demo-field="order-writeback">NO_WRITE_BACK</b>.</p><div class="list"><div class="row"><span>Customer account</span><b data-demo-field="order-customer">Neutral trade account</b></div><div class="row"><span>Delivery date</span><b data-demo-field="order-date">Friday, pending calendar check</b></div><div class="row"><span>Line item 1</span><b data-demo-field="order-line-1">24 cases</b></div><div class="row"><span>Line item 2</span><b data-demo-field="order-line-2">12 cases</b></div></div><div class="banner">Approval Envelope active: AI proposes; a named human decides. Demo stream is a synthetic file-export simulation, not a live connector or real client data.</div></div>
-          <div class="card col-6"><h3>Finance reconciliation</h3><div class="grid"><div class="card soft col-6"><h3>Matched</h3><div class="metric" data-demo-field="reconciliation-matched">3</div></div><div class="card soft col-6"><h3>Unmatched</h3><div class="metric" data-demo-field="reconciliation-unmatched">1</div></div><div class="card soft col-6"><h3>Flagged</h3><div class="metric" data-demo-field="reconciliation-flagged">1</div></div><div class="card soft col-6"><h3>Total value</h3><div class="metric" data-demo-field="bank-total">€37,750</div></div></div></div>
+          <div class="card col-6"><h3>Finance reconciliation</h3><div class="grid"><div class="card soft col-6"><h3>Matched</h3><div class="metric" data-demo-field="reconciliation-matched">3</div></div><div class="card soft col-6"><h3>Unmatched</h3><div class="metric" data-demo-field="reconciliation-unmatched">1</div></div><div class="card soft col-6"><h3>Flagged</h3><div class="metric" data-demo-field="reconciliation-flagged">1</div></div><div class="card soft col-6"><h3>Bank receipts matched</h3><div class="metric" data-demo-field="bank-total">€37,750</div></div></div></div>
         </div></div></div>
       </section>
 <section class="slide" data-step="3" data-title="Operate">
         <div class="hero"><div><h1>Operate with proof</h1><p class="helper">One chapter for the evidence spine: audit trail, value/adoption, glossary, opportunity catalogue, and source-linked metrics.</p></div><span class="pill teal">3 of 4</span></div>
         <div class="screen"><div class="screen-bar"><div class="screen-title">Operate · Audit, value and adoption</div><span class="badge amber">Synthetic / illustrative</span></div><div class="content"><div class="grid">
-          <div class="card col-5 soft"><h3>Power BI value signal</h3><div class="metric" data-demo-field="powerbi-net-sales">€11,753</div><p>Loaded from synthetic file exports; replace only after client exports and validation.</p></div>
-          <div class="card col-7"><h3>Source-linked Audit Trail</h3><details open><summary>Expand source trace</summary><div class="lineage"><div>source_file: <span data-demo-field="audit-source">assets/starter-data/sales_invoices.csv</span></div><div>sheet_range: <span data-demo-field="audit-rows">pending synthetic rows</span></div><div>formula: sum(net_amount_eur) / gross_sales - discounts - credit_notes</div><div>recent_action: <span data-demo-field="audit-action">draft refresh; no auto-posting</span></div></div></details></div>
-          <div class="card col-3 soft"><h3>Hours saved</h3><div class="metric" data-demo-field="value-hours">278</div></div><div class="card col-3 soft"><h3>EUR value</h3><div class="metric" data-demo-field="value-eur">€105k</div></div><div class="card col-3 soft"><h3>Automations live</h3><div class="metric" data-demo-field="automations-live">4</div></div><div class="card col-3 soft"><h3>Active users</h3><div class="metric" data-demo-field="active-users">8</div></div>
+          <div class="card col-5 soft"><h3>Power BI net sales (sample month)</h3><div class="metric" data-demo-field="powerbi-net-sales">€11,753</div><p>Net invoice sales for the sample month. Loaded from sample exports; replace only after client exports and validation.</p></div>
+          <div class="card col-7"><h3>Source-linked Audit Trail</h3><details open><summary>Expand source trace</summary><div class="lineage"><div>Source: <span data-demo-field="audit-source">Sales invoice export</span></div><div>Rows: <span data-demo-field="audit-rows">Sample data</span></div><div>Formula: net sales = gross sales - discounts - credit notes</div><div>Recent action: <span data-demo-field="audit-action">draft refresh; no auto-posting</span></div></div></details></div>
+          <div class="card col-3 soft"><h3>Hours saved</h3><div class="metric" data-demo-field="value-hours">278</div></div><div class="card col-3 soft"><h3>Annualised value (all automations)</h3><div class="metric" data-demo-field="value-eur">€105k</div></div><div class="card col-3 soft"><h3>Automations live</h3><div class="metric" data-demo-field="automations-live">4</div></div><div class="card col-3 soft"><h3>Active users</h3><div class="metric" data-demo-field="active-users">8</div></div>
           <div class="card col-5"><h3>Business Glossary</h3><p><b>Net sales</b> = gross sales minus discounts and credit notes.</p><div class="row"><span>Source</span><b data-demo-field="glossary-source">sales invoice export</b></div><div class="row"><span>Terms reviewed</span><b data-demo-field="glossary-reviewed">46/80</b></div></div>
-          <div class="card col-7"><h3>Opportunity Catalogue</h3><p class="tiny"><span data-demo-field="opportunity-count">4</span> synthetic opportunities loaded from value_realisation_log.csv.</p><div class="board"><div class="opp"><b>Order intake</b><p class="tiny">Effort M · Value H · Risk M</p><span class="badge amber">Pilot</span></div><div class="opp"><b>Reconciliation</b><p class="tiny">Effort M · Value H · Risk H</p><span class="badge">Candidate</span></div><div class="opp"><b>Glossary rollout</b><p class="tiny">Effort L · Value M · Risk L</p><span class="badge green">Ready</span></div><div class="opp"><b>ERP decision pack</b><p class="tiny">Effort M · Value H · Risk M</p><span class="badge">Steering</span></div></div></div>
+          <div class="card col-7"><h3>Opportunity Catalogue</h3><p class="tiny"><span data-demo-field="opportunity-count">4</span> sample opportunities from the value realisation log.</p><div class="board"><div class="opp"><b>Order intake</b><p class="tiny">Effort M · Value H · Risk M</p><span class="badge amber">Pilot</span></div><div class="opp"><b>Reconciliation</b><p class="tiny">Effort M · Value H · Risk H</p><span class="badge">Candidate</span></div><div class="opp"><b>Glossary rollout</b><p class="tiny">Effort L · Value M · Risk L</p><span class="badge green">Ready</span></div><div class="opp"><b>ERP decision pack</b><p class="tiny">Effort M · Value H · Risk M</p><span class="badge">Steering</span></div></div></div>
         </div></div></div>
       </section>
 <section class="slide" data-step="4" data-title="Decide">
@@ -317,17 +317,17 @@
       setField('value-eur', money.format(state.eurValue));
       setField('automations-live', state.automations);
       setField('active-users', state.activeUsers);
-      setField('audit-source', 'assets/starter-data/sales_invoices.csv');
+      setField('audit-source', 'Sales invoice export');
       setField('audit-rows', `${state.salesInvoices.length} invoice rows; ${state.salesLines.length} sales-line rows`);
       setField('audit-action', 'draft refresh loaded; no auto-posting');
-      setField('glossary-source', 'sales_invoice_lines.csv + Business Glossary seed');
+      setField('glossary-source', 'Sales invoice export + Business Glossary seed');
       setField('glossary-reviewed', state.glossaryReviewed);
       setField('opportunity-count', state.opportunityCount);
       setField('glossary-coverage', state.glossaryReviewed);
       setField('exports-pending', state.pendingExports);
       setField('write-back-count', state.writeBacks);
       const log = document.querySelector('#demoEventLog');
-      if (log) log.innerHTML = '<div>event_stream: loaded synthetic sample pack</div><div>source_file: assets/starter-data/sales_invoices.csv</div><div>source_file: outputs/wave2/order_intake_review_queue.csv</div><div>guardrail: NO_WRITE_BACK until explicit reviewer action</div>';
+      if (log) log.innerHTML = '<div>Sample data pack loaded</div><div>Source: sales invoice export</div><div>Source: order intake review queue</div><div>Guardrail: no write-back until explicit reviewer action</div>';
     }
     async function loadSyntheticPack() {
       setField('demo-status', 'Loading synthetic file-export sample pack...');
@@ -350,7 +350,7 @@
       const log = document.querySelector('#demoEventLog');
       if (!log) return;
       const row = document.createElement('div');
-      row.textContent = `${new Date().toLocaleTimeString()} synthetic_event: ${label}`;
+      row.textContent = `${new Date().toLocaleTimeString()} - ${label}`;
       log.prepend(row);
       setField('audit-action', label + '; reviewer approval still required');
       setField('demo-status', `Realtime synthetic stream: ${label}. Human-in-the-loop controls remain active.`);
@@ -368,10 +368,10 @@
       }, delay);
     }
     function pauseRealtime() { if (demo.timer) window.clearInterval(demo.timer); demo.timer = null; }
-    function resetRealtime() { pauseRealtime(); demo.loaded = false; demo.data = null; demo.eventIndex = 0; setField('demo-status', 'Ready to load synthetic/illustrative CSV, JSON and text exports from the repo sample pack.'); const log = document.querySelector('#demoEventLog'); if (log) log.innerHTML = '<div>event_stream: idle</div><div>source_pack: assets/starter-data + data/samples + outputs/* (synthetic only)</div>'; }
+    function resetRealtime() { pauseRealtime(); demo.loaded = false; demo.data = null; demo.eventIndex = 0; setField('demo-status', 'Ready to load synthetic/illustrative CSV, JSON and text exports from the repo sample pack.'); const log = document.querySelector('#demoEventLog'); if (log) log.innerHTML = '<div>Stream idle</div><div>Sample data loaded (illustrative only)</div>'; }
     function approveDraft() { setField('approval-status', 'REVIEWER_ACTION_SHOWN_DRAFT_ONLY'); setField('audit-action', 'reviewer action demonstrated; no write-back performed'); pushEvent('presenter clicked approval control (demo only, no write-back)'); }
     document.querySelectorAll('button[data-path]').forEach((button) => {
-      button.addEventListener('click', () => window.open(button.getAttribute('data-path'), '_blank', 'noopener'));
+      button.addEventListener('click', () => window.open(button.getAttribute('data-path'), '_blank', 'noopener,noreferrer'));
     });
     document.querySelectorAll('[data-demo-action]').forEach((button) => {
       button.addEventListener('click', () => {
@@ -385,6 +385,9 @@
     });
     window.TopSpiritSyntheticDemo = { sourcePaths, parseCsv, loadSyntheticPack, startRealtime, pauseRealtime, resetRealtime };
     show(0);
+    // Auto-load the sample pack on open so the demo shows values immediately.
+    // Manual Load / Start / Pause / Reset controls remain fully wired above.
+    loadSyntheticPack();
   </script>
 </body>
 </html>

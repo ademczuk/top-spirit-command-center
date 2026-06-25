@@ -294,7 +294,7 @@
       <!-- z-0 poster floor: shows with JS off / while video buffers / under reduced-motion -->
       <img class="mh-poster" src="assets/hero-poster.jpg" alt="" aria-hidden="true"
            onerror="this.style.display='none'">
-      <!-- z-0 wired brand hero-bg (TASK-76 hero-bg, decorative): navy/gold depth above the poster -->
+      
       <span data-task76="hero-bg">
         <img class="mh-bg" src="assets/brand/hero-bg.png" alt="" aria-hidden="true"
              onerror="this.style.display='none'">
@@ -435,33 +435,7 @@
       </script>
     </section>
 
-    <!--
-      ============================================================================
-      OLD SECTION  ->  NEW 3-STAGE MAPPING (TASK-99). Nothing dropped, only moved.
-      ----------------------------------------------------------------------------
-      PREPARE  (id=#prepare)
-        - Export Layer  (was: hero proof chip + proof-spine 01 + capabilities Export Layer)
-        - Data classification  (was: Phase 0 phase-cell + workstream "Phase 0")
-        - Privacy / GDPR (Phase 0)  (was: Phase 0 phase-cell + evidence gate TASK-39)
-        - Business Glossary  (was: proof-spine 04 + capabilities Glossary)
-      BUILD  (id=#build)
-        - Process maps (order-to-cash)  (was: capability-beats cap-1 + workstream / phase-row Wave 1)
-        - Power BI Desktop pilot  (was: workstream Wave 1 BICC + phase-row Wave 1 + evidence gate TASK-42)
-        - Document / order intake  (was: capabilities Document Intake)
-        - Financial reconciliation  (was: capabilities Reconciliation)
-        - Approval Envelopes  (was: hero proof chip + proof-spine 02 + capabilities Governance Tiers + gate TASK-43)
-        - Ranked automation candidates (Wave 1)  (was: capability-beats cap-2 optimisation + workstream Value + gate TASK-41)
-      OPERATE  (id=#operate)
-        - Adoption + AI literacy handover  (was: capability-beats cap-3 + workstream Adoption + gates TASK-40, TASK-45)
-        - Value / before-after tracking  (was: capabilities Value & Adoption + workstream Value)
-        - Source-linked Audit Trail  (was: hero proof chip + proof-spine 03 + capabilities Audit Trail)
-        - Opportunity Catalogue  (was: proof-spine 05 + capabilities Glossary+Opportunities + workstream Scale + gate TASK-44)
-        - Next-ERP Decision Pack (Wave 2 / Scale)  (was: hero proof chip + capabilities Next-ERP + workstream ERP + phase-row Wave 2)
-      SUPPORTING (relocated into collapsed accordions, default closed):
-        - Brand-fit cards, capability detail, M365 budget, proof spine controls,
-          artifact pack, evidence gates  -> stage accordions below.
-      ============================================================================
-    -->
+    
 
     <!-- ===================== 3-stage row (compacted: one section, 3 columns) ===================== -->
     <section id="stages" class="section stages section-photo" aria-label="The pilot in three stages: Prepare, Build, Operate" style="background:var(--surface-2);">
@@ -524,29 +498,13 @@
       </div>
     </section>
 
-    <!-- ===================== Spec coverage, collapsed by design feedback ===================== -->
+    <!-- ===================== Doorway into the pilot proof ===================== -->
     <section id="coverage" class="section tight" aria-labelledby="coverage-title" style="background:var(--surface);">
       <div class="wrap">
         <div class="eyebrow">Pilot proof, not front-door homework</div>
-        <h2 id="coverage-title">Keep the landing page light; put the proof inside the pilot.</h2>
-        <p class="lead">Design feedback actioned: the full Expectations Coverage matrix is no longer a giant standalone table in the main flow. The first read stays Prepare, Build, Operate; the proof opens only when someone asks for it.</p>
+        <h2 id="coverage-title">The proof lives inside the pilot.</h2>
+        <p class="lead">The first read stays Prepare, Build, Operate. The evidence opens when you ask for it.</p>
         <p class="stages-cta"><button class="btn ghost" type="button" data-scroll-target="detail">Open pilot evidence details</button></p>
-        <div class="coverage-card">
-          <div class="grid-4" style="grid-template-columns:repeat(3,minmax(0,1fr));">
-            <article class="artifact-card"><strong>Prepare</strong><span>Export Layer first, Privacy and data classification, Business Glossary.</span></article>
-            <article class="artifact-card"><strong>Build</strong><span>BICC Power BI Desktop pilot, Process optimisation, Approval Envelope, APIs and integration only when justified.</span></article>
-            <article class="artifact-card"><strong>Operate</strong><span>Source-linked Audit Trail, Opportunity Catalogue, AI literacy capability plan, Measured savings and adoption.</span></article>
-          </div>
-          <details style="margin-top:18px;">
-            <summary><strong>Open the lightweight Expectations Coverage matrix</strong></summary>
-            <p class="acc-note">Coverage remains available as evidence, but it no longer interrupts the landing-page read. Full artifact map: <a href="assets/pitch/build-map-coverage-matrix.html" data-path="assets/pitch/build-map-coverage-matrix.html">build-map coverage matrix</a>. Pilot route: <a href="assets/mockups/walkthrough/index.html" data-path="assets/mockups/walkthrough/index.html">see the pilot</a>.</p>
-            <ul class="acc-note">
-              <li><strong>Prepare:</strong> Export Layer first; Privacy and data classification; Business Glossary.</li>
-              <li><strong>Build:</strong> BICC Power BI Desktop pilot; Process optimisation; Approval Envelope; APIs and integration gated by value.</li>
-              <li><strong>Operate:</strong> Source-linked Audit Trail; Opportunity Catalogue; AI literacy capability plan; Measured savings and adoption.</li>
-            </ul>
-          </details>
-        </div>
       </div>
     </section>
 
@@ -587,7 +545,7 @@
               </div>
               <h4 class="acc-sub">Privacy and classification gate</h4>
               <div class="gate-list">
-                <article class="gate"><code>TASK-39</code><div><strong>BICC sign-off of export inventory</strong><span>Client evidence needed before export scope is final.</span></div></article>
+                <article class="gate"><code>Gate 1</code><div><strong>BICC sign-off of export inventory</strong><span>Client evidence needed before export scope is final.</span></div></article>
               </div>
               <p class="acc-note">Phase 0 first: export inventory, GDPR posture and data classification are completed before any pilot is built. This blocker stays visible so unfinished checks never read as done.</p>
             </div>
@@ -628,9 +586,9 @@
                 <p>The pilot runs inside your existing Microsoft 365 E3 licensing first: Power BI Desktop, SharePoint, Teams and Excel. Client owners work alongside the team so the capability stays in-house. New cost is requested only against a named value play with an owner and evidence.</p>
               </div>
               <div class="gate-list">
-                <article class="gate"><code>TASK-41</code><div><strong>Order-to-cash hours-saved validation</strong><span>Measured savings require client time data. Demo values are illustrative.</span></div></article>
-                <article class="gate"><code>TASK-42</code><div><strong>Business-user confirmation of the rebuilt report</strong><span>The rebuilt report needs user acceptance before it becomes a proof point.</span></div></article>
-                <article class="gate"><code>TASK-43</code><div><strong>Steering review of the governance model</strong><span>Approval Envelope tiers need steering committee confirmation.</span></div></article>
+                <article class="gate"><code>Gate 2</code><div><strong>Order-to-cash hours-saved validation</strong><span>Measured savings require client time data. Demo values are illustrative.</span></div></article>
+                <article class="gate"><code>Gate 3</code><div><strong>Business-user confirmation of the rebuilt report</strong><span>The rebuilt report needs user acceptance before it becomes a proof point.</span></div></article>
+                <article class="gate"><code>Gate 4</code><div><strong>Steering review of the governance model</strong><span>Approval Envelope tiers need steering committee confirmation.</span></div></article>
               </div>
             </div>
           </div>
@@ -683,9 +641,9 @@
                 <div class="acc-photo-inner">
                   <p class="acc-note">Honest blockers keep the page safe. Open checks stay visible instead of being laundered into false certainty.</p>
                   <div class="gate-list">
-                    <article class="gate"><code>TASK-40</code><div><strong>AI literacy Foundations session feedback</strong><span>Attendance and confidence feedback still gates adoption claims.</span></div></article>
-                    <article class="gate"><code>TASK-44</code><div><strong>Opportunity Catalogue prioritization</strong><span>Leaders still need to rank and fund the pilot lane.</span></div></article>
-                    <article class="gate"><code>TASK-45</code><div><strong>Team maintaining tools after handover</strong><span>Sustainment evidence is required before claiming operating maturity.</span></div></article>
+                    <article class="gate"><code>Gate 5</code><div><strong>AI literacy Foundations session feedback</strong><span>Attendance and confidence feedback still gates adoption claims.</span></div></article>
+                    <article class="gate"><code>Gate 6</code><div><strong>Opportunity Catalogue prioritization</strong><span>Leaders still need to rank and fund the pilot lane.</span></div></article>
+                    <article class="gate"><code>Gate 7</code><div><strong>Team maintaining tools after handover</strong><span>Sustainment evidence is required before claiming operating maturity.</span></div></article>
                   </div>
                 </div>
               </div>
