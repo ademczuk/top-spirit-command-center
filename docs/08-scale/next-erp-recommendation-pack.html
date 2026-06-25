@@ -1,0 +1,488 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scale — Next-ERP recommendation pack — Top Spirit Command Center</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --deep:#07111F; --surface:#101B2A; --line:#1d2c40; --border:#2a3a4f;
+  --gold:#D6A94A; --teal:#0D9488; --cream:#F6F1E8; --paper:#FBF8F1;
+  --ink:#10243a; --muted:#5b6b7d; --clay:#B45309;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0; font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  color:var(--ink); background:linear-gradient(160deg,var(--deep) 0%,var(--surface) 100%);
+  background-attachment:fixed; line-height:1.65;
+}
+.topbar{
+  position:sticky; top:0; z-index:10; display:flex; align-items:center; justify-content:space-between;
+  gap:18px; padding:14px 28px; background:rgba(7,17,31,.92); backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--border);
+}
+.brand{display:flex; flex-direction:column; line-height:1.2;}
+.brand .name{color:#fff; font-weight:800; letter-spacing:-.01em; font-size:15px;}
+.brand .sub{color:var(--gold); font-size:11px; text-transform:uppercase; letter-spacing:.14em;}
+.back{
+  color:#cdd8e6; text-decoration:none; font-size:14px; font-weight:600; white-space:nowrap;
+  border:1px solid var(--border); padding:8px 14px; border-radius:9px; transition:all .15s;
+}
+.back:hover{color:#fff; border-color:var(--gold); background:rgba(214,169,74,.12);}
+.wrap{max-width:880px; margin:34px auto 60px; padding:0 22px;}
+.doc{
+  background:var(--paper); border-radius:16px; padding:54px 56px;
+  box-shadow:0 24px 60px rgba(0,0,0,.35); border:1px solid rgba(255,255,255,.06);
+}
+.doc h1,.doc h2,.doc h3,.doc h4{font-family:"Playfair Display",Georgia,serif; color:var(--deep); line-height:1.18; letter-spacing:-.01em;}
+.doc h1{font-size:34px; margin:0 0 8px; padding-bottom:16px; border-bottom:3px solid var(--gold);}
+.doc h2{font-size:25px; margin:38px 0 12px;}
+.doc h3{font-size:19px; margin:28px 0 8px;}
+.doc h4{font-size:16px; margin:22px 0 6px; font-family:Inter,sans-serif; font-weight:700;}
+.doc p{margin:12px 0;}
+.doc a{color:var(--teal); text-decoration:none; border-bottom:1px solid rgba(13,148,136,.3);}
+.doc a:hover{color:var(--clay); border-bottom-color:var(--clay);}
+.doc ul,.doc ol{padding-left:24px; margin:12px 0;}
+.doc li{margin:5px 0;}
+.doc strong{color:var(--deep);}
+.doc blockquote{
+  margin:18px 0; padding:12px 20px; border-left:4px solid var(--gold);
+  background:rgba(214,169,74,.08); color:var(--ink); border-radius:0 8px 8px 0;
+}
+.doc blockquote p{margin:6px 0;}
+.doc code{
+  font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace; font-size:.88em;
+  background:#eee6d6; color:#7a4d12; padding:2px 6px; border-radius:5px;
+}
+.doc pre{
+  background:var(--deep); color:#e6edf6; padding:18px 20px; border-radius:11px;
+  overflow:auto; font-size:13px; line-height:1.55; border:1px solid var(--border);
+}
+.doc pre code{background:none; color:inherit; padding:0;}
+.doc table{border-collapse:collapse; width:100%; margin:20px 0; font-size:14.5px; overflow:hidden; border-radius:10px;}
+.doc thead th{background:var(--deep); color:#fff; text-align:left; padding:11px 14px; font-weight:600;}
+.doc tbody td{padding:10px 14px; border-bottom:1px solid #e6ddca; vertical-align:top;}
+.doc tbody tr:nth-child(even){background:rgba(16,36,58,.035);}
+.doc tbody tr:last-child td{border-bottom:none;}
+.doc hr{border:none; border-top:1px solid #e0d6c0; margin:30px 0;}
+.doc img{max-width:100%; border-radius:10px;}
+.footer{max-width:880px; margin:0 auto 50px; padding:0 22px; color:#8ea2b8; font-size:12.5px; text-align:center;}
+.footer a{color:#bcd0e6;}
+@media (max-width:640px){.doc{padding:32px 22px;} .wrap{margin-top:20px;} .doc h1{font-size:27px;}}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><span class="name">Top Spirit Command Center</span><span class="sub">Angel Software Solutions</span></div>
+  <a class="back" href="../../index.html">Back to command center</a>
+</header>
+<div class="wrap">
+  <article class="doc">
+<h1 id="scale-next-erp-recommendation-pack">Scale — Next-ERP recommendation pack</h1>
+<blockquote>
+<p>Vendor-neutral framework. <strong>No ERP brand recommendation is made</strong> until requirements, data/process evidence and constraints are confirmed.</p>
+<p><strong>Status:</strong> Draft for discussion. Commercials, timeline and scope to be confirmed with the AI Steering Committee.
+<strong>Audience:</strong> Engagement team preview. Prepared for the Top Spirit (Marussia) / Angel Software Solutions discussion.
+<strong>Human-in-control:</strong> This pack produces a <em>recommendation and a decision the committee can act on</em>. AI and analysts assemble evidence and score the framework; the <strong>AI Steering Committee owns and ratifies the decision</strong>. No path is committed automatically.</p>
+</blockquote>
+<hr />
+<h2 id="how-to-read-this-pack">How to read this pack</h2>
+<p>The pack is built so the steering committee can act now <strong>without</strong> prematurely choosing an ERP brand or path:</p>
+<ol>
+<li><strong>Decision principles</strong> — the non-negotiables that hold whichever path is chosen.</li>
+<li><strong>Scored comparison criteria</strong> <em>(AC#1)</em> — the weighted criteria, the scoring rubric, and an <strong>illustrative</strong> filled scorecard with the source each score must come from.</li>
+<li><strong>Brownfield vs greenfield trade-offs</strong> <em>(AC#2)</em> — when each path wins and the watch-outs.</li>
+<li><strong>Steering-committee decision</strong> <em>(AC#3)</em> — the motion the committee can approve at the next meeting, the options on the table, and what is being decided now vs. deferred to evidence.</li>
+</ol>
+<p>Every number in this pack is a <strong>clearly-labelled illustrative placeholder</strong> until populated from a named export or document. Real client-sensitive figures are not invented here — see <em>Source ledger</em>.</p>
+<hr />
+<h2 id="1-decision-principles">1. Decision principles</h2>
+<ul>
+<li>Preserve value <strong>independent of the ERP decision</strong> by building process knowledge, glossary, export lineage and governance first.</li>
+<li>Compare brownfield and greenfield on <strong>business fit, risk, cost, time-to-value and migration burden</strong> — scored against evidence, not vendor marketing.</li>
+<li>Avoid letting today's Power BI / Export Layer pilot become <strong>accidental ERP architecture</strong>.</li>
+<li>Keep the decision <strong>human-owned</strong>: AI assembles and scores evidence; the steering committee ratifies weights, scores and the final motion.</li>
+<li>Stay vendor-neutral: <strong>no brand names</strong> appear in shortlisting until a preferred direction (brownfield vs greenfield) is set by the committee.</li>
+</ul>
+<hr />
+<h2 id="2-scored-comparison-criteria-ac1">2. Scored comparison criteria <em>(AC#1)</em></h2>
+<h3 id="21-scoring-rubric">2.1 Scoring rubric</h3>
+<p>Each path is scored <strong>1–5 per criterion</strong> (5 = strongly favourable for that path). Scores are multiplied by an agreed <strong>weight</strong> (the criteria do not matter equally) to give a weighted total. Weights and scores are <strong>ratified by the steering committee</strong> — the table below ships with <em>illustrative</em> defaults so the mechanism is concrete and reviewable.</p>
+<table>
+<thead>
+<tr>
+<th>Score</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1</strong></td>
+<td>Path is a clear disadvantage on this criterion.</td>
+</tr>
+<tr>
+<td><strong>2</strong></td>
+<td>Path is at a disadvantage; manageable but real.</td>
+</tr>
+<tr>
+<td><strong>3</strong></td>
+<td>Neutral / evidence is mixed or not yet available.</td>
+</tr>
+<tr>
+<td><strong>4</strong></td>
+<td>Path is favourable on this criterion.</td>
+</tr>
+<tr>
+<td><strong>5</strong></td>
+<td>Path is a clear, decisive advantage.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Default score is <code>3</code> (neutral) wherever evidence is not yet available.</strong> A score above or below 3 must point to a named source in the <em>Evidence / source</em> column. This keeps the scorecard honest: an un-evidenced criterion cannot tilt the recommendation.</p>
+</blockquote>
+<h3 id="22-weighted-scorecard-illustrative-for-ratification">2.2 Weighted scorecard (ILLUSTRATIVE — for ratification)</h3>
+<blockquote>
+<p>⚠️ <strong>All weights and scores below are illustrative placeholders for steering-committee review.</strong> They are <em>not</em> findings. Real scores are populated from the named sources during Wave 1–2. Do not treat the totals as a recommendation.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Criterion</th>
+<th style="text-align: right;">Weight (illustrative, Σ=100)</th>
+<th style="text-align: center;">Brownfield score (illus.)</th>
+<th style="text-align: center;">Greenfield score (illus.)</th>
+<th>Evidence / source the real score must come from</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>Total cost (build + run)</strong></td>
+<td style="text-align: right;">18</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">2</td>
+<td>Vendor/upgrade quotes + run-cost estimate; cross-check against current-state waste in the value tracker (<code>docs/08-scale/value-adoption-dashboard-spec.md</code>).</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Time-to-value</strong></td>
+<td style="text-align: right;">14</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">2</td>
+<td>Engagement roadmap phasing (<code>docs/08-scale/department-process-portfolio-roadmap.md</code>); upgrade vs implementation timeline estimate.</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Business disruption</strong></td>
+<td style="text-align: right;">12</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">2</td>
+<td>Order-to-cash and cross-department process maps (<code>docs/06-wave-1/order-to-cash-process-map.md</code>); cut-over impact assessment.</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Data migration effort &amp; quality</strong></td>
+<td style="text-align: right;">12</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">2</td>
+<td>Export inventory + data-quality findings (<code>docs/05-phase-0/data-classification-and-export-inventory.md</code>); glossary conflicts (<code>docs/08-scale/business-glossary-seed.md</code>).</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>Risk (delivery + residual)</strong></td>
+<td style="text-align: right;">12</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3</td>
+<td>Risk register (<code>docs/04-templates/risk-register-template.md</code>); legacy-debt vs implementation-risk assessment.</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>Process-redesign / customisation freedom</strong></td>
+<td style="text-align: right;">10</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">5</td>
+<td>Target-state maps + opportunity catalogue (<code>docs/08-scale/opportunity-catalogue.md</code>).</td>
+</tr>
+<tr>
+<td>7</td>
+<td><strong>Fit with Export-Layer approach</strong></td>
+<td style="text-align: right;">8</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">4</td>
+<td>Export-layer architecture (<code>docs/07-wave-2/export-layer-integration-api-decision-architecture.md</code>); both paths feed the Export Layer.</td>
+</tr>
+<tr>
+<td>8</td>
+<td><strong>Future agility / roadmap fit</strong></td>
+<td style="text-align: right;">8</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">5</td>
+<td>Opportunity catalogue + target-state capabilities the next ERP must enable.</td>
+</tr>
+<tr>
+<td>9</td>
+<td><strong>Change &amp; capability uplift</strong></td>
+<td style="text-align: right;">6</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">4</td>
+<td>AI-literacy programme + capability-maturity matrix (<code>docs/08-scale/ai-literacy-programme-capability-maturity.md</code>).</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Weighted total</strong> <em>(illustrative only)</em></td>
+<td style="text-align: right;"><strong>100</strong></td>
+<td style="text-align: center;"><strong>≈3.3</strong></td>
+<td style="text-align: center;"><strong>≈2.9</strong></td>
+<td><em>Computed: Σ(weight × score) ÷ 100. Shown to demonstrate the mechanism, </em><em>not</em><em> as a finding.</em></td>
+</tr>
+</tbody>
+</table>
+<p><strong>How to read the illustrative total:</strong> with neutral-leaning placeholder scores the two paths land close together — which is the honest current state: <em>there is not yet enough evidence to separate them.</em> The scorecard's job is to make the gap explicit once Wave 1–2 evidence lands, not to pre-decide.</p>
+<h3 id="23-what-turns-an-illustrative-score-into-a-real-one">2.3 What turns an illustrative score into a real one</h3>
+<p>For each criterion the analyst records: the <strong>source export/document</strong>, the <strong>extraction date</strong>, who <strong>reviewed</strong> it, and a one-line rationale — per the <code>docs/05-phase-0/source-linked-audit-trail-standard.md</code>. A criterion stays at <code>3</code> (neutral) until that evidence exists. The committee can therefore see, at any moment, <strong>how much of the decision is evidenced vs. still assumed</strong>.</p>
+<hr />
+<h2 id="3-brownfield-vs-greenfield-trade-offs-ac2">3. Brownfield vs greenfield trade-offs <em>(AC#2)</em></h2>
+<h3 id="criteria-narrative">Criteria narrative</h3>
+<table>
+<thead>
+<tr>
+<th>Criterion</th>
+<th>Brownfield: upgrade / extend current ERP</th>
+<th>Greenfield: new ERP / fresh implementation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Time to value</td>
+<td>Often faster if the current ERP is stable.</td>
+<td>Slower due to selection, design and implementation.</td>
+</tr>
+<tr>
+<td>Business disruption</td>
+<td>Lower short-term disruption.</td>
+<td>Higher change-management and cut-over load.</td>
+</tr>
+<tr>
+<td>Process-redesign freedom</td>
+<td>May be constrained by legacy customisation.</td>
+<td>Higher, but requires redesign discipline.</td>
+</tr>
+<tr>
+<td>Data migration effort</td>
+<td>Lower if schema retained; legacy issues persist.</td>
+<td>Higher cleansing/mapping, but a one-time chance to align definitions.</td>
+</tr>
+<tr>
+<td>Reporting continuity</td>
+<td>Existing reports may survive.</td>
+<td>Rebuild needed, but on a cleaner model.</td>
+</tr>
+<tr>
+<td>Integration flexibility</td>
+<td>Bounded by legacy API/export limits.</td>
+<td>Depends on new platform fit.</td>
+</tr>
+<tr>
+<td>Cost profile</td>
+<td>Lower initial; possible hidden maintenance/debt.</td>
+<td>Higher upfront; clearer future architecture.</td>
+</tr>
+<tr>
+<td>Risk</td>
+<td>Legacy debt may persist.</td>
+<td>Implementation/migration risk.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="brownfield-wins-when">Brownfield wins when</h3>
+<ul>
+<li>The current ERP can support target-state processes with acceptable configuration/API/export capability.</li>
+<li>Migration risk or budget is <strong>not</strong> justified now and the platform can carry the business for 3–5 years.</li>
+<li>Data quality and reporting can be improved <strong>through the Export Layer first</strong>, deferring the bigger decision.</li>
+</ul>
+<h3 id="greenfield-wins-when">Greenfield wins when</h3>
+<ul>
+<li>The current ERP <strong>blocks</strong> critical target-state processes or controls.</li>
+<li>Manual work comes from <strong>structural system limits</strong>, not just process/documentation gaps.</li>
+<li>The data-model, integration and reporting needs justify the migration risk/cost, and leadership accepts 12–24 months of change.</li>
+</ul>
+<h3 id="key-watch-outs-both-paths">Key watch-outs (both paths)</h3>
+<ul>
+<li><strong>Brownfield:</strong> technical debt and workaround processes persist; future automation may stay blocked by the legacy data model.</li>
+<li><strong>Greenfield:</strong> high execution risk; success depends on disciplined data cleansing, strong change management and clear governance of what is automated vs. human-approved.</li>
+</ul>
+<hr />
+<h2 id="4-steering-committee-decision-ac3">4. Steering-committee decision <em>(AC#3)</em></h2>
+<h3 id="41-the-decision-on-the-table">4.1 The decision on the table</h3>
+<blockquote>
+<p><strong>The committee is not asked to pick brownfield or greenfield today.</strong> It is asked to approve <strong>how</strong> that choice will be made, the evidence gate it will be made at, and the work that delivers value in the meantime — all human-owned.</p>
+</blockquote>
+<h3 id="42-recommended-motion-ready-to-minute">4.2 Recommended motion (ready to minute)</h3>
+<blockquote>
+<p><strong>Motion — "Staged, evidence-gated ERP decision":</strong></p>
+<ol>
+<li><strong>Adopt</strong> the weighted comparison framework in §2 as the agreed basis for the ERP decision, and <strong>ratify the criteria weights</strong> (accept the illustrative defaults or amend).</li>
+<li><strong>Defer</strong> the brownfield-vs-greenfield commitment to a <strong>Wave 2 decision gate</strong>, at which the scorecard is presented populated with real, source-linked evidence.</li>
+<li><strong>Approve continuing ERP-agnostic value delivery now</strong> on the Export Layer (process maps, glossary, opportunity catalogue, Power BI pilot) so no value waits on the ERP choice.</li>
+<li><strong>Name a decision owner and cadence</strong> (e.g. steering sponsor + CFO/COO) accountable for the Wave 2 gate.</li>
+<li><strong>Confirm</strong> that any automation or migration-phase data transformation stays inside an <strong>Approval Envelope</strong> — financial, pricing and customer-facing outputs remain human-validated.</li>
+</ol>
+</blockquote>
+<h3 id="43-options-the-committee-is-choosing-between">4.3 Options the committee is choosing between</h3>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>What it means</th>
+<th>When to choose it</th>
+<th>Consequence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>A. Stage &amp; gate (recommended)</strong></td>
+<td>Approve framework + weights now; decide path at the Wave 2 evidence gate; keep delivering value on the Export Layer.</td>
+<td>Evidence on cost, disruption and migration burden is not yet quantified (current state).</td>
+<td>Value flows now; the path decision is made on evidence, not pressure.</td>
+</tr>
+<tr>
+<td><strong>B. Commit brownfield now</strong></td>
+<td>Direct the next phase at an upgrade/extend of the current ERP.</td>
+<td>The current platform is demonstrably adequate for 3–5 years <strong>and</strong> migration cost clearly exceeds quantified savings.</td>
+<td>Faster certainty; risk of locking in legacy constraints the engagement set out to remove.</td>
+</tr>
+<tr>
+<td><strong>C. Commit greenfield now</strong></td>
+<td>Direct the next phase at a vendor-neutral replacement shortlist.</td>
+<td>The current ERP is a proven strategic bottleneck <strong>and</strong> the committee accepts the change budget and 12–24 months disruption.</td>
+<td>Cleaner long-term foundation; high execution risk taken before evidence is complete.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Recommendation: Option A.</strong> It is the only option that delivers value immediately, keeps the decision human-owned and evidence-based, and is reversible — because all interim work runs off the Export Layer and survives either path.</p>
+</blockquote>
+<h3 id="44-what-changes-the-recommendation">4.4 What changes the recommendation</h3>
+<ul>
+<li><strong>Towards brownfield:</strong> the legacy vendor offers a credible low-disruption upgrade path <strong>and</strong> estimated migration cost exceeds quantified annual savings by more than ~2× <em>(ratio illustrative — to be set against the value tracker)</em>.</li>
+<li><strong>Towards greenfield:</strong> Wave 1 shows more than <strong>[X] hours/week</strong> <em>(illustrative placeholder — sourced from the manual-report and order-to-cash time samples, <code>docs/06-wave-1/manual-report-consolidation-plan.md</code>)</em> of manual, duplicated work rooted in the current data model, and the committee accepts the change budget.</li>
+</ul>
+<h3 id="45-decision-record-to-be-completed-at-the-meeting">4.5 Decision record (to be completed at the meeting)</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Entry</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Decision owner</td>
+<td><em>[Steering sponsor + CFO/COO — to confirm]</em></td>
+</tr>
+<tr>
+<td>Motion outcome</td>
+<td><em>[Approved / Amended / Deferred]</em></td>
+</tr>
+<tr>
+<td>Ratified weights</td>
+<td><em>[Accepted illustrative defaults / amended — record changes]</em></td>
+</tr>
+<tr>
+<td>Wave 2 gate date</td>
+<td><em>[Date]</em></td>
+</tr>
+<tr>
+<td>Conditions logged</td>
+<td><em>[Any path-flip thresholds the committee sets]</em></td>
+</tr>
+<tr>
+<td>Audit-trail reference</td>
+<td><em>[Link per <code>source-linked-audit-trail-standard.md</code>]</em></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="5-work-products-required-before-the-wave-2-gate">5. Work products required before the Wave 2 gate</h2>
+<p>These populate the scorecard's <em>Evidence / source</em> column and convert illustrative scores into real ones:</p>
+<ul>
+<li>Process portfolio and pain-point evidence (<code>docs/08-scale/department-process-portfolio-roadmap.md</code>).</li>
+<li>Export inventory and data-quality findings (<code>docs/05-phase-0/data-classification-and-export-inventory.md</code>).</li>
+<li>Business glossary of key terms/logic and conflicts (<code>docs/08-scale/business-glossary-seed.md</code>).</li>
+<li>Opportunity catalogue with quantified business cases (<code>docs/08-scale/opportunity-catalogue.md</code>).</li>
+<li>Brownfield/greenfield scoring workshop (populates §2.2 against evidence).</li>
+<li>Migration path outline: quick wins now, ERP-dependent work later.</li>
+</ul>
+<hr />
+<h2 id="6-output-format-for-the-steering-committee-leave-behind">6. Output format for the steering committee (leave-behind)</h2>
+<ol>
+<li>Executive recommendation (Option A unless evidence dictates otherwise).</li>
+<li>Evidence base and the <strong>scored</strong> comparison matrix (§2).</li>
+<li>Brownfield/greenfield trade-offs (§3).</li>
+<li>Recommended migration path.</li>
+<li>Decisions needed and next steps (§4).</li>
+</ol>
+<hr />
+<h2 id="7-source-ledger-traceability">7. Source ledger (traceability)</h2>
+<p>Every figure in a <em>populated</em> version of this pack must cite the export or document it came from, with extraction date and reviewer, per the Source-linked Audit Trail. Sources this pack draws on:</p>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Used for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>docs/05-phase-0/data-classification-and-export-inventory.md</code></td>
+<td>Export inventory IDs, data-migration effort, data quality.</td>
+</tr>
+<tr>
+<td><code>docs/05-phase-0/source-linked-audit-trail-standard.md</code></td>
+<td>Evidence/extraction-date/reviewer convention for every score.</td>
+</tr>
+<tr>
+<td><code>docs/06-wave-1/order-to-cash-process-map.md</code></td>
+<td>Business-disruption and process-criticality evidence.</td>
+</tr>
+<tr>
+<td><code>docs/06-wave-1/manual-report-consolidation-plan.md</code></td>
+<td>Manual-hours time samples (the <code>[X] hours/week</code> flip threshold).</td>
+</tr>
+<tr>
+<td><code>docs/08-scale/value-adoption-dashboard-spec.md</code></td>
+<td>Quantified current-state waste / savings for the cost criterion.</td>
+</tr>
+<tr>
+<td><code>docs/08-scale/opportunity-catalogue.md</code></td>
+<td>Target-state capabilities the next ERP must enable.</td>
+</tr>
+<tr>
+<td><code>docs/08-scale/business-glossary-seed.md</code></td>
+<td>Definition conflicts (net sales, GP, depletions) to resolve pre-migration.</td>
+</tr>
+<tr>
+<td><code>docs/04-templates/erp-decision-pack-template.md</code></td>
+<td>Filled-example comparison and recommendation structure.</td>
+</tr>
+<tr>
+<td><code>docs/04-templates/risk-register-template.md</code></td>
+<td>Delivery and residual-risk scoring.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><em>Prepared for the Top Spirit (Marussia) / Angel Software Solutions engagement. All weights and scores are illustrative placeholders for steering-committee ratification; no client-sensitive figures are asserted. Source: <code>project expectations brief</code>.</em></p>
+  </article>
+</div>
+<footer class="footer">
+  <p>Illustrative pre-call preview for Top Spirit (Marussia) and Angel Software Solutions. Demo values are synthetic; client evidence gates remain explicit.</p>
+</footer>
+</body>
+</html>

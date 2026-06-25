@@ -46,8 +46,8 @@ Send after the call with a short note and agreed next steps:
 
 Do **not** send these externally by default:
 
-- `backlog/` task files and AgentReef dispatch rows.
-- `docs/10-agentreef-dispatch-log.md` unless explicitly requested internally.
+- internal task files and dispatch notes.
+- internal dispatch log unless explicitly requested internally.
 - Raw internal notes, tool outputs, mesh-chat evidence, or automation logs.
 - Any file containing credentials, tokens, secret state, private keys, or unrelated client material.
 

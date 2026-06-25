@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Top Spirit × Angel Software Solutions — Executive one-pager — Top Spirit Command Center</title>
+<title>Wave 1 — Manual report consolidation plan — Top Spirit Command Center</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
@@ -82,74 +82,171 @@ body{
 </header>
 <div class="wrap">
   <article class="doc">
-<h1 id="top-spirit-angel-software-solutions-executive-one-pager">Top Spirit × Angel Software Solutions — Executive one-pager</h1>
+<h1 id="wave-1-manual-report-consolidation-plan">Wave 1 — Manual report consolidation plan</h1>
 <blockquote>
-<p><strong>Steering-committee preview.</strong> Pre-call leave-behind. All numbers illustrative; scope, timeline and commercials to be agreed in the introductory call.</p>
+<p>Candidate: one recurring sales/depletions or management report currently assembled from exports and spreadsheets.</p>
 </blockquote>
-<hr />
-<h2 id="the-situation">The situation</h2>
-<p>Top Spirit is preparing an ERP migration and a future BI-platform decision. Meanwhile, Customer Service, Finance and Commercial teams spend significant time re-keying orders, reconciling payments and building manual reports.</p>
-<p>Angel Software Solutions proposes a <strong>process-review + automation + AI-literacy</strong> programme that creates value <strong>now</strong> — without waiting for the ERP decision and without new software licences.</p>
-<hr />
-<h2 id="the-promise">The promise</h2>
-<blockquote>
-<p>Create measurable savings and capability inside <strong>Microsoft 365 E3</strong>, using <strong>file exports only</strong>, with a <strong>human in control of every financial and customer-facing decision</strong>.</p>
-</blockquote>
-<hr />
-<h2 id="three-pillars">Three pillars</h2>
-<ol>
-<li><strong>Current- and target-state modelling</strong> — end-to-end process maps built from exports, reports and interviews.</li>
-<li><strong>AI agents inside Approval Envelopes</strong> — AI proposes; humans approve anything that matters.</li>
-<li><strong>Source-linked Audit Trail</strong> — every figure traces back to the export it came from.</li>
-</ol>
-<hr />
-<h2 id="phasing">Phasing</h2>
+<h2 id="current-report-teardown-worksheet">Current report teardown worksheet</h2>
 <table>
 <thead>
 <tr>
-<th>Phase</th>
-<th>Weeks</th>
-<th>Outcome</th>
+<th>Field</th>
+<th>Capture</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>Phase 0 — Foundations</strong></td>
-<td>1–4</td>
-<td>Data-classification rule, export inventory, AI-literacy pilot, first knowledge capture</td>
+<td>Report name</td>
+<td>TBD with BICC.</td>
 </tr>
 <tr>
-<td><strong>Wave 1 — First value</strong></td>
-<td>5–10</td>
-<td>One process mapped end-to-end; one manual report consolidated; one Power BI report rebuilt; governance model drafted</td>
+<td>Business owner</td>
+<td>TBD.</td>
 </tr>
 <tr>
-<td><strong>Wave 2+ — Scale</strong></td>
-<td>11+</td>
-<td>Document order-intake automation; financial reconciliation; Business Glossary at scale; next-ERP recommendation</td>
+<td>Users</td>
+<td>Steering committee, finance, sales, BICC, other.</td>
+</tr>
+<tr>
+<td>Frequency</td>
+<td>Daily/weekly/monthly.</td>
+</tr>
+<tr>
+<td>Current inputs</td>
+<td>Workbooks, ERP exports, CRM exports, manual adjustments.</td>
+</tr>
+<tr>
+<td>Build steps</td>
+<td>Ordered list of copy/paste/filter/formula/manual checks.</td>
+</tr>
+<tr>
+<td>Known formulas</td>
+<td>Net sales, GP, depletions, channel splits.</td>
+</tr>
+<tr>
+<td>Pain points</td>
+<td>Time, errors, versioning, key-person risk.</td>
+</tr>
+<tr>
+<td>Reconciliation target</td>
+<td>Existing report total or finance-approved figure.</td>
 </tr>
 </tbody>
 </table>
-<hr />
-<h2 id="what-you-will-see">What you will see</h2>
+<h2 id="client-evidence-request">Client evidence request</h2>
+<p>Use this request before attempting to close TASK-42. These are client facts, not repo-side assumptions:</p>
+<table>
+<thead>
+<tr>
+<th>Request</th>
+<th>Needed from</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Name of the recurring report to rebuild</td>
+<td>BICC / report owner</td>
+<td>Replaces the <code>Report name</code> placeholder.</td>
+</tr>
+<tr>
+<td>Named business owner and reviewer</td>
+<td>Sponsor / BICC</td>
+<td>Establishes who can approve the rebuilt output.</td>
+</tr>
+<tr>
+<td>Representative current workbook and export files</td>
+<td>BICC</td>
+<td>Provides the real source and reconciliation target.</td>
+</tr>
+<tr>
+<td>Current build steps and manual adjustments</td>
+<td>Report preparer</td>
+<td>Captures hidden logic before automation.</td>
+</tr>
+<tr>
+<td>Cost export name and cost basis</td>
+<td>Finance SME</td>
+<td>Required before GP is treated as real rather than illustrative.</td>
+</tr>
+<tr>
+<td>Warehouse/depletions export name and definition</td>
+<td>Logistics / BICC</td>
+<td>Required before depletions are trusted.</td>
+</tr>
+<tr>
+<td>Tolerance for reconciliation differences</td>
+<td>Finance SME + business owner</td>
+<td>Defines pass/fail for side-by-side validation.</td>
+</tr>
+<tr>
+<td>Sign-off decision and discrepancy log</td>
+<td>Business users</td>
+<td>Required to close TASK-42.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="consolidated-export-layer-design">Consolidated export-layer design</h2>
+<ol>
+<li>Create a controlled export drop folder for source files.</li>
+<li>Register each file in the export inventory with classification and lineage ID.</li>
+<li>Transform using documented Power Query / Excel / Python-free formula steps available within M365 E3 workflow.</li>
+<li>Produce a single reconciled output workbook/table.</li>
+<li>Capture reconciliation checks and reviewer sign-off in the audit trail.</li>
+</ol>
+<h2 id="validation-checklist">Validation checklist</h2>
 <ul>
-<li>A working Power BI Desktop pilot on the Export Layer.</li>
-<li>A PDF/email order-intake agent that drafts orders for human approval.</li>
-<li>A bank-reconciliation assistant that proposes matches for the finance controller.</li>
-<li>A live Business Glossary and Opportunity Catalogue.</li>
+<li>Source files match inventory and naming standard.</li>
+<li>Required columns are present and data types valid.</li>
+<li>Totals reconcile to legacy report within agreed tolerance.</li>
+<li>Manual adjustments are explicit rows with owner/reason/date.</li>
+<li>Output has lineage IDs for every source and transformation.</li>
+<li>Business users confirm the output matches the old report before replacement.</li>
 </ul>
-<hr />
-<h2 id="governance-privacy">Governance &amp; privacy</h2>
+<h2 id="lineage-table-template">Lineage table template</h2>
+<table>
+<thead>
+<tr>
+<th>Output field</th>
+<th>Source ID</th>
+<th>Source field/cell</th>
+<th>Transformation</th>
+<th>Reviewer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Net sales</td>
+<td><code>EXP-ERP-SALES-001</code></td>
+<td>invoice amount, discount, VAT fields</td>
+<td><code>gross - discounts - VAT</code></td>
+<td>Finance SME</td>
+</tr>
+<tr>
+<td>GP</td>
+<td><code>EXP-ERP-SALES-001</code> + cost export TBD</td>
+<td>sales minus cost</td>
+<td>formula TBD</td>
+<td>Finance SME</td>
+</tr>
+<tr>
+<td>Depletions</td>
+<td><code>EXP-ERP-STOCK-001</code> or warehouse export TBD</td>
+<td>stock movement quantity</td>
+<td>outbound to trade</td>
+<td>Logistics/BICC</td>
+</tr>
+</tbody>
+</table>
+<h2 id="handover">Handover</h2>
+<p>BICC receives:</p>
 <ul>
-<li>Financial, pricing and customer-facing outputs always require human approval.</li>
-<li>Data classified and handled in line with GDPR.</li>
-<li>No live ERP connectors without an evidence-backed business case.</li>
+<li>Source folder/naming rules.</li>
+<li>Transformation notes.</li>
+<li>Refresh checklist.</li>
+<li>Reconciliation checklist.</li>
+<li>Known limitations and open data questions.</li>
 </ul>
-<hr />
-<h2 id="next-step">Next step</h2>
-<p>Introductory call: confirm scope, dependencies, steering committee sponsor and BICC counterpart; agree Phase 0 kick-off date.</p>
-<hr />
-<p><em>Angel Software Solutions — Export Layer · Approval Envelope · Source-linked Audit Trail</em></p>
   </article>
 </div>
 <footer class="footer">

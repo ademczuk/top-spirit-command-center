@@ -1,0 +1,9 @@
+output_id,output_field,measure_lineage_id,source_id,source_file,transformation,reviewer,review_status
+OUT-PBI-W1-001,Net Sales,CALC-NETSALES-001,EXP-ERP-SALES-001,assets/starter-data/sales_invoices.csv,SUM(net_amount_eur),Finance SME,pending BICC validation
+OUT-PBI-W1-001,Depletions,CALC-DEPLETIONS-001,EXP-ERP-SALES-001,assets/starter-data/sales_invoices.csv,SUM(quantity),Logistics/BICC,pending BICC validation
+OUT-PBI-W1-001,Total Cost (placeholder),CALC-COST-PLACEHOLDER-001,EXP-ERP-COST-001,NOT SUPPLIED - illustrative 60% of net,Net Sales * 0.60,Finance SME,placeholder - blocked on cost export
+OUT-PBI-W1-001,Gross Profit (illustrative),CALC-GP-001,EXP-ERP-SALES-001,assets/starter-data/sales_invoices.csv,Net Sales - Total Cost,Finance SME,illustrative - blocked on cost export
+OUT-PBI-W1-001,GP % (illustrative),CALC-GPPCT-001,EXP-ERP-SALES-001,assets/starter-data/sales_invoices.csv,DIVIDE(Gross Profit, Net Sales),Finance SME,illustrative - blocked on cost export
+OUT-PBI-W1-001,Channel split,CALC-NETSALES-001,EXP-CRM-CUST-001,assets/starter-data/customer_master.csv,join sales_invoices.customer_id to customer_master.channel,BICC,pending BICC validation
+OUT-PBI-W1-001,Category split,CALC-NETSALES-001,EXP-ERP-PRICE-001,assets/starter-data/price_list.csv,join sales_invoices.product_code to price_list.category,BICC,pending BICC validation
+OUT-PBI-W1-001,Stock cover,CALC-STOCKCOVER-001,EXP-WMS-STOCK-001,assets/starter-data/stock_availability.csv,quantity_available / period depletions (illustrative),Logistics,informational G1

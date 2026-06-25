@@ -1,6 +1,6 @@
 # Executive pitch deck — Top Spirit × Angel Software Solutions
 
-> **Confidential — steering committee only.** Speaker-ready slide narrative. Pair with the rendered storyboard in `assets/mockups/`.
+> **Steering-committee preview.** Speaker-ready slide narrative. Pair with the rendered storyboard in `assets/mockups/`.
 
 ---
 

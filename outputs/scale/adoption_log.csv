@@ -1,0 +1,8 @@
+tool_or_report_name,audience,metric,period,value,target,collection_method,source_ref,owner
+Power BI Desktop pilot,Commercial managers + BICC,unique viewers,2026-06,8,10,BICC usage log + trade-meeting evidence,BICC-ADOPT-06,BICC Lead
+Consolidated sales/depletions report,Report owner + Finance,old manual workbook retired,2026-06,partial,full,Owner confirmation,RPT-RETIRE-06,Report Owner
+Order intake Approval Envelope,Customer Service,decisions completed,2026-06,1742,1800,Approval Envelope log,AE-ORD-06,Head of Customer Service
+Order intake Approval Envelope,Customer Service,held for low confidence (human review),2026-06,58,n/a,Approval Envelope log,AE-ORD-06,Head of Customer Service
+Reconciliation Approval Envelope,Finance,matches approved by finance,2026-06,1140,1200,Approval Envelope log,AE-REC-06,Finance Controller
+Business glossary,BICC + SMEs,terms reviewed with owner/source,2026-06,46,80,Glossary change log,GLOS-06,BICC Lead
+AI-literacy modules,All trained roles,completions,2026-06,21,35,Attendance register,TRAIN-06,AI-literacy Lead

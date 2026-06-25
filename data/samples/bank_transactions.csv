@@ -1,0 +1,5 @@
+bank_txn_id,date,payer,amount,reference
+BANK-001,2026-05-21,Sample Retailer A,11000,INV-1001
+BANK-002,2026-05-22,Sample Restaurant B,8250,INV-1002
+BANK-003,2026-05-23,Unknown Payer,4250,May invoice
+BANK-004,2026-05-24,Sample Retailer A,9300,INV-1004

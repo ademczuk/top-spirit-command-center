@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Top Spirit × Angel Software Solutions — Executive one-pager — Top Spirit Command Center</title>
+<title>Wave 1 — Order-to-cash process map pack — Top Spirit Command Center</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
@@ -82,74 +82,125 @@ body{
 </header>
 <div class="wrap">
   <article class="doc">
-<h1 id="top-spirit-angel-software-solutions-executive-one-pager">Top Spirit × Angel Software Solutions — Executive one-pager</h1>
+<h1 id="wave-1-order-to-cash-process-map-pack">Wave 1 — Order-to-cash process map pack</h1>
 <blockquote>
-<p><strong>Steering-committee preview.</strong> Pre-call leave-behind. All numbers illustrative; scope, timeline and commercials to be agreed in the introductory call.</p>
+<p>Use this to run the first end-to-end process mapping exercise. Replace sample evidence with actual exports/interviews after client sessions.</p>
 </blockquote>
-<hr />
-<h2 id="the-situation">The situation</h2>
-<p>Top Spirit is preparing an ERP migration and a future BI-platform decision. Meanwhile, Customer Service, Finance and Commercial teams spend significant time re-keying orders, reconciling payments and building manual reports.</p>
-<p>Angel Software Solutions proposes a <strong>process-review + automation + AI-literacy</strong> programme that creates value <strong>now</strong> — without waiting for the ERP decision and without new software licences.</p>
-<hr />
-<h2 id="the-promise">The promise</h2>
-<blockquote>
-<p>Create measurable savings and capability inside <strong>Microsoft 365 E3</strong>, using <strong>file exports only</strong>, with a <strong>human in control of every financial and customer-facing decision</strong>.</p>
-</blockquote>
-<hr />
-<h2 id="three-pillars">Three pillars</h2>
-<ol>
-<li><strong>Current- and target-state modelling</strong> — end-to-end process maps built from exports, reports and interviews.</li>
-<li><strong>AI agents inside Approval Envelopes</strong> — AI proposes; humans approve anything that matters.</li>
-<li><strong>Source-linked Audit Trail</strong> — every figure traces back to the export it came from.</li>
-</ol>
-<hr />
-<h2 id="phasing">Phasing</h2>
+<h2 id="scope">Scope</h2>
+<p>Order arrival through payment reconciliation for B2B beverage distribution across sales/customer service, finance and logistics.</p>
+<h2 id="as-is-process">As-is process</h2>
+<pre><code class="language-mermaid">flowchart TD
+  A[Customer order arrives by email/PDF/phone] --&gt; B[Customer service manually reads order]
+  B --&gt; C[Manual ERP order entry]
+  C --&gt; D[Credit and pricing check]
+  D --&gt; E[Stock availability check]
+  E --&gt; F[Pick, pack and dispatch]
+  F --&gt; G[Invoice generated]
+  G --&gt; H[Payment received]
+  H --&gt; I[Finance manually reconciles payment to invoice]
+  I --&gt; J[Manual sales/depletions report updated]
+
+  B:::manual
+  C:::manual
+  D:::manual
+  I:::manual
+  J:::manual
+  classDef manual fill:#FEE2E2,stroke:#DC2626,color:#111827;
+</code></pre>
+<h2 id="as-is-pain-points-to-validate">As-is pain points to validate</h2>
 <table>
 <thead>
 <tr>
-<th>Phase</th>
-<th>Weeks</th>
-<th>Outcome</th>
+<th>Step</th>
+<th>Likely pain</th>
+<th>Evidence to collect</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>Phase 0 — Foundations</strong></td>
-<td>1–4</td>
-<td>Data-classification rule, export inventory, AI-literacy pilot, first knowledge capture</td>
+<td>Order reading</td>
+<td>Key-person knowledge; missed fields in PDFs/emails.</td>
+<td>Sample order emails/PDFs, SME interview.</td>
 </tr>
 <tr>
-<td><strong>Wave 1 — First value</strong></td>
-<td>5–10</td>
-<td>One process mapped end-to-end; one manual report consolidated; one Power BI report rebuilt; governance model drafted</td>
+<td>ERP order entry</td>
+<td>Re-keying and typo risk.</td>
+<td>Order entry timings, error/rework log.</td>
 </tr>
 <tr>
-<td><strong>Wave 2+ — Scale</strong></td>
-<td>11+</td>
-<td>Document order-intake automation; financial reconciliation; Business Glossary at scale; next-ERP recommendation</td>
+<td>Pricing/credit check</td>
+<td>Manual lookup and escalation.</td>
+<td>Pricing sheets, credit hold process.</td>
+</tr>
+<tr>
+<td>Reconciliation</td>
+<td>Bank/export matching is manual.</td>
+<td>Bank export, open invoice report.</td>
+</tr>
+<tr>
+<td>Reporting</td>
+<td>Copy/paste into management reports.</td>
+<td>Current workbook and build steps.</td>
 </tr>
 </tbody>
 </table>
-<hr />
-<h2 id="what-you-will-see">What you will see</h2>
+<h2 id="to-be-target-state">To-be target state</h2>
+<pre><code class="language-mermaid">flowchart TD
+  A[Order file/email lands in Export Layer] --&gt; B[AI extraction assistant drafts order fields]
+  B --&gt; C{Approval Envelope: order management review}
+  C --&gt;|Approve/edit| D[ERP entry by approved operator or later API/write-back]
+  C --&gt;|Reject| B
+  D --&gt; E[Automated export validation: customer, pricing, stock]
+  E --&gt; F{Approval Envelope: pricing/credit exceptions}
+  F --&gt;|Approved| G[Pick, pack, invoice]
+  G --&gt; H[Bank/invoice matching assistant suggests reconciliation]
+  H --&gt; I{Approval Envelope: finance approval}
+  I --&gt;|Approve| J[Post/reconcile and update audit trail]
+  J --&gt; K[Power BI/report output refreshed from exports]
+</code></pre>
+<h2 id="beforeafter-quantification-model">Before/after quantification model</h2>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Before source</th>
+<th>After source</th>
+<th>Calculation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Order-entry minutes/order</td>
+<td>Time sample from SME or task log</td>
+<td>Prototype task log</td>
+<td><code>(before - after) * orders/week / 60</code></td>
+</tr>
+<tr>
+<td>Reconciliation minutes/payment</td>
+<td>Finance task sample</td>
+<td>Assistant match log</td>
+<td><code>(before - after) * payments/week / 60</code></td>
+</tr>
+<tr>
+<td>Report build hours/month</td>
+<td>Current workbook owner estimate</td>
+<td>Automated refresh log</td>
+<td><code>before manual hours - after review hours</code></td>
+</tr>
+<tr>
+<td>Error/rework rate</td>
+<td>Error log or SME estimate</td>
+<td>Exception log</td>
+<td><code>baseline incidents - post-pilot incidents</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="lineage-requirements">Lineage requirements</h2>
 <ul>
-<li>A working Power BI Desktop pilot on the Export Layer.</li>
-<li>A PDF/email order-intake agent that drafts orders for human approval.</li>
-<li>A bank-reconciliation assistant that proposes matches for the finance controller.</li>
-<li>A live Business Glossary and Opportunity Catalogue.</li>
+<li>Process evidence: <code>INT-OTC-*</code> interviews and <code>EXP-ERP-ORDERS-*</code>, <code>EXP-ERP-SALES-*</code>, <code>EXP-FIN-BANK-*</code> exports.</li>
+<li>Every savings estimate references a source line in the value tracker.</li>
+<li>Every human gate links to the governance tier and approver role.</li>
 </ul>
-<hr />
-<h2 id="governance-privacy">Governance &amp; privacy</h2>
-<ul>
-<li>Financial, pricing and customer-facing outputs always require human approval.</li>
-<li>Data classified and handled in line with GDPR.</li>
-<li>No live ERP connectors without an evidence-backed business case.</li>
-</ul>
-<hr />
-<h2 id="next-step">Next step</h2>
-<p>Introductory call: confirm scope, dependencies, steering committee sponsor and BICC counterpart; agree Phase 0 kick-off date.</p>
-<hr />
-<p><em>Angel Software Solutions — Export Layer · Approval Envelope · Source-linked Audit Trail</em></p>
   </article>
 </div>
 <footer class="footer">

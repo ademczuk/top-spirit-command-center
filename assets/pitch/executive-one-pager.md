@@ -1,6 +1,6 @@
 # Top Spirit × Angel Software Solutions — Executive one-pager
 
-> **Confidential — steering committee only.** Pre-call leave-behind. All numbers illustrative; scope, timeline and commercials to be agreed in the introductory call.
+> **Steering-committee preview.** Pre-call leave-behind. All numbers illustrative; scope, timeline and commercials to be agreed in the introductory call.
 
 ---
 

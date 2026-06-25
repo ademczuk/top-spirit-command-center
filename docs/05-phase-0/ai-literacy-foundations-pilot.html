@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Top Spirit × Angel Software Solutions — Executive one-pager — Top Spirit Command Center</title>
+<title>Phase 0 — AI literacy pilot: Foundations — Top Spirit Command Center</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
@@ -82,74 +82,104 @@ body{
 </header>
 <div class="wrap">
   <article class="doc">
-<h1 id="top-spirit-angel-software-solutions-executive-one-pager">Top Spirit × Angel Software Solutions — Executive one-pager</h1>
+<h1 id="phase-0-ai-literacy-pilot-foundations">Phase 0 — AI literacy pilot: Foundations</h1>
 <blockquote>
-<p><strong>Steering-committee preview.</strong> Pre-call leave-behind. All numbers illustrative; scope, timeline and commercials to be agreed in the introductory call.</p>
+<p>Goal: make the team safe and useful with LLMs before any agent touches financial, pricing or customer-facing work.</p>
 </blockquote>
-<hr />
-<h2 id="the-situation">The situation</h2>
-<p>Top Spirit is preparing an ERP migration and a future BI-platform decision. Meanwhile, Customer Service, Finance and Commercial teams spend significant time re-keying orders, reconciling payments and building manual reports.</p>
-<p>Angel Software Solutions proposes a <strong>process-review + automation + AI-literacy</strong> programme that creates value <strong>now</strong> — without waiting for the ERP decision and without new software licences.</p>
-<hr />
-<h2 id="the-promise">The promise</h2>
-<blockquote>
-<p>Create measurable savings and capability inside <strong>Microsoft 365 E3</strong>, using <strong>file exports only</strong>, with a <strong>human in control of every financial and customer-facing decision</strong>.</p>
-</blockquote>
-<hr />
-<h2 id="three-pillars">Three pillars</h2>
-<ol>
-<li><strong>Current- and target-state modelling</strong> — end-to-end process maps built from exports, reports and interviews.</li>
-<li><strong>AI agents inside Approval Envelopes</strong> — AI proposes; humans approve anything that matters.</li>
-<li><strong>Source-linked Audit Trail</strong> — every figure traces back to the export it came from.</li>
-</ol>
-<hr />
-<h2 id="phasing">Phasing</h2>
+<h2 id="audience">Audience</h2>
+<ul>
+<li>BICC / BI counterpart.</li>
+<li>Finance, sales/commercial, customer service/order management, logistics and procurement SMEs.</li>
+<li>AI Steering Committee sponsor or delegate.</li>
+</ul>
+<h2 id="module-1-what-llms-are-good-and-bad-at">Module 1: What LLMs are good and bad at</h2>
+<p><strong>Outcomes</strong>
+- Explain that LLMs generate probabilistic text and need verification.
+- Recognise hallucination, stale knowledge and over-confident answers.
+- Use LLMs for drafting, summarising, extraction assistance and QA checklists, not unsupervised decisions.</p>
+<p><strong>Exercise</strong>
+- Give the model a neutral sales-report narrative and ask for assumptions, missing sources and validation questions.</p>
+<h2 id="module-2-data-classification-in-practice">Module 2: Data classification in practice</h2>
+<p><strong>Outcomes</strong>
+- Apply T0/T1/T2/T3 classification to common exports and reports.
+- Decide what can be pasted into which tool.
+- Redact or aggregate before using AI where possible.</p>
+<p><strong>Exercise</strong>
+- Classify five sample snippets: public portfolio text, anonymised process notes, customer sales table, price list, bank export.</p>
+<h2 id="module-3-prompting-with-source-discipline">Module 3: Prompting with source discipline</h2>
+<p><strong>Outcomes</strong>
+- Ask for source-linked outputs and uncertainty markers.
+- Require the model to separate facts, assumptions and recommendations.
+- Avoid pasting uncontrolled personal or confidential data.</p>
+<p><strong>Exercise prompt skeleton</strong></p>
+<pre><code class="language-text">You are helping document a process from authorised internal notes.
+Return:
+1. facts directly supported by the notes,
+2. assumptions that need SME validation,
+3. open questions,
+4. draft process steps with source IDs.
+Do not invent missing data.
+</code></pre>
+<h2 id="module-4-approval-envelopes">Module 4: Approval Envelopes</h2>
+<p><strong>Outcomes</strong>
+- Understand that AI proposes and humans decide.
+- Identify actions that require mandatory approval: pricing, financial postings, customer-facing emails, master-data changes.
+- Read an Approval Envelope log.</p>
+<p><strong>Exercise</strong>
+- Sort ten example AI outputs into: may auto-log, needs operational approval, or financial/customer-facing mandatory approval.</p>
+<h2 id="pilot-session-format">Pilot session format</h2>
 <table>
 <thead>
 <tr>
-<th>Phase</th>
-<th>Weeks</th>
-<th>Outcome</th>
+<th>Segment</th>
+<th style="text-align: right;">Duration</th>
+<th>Activity</th>
+<th>Artifact</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>Phase 0 — Foundations</strong></td>
-<td>1–4</td>
-<td>Data-classification rule, export inventory, AI-literacy pilot, first knowledge capture</td>
+<td>Intro and guardrails</td>
+<td style="text-align: right;">10 min</td>
+<td>Explain T0-T3 and human-in-loop rule</td>
+<td>Data-classification handout</td>
 </tr>
 <tr>
-<td><strong>Wave 1 — First value</strong></td>
-<td>5–10</td>
-<td>One process mapped end-to-end; one manual report consolidated; one Power BI report rebuilt; governance model drafted</td>
+<td>LLM capability demo</td>
+<td style="text-align: right;">20 min</td>
+<td>Prompting exercise with safe notes</td>
+<td>Prompt workbook</td>
 </tr>
 <tr>
-<td><strong>Wave 2+ — Scale</strong></td>
-<td>11+</td>
-<td>Document order-intake automation; financial reconciliation; Business Glossary at scale; next-ERP recommendation</td>
+<td>Approval Envelope lab</td>
+<td style="text-align: right;">25 min</td>
+<td>Classify actions and design approvals</td>
+<td>Approval worksheet</td>
+</tr>
+<tr>
+<td>Role-specific breakouts</td>
+<td style="text-align: right;">30 min</td>
+<td>Finance/BICC/Sales examples</td>
+<td>Use-case notes</td>
+</tr>
+<tr>
+<td>Debrief</td>
+<td style="text-align: right;">15 min</td>
+<td>Feedback and Wave 1 training needs</td>
+<td>Feedback log</td>
 </tr>
 </tbody>
 </table>
-<hr />
-<h2 id="what-you-will-see">What you will see</h2>
+<h2 id="feedback-capture">Feedback capture</h2>
 <ul>
-<li>A working Power BI Desktop pilot on the Export Layer.</li>
-<li>A PDF/email order-intake agent that drafts orders for human approval.</li>
-<li>A bank-reconciliation assistant that proposes matches for the finance controller.</li>
-<li>A live Business Glossary and Opportunity Catalogue.</li>
+<li>Confidence before/after: 1-5.</li>
+<li>"I can safely classify data before using AI": yes/no/comment.</li>
+<li>"I can explain when AI may propose but not decide": yes/no/comment.</li>
+<li>Top three workflows where AI could help.</li>
+<li>Top three concerns/blockers.</li>
 </ul>
-<hr />
-<h2 id="governance-privacy">Governance &amp; privacy</h2>
-<ul>
-<li>Financial, pricing and customer-facing outputs always require human approval.</li>
-<li>Data classified and handled in line with GDPR.</li>
-<li>No live ERP connectors without an evidence-backed business case.</li>
-</ul>
-<hr />
-<h2 id="next-step">Next step</h2>
-<p>Introductory call: confirm scope, dependencies, steering committee sponsor and BICC counterpart; agree Phase 0 kick-off date.</p>
-<hr />
-<p><em>Angel Software Solutions — Export Layer · Approval Envelope · Source-linked Audit Trail</em></p>
+<h2 id="completion-evidence">Completion evidence</h2>
+<p>This repo contains the pilot module outline and exercises. Real completion requires attendance evidence from at least five client team members and feedback collection after the session.</p>
   </article>
 </div>
 <footer class="footer">

@@ -84,7 +84,15 @@
     .dot { width: 10px; height: 10px; border-radius: 999px; border: 1px solid #94A3B8; background: #fff; }
     .dot.active { width: 26px; border-color: var(--teal); background: var(--teal); }
     .controls { display: flex; gap: 10px; }
+    .demo-controls { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
+    .demo-controls .control { padding: 9px 11px; border-radius: 12px; font-size: 12px; }
     .tiny { font-size: 12px; color: var(--slate); }
+    .demo-panel { border-color: #99F6E4; background: linear-gradient(180deg, #F0FDFA 0%, #FFFFFF 100%); }
+    .demo-metrics { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-top: 12px; }
+    .demo-metrics .metric-tile { border: 1px solid var(--border); border-radius: 16px; padding: 12px; background: #fff; }
+    .demo-metrics b { display: block; font-size: 20px; letter-spacing: -0.03em; }
+    .demo-status { font-weight: 850; color: #0F766E; }
+    .event-log { max-height: 160px; overflow: auto; }
     @media (max-width: 980px) {
       body { display: block; }
       .topbar { position: static; }
@@ -110,12 +118,20 @@
       .row .confidence { flex: 1 1 100%; min-width: 0; }
       .doc-preview { word-break: break-word; }
       .screen-actions { justify-content: flex-start; }
+      .demo-controls { justify-content: flex-start; }
+      .demo-metrics { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
   <header class="topbar">
     <div class="brand"><div class="brand-mark">AS</div><div>Angel Software Solutions <span class="muted">/ guided walkthrough</span></div></div>
+    <div class="demo-controls" role="group" aria-label="Synthetic realtime demo controls">
+      <button class="control secondary" type="button" data-demo-action="load">Load synthetic sample pack</button>
+      <button class="control" type="button" data-demo-action="start">Start realtime stream</button>
+      <button class="control secondary" type="button" data-demo-action="pause">Pause</button>
+      <button class="control secondary" type="button" data-demo-action="reset">Reset</button>
+    </div>
     <div class="top-meta">File exports · Approval Envelopes · Source-linked Audit Trail</div>
   </header>
   <div class="app">
@@ -129,7 +145,8 @@
         <div class="screen"><div class="screen-bar"><div class="screen-title">Export Layer dashboard</div><div class="screen-actions"><span class="badge teal">ERP-agnostic</span><span class="badge">M365 E3</span><span class="badge">No live connectors</span></div></div><div class="content"><div class="grid">
           <div class="card col-3 soft"><h3>Source systems</h3><div class="list"><div class="row"><span>Legacy ERP</span><span class="badge">CSV</span></div><div class="row"><span>CRM / customer master</span><span class="badge">Excel</span></div><div class="row"><span>Warehouse stock</span><span class="badge">JSON</span></div><div class="row"><span>Bank statements</span><span class="badge">CSV</span></div></div></div>
           <div class="card col-6"><h3>Incoming exports</h3><div class="list"><div class="row"><span><b class="file">sales_invoice_lines_may.csv</b><br><span class="tiny">Net sales, GP, depletions</span></span><span><span class="badge amber">Confidential</span> <span class="badge red">GDPR review</span></span></div><div class="row"><span><b class="file">open_invoices_week_22.xlsx</b><br><span class="tiny">Finance reconciliation source</span></span><span><span class="badge amber">Confidential</span></span></div><div class="row"><span><b class="file">stock_on_hand.json</b><br><span class="tiny">Warehouse availability</span></span><span><span class="badge">Internal</span></span></div></div></div>
-          <div class="card col-3 soft"><h3>Control checks</h3><p><b>92%</b> fields mapped to the Business Glossary.</p><p><b>4</b> exports awaiting owner confirmation.</p><p><b>0</b> rows written back without approval.</p></div>
+          <div class="card col-3 soft"><h3>Control checks</h3><p><b data-demo-field="glossary-coverage">92%</b> fields mapped to the Business Glossary.</p><p><b data-demo-field="exports-pending">4</b> exports awaiting owner confirmation.</p><p><b data-demo-field="write-back-count">0</b> rows written back without approval.</p></div>
+          <div class="card col-12 demo-panel" id="syntheticDemoPanel"><h3>Synthetic export processor</h3><p class="demo-status" data-demo-field="demo-status">Ready to load synthetic/illustrative CSV, JSON and text exports from the repo sample pack.</p><div class="demo-metrics"><div class="metric-tile"><span class="tiny">Sales invoice net</span><b data-demo-field="sales-net">synthetic pending</b></div><div class="metric-tile"><span class="tiny">Approval queue</span><b data-demo-field="approval-queue">synthetic pending</b></div><div class="metric-tile"><span class="tiny">Reconciliation suggestions</span><b data-demo-field="reconciliation-summary">synthetic pending</b></div><div class="metric-tile"><span class="tiny">Monthly hours saved</span><b data-demo-field="hours-saved">synthetic pending</b></div></div><div class="lineage event-log" id="demoEventLog"><div>event_stream: idle</div><div>source_pack: assets/starter-data + data/samples + outputs/* (synthetic only)</div></div></div>
         </div></div></div>
       </section>
 <section class="slide" data-step="2" data-title="Data Classification">
@@ -137,14 +154,14 @@
         <div class="screen"><div class="screen-bar"><div class="screen-title">Export inventory and classification</div><div class="screen-actions"><span class="badge teal">Phase 0</span><span class="badge red">GDPR review</span><span class="badge">M365 E3</span></div></div><div class="content"><div class="grid">
           <div class="card col-4 soft"><h3>Classification rule</h3><div class="list"><div class="row"><span>Public</span><span class="badge green">OK to share</span></div><div class="row"><span>Internal</span><span class="badge">Team only</span></div><div class="row"><span>Confidential</span><span class="badge amber">Owner approval</span></div><div class="row"><span>Restricted</span><span class="badge red">Steering sign-off</span></div></div></div>
           <div class="card col-8"><h3>Export inventory per system</h3><div class="list"><div class="row"><span><b class="file">sales_invoice_lines_may.csv</b><br><span class="tiny">Legacy ERP · Confidential · Finance owner</span></span><span class="badge amber">Mapped</span></div><div class="row"><span><b class="file">customer_master.xlsx</b><br><span class="tiny">CRM · Restricted · GDPR review</span></span><span class="badge red">Pending</span></div><div class="row"><span><b class="file">warehouse_stock.json</b><br><span class="tiny">WMS · Internal · Ops owner</span></span><span class="badge green">Approved</span></div><div class="row"><span><b class="file">bank_statements_jun.csv</b><br><span class="tiny">Bank portal · Confidential · Finance owner</span></span><span class="badge amber">Pending</span></div></div></div>
-        </div><div class="banner">ℹ Every export keeps its classification label through every downstream use.</div><button class="control" data-path="docs/05-phase-0/data-classification-and-export-inventory.md">Open classification guide →</button></div></div>
+        </div><div class="banner">ℹ Every export keeps its classification label through every downstream use.</div><button class="control" data-path="../../../docs/05-phase-0/data-classification-and-export-inventory.html">Open classification guide →</button></div></div>
       </section>
 <section class="slide" data-step="3" data-title="Knowledge Capture">
         <div class="hero"><div><h1>Knowledge Capture & Stakeholder Input</h1><p class="helper">Process maps and data definitions are built from structured interviews and exports, not guesswork. Capability stays with the team.</p></div><span class="pill teal">3 of 13</span></div>
         <div class="screen"><div class="screen-bar"><div class="screen-title">Knowledge capture sessions</div><div class="screen-actions"><span class="badge teal">Phase 0</span><span class="badge">Co-delivery</span></div></div><div class="content"><div class="grid">
           <div class="card col-6"><h3>Session topics</h3><div class="list"><div class="row"><span>Order-to-cash workflow</span><span class="badge">Finance + CS</span></div><div class="row"><span>Report consolidation pain points</span><span class="badge">BICC</span></div><div class="row"><span>Data definitions (net sales, GP, depletions)</span><span class="badge">Finance</span></div><div class="row"><span>AI literacy baseline</span><span class="badge">All teams</span></div></div></div>
           <div class="card col-6 soft"><h3>Captured outputs</h3><p><b>12</b> process steps mapped.</p><p><b>9</b> automation candidates raised.</p><p><b>4</b> undocumented data definitions flagged.</p><p><b>0</b> decisions made without a named owner.</p></div>
-        </div><button class="control" data-path="docs/05-phase-0/knowledge-capture-and-input-pack.md">Open input pack →</button></div></div>
+        </div><button class="control" data-path="../../../docs/05-phase-0/knowledge-capture-and-input-pack.html">Open input pack →</button></div></div>
       </section>
 <section class="slide" data-step="4" data-title="Process Mapping">
         <div class="hero"><div><h1>Process Mapping — Order-to-Cash</h1><p class="helper">The first end-to-end map shows where work is duplicated, where handoffs break, and what a target-state flow could remove.</p></div><span class="pill teal">4 of 13</span></div>
@@ -152,14 +169,14 @@
           <div class="card col-12 soft"><h3>End-to-end flow</h3><div class="list"><div class="row"><span><b>1. Order received</b> — email / PDF / EDI</span><span class="badge amber">Manual entry</span></div><div class="row"><span><b>2. Credit check</b> — spreadsheet lookup</span><span class="badge amber">Duplicated</span></div><div class="row"><span><b>3. Stock allocation</b> — warehouse export</span><span class="badge green">Semi-automated</span></div><div class="row"><span><b>4. Invoice & ship</b> — ERP + finance export</span><span class="badge amber">Reconciled manually</span></div><div class="row"><span><b>5. Payment & close</b> — bank statement match</span><span class="badge red">Exception queue</span></div></div></div>
           <div class="card col-6"><h3>Pain points</h3><p>Order intake re-keyed from PDF; credit check duplicated across two files; month-end reconciliation takes 2 days.</p></div>
           <div class="card col-6"><h3>Target-state value</h3><p>AI-drafted intake with approval envelope; automated matching suggestions; one source-linked report pack. <b>~40 hrs/month</b> illustrative saving.</p></div>
-        </div><button class="control" data-path="docs/06-wave-1/order-to-cash-process-map.md">Open process map →</button></div></div>
+        </div><button class="control" data-path="../../../docs/06-wave-1/order-to-cash-process-map.html">Open process map →</button></div></div>
       </section>
 <section class="slide" data-step="5" data-title="Report Consolidation">
         <div class="hero"><div><h1>Manual Report Consolidation</h1><p class="helper">Wave 1 replaces a weekly cut-and-paste report with a single, source-linked workbook that business users can explain and maintain.</p></div><span class="pill teal">5 of 13</span></div>
         <div class="screen"><div class="screen-bar"><div class="screen-title">Before / after report consolidation</div><div class="screen-actions"><span class="badge teal">Wave 1</span><span class="badge amber">User validation pending</span></div></div><div class="content"><div class="grid">
           <div class="card col-6"><h3>Before</h3><div class="list"><div class="row"><span>5 source files opened manually</span><span class="badge red">3 hrs/wk</span></div><div class="row"><span>Copy-paste into master sheet</span><span class="badge red">Error prone</span></div><div class="row"><span>No source trace for reviewers</span><span class="badge red">Audit risk</span></div></div></div>
           <div class="card col-6 soft"><h3>After</h3><div class="list"><div class="row"><span>Scheduled export loads</span><span class="badge green">15 min/wk</span></div><div class="row"><span>Auto-classified and lineage-tagged</span><span class="badge green">Traceable</span></div><div class="row"><span>Single management pack</span><span class="badge green">User-validated</span></div></div></div>
-        </div><button class="control" data-path="docs/06-wave-1/manual-report-consolidation-plan.md">Open consolidation plan →</button></div></div>
+        </div><button class="control" data-path="../../../docs/06-wave-1/manual-report-consolidation-plan.html">Open consolidation plan →</button></div></div>
       </section>
 <section class="slide" data-step="6" data-title="Power BI Pilot">
         <div class="hero"><div><h1>BICC Power BI Desktop Pilot</h1><p class="helper">The BICC rebuilds one report in Power BI Desktop using only file exports and M365 E3 tooling — a low-cost, reusable pilot before any new licences.</p></div><span class="pill teal">6 of 13</span></div>
@@ -167,7 +184,7 @@
           <div class="card col-4 soft"><h3>Model</h3><p>Star schema built from classified exports.</p><p><b>0</b> live connectors.</p><p><b>100%</b> M365 E3.</p></div>
           <div class="card col-8"><h3>Report pages</h3><div class="list"><div class="row"><span>Net sales by channel and week</span><span class="badge green">Built</span></div><div class="row"><span>Gross profit and margin trends</span><span class="badge green">Built</span></div><div class="row"><span>Depletions vs. plan</span><span class="badge amber">Draft</span></div><div class="row"><span>Source lineage and refresh log</span><span class="badge amber">Draft</span></div></div></div>
           <div class="card col-12"><h3>BICC handover</h3><p>Refresh runbook, measure definitions, and a validation checklist so the BICC owns the report without dependency on us.</p></div>
-        </div><button class="control" data-path="docs/06-wave-1/power-bi-desktop-pilot-build-pack.md">Open pilot build pack →</button></div></div>
+        </div><button class="control" data-path="../../../docs/06-wave-1/power-bi-desktop-pilot-build-pack.html">Open pilot build pack →</button></div></div>
       </section>
 <section class="slide" data-step="7" data-title="Governance Tiers">
         <div class="hero"><div><h1>Governance tiers</h1><p class="helper">Controls change by risk. Low-risk information can be logged automatically; operational actions need approval; financial, pricing and customer-facing decisions stay human-only.</p></div><span class="pill teal">7 of 13</span></div>
@@ -179,30 +196,31 @@
       </section>
 <section class="slide" data-step="8" data-title="Order Intake">
         <div class="hero"><div><h1>Order Intake Approval Envelope</h1><p class="helper">AI can draft the order from a PDF or email, but the Customer Service lead approves, edits or rejects before anything is sent downstream.</p></div><span class="pill teal">8 of 13</span></div>
-        <div class="screen"><div class="screen-bar"><div class="screen-title">Human approval required — nothing committed until you confirm</div><button class="control">Review & Approve → send to ERP</button></div><div class="content"><div class="banner">⚠ Approval Envelope active: AI proposes; a named human decides.</div><div class="grid">
+        <div class="screen"><div class="screen-bar"><div class="screen-title">Human approval required — nothing committed until you confirm</div><button class="control" data-demo-action="approve-draft">Review & Approve → send to ERP</button></div><div class="content"><div class="banner">⚠ Approval Envelope active: AI proposes; a named human decides. Demo stream is a synthetic file-export simulation, not a live connector or real client data.</div><div class="grid">
+          <div class="card col-12 soft"><h3>Synthetic order queue</h3><p><b data-demo-field="order-lines">2</b> draft lines loaded from <span class="file">outputs/wave2/order_intake_review_queue.csv</span>; status <b data-demo-field="approval-status">PENDING_HUMAN_REVIEW</b>; write-back <b data-demo-field="order-writeback">NO_WRITE_BACK</b>.</p></div>
           <div class="card col-5"><h3>Incoming order source</h3><div class="doc-preview">From: trade customer<br>Subject: June replenishment<br><br>Please deliver <mark>24 cases</mark> of item <mark>W-1042</mark> and <mark>12 cases</mark> of item <mark>S-7781</mark> before <mark>Friday</mark>.<br><br>Reference: standing seasonal listing</div></div>
-          <div class="card col-7"><h3>AI-extracted editable draft</h3><div class="list"><div class="row"><span>Customer account</span><b>Neutral trade account</b><div class="confidence"><i style="width: 94%"></i></div></div><div class="row"><span>Delivery date</span><b>Friday, pending calendar check</b><div class="confidence"><i style="width: 82%"></i></div></div><div class="row"><span>Line item W-1042</span><b>24 cases</b><div class="confidence"><i style="width: 96%"></i></div></div><div class="row"><span>Line item S-7781</span><b>12 cases</b><div class="confidence"><i style="width: 91%"></i></div></div><div class="row"><span>Price / stock validation</span><span class="badge amber">Needs human check</span><div class="confidence"><i style="width: 68%"></i></div></div></div></div>
+          <div class="card col-7"><h3>AI-extracted editable draft</h3><div class="list"><div class="row"><span>Customer account</span><b data-demo-field="order-customer">Neutral trade account</b><div class="confidence"><i style="width: 94%"></i></div></div><div class="row"><span>Delivery date</span><b data-demo-field="order-date">Friday, pending calendar check</b><div class="confidence"><i style="width: 82%"></i></div></div><div class="row"><span>Line item 1</span><b data-demo-field="order-line-1">24 cases</b><div class="confidence"><i style="width: 96%"></i></div></div><div class="row"><span>Line item 2</span><b data-demo-field="order-line-2">12 cases</b><div class="confidence"><i style="width: 91%"></i></div></div><div class="row"><span>Price / stock validation</span><span class="badge amber">Needs human check</span><div class="confidence"><i style="width: 68%"></i></div></div></div></div>
         </div></div></div>
       </section>
 <section class="slide" data-step="9" data-title="Reconciliation">
         <div class="hero"><div><h1>Financial Reconciliation Assistant</h1><p class="helper">Bank payments and open invoices are matched with evidence, confidence and exception flags. Finance signs off before posting.</p></div><span class="pill teal">9 of 13</span></div>
-        <div class="screen"><div class="screen-bar"><div class="screen-title">Suggested matches with finance sign-off</div><button class="control">Approve matches → post</button></div><div class="content"><div class="grid">
-          <div class="card col-3 soft"><h3>Matched</h3><div class="metric">18</div><p>high-confidence suggestions</p></div><div class="card col-3 soft"><h3>Unmatched</h3><div class="metric">3</div><p>needs finance review</p></div><div class="card col-3 soft"><h3>Flagged</h3><div class="metric">2</div><p>short payment or duplicate risk</p></div><div class="card col-3 soft"><h3>Total value</h3><div class="metric">€1.2m</div><p>illustrative placeholder</p></div>
+        <div class="screen"><div class="screen-bar"><div class="screen-title">Suggested matches with finance sign-off</div><button class="control" data-demo-action="approve-draft">Approve matches → post</button></div><div class="content"><div class="grid">
+          <div class="card col-3 soft"><h3>Matched</h3><div class="metric" data-demo-field="reconciliation-matched">18</div><p>high-confidence suggestions</p></div><div class="card col-3 soft"><h3>Unmatched</h3><div class="metric" data-demo-field="reconciliation-unmatched">3</div><p>needs finance review</p></div><div class="card col-3 soft"><h3>Flagged</h3><div class="metric" data-demo-field="reconciliation-flagged">2</div><p>exception or duplicate risk</p></div><div class="card col-3 soft"><h3>Total value</h3><div class="metric" data-demo-field="bank-total">€1.2m</div><p>synthetic placeholder</p></div>
           <div class="card col-6"><h3>Bank payments</h3><div class="list"><div class="row"><span>Payment 7741</span><span class="badge green">95% match</span></div><div class="row"><span>Payment 7742</span><span class="badge amber">Short paid</span></div><div class="row"><span>Payment 7743</span><span class="badge red">No match</span></div></div></div>
           <div class="card col-6"><h3>Open invoices</h3><div class="list"><div class="row"><span>Invoice INV-2210</span><span class="badge green">Payment 7741</span></div><div class="row"><span>Invoice INV-2211</span><span class="badge amber">Tolerance review</span></div><div class="row"><span>Invoice INV-2212</span><span class="badge red">Exception queue</span></div></div></div>
         </div></div></div>
       </section>
 <section class="slide" data-step="10" data-title="Audit Trail">
         <div class="hero"><div><h1>Source-linked Audit Trail</h1><p class="helper">Every reported figure can be expanded back to the export, sheet/range, transformation and approval event that produced it.</p></div><span class="pill teal">10 of 13</span></div>
-        <div class="screen"><div class="screen-bar"><div class="screen-title">Net sales — May 2026</div><span class="badge amber">Illustrative placeholder</span></div><div class="content"><div class="grid"><div class="card col-5 soft"><h3>Headline figure</h3><div class="metric">€X.Xm</div><p>Shown as a placeholder until client exports populate the real value.</p></div><div class="card col-7"><h3>Traceability</h3><details open><summary>Expand source trace</summary><div class="lineage"><div>source_file: exports/sales_invoice_lines_may.csv</div><div>sheet_range: SalesInvoiceLines!A:Q</div><div>export_date: 2026-05-31</div><div>formula: gross_sales - discounts - credit_notes</div><div>approver: Finance owner placeholder</div><div>recent_action: report refresh approved; no auto-posting</div></div></details></div></div></div></div>
+        <div class="screen"><div class="screen-bar"><div class="screen-title">Net sales — May 2026</div><span class="badge amber">Synthetic / illustrative</span></div><div class="content"><div class="grid"><div class="card col-5 soft"><h3>Headline figure</h3><div class="metric" data-demo-field="powerbi-net-sales">€X.Xm</div><p>Loaded from synthetic file exports; replace only after client exports and validation.</p></div><div class="card col-7"><h3>Traceability</h3><details open><summary>Expand source trace</summary><div class="lineage"><div>source_file: <span data-demo-field="audit-source">assets/starter-data/sales_invoices.csv</span></div><div>sheet_range: <span data-demo-field="audit-rows">pending synthetic rows</span></div><div>export_date: 2026-06 synthetic pack</div><div>formula: sum(net_amount_eur) / gross_sales - discounts - credit_notes</div><div>approver: Finance owner placeholder</div><div>recent_action: <span data-demo-field="audit-action">draft refresh; no auto-posting</span></div></div></details></div></div></div></div>
       </section>
 <section class="slide" data-step="11" data-title="Value & Adoption">
         <div class="hero"><div><h1>Value & Adoption Dashboard</h1><p class="helper">Savings and adoption are tracked together so the steering committee can see whether tools are actually used, not just built.</p></div><span class="pill teal">11 of 13</span></div>
-        <div class="screen"><div class="screen-bar"><div class="screen-title">Measured value, not theatre fog in a blazer</div><span class="badge teal">Monthly review</span></div><div class="content"><div class="grid"><div class="card col-3 soft"><h3>Hours saved</h3><div class="metric">120</div><p>illustrative YTD</p></div><div class="card col-3 soft"><h3>EUR value</h3><div class="metric">€--</div><p>requires agreed rate</p></div><div class="card col-3 soft"><h3>Automations live</h3><div class="metric">4</div><p>human-gated</p></div><div class="card col-3 soft"><h3>Active users</h3><div class="metric">18</div><p>placeholder trend</p></div><div class="card col-7"><h3>Cumulative hours saved</h3><svg class="chart" viewBox="0 0 620 240" role="img" aria-label="Cumulative hours saved chart"><rect x="0" y="0" width="620" height="240" rx="18" fill="#F8FAFC"/><polyline fill="none" stroke="#0D9488" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" points="40,190 140,170 240,132 340,106 440,70 560,42"/><g fill="#0D9488"><circle cx="40" cy="190" r="6"/><circle cx="140" cy="170" r="6"/><circle cx="240" cy="132" r="6"/><circle cx="340" cy="106" r="6"/><circle cx="440" cy="70" r="6"/><circle cx="560" cy="42" r="6"/></g><text x="40" y="222" fill="#64748B" font-size="14">Month 1</text><text x="500" y="222" fill="#64748B" font-size="14">Month 6</text></svg></div><div class="card col-5"><h3>Adoption by team</h3><div class="list"><div class="row"><span>Finance</span><span class="badge green">Rising</span></div><div class="row"><span>Customer Service</span><span class="badge green">Active</span></div><div class="row"><span>BICC / BI lead</span><span class="badge amber">Training</span></div></div></div></div></div></div>
+        <div class="screen"><div class="screen-bar"><div class="screen-title">Measured value, not theatre fog in a blazer</div><span class="badge teal">Monthly review</span></div><div class="content"><div class="grid"><div class="card col-3 soft"><h3>Hours saved</h3><div class="metric" data-demo-field="value-hours">120</div><p>synthetic monthly log</p></div><div class="card col-3 soft"><h3>EUR value</h3><div class="metric" data-demo-field="value-eur">€--</div><p>requires agreed rate</p></div><div class="card col-3 soft"><h3>Automations live</h3><div class="metric" data-demo-field="automations-live">4</div><p>human-gated</p></div><div class="card col-3 soft"><h3>Active users</h3><div class="metric" data-demo-field="active-users">18</div><p>synthetic adoption log</p></div><div class="card col-7"><h3>Cumulative hours saved</h3><svg class="chart" viewBox="0 0 620 240" role="img" aria-label="Cumulative hours saved chart"><rect x="0" y="0" width="620" height="240" rx="18" fill="#F8FAFC"/><polyline fill="none" stroke="#0D9488" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" points="40,190 140,170 240,132 340,106 440,70 560,42"/><g fill="#0D9488"><circle cx="40" cy="190" r="6"/><circle cx="140" cy="170" r="6"/><circle cx="240" cy="132" r="6"/><circle cx="340" cy="106" r="6"/><circle cx="440" cy="70" r="6"/><circle cx="560" cy="42" r="6"/></g><text x="40" y="222" fill="#64748B" font-size="14">Month 1</text><text x="500" y="222" fill="#64748B" font-size="14">Month 6</text></svg></div><div class="card col-5"><h3>Adoption by team</h3><div class="list"><div class="row"><span>Finance</span><span class="badge green">Rising</span></div><div class="row"><span>Customer Service</span><span class="badge green">Active</span></div><div class="row"><span>BICC / BI lead</span><span class="badge amber">Training</span></div></div></div></div></div></div>
       </section>
 <section class="slide" data-step="12" data-title="Glossary & Opportunities">
         <div class="hero"><div><h1>Business Glossary + Opportunity Catalogue</h1><p class="helper">Definitions and automation opportunities live side by side: agreed language, scored value, and a visible path from idea to governed delivery.</p></div><span class="pill teal">12 of 13</span></div>
-        <div class="screen"><div class="screen-bar"><div class="screen-title">Search term: “net sales”</div><span class="badge teal">Owner-reviewed</span></div><div class="content"><div class="grid"><div class="card col-5"><h3>Business Glossary</h3><p><b>Net sales</b> = gross sales minus discounts and credit notes.</p><div class="row"><span>Formula</span><b>gross_sales - discounts - credit_notes</b></div><div class="row"><span>Source</span><b>sales invoice export</b></div><div class="row"><span>Owner</span><b>Finance owner placeholder</b></div><div class="row"><span>Last reviewed</span><b>Pending workshop</b></div></div><div class="card col-7"><h3>Opportunity Catalogue</h3><div class="board"><div class="opp"><b>Order intake</b><p class="tiny">Effort M · Value H · Risk M</p><span class="badge amber">Pilot</span></div><div class="opp"><b>Reconciliation</b><p class="tiny">Effort M · Value H · Risk H</p><span class="badge">Candidate</span></div><div class="opp"><b>Glossary rollout</b><p class="tiny">Effort L · Value M · Risk L</p><span class="badge green">Ready</span></div><div class="opp"><b>ERP decision pack</b><p class="tiny">Effort M · Value H · Risk M</p><span class="badge">Steering</span></div></div></div></div></div></div>
+        <div class="screen"><div class="screen-bar"><div class="screen-title">Search term: “net sales”</div><span class="badge teal">Owner-reviewed</span></div><div class="content"><div class="grid"><div class="card col-5"><h3>Business Glossary</h3><p><b>Net sales</b> = gross sales minus discounts and credit notes.</p><div class="row"><span>Formula</span><b>gross_sales - discounts - credit_notes</b></div><div class="row"><span>Source</span><b data-demo-field="glossary-source">sales invoice export</b></div><div class="row"><span>Owner</span><b>Finance owner placeholder</b></div><div class="row"><span>Terms reviewed</span><b data-demo-field="glossary-reviewed">Pending workshop</b></div></div><div class="card col-7"><h3>Opportunity Catalogue</h3><p class="tiny"><span data-demo-field="opportunity-count">4</span> synthetic opportunities loaded from value_realisation_log.csv.</p><div class="board"><div class="opp"><b>Order intake</b><p class="tiny">Effort M · Value H · Risk M</p><span class="badge amber">Pilot</span></div><div class="opp"><b>Reconciliation</b><p class="tiny">Effort M · Value H · Risk H</p><span class="badge">Candidate</span></div><div class="opp"><b>Glossary rollout</b><p class="tiny">Effort L · Value M · Risk L</p><span class="badge green">Ready</span></div><div class="opp"><b>ERP decision pack</b><p class="tiny">Effort M · Value H · Risk M</p><span class="badge">Steering</span></div></div></div></div></div></div>
       </section>
 <section class="slide" data-step="13" data-title="Next-ERP Decision">
         <div class="hero"><div><h1>Next-ERP Decision Pack</h1><p class="helper">The work stays ERP-agnostic. The decision pack compares brownfield and greenfield options using evidence gathered through the Export Layer, process maps and adoption data.</p></div><span class="pill teal">13 of 13</span></div>
@@ -246,6 +264,175 @@
       if (event.key === 'ArrowRight') show(current + 1);
       if (event.key === 'ArrowLeft') show(current - 1);
     });
+    const sourcePaths = {
+      salesInvoices: '../../../assets/starter-data/sales_invoices.csv',
+      bankPayments: '../../../assets/starter-data/bank_payments.csv',
+      connections: '../../../assets/starter-data/connections.json',
+      salesLines: '../../../data/samples/sales_invoice_lines.csv',
+      orderQueue: '../../../outputs/wave2/order_intake_review_queue.csv',
+      reconciliation: '../../../outputs/wave2/reconciliation_suggestions.csv',
+      valueLog: '../../../outputs/scale/value_realisation_log.csv',
+      adoptionLog: '../../../outputs/scale/adoption_log.csv'
+    };
+    const fallbackSources = {
+      salesInvoices: 'invoice_id,invoice_date,customer_id,product_code,quantity,unit_price_eur,net_amount_eur,vat_rate,total_amount_eur,payment_status\nINV-2026-1042,2026-06-15,CUST-1002,SPI-001,200,12.50,2500.00,0.20,3000.00,paid\nINV-2026-1042,2026-06-15,CUST-1002,SPI-005,100,18.00,1800.00,0.20,2160.00,paid\nINV-2026-1045,2026-06-16,CUST-1003,SPI-002,150,15.00,2250.00,0.20,2700.00,paid\nINV-2026-1048,2026-06-17,CUST-1001,SPI-003,250,11.75,2937.50,0.20,3525.00,paid\nINV-2026-1051,2026-06-18,CUST-1005,SPI-006,50,22.50,1125.00,0.20,1350.00,paid\nINV-2026-1054,2026-06-19,CUST-1004,SPI-004,80,14.25,1140.00,0.20,1368.00,open\n',
+      bankPayments: 'payment_id,payment_date,amount_eur,currency,reference,matched_invoice\nPAY-2026-0001,2026-06-20,12500.00,EUR,INV-2026-1042,CUST-1002\nPAY-2026-0002,2026-06-21,8750.00,EUR,INV-2026-1045,CUST-1003\nPAY-2026-0003,2026-06-21,11250.00,EUR,INV-2026-1048,CUST-1001\nPAY-2026-0004,2026-06-22,5250.00,EUR,INV-2026-1051,CUST-1005\n',
+      connections: '{"connections":[{"status":"active"},{"status":"active"},{"status":"active"},{"status":"active"},{"status":"active"},{"status":"planned"}]}',
+      salesLines: 'invoice_id,date,customer,channel,brand,category,gross_sales,discounts,credit_notes,vat,cost,depletion_qty\nINV-1001,2026-05-02,Sample Retailer A,off-trade,Brand A,Wine,12000,600,0,0,7200,180\nINV-1002,2026-05-06,Sample Restaurant B,on-trade,Brand B,Spirits,8500,250,0,0,5100,72\nINV-1003,2026-05-13,Sample Wine Shop C,specialist,Brand C,Sekt,4300,100,50,0,2600,48\nINV-1004,2026-05-20,Sample Retailer A,off-trade,Brand B,Spirits,9700,400,0,0,6100,96\n',
+      orderQueue: 'source_id,source_file,customer,delivery_date,product,quantity,unit_price,field_confidence,approval_status,write_back\nEXP-ORDER-SAMPLE-001,data/samples/order_email_001.txt,Sample Retailer A,2026-06-28,Brand A Riesling 0.75L,24,12.5,customer=0.82;date=0.95;line=0.88,PENDING_HUMAN_REVIEW,NO_WRITE_BACK\nEXP-ORDER-SAMPLE-001,data/samples/order_email_001.txt,Sample Retailer A,2026-06-28,Brand B Gin 0.70L,12,22.0,customer=0.82;date=0.95;line=0.88,PENDING_HUMAN_REVIEW,NO_WRITE_BACK\n',
+      reconciliation: 'bank_txn_id,suggested_invoice,confidence,signals,exception_reason,finance_approval_status,posting\nBANK-001,INV-1001,100,invoice-reference;amount-exact;payer-customer,,PENDING_HUMAN_APPROVAL,NO_AUTO_POSTING\nBANK-002,INV-1002,100,invoice-reference;amount-exact;payer-customer,,PENDING_HUMAN_APPROVAL,NO_AUTO_POSTING\nBANK-003,,0,,NO_MATCH,PENDING_HUMAN_APPROVAL,NO_AUTO_POSTING\nBANK-004,INV-1004,100,invoice-reference;amount-exact;payer-customer,,PENDING_HUMAN_APPROVAL,NO_AUTO_POSTING\n',
+      valueLog: 'opportunity_id,automation_name,status,baseline_minutes_per_task,automated_minutes_per_task,tasks_per_period,period,hours_saved_per_month,loaded_hourly_rate_eur,eur_value_per_year,evidence_ref,source_export_id,reviewer,review_status\nOPP-001,Order intake assistant,live,8.0,2.5,1800,2026-06,165.0,31.50,62370,TS synthetic time sample,EXP-CS-ORDERS-001,Head of Customer Service,APPROVED\nOPP-003,Manual report consolidation,live,240.0,45.0,4,2026-06,13.0,31.50,4914,synthetic Power BI refresh log,EXP-ERP-SALES-001,BICC Lead,APPROVED\nOPP-002,Reconciliation assistant,piloting,6.0,1.5,1200,2026-06,90.0,31.50,34020,synthetic finance matching log,EXP-FIN-BANK-001,Finance Controller,PENDING_HUMAN_APPROVAL\nOPP-004,Power BI Desktop pilot (report prep),piloting,180.0,30.0,4,2026-06,10.0,31.50,3780,synthetic build/refresh log,EXP-ERP-SALES-001,BICC Lead,PENDING_HUMAN_APPROVAL\n',
+      adoptionLog: 'tool_or_report_name,audience,metric,period,value,target,collection_method,source_ref,owner\nPower BI Desktop pilot,Commercial managers + BICC,unique viewers,2026-06,8,10,BICC usage log + trade-meeting evidence,BICC-ADOPT-06,BICC Lead\nBusiness glossary,BICC + SMEs,terms reviewed with owner/source,2026-06,46,80,Glossary change log,GLOS-06,BICC Lead\nAI-literacy modules,All trained roles,completions,2026-06,21,35,Attendance register,TRAIN-06,AI-literacy Lead\n'
+    };
+    const demo = { loaded: false, data: null, eventIndex: 0, timer: null };
+    const money = new Intl.NumberFormat('en-IE', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 });
+    function setField(name, value) { document.querySelectorAll(`[data-demo-field="${name}"]`).forEach((el) => { el.textContent = String(value); }); }
+    function parseCsv(text) {
+      const lines = text.trim().split(String.fromCharCode(10)).map((line) => line.replace(String.fromCharCode(13), '')).filter(Boolean);
+      if (!lines.length) return [];
+      const split = (line) => {
+        const cells = []; let cell = ''; let quote = false;
+        for (let i = 0; i < line.length; i++) {
+          const c = line[i];
+          if (c === '"' && line[i + 1] === '"') { cell += '"'; i++; continue; }
+          if (c === '"') { quote = !quote; continue; }
+          if (c === ',' && !quote) { cells.push(cell); cell = ''; continue; }
+          cell += c;
+        }
+        cells.push(cell); return cells;
+      };
+      const headers = split(lines[0]).map((h) => h.trim());
+      return lines.slice(1).map((line) => Object.fromEntries(split(line).map((value, i) => [headers[i], value.trim()])));
+    }
+    async function readSource(name) {
+      try {
+        const response = await fetch(sourcePaths[name], { cache: 'no-store' });
+        if (!response.ok) throw new Error(`${response.status}`);
+        return await response.text();
+      } catch (error) {
+        return fallbackSources[name];
+      }
+    }
+    const sum = (rows, field) => rows.reduce((total, row) => total + (Number(row[field]) || 0), 0);
+    function deriveState(raw) {
+      const salesInvoices = parseCsv(raw.salesInvoices);
+      const bankPayments = parseCsv(raw.bankPayments);
+      const salesLines = parseCsv(raw.salesLines);
+      const orderQueue = parseCsv(raw.orderQueue);
+      const reconciliation = parseCsv(raw.reconciliation);
+      const valueLog = parseCsv(raw.valueLog);
+      const adoptionLog = parseCsv(raw.adoptionLog);
+      const connections = JSON.parse(raw.connections).connections || [];
+      const matched = reconciliation.filter((row) => row.suggested_invoice).length;
+      const openInvoices = salesInvoices.filter((row) => row.payment_status !== 'paid').length;
+      const glossary = adoptionLog.find((row) => row.tool_or_report_name === 'Business glossary') || {};
+      const activeUsers = adoptionLog.find((row) => row.tool_or_report_name === 'Power BI Desktop pilot') || {};
+      return {
+        salesInvoices, bankPayments, salesLines, orderQueue, reconciliation, valueLog, adoptionLog, connections,
+        salesNet: sum(salesInvoices, 'net_amount_eur'),
+        bankTotal: sum(bankPayments, 'amount_eur'),
+        matched,
+        unmatched: reconciliation.length - matched,
+        flagged: reconciliation.filter((row) => row.exception_reason).length,
+        hours: sum(valueLog, 'hours_saved_per_month'),
+        eurValue: sum(valueLog, 'eur_value_per_year'),
+        opportunityCount: valueLog.length,
+        automations: valueLog.filter((row) => ['live', 'piloting'].includes(row.status)).length,
+        activeUsers: activeUsers.value || '8',
+        glossaryReviewed: `${glossary.value || 46}/${glossary.target || 80}`,
+        pendingExports: connections.filter((row) => row.status !== 'active').length || openInvoices,
+        writeBacks: orderQueue.filter((row) => row.write_back !== 'NO_WRITE_BACK').length
+      };
+    }
+    function renderState(state, status) {
+      setField('demo-status', status || 'Synthetic sample pack loaded; values below are illustrative and human-gated.');
+      setField('sales-net', money.format(state.salesNet));
+      setField('powerbi-net-sales', money.format(state.salesNet));
+      setField('approval-queue', `${state.orderQueue.length} draft lines`);
+      setField('order-lines', state.orderQueue.length);
+      setField('approval-status', state.orderQueue[0]?.approval_status || 'PENDING_HUMAN_REVIEW');
+      setField('order-writeback', state.orderQueue[0]?.write_back || 'NO_WRITE_BACK');
+      setField('order-customer', state.orderQueue[0]?.customer || 'Sample customer');
+      setField('order-date', state.orderQueue[0]?.delivery_date || 'Pending calendar check');
+      setField('order-line-1', `${state.orderQueue[0]?.quantity || 0} × ${state.orderQueue[0]?.product || 'synthetic item'}`);
+      setField('order-line-2', `${state.orderQueue[1]?.quantity || 0} × ${state.orderQueue[1]?.product || 'synthetic item'}`);
+      setField('reconciliation-summary', `${state.matched} matched / ${state.flagged} exception`);
+      setField('reconciliation-matched', state.matched);
+      setField('reconciliation-unmatched', state.unmatched);
+      setField('reconciliation-flagged', state.flagged);
+      setField('bank-total', money.format(state.bankTotal));
+      setField('hours-saved', `${state.hours.toFixed(0)} hrs/mo`);
+      setField('value-hours', state.hours.toFixed(0));
+      setField('value-eur', money.format(state.eurValue));
+      setField('automations-live', state.automations);
+      setField('active-users', state.activeUsers);
+      setField('audit-source', 'assets/starter-data/sales_invoices.csv');
+      setField('audit-rows', `${state.salesInvoices.length} invoice rows; ${state.salesLines.length} sales-line rows`);
+      setField('audit-action', 'draft refresh loaded; no auto-posting');
+      setField('glossary-source', 'sales_invoice_lines.csv + Business Glossary seed');
+      setField('glossary-reviewed', state.glossaryReviewed);
+      setField('opportunity-count', state.opportunityCount);
+      setField('glossary-coverage', state.glossaryReviewed);
+      setField('exports-pending', state.pendingExports);
+      setField('write-back-count', state.writeBacks);
+      const log = document.querySelector('#demoEventLog');
+      if (log) log.innerHTML = '<div>event_stream: loaded synthetic sample pack</div><div>source_file: assets/starter-data/sales_invoices.csv</div><div>source_file: outputs/wave2/order_intake_review_queue.csv</div><div>guardrail: NO_WRITE_BACK until explicit reviewer action</div>';
+    }
+    async function loadSyntheticPack() {
+      setField('demo-status', 'Loading synthetic file-export sample pack...');
+      const names = Object.keys(sourcePaths);
+      const values = await Promise.all(names.map((name) => readSource(name)));
+      const raw = Object.fromEntries(names.map((name, index) => [name, values[index]]));
+      demo.data = deriveState(raw); demo.loaded = true; demo.eventIndex = 0;
+      renderState(demo.data, 'Synthetic sample pack loaded from repo exports; no backend, no live connector, no real client data.');
+      return demo.data;
+    }
+    const streamEvents = [
+      'ingested classified invoice export',
+      'updated Power BI pilot net-sales metric',
+      'queued order-intake Approval Envelope draft',
+      'matched bank lines into finance review queue',
+      'wrote source-linked audit trail entries',
+      'updated value/adoption dashboard indicators'
+    ];
+    function pushEvent(label) {
+      const log = document.querySelector('#demoEventLog');
+      if (!log) return;
+      const row = document.createElement('div');
+      row.textContent = `${new Date().toLocaleTimeString()} synthetic_event: ${label}`;
+      log.prepend(row);
+      setField('audit-action', label + '; reviewer approval still required');
+      setField('demo-status', `Realtime synthetic stream: ${label}. Human-in-the-loop controls remain active.`);
+    }
+    async function startRealtime() {
+      if (!demo.loaded) await loadSyntheticPack();
+      pauseRealtime();
+      pushEvent(streamEvents[demo.eventIndex % streamEvents.length]);
+      demo.eventIndex += 1;
+      const delay = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 2200 : 1100;
+      demo.timer = window.setInterval(() => {
+        pushEvent(streamEvents[demo.eventIndex % streamEvents.length]);
+        demo.eventIndex += 1;
+        if (demo.eventIndex >= streamEvents.length) pauseRealtime();
+      }, delay);
+    }
+    function pauseRealtime() { if (demo.timer) window.clearInterval(demo.timer); demo.timer = null; }
+    function resetRealtime() { pauseRealtime(); demo.loaded = false; demo.data = null; demo.eventIndex = 0; setField('demo-status', 'Ready to load synthetic/illustrative CSV, JSON and text exports from the repo sample pack.'); const log = document.querySelector('#demoEventLog'); if (log) log.innerHTML = '<div>event_stream: idle</div><div>source_pack: assets/starter-data + data/samples + outputs/* (synthetic only)</div>'; }
+    function approveDraft() { setField('approval-status', 'REVIEWER_ACTION_SHOWN_DRAFT_ONLY'); setField('audit-action', 'reviewer action demonstrated; no write-back performed'); pushEvent('presenter clicked approval control (demo only, no write-back)'); }
+    document.querySelectorAll('button[data-path]').forEach((button) => {
+      button.addEventListener('click', () => window.open(button.getAttribute('data-path'), '_blank', 'noopener'));
+    });
+    document.querySelectorAll('[data-demo-action]').forEach((button) => {
+      button.addEventListener('click', () => {
+        const action = button.getAttribute('data-demo-action');
+        if (action === 'load') loadSyntheticPack();
+        if (action === 'start') startRealtime();
+        if (action === 'pause') pauseRealtime();
+        if (action === 'reset') resetRealtime();
+        if (action === 'approve-draft') approveDraft();
+      });
+    });
+    window.TopSpiritSyntheticDemo = { sourcePaths, parseCsv, loadSyntheticPack, startRealtime, pauseRealtime, resetRealtime };
     show(0);
   </script>
 </body>
