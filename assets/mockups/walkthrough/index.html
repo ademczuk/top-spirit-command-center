@@ -19,7 +19,7 @@
       --shadow: 0 18px 45px rgba(15, 23, 42, 0.10);
     }
     * { box-sizing: border-box; }
-    html, body { margin: 0; min-height: 100%; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: var(--navy); background: var(--bg); }
+    html, body { margin: 0; min-height: 100%; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: var(--navy); background: var(--bg); overflow-x: hidden; }
     body { display: grid; grid-template-rows: 64px 1fr; }
     .topbar { position: sticky; top: 0; z-index: 20; height: 64px; display: flex; align-items: center; justify-content: space-between; padding: 0 28px; background: rgba(255,255,255,.94); backdrop-filter: blur(14px); border-bottom: 1px solid var(--border); }
     .brand { display: flex; align-items: center; gap: 12px; font-weight: 800; letter-spacing: -0.02em; }
@@ -81,12 +81,13 @@
     .compare { width: 100%; border-collapse: collapse; font-size: 14px; }
     .progress-wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-top: 18px; }
     .dots { display: flex; gap: 7px; align-items: center; }
-    .dot { width: 10px; height: 10px; border-radius: 999px; border: 1px solid #94A3B8; background: #fff; }
+    .dot { width: 10px; height: 10px; border-radius: 999px; border: 1px solid #94A3B8; background: #fff; padding: 0; cursor: pointer; }
     .dot.active { width: 26px; border-color: var(--teal); background: var(--teal); }
     .controls { display: flex; gap: 10px; }
     .demo-controls { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
     .demo-controls .control { padding: 9px 11px; border-radius: 12px; font-size: 12px; }
     .tiny { font-size: 12px; color: var(--slate); }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
     .demo-panel { border-color: #99F6E4; background: linear-gradient(180deg, #F0FDFA 0%, #FFFFFF 100%); }
     .demo-metrics { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-top: 12px; }
     .demo-metrics .metric-tile { border: 1px solid var(--border); border-radius: 16px; padding: 12px; background: #fff; }
@@ -101,24 +102,45 @@
       .nav-item { display: inline-flex; width: auto; }
       main { padding: 18px; }
       .hero { display: block; }
-      .grid { grid-template-columns: 1fr; }
+      main, .hero, .screen, .content, .grid, .card, .list, .row { min-width: 0; }
+      .grid { grid-template-columns: minmax(0, 1fr); }
       .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-12 { grid-column: auto; }
       .board { grid-template-columns: 1fr; }
       .screen-actions { justify-content: flex-start; }
     }
     @media (max-width: 640px) {
+      .topbar { width: 100%; max-width: 390px; height: auto; min-height: 56px; display: grid; grid-template-columns: 1fr; align-items: start; padding: 8px 12px; gap: 10px; overflow: hidden; }
+      .brand { min-width: 0; gap: 8px; font-size: 14px; }
+      .brand-mark { width: 32px; height: 32px; border-radius: 10px; flex: 0 0 auto; }
+      .brand .muted, .top-meta { display: none; }
+      .app, aside, main { width: 100%; max-width: 390px; }
+      aside { position: sticky; top: 0; z-index: 15; padding: 8px 12px; background: rgba(255,255,255,.96); backdrop-filter: blur(12px); }
+      main { padding: 18px; overflow: hidden; }
+      .nav-title { display: none; }
+      #nav { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 4px; -webkit-overflow-scrolling: touch; }
+      .nav-item { flex: 0 0 auto; margin: 0; padding: 8px 10px; border-radius: 999px; }
+      .nav-item span:first-child { width: 24px; height: 24px; }
+      .nav-item strong { white-space: nowrap; font-size: 12px; }
+      .hero, .screen, .progress-wrap, main > .tiny { width: 100%; max-width: 354px; }
+      .helper { max-width: 354px; }
       .progress-wrap { flex-direction: column; align-items: stretch; gap: 12px; margin-top: 24px; }
       .progress-wrap > div:first-child { text-align: center; }
       .dots { justify-content: center; }
       .controls { justify-content: space-between; }
-      .compare { table-layout: fixed; width: 100%; }
-      .compare th, .compare td { word-break: break-word; }
+      .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+      .compare { min-width: 620px; table-layout: auto; }
+      .compare th, .compare td { word-break: normal; overflow-wrap: normal; }
       .screen-bar { flex-wrap: wrap; }
-      .row { flex-wrap: wrap; gap: 8px; }
+      .row { display: grid; grid-template-columns: minmax(0, 1fr); flex-wrap: wrap; gap: 8px; }
+      .row > * { min-width: 0; }
+      .row > span:first-child { overflow-wrap: anywhere; }
+      .row > span:last-child, .row > .badge { justify-self: start; }
+      .badge, .pill { white-space: normal; }
       .row .confidence { flex: 1 1 100%; min-width: 0; }
       .doc-preview { word-break: break-word; }
       .screen-actions { justify-content: flex-start; }
-      .demo-controls { justify-content: flex-start; }
+      .demo-controls { width: 100%; max-width: 366px; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; justify-content: stretch; }
+      .demo-controls .control { width: 100%; }
       .demo-metrics { grid-template-columns: 1fr; }
     }
   </style>
@@ -146,7 +168,7 @@
           <div class="card col-4 soft"><h3>Incoming exports</h3><div class="list"><div class="row"><span><b class="file">sales_invoice_lines_may.csv</b><br><span class="tiny">Net sales, GP, depletions</span></span><span class="badge amber">owner review</span></div><div class="row"><span><b class="file">open_invoices_week_22.xlsx</b><br><span class="tiny">Finance reconciliation source</span></span><span class="badge amber">classified</span></div><div class="row"><span><b class="file">stock_on_hand.json</b><br><span class="tiny">Warehouse availability</span></span><span class="badge green">approved</span></div></div></div>
           <div class="card col-4"><h3>Control checks</h3><p><b data-demo-field="glossary-coverage">46/80</b> glossary terms reviewed.</p><p><b data-demo-field="exports-pending">1</b> export connection still pending owner confirmation.</p><p><b data-demo-field="write-back-count">0</b> rows written back without approval.</p><button class="control" data-path="../../../docs/05-phase-0/data-classification-and-export-inventory.html">Open classification guide</button></div>
           <div class="card col-4"><h3>Knowledge capture</h3><p>Process maps and definitions come from exports plus SME input, not guesswork.</p><button class="control secondary" data-path="../../../docs/05-phase-0/knowledge-capture-and-input-pack.html">Open input pack</button></div>
-          <div class="card col-12 demo-panel" id="syntheticDemoPanel"><h3>Synthetic export processor</h3><p class="demo-status" data-demo-field="demo-status">Ready to load synthetic/illustrative CSV, JSON and text exports from the repo sample pack.</p><div class="demo-metrics"><div class="metric-tile"><span class="tiny">Sales invoice net</span><b data-demo-field="sales-net">Sample data</b></div><div class="metric-tile"><span class="tiny">Approval queue</span><b data-demo-field="approval-queue">Sample data</b></div><div class="metric-tile"><span class="tiny">Reconciliation suggestions</span><b data-demo-field="reconciliation-summary">Sample data</b></div><div class="metric-tile"><span class="tiny">Monthly hours saved</span><b data-demo-field="hours-saved">Sample data</b></div></div><div class="lineage event-log" id="demoEventLog"><div>Stream idle</div><div>Sample data loaded (illustrative only)</div></div></div>
+          <div class="card col-12 demo-panel" id="syntheticDemoPanel"><h3>Synthetic export processor</h3><p class="demo-status" data-demo-field="demo-status">Ready to load synthetic/illustrative CSV, JSON and text exports from the repo sample pack.</p><div class="demo-metrics"><div class="metric-tile"><span class="tiny">Sales invoice net</span><b data-demo-field="sales-net">Sample data</b></div><div class="metric-tile"><span class="tiny">Approval queue</span><b data-demo-field="approval-queue">Sample data</b></div><div class="metric-tile"><span class="tiny">Reconciliation suggestions</span><b data-demo-field="reconciliation-summary">Sample data</b></div><div class="metric-tile"><span class="tiny">Monthly hours saved</span><b data-demo-field="hours-saved">Sample data</b></div></div><div class="lineage event-log" id="demoEventLog" role="log" aria-live="polite" aria-relevant="additions text" aria-label="Synthetic stream event log"><div>Stream idle</div><div>Sample data loaded (illustrative only)</div></div></div>
         </div></div></div>
       </section>
 <section class="slide" data-step="2" data-title="Build">
@@ -164,7 +186,7 @@
         <div class="screen"><div class="screen-bar"><div class="screen-title">Operate · Audit, value and adoption</div><span class="badge amber">Synthetic / illustrative</span></div><div class="content"><div class="grid">
           <div class="card col-5 soft"><h3>Power BI net sales (sample month)</h3><div class="metric" data-demo-field="powerbi-net-sales">€11,753</div><p>Net invoice sales for the sample month. Loaded from sample exports; replace only after client exports and validation.</p></div>
           <div class="card col-7"><h3>Source-linked Audit Trail</h3><details open><summary>Expand source trace</summary><div class="lineage"><div>Source: <span data-demo-field="audit-source">Sales invoice export</span></div><div>Rows: <span data-demo-field="audit-rows">Sample data</span></div><div>Formula: net sales = gross sales - discounts - credit notes</div><div>Recent action: <span data-demo-field="audit-action">draft refresh; no auto-posting</span></div></div></details></div>
-          <div class="card col-3 soft"><h3>Hours saved</h3><div class="metric" data-demo-field="value-hours">278</div></div><div class="card col-3 soft"><h3>Annualised value (all automations)</h3><div class="metric" data-demo-field="value-eur">€105k</div></div><div class="card col-3 soft"><h3>Automations live</h3><div class="metric" data-demo-field="automations-live">4</div></div><div class="card col-3 soft"><h3>Active users</h3><div class="metric" data-demo-field="active-users">8</div></div>
+          <div class="card col-3 soft"><h3>Hours saved</h3><div class="metric" data-demo-field="value-hours">278</div></div><div class="card col-3 soft"><h3>Annualised value (all automations)</h3><div class="metric" data-demo-field="value-eur">€105k</div></div><div class="card col-3 soft"><h3>Automations live</h3><div class="metric" data-demo-field="automations-live">4</div></div><div class="card col-3 soft"><h3>Active users</h3><div class="metric" data-demo-field="active-users">8</div></div><div class="card col-3 soft"><h3>AI literacy completions</h3><div class="metric" data-demo-field="literacy-completions">21/35</div></div>
           <div class="card col-5"><h3>Business Glossary</h3><p><b>Net sales</b> = gross sales minus discounts and credit notes.</p><div class="row"><span>Source</span><b data-demo-field="glossary-source">sales invoice export</b></div><div class="row"><span>Terms reviewed</span><b data-demo-field="glossary-reviewed">46/80</b></div></div>
           <div class="card col-7"><h3>Opportunity Catalogue</h3><p class="tiny"><span data-demo-field="opportunity-count">4</span> sample opportunities from the value realisation log.</p><div class="board"><div class="opp"><b>Order intake</b><p class="tiny">Effort M · Value H · Risk M</p><span class="badge amber">Pilot</span></div><div class="opp"><b>Reconciliation</b><p class="tiny">Effort M · Value H · Risk H</p><span class="badge">Candidate</span></div><div class="opp"><b>Glossary rollout</b><p class="tiny">Effort L · Value M · Risk L</p><span class="badge green">Ready</span></div><div class="opp"><b>ERP decision pack</b><p class="tiny">Effort M · Value H · Risk M</p><span class="badge">Steering</span></div></div></div>
         </div></div></div>
@@ -172,12 +194,13 @@
 <section class="slide" data-step="4" data-title="Decide">
         <div class="hero"><div><h1>Decide what happens next</h1><p class="helper">One closing chapter: the ERP decision stays vendor-neutral, evidence gates stay visible, and the team leaves with a maintainable pilot instead of a giant demo maze.</p></div><span class="pill teal">4 of 4</span></div>
         <div class="screen"><div class="screen-bar"><div class="screen-title">Decision pack and open evidence</div><div class="screen-actions"><button class="control secondary" data-restart>Restart walkthrough</button><a class="control" href="mailto:hello@angelsoftware.solutions?subject=Top%20Spirit%20pilot%20scoping%20call">Request scoping call</a></div></div><div class="content"><div class="grid">
-          <div class="card col-6"><h3>Next-ERP decision support</h3><table class="compare"><thead><tr><th>Criterion</th><th>Brownfield</th><th>Greenfield</th></tr></thead><tbody><tr><td>Cost</td><td>Lower initial change; legacy constraints remain.</td><td>Higher programme cost; cleaner target architecture.</td></tr><tr><td>Time to value</td><td>Faster if current processes are stable.</td><td>Slower, but may remove structural friction.</td></tr><tr><td>Export Layer fit</td><td>Works now and survives incremental changes.</td><td>Works as bridge and migration evidence base.</td></tr></tbody></table></div>
+          <div class="card col-6 table-scroll"><h3>Next-ERP decision support</h3><table class="compare"><thead><tr><th>Criterion</th><th>Brownfield</th><th>Greenfield</th></tr></thead><tbody><tr><td>Cost</td><td>Lower initial change; legacy constraints remain.</td><td>Higher programme cost; cleaner target architecture.</td></tr><tr><td>Time to value</td><td>Faster if current processes are stable.</td><td>Slower, but may remove structural friction.</td></tr><tr><td>Export Layer fit</td><td>Works now and survives incremental changes.</td><td>Works as bridge and migration evidence base.</td></tr><tr><td>AI literacy impact</td><td>Upskills users around current exports and controls.</td><td>Requires broader retraining during process change.</td></tr></tbody></table></div>
           <div class="card col-6 soft"><h3>Open evidence gates</h3><div class="list"><div class="row"><span>BICC export inventory sign-off</span><span class="badge amber">client needed</span></div><div class="row"><span>Business-user report acceptance</span><span class="badge amber">client needed</span></div><div class="row"><span>Steering governance review</span><span class="badge amber">client needed</span></div></div></div>
           <div class="card col-12"><h3>Guide buttons</h3><p>Detailed proof is one click away when the reviewer wants it, not forced into the main path.</p><div class="screen-actions"><button class="control secondary" data-path="../../../docs/05-phase-0/data-classification-and-export-inventory.html">Classification guide</button><button class="control secondary" data-path="../../../docs/05-phase-0/knowledge-capture-and-input-pack.html">Input pack</button><button class="control secondary" data-path="../../../docs/06-wave-1/order-to-cash-process-map.html">Process map</button><button class="control secondary" data-path="../../../docs/06-wave-1/manual-report-consolidation-plan.html">Consolidation plan</button><button class="control secondary" data-path="../../../docs/06-wave-1/power-bi-desktop-pilot-build-pack.html">Power BI build pack</button></div></div>
         </div></div></div>
       </section>
-<div class="progress-wrap"><div><b id="stepLabel">1 of 4</b><div class="tiny">Use arrow keys, side nav, or buttons.</div></div><div class="dots" id="dots"></div><div class="controls"><button class="control secondary" id="prev">Previous</button><button class="control" id="next">Next</button></div></div>
+<div class="progress-wrap"><div><b id="stepLabel">1 of 4</b><div class="tiny">Use arrow keys, side nav, or buttons.</div></div><div class="dots" id="dots" aria-label="Walkthrough step picker"></div><div class="controls"><button class="control secondary" id="prev">Previous</button><button class="control" id="next">Next</button></div></div>
+      <div id="stepAnnouncer" class="sr-only" aria-live="polite" aria-atomic="true"></div>
       <p class="tiny">No real Top Spirit / Marussia data. Four-chapter route; figures and names are neutral placeholders for steering-committee demonstration only.</p>
     </main>
   </div>
@@ -186,25 +209,44 @@
     const nav = document.querySelector('#nav');
     const dots = document.querySelector('#dots');
     const stepLabel = document.querySelector('#stepLabel');
+    const stepAnnouncer = document.querySelector('#stepAnnouncer');
     let current = 0;
     slides.forEach((slide, index) => {
       const b = document.createElement('button');
+      b.type = 'button';
       b.className = 'nav-item' + (index === 0 ? ' active' : '');
+      b.setAttribute('aria-current', index === 0 ? 'step' : 'false');
       b.innerHTML = `<span>${index + 1}</span><strong>${slide.dataset.title}</strong>`;
       b.addEventListener('click', () => show(index));
       nav.appendChild(b);
-      const d = document.createElement('span');
+      const d = document.createElement('button');
+      d.type = 'button';
       d.className = 'dot' + (index === 0 ? ' active' : '');
+      d.setAttribute('aria-label', `Go to step ${index + 1}: ${slide.dataset.title}`);
+      d.setAttribute('aria-current', index === 0 ? 'step' : 'false');
+      d.addEventListener('click', () => show(index));
       dots.appendChild(d);
     });
     const navItems = [...document.querySelectorAll('.nav-item')];
     const dotItems = [...document.querySelectorAll('.dot')];
     function show(index) {
       current = Math.max(0, Math.min(slides.length - 1, index));
-      slides.forEach((s, i) => s.classList.toggle('active', i === current));
-      navItems.forEach((n, i) => n.classList.toggle('active', i === current));
-      dotItems.forEach((d, i) => d.classList.toggle('active', i === current));
+      slides.forEach((s, i) => {
+        const active = i === current;
+        s.classList.toggle('active', active);
+        s.toggleAttribute('hidden', !active);
+      });
+      navItems.forEach((n, i) => {
+        n.classList.toggle('active', i === current);
+        n.setAttribute('aria-current', i === current ? 'step' : 'false');
+      });
+      dotItems.forEach((d, i) => {
+        d.classList.toggle('active', i === current);
+        d.setAttribute('aria-current', i === current ? 'step' : 'false');
+      });
+      const title = slides[current].dataset.title;
       stepLabel.textContent = `${current + 1} of ${slides.length}`;
+      stepAnnouncer.textContent = `Step ${current + 1} of ${slides.length}: ${title}`;
       document.querySelector('#prev').disabled = current === 0;
       document.querySelector('#next').textContent = current === slides.length - 1 ? 'Restart' : 'Next';
     }
@@ -278,6 +320,7 @@
       const openInvoices = salesInvoices.filter((row) => row.payment_status !== 'paid').length;
       const glossary = adoptionLog.find((row) => row.tool_or_report_name === 'Business glossary') || {};
       const activeUsers = adoptionLog.find((row) => row.tool_or_report_name === 'Power BI Desktop pilot') || {};
+      const literacy = adoptionLog.find((row) => row.tool_or_report_name === 'AI-literacy modules') || {};
       return {
         salesInvoices, bankPayments, salesLines, orderQueue, reconciliation, valueLog, adoptionLog, connections,
         salesNet: sum(salesInvoices, 'net_amount_eur'),
@@ -290,6 +333,7 @@
         opportunityCount: valueLog.length,
         automations: valueLog.filter((row) => ['live', 'piloting'].includes(row.status)).length,
         activeUsers: activeUsers.value || '8',
+        literacyCompletions: `${literacy.value || 21}/${literacy.target || 35}`,
         glossaryReviewed: `${glossary.value || 46}/${glossary.target || 80}`,
         pendingExports: connections.filter((row) => row.status !== 'active').length || openInvoices,
         writeBacks: orderQueue.filter((row) => row.write_back !== 'NO_WRITE_BACK').length
@@ -317,6 +361,7 @@
       setField('value-eur', money.format(state.eurValue));
       setField('automations-live', state.automations);
       setField('active-users', state.activeUsers);
+      setField('literacy-completions', state.literacyCompletions);
       setField('audit-source', 'Sales invoice export');
       setField('audit-rows', `${state.salesInvoices.length} invoice rows; ${state.salesLines.length} sales-line rows`);
       setField('audit-action', 'draft refresh loaded; no auto-posting');
@@ -371,7 +416,13 @@
     function resetRealtime() { pauseRealtime(); demo.loaded = false; demo.data = null; demo.eventIndex = 0; setField('demo-status', 'Ready to load synthetic/illustrative CSV, JSON and text exports from the repo sample pack.'); const log = document.querySelector('#demoEventLog'); if (log) log.innerHTML = '<div>Stream idle</div><div>Sample data loaded (illustrative only)</div>'; }
     function approveDraft() { setField('approval-status', 'REVIEWER_ACTION_SHOWN_DRAFT_ONLY'); setField('audit-action', 'reviewer action demonstrated; no write-back performed'); pushEvent('presenter clicked approval control (demo only, no write-back)'); }
     document.querySelectorAll('button[data-path]').forEach((button) => {
-      button.addEventListener('click', () => window.open(button.getAttribute('data-path'), '_blank', 'noopener,noreferrer'));
+      const path = button.getAttribute('data-path');
+      button.setAttribute('aria-label', `${button.textContent.trim()} opens in a new tab`);
+      button.addEventListener('click', () => {
+        window.open(path, '_blank', 'noopener,noreferrer');
+        const log = document.querySelector('#demoEventLog');
+        if (log) log.prepend(Object.assign(document.createElement('div'), { textContent: `Opened proof document: ${path}` }));
+      });
     });
     document.querySelectorAll('[data-demo-action]').forEach((button) => {
       button.addEventListener('click', () => {
