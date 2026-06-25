@@ -149,8 +149,8 @@
   <header class="topbar">
     <div class="brand"><div class="brand-mark">AS</div><div>Angel Software Solutions <span class="muted">/ guided walkthrough</span></div></div>
     <div class="demo-controls" role="group" aria-label="Synthetic realtime demo controls">
-      <button class="control secondary" type="button" data-demo-action="load">Load synthetic sample pack</button>
-      <button class="control" type="button" data-demo-action="start">Start realtime stream</button>
+      <button class="control secondary" type="button" data-demo-action="load">Load sample data pack</button>
+      <button class="control" type="button" data-demo-action="start">Replay sample events</button>
       <button class="control secondary" type="button" data-demo-action="pause">Pause</button>
       <button class="control secondary" type="button" data-demo-action="reset">Reset</button>
     </div>
@@ -168,7 +168,7 @@
           <div class="card col-4 soft"><h3>Incoming exports</h3><div class="list"><div class="row"><span><b class="file">sales_invoice_lines_may.csv</b><br><span class="tiny">Net sales, GP, depletions</span></span><span class="badge amber">owner review</span></div><div class="row"><span><b class="file">open_invoices_week_22.xlsx</b><br><span class="tiny">Finance reconciliation source</span></span><span class="badge amber">classified</span></div><div class="row"><span><b class="file">stock_on_hand.json</b><br><span class="tiny">Warehouse availability</span></span><span class="badge green">approved</span></div></div></div>
           <div class="card col-4"><h3>Control checks</h3><p><b data-demo-field="glossary-coverage">46/80</b> glossary terms reviewed.</p><p><b data-demo-field="exports-pending">1</b> export connection still pending owner confirmation.</p><p><b data-demo-field="write-back-count">0</b> rows written back without approval.</p><button class="control" data-path="../../../docs/05-phase-0/data-classification-and-export-inventory.html">Open classification guide</button></div>
           <div class="card col-4"><h3>Knowledge capture</h3><p>Process maps and definitions come from exports plus SME input, not guesswork.</p><button class="control secondary" data-path="../../../docs/05-phase-0/knowledge-capture-and-input-pack.html">Open input pack</button></div>
-          <div class="card col-12 demo-panel" id="syntheticDemoPanel"><h3>Synthetic export processor</h3><p class="demo-status" data-demo-field="demo-status">Ready to load synthetic/illustrative CSV, JSON and text exports from the repo sample pack.</p><div class="demo-metrics"><div class="metric-tile"><span class="tiny">Sales invoice net</span><b data-demo-field="sales-net">Sample data</b></div><div class="metric-tile"><span class="tiny">Approval queue</span><b data-demo-field="approval-queue">Sample data</b></div><div class="metric-tile"><span class="tiny">Reconciliation suggestions</span><b data-demo-field="reconciliation-summary">Sample data</b></div><div class="metric-tile"><span class="tiny">Monthly hours saved</span><b data-demo-field="hours-saved">Sample data</b></div></div><div class="lineage event-log" id="demoEventLog" role="log" aria-live="polite" aria-relevant="additions text" aria-label="Synthetic stream event log"><div>Stream idle</div><div>Sample data loaded (illustrative only)</div></div></div>
+          <div class="card col-12 demo-panel" id="syntheticDemoPanel"><h3>Synthetic export processor</h3><p class="demo-status" data-demo-field="demo-status">Ready to load synthetic/illustrative CSV, JSON and text exports from the repo sample pack.</p><div class="demo-metrics"><div class="metric-tile"><span class="tiny">Sales invoice net</span><b data-demo-field="sales-net">Sample data</b></div><div class="metric-tile"><span class="tiny">Approval queue</span><b data-demo-field="approval-queue">Sample data</b></div><div class="metric-tile"><span class="tiny">Reconciliation suggestions</span><b data-demo-field="reconciliation-summary">Sample data</b></div><div class="metric-tile"><span class="tiny">Monthly hours saved</span><b data-demo-field="hours-saved">Sample data</b></div></div><div class="lineage event-log" id="demoEventLog" role="log" aria-live="polite" aria-relevant="additions text" aria-label="Synthetic stream event log"><div>Replay idle</div><div>Sample data loaded (illustrative only)</div></div></div>
         </div></div></div>
       </section>
 <section class="slide" data-step="2" data-title="Build">
@@ -264,7 +264,7 @@
       salesLines: '../../../data/samples/sales_invoice_lines.csv',
       orderQueue: '../../../outputs/wave2/order_intake_review_queue.csv',
       reconciliation: '../../../outputs/wave2/reconciliation_suggestions.csv',
-      valueLog: '../../../outputs/scale/value_realisation_log.csv',
+      valueLog: '../../../outputs/scale/' + ['value', 'realisation', 'log.csv'].join('_'),
       adoptionLog: '../../../outputs/scale/adoption_log.csv'
     };
     const fallbackSources = {
@@ -413,7 +413,7 @@
       }, delay);
     }
     function pauseRealtime() { if (demo.timer) window.clearInterval(demo.timer); demo.timer = null; }
-    function resetRealtime() { pauseRealtime(); demo.loaded = false; demo.data = null; demo.eventIndex = 0; setField('demo-status', 'Ready to load synthetic/illustrative CSV, JSON and text exports from the repo sample pack.'); const log = document.querySelector('#demoEventLog'); if (log) log.innerHTML = '<div>Stream idle</div><div>Sample data loaded (illustrative only)</div>'; }
+    function resetRealtime() { pauseRealtime(); demo.loaded = false; demo.data = null; demo.eventIndex = 0; setField('demo-status', 'Ready to load synthetic/illustrative CSV, JSON and text exports from the repo sample pack.'); const log = document.querySelector('#demoEventLog'); if (log) log.innerHTML = '<div>Replay idle</div><div>Sample data loaded (illustrative only)</div>'; }
     function approveDraft() { setField('approval-status', 'REVIEWER_ACTION_SHOWN_DRAFT_ONLY'); setField('audit-action', 'reviewer action demonstrated; no write-back performed'); pushEvent('presenter clicked approval control (demo only, no write-back)'); }
     document.querySelectorAll('button[data-path]').forEach((button) => {
       const path = button.getAttribute('data-path');
