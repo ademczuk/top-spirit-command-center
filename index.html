@@ -303,15 +303,15 @@
   <main id="top">
     <section class="hero hero-motion" aria-labelledby="hero-title">
       <!-- z-0 poster floor: shows with JS off / while video buffers / under reduced-motion -->
-      <img class="mh-poster" src="assets/hero-poster.jpg" alt="" aria-hidden="true"
+      <img loading="lazy" class="mh-poster" src="assets/hero-poster.jpg" alt="" aria-hidden="true"
            onerror="this.style.display='none'">
       
-      <span data-task76="hero-bg">
-        <img class="mh-bg" src="assets/brand/hero-bg.png" alt="" aria-hidden="true"
+      <span>
+        <img loading="lazy" class="mh-bg" src="assets/brand/hero-bg.png" alt="" aria-hidden="true"
              onerror="this.style.display='none'">
       </span>
       <!-- z-0 full-bleed bar-lounge scene: warm, demo-safe brand backdrop for the first viewport -->
-      <img class="mh-scene" src="assets/brand/hero-bar-scene.webp" alt="" aria-hidden="true"
+      <img loading="lazy" class="mh-scene" src="assets/brand/hero-bar-scene.webp" alt="" aria-hidden="true"
            onerror="this.style.display='none'">
       <!-- z-1 canvas particle-network: animated gold-on-dark fallback when the video is absent -->
       <canvas class="mh-net" aria-hidden="true"></canvas>
@@ -450,10 +450,10 @@
 
     <!-- ===================== 3-stage row (compacted: one section, 3 columns) ===================== -->
     <section id="stages" class="section stages section-photo" aria-label="The pilot in three stages: Prepare, Build, Operate" style="background:var(--surface-2);">
-      <span class="section-bg" data-task76="sec-operations" aria-hidden="true" style="background-image:url(assets/brand/sec-operations.webp);"></span>
+      <span class="section-bg" aria-hidden="true" style="background-image:url(assets/brand/sec-operations.webp);"></span>
       <div class="wrap">
         <div class="stages-head">
-          <div class="eyebrow">The pilot in three stages</div>
+          <h2 class="eyebrow">The pilot in three stages</h2>
         </div>
         <div class="stages-row">
           <!-- STAGE 1: PREPARE -->
@@ -520,7 +520,7 @@
     </section>
 
     <section id="brand-fit" class="section tight section-photo" aria-labelledby="brand-fit-title" style="background:var(--surface-2);">
-      <span class="section-bg" data-task76="sec-evidence" aria-hidden="true" style="background-image:url(assets/brand/sec-evidence.webp);"></span>
+      <span class="section-bg" aria-hidden="true" style="background-image:url(assets/brand/sec-evidence.webp);"></span>
       <div class="wrap">
         <div class="eyebrow">Brand fit</div>
         <h2 id="brand-fit-title">Top Spirit channel cues stay visible.</h2>
@@ -536,7 +536,7 @@
 
     <!-- ===================== Detail (all accordions, collapsed by default) ===================== -->
     <section id="detail" class="section tight detail section-photo" aria-labelledby="detail-title" style="background:var(--surface);">
-      <span class="section-bg" data-task76="sec-walkthrough" aria-hidden="true" style="background-image:url(assets/brand/sec-walkthrough.webp);"></span>
+      <span class="section-bg" aria-hidden="true" style="background-image:url(assets/brand/sec-walkthrough.webp);"></span>
       <div class="wrap">
         <div class="eyebrow">The detail, on demand</div>
         <h2 id="detail-title">Open a stage for the controls, artifacts and open evidence.</h2>
@@ -547,11 +547,11 @@
           <div class="acc-panel" id="acc-prepare-1" role="region" hidden>
             <div class="acc-inner">
               <div class="ctrl">
-                <img class="ctrl-thumb" data-task76="proof-spine" data-step="export-layer" src="assets/brand/proof-spine/01-export-layer.png" alt="Export Layer: classified files enter before automation">
+                <img loading="lazy" class="ctrl-thumb" data-step="export-layer" src="assets/brand/proof-spine/01-export-layer.png" alt="Export Layer: classified files enter before automation">
                 <div><strong>Export Layer</strong><p>The Export Layer is the governed front door for your files. ERP, CRM, bank, workbook and document inputs enter here first, classified, so early value work stays neutral to whichever ERP you choose later.</p></div>
               </div>
               <div class="ctrl">
-                <img class="ctrl-thumb" data-task76="proof-spine" data-step="business-glossary" src="assets/brand/proof-spine/04-glossary.png" alt="Business Glossary: shared terms across reports and tools">
+                <img loading="lazy" class="ctrl-thumb" data-step="business-glossary" src="assets/brand/proof-spine/04-glossary.png" alt="Business Glossary: shared terms across reports and tools">
                 <div><strong>Business Glossary</strong><p>The Business Glossary is a shared dictionary of your terms and fields, captured once and reused across Power BI, reports and assistants, so a word like net sales means one agreed thing everywhere.</p></div>
               </div>
               <h4 class="acc-sub">Privacy and classification gate</h4>
@@ -569,26 +569,26 @@
           <div class="acc-panel" id="acc-build-1" role="region" hidden>
             <div class="acc-inner">
               <div class="capability-grid">
-                <article class="capability-card" data-task76="capability-card" data-capability="process-mapping">
-                  <img src="assets/brand/capabilities/cap-1-mapping.png" alt="Process mapping: an operator reviewing an abstract workflow map">
+                <article class="capability-card" data-capability="process-mapping">
+                  <img loading="lazy" src="assets/brand/capabilities/cap-1-mapping.png" alt="Process mapping: an operator reviewing an abstract workflow map">
                   <div class="cap-body"><b>Process maps</b><h3>Order-to-cash, mapped</h3><p>Your order-to-cash and report flows drawn as one shared as-is picture, so every later automation points back to a step the business recognizes.</p></div>
                 </article>
-                <article class="capability-card" data-task76="capability-card" data-capability="process-optimisation">
-                  <img src="assets/brand/capabilities/cap-2-optimisation.png" alt="Process optimization: a premium warehouse aisle showing governed value flow">
+                <article class="capability-card" data-capability="process-optimisation">
+                  <img loading="lazy" src="assets/brand/capabilities/cap-2-optimisation.png" alt="Process optimization: a premium warehouse aisle showing governed value flow">
                   <div class="cap-body"><b>Wave 1</b><h3>Ranked automation candidates</h3><p>Candidate changes ranked by value, effort and risk. Measured savings wait for client time data; demo values stay illustrative until evidence lands.</p></div>
                 </article>
-                <article class="capability-card" data-task76="capability-card" data-capability="ai-literacy">
-                  <img src="assets/brand/capabilities/cap-3-literacy.png" alt="Document and order intake: a silhouette reviewing an abstract draft queue">
+                <article class="capability-card" data-capability="ai-literacy">
+                  <img loading="lazy" src="assets/brand/capabilities/cap-3-literacy.png" alt="Document and order intake: a silhouette reviewing an abstract draft queue">
                   <div class="cap-body"><b>Intake</b><h3>Document and order intake</h3><p>PDF and email orders become a controlled draft workflow that never bypasses a human review step before anything is committed.</p></div>
                 </article>
-                <article class="capability-card" data-task76="capability-card" data-capability="apis-when-justified">
-                  <img src="assets/brand/capabilities/cap-4-apis.png" alt="Reconciliation and integrations: governed cabling detail">
+                <article class="capability-card" data-capability="apis-when-justified">
+                  <img loading="lazy" src="assets/brand/capabilities/cap-4-apis.png" alt="Reconciliation and integrations: governed cabling detail">
                   <div class="cap-body"><b>Reconciliation</b><h3>Reconciliation, files first</h3><p>Bank lines, invoices and exceptions matched with visible reasoning. An integration is added only when it removes a real bottleneck and the value beats the build cost.</p></div>
                 </article>
               </div>
               <h4 class="acc-sub">Approval Envelope, budget and the build gates</h4>
               <div class="ctrl">
-                <img class="ctrl-thumb" data-task76="proof-spine" data-step="approval-envelope" src="assets/brand/proof-spine/02-approval-envelope.png" alt="Approval Envelope: a named person commits an AI draft">
+                <img loading="lazy" class="ctrl-thumb" data-step="approval-envelope" src="assets/brand/proof-spine/02-approval-envelope.png" alt="Approval Envelope: a named person commits an AI draft">
                 <div><strong>Approval Envelope</strong><p>An Approval Envelope keeps authority visible. Financial, pricing and customer-facing actions wait behind a named human owner. The AI drafts; a person decides.</p></div>
               </div>
               <div class="beat-card">
@@ -611,11 +611,11 @@
           <div class="acc-panel" id="acc-operate-1" role="region" hidden>
             <div class="acc-inner">
               <div class="ctrl">
-                <img class="ctrl-thumb" data-task76="proof-spine" data-step="audit-trail" src="assets/brand/proof-spine/03-audit-trail.png" alt="Source-linked Audit Trail: claims link back to source and approver">
+                <img loading="lazy" class="ctrl-thumb" data-step="audit-trail" src="assets/brand/proof-spine/03-audit-trail.png" alt="Source-linked Audit Trail: claims link back to source and approver">
                 <div><strong>Source-linked Audit Trail</strong><p>The Audit Trail keeps every number's receipt. Each claim links to its source, transform, approver and status, so demo-safe values never pass as validated client data.</p></div>
               </div>
               <div class="ctrl">
-                <img class="ctrl-thumb" data-task76="proof-spine" data-step="opportunity-catalogue" src="assets/brand/proof-spine/05-opportunity-catalogue.png" alt="Opportunity Catalogue: ranked value plays by effort, risk and evidence">
+                <img loading="lazy" class="ctrl-thumb" data-step="opportunity-catalogue" src="assets/brand/proof-spine/05-opportunity-catalogue.png" alt="Opportunity Catalogue: ranked value plays by effort, risk and evidence">
                 <div><strong>Opportunity Catalogue</strong><p>The Opportunity Catalogue is a ranked backlog of value plays, each scored by value, risk, effort, evidence readiness and owner, so leaders decide what to fund next.</p></div>
               </div>
               <div class="walk-card">
@@ -623,7 +623,7 @@
                   <h3>See the pilot in one guided route</h3>
                   <p>A concise route from your files to approved decisions: process maps, the Power BI pilot, automation candidates, the literacy handover, and the Next-ERP Decision Pack.</p>
                   <a class="btn primary" href="assets/mockups/walkthrough/index.html" data-path="assets/mockups/walkthrough/index.html">See the pilot</a>
-                  <img data-task76="walkthrough-image" src="assets/brand/walkthrough-control-room.png" alt="Pilot control room: governed beverage distribution overview">
+                  <img loading="lazy" src="assets/brand/walkthrough-control-room.png" alt="Pilot control room: governed beverage distribution overview">
                 </div>
                 <div class="walk-pane">
                   <h3>What stays visible the whole way</h3>
@@ -637,18 +637,18 @@
 
               <h4 class="acc-sub">The meeting pack, one click away</h4>
               <div class="section-photo acc-photo">
-                <span class="section-bg" data-task76="sec-evidence" aria-hidden="true" style="background-image:url(assets/brand/sec-evidence.webp);"></span>
+                <span class="section-bg" aria-hidden="true" style="background-image:url(assets/brand/sec-evidence.webp);"></span>
                 <div class="acc-photo-inner">
-                  <p class="acc-note">The same source map for the delivery team and the client reviewer. No repository hunting.</p>
+                  <p class="acc-note">The same source map the client reviewer sees. No repository hunting.</p>
                   <div class="artifact-grid">
-                    <a class="artifact-card" href="assets/mockups/walkthrough/index.html" data-path="assets/mockups/walkthrough/index.html"><strong>Walkthrough</strong><span>Interactive guided route through the pilot.</span></a><a class="artifact-card" href="assets/mockups/storyboard-gallery.html" data-path="assets/mockups/storyboard-gallery.html"><strong>Storyboard</strong><span>Seven-core storyboard for the client presentation.</span></a><a class="artifact-card" href="assets/mockups/html/README.html" data-path="assets/mockups/html/README.html"><strong>HTML companion screens</strong><span>Runnable mockup screens for the workstreams.</span></a><a class="artifact-card" href="assets/pitch/pitch-deck.html" data-path="assets/pitch/pitch-deck.html"><strong>Pitch deck</strong><span>Steering-committee narrative and slide outline.</span></a><a class="artifact-card" href="assets/pitch/demo-qa-report.html" data-path="assets/pitch/demo-qa-report.html"><strong>Demo QA</strong><span>What was checked before the meeting.</span></a><a class="artifact-card" href="assets/pitch/meeting-runbook.html" data-path="assets/pitch/meeting-runbook.html"><strong>Meeting runbook</strong><span>Talk track, timings and fallback path.</span></a><a class="artifact-card" href="assets/pitch/client-send-pack-and-follow-up.html" data-path="assets/pitch/client-send-pack-and-follow-up.html"><strong>Client send pack</strong><span>Follow-up bundle and post-call actions.</span></a><a class="artifact-card" href="assets/pitch/client-action-pack.html" data-path="assets/pitch/client-action-pack.html"><strong>Client action pack</strong><span>Immediate client decisions and evidence asks.</span></a><a class="artifact-card" href="assets/pitch/build-map-coverage-matrix.html" data-path="assets/pitch/build-map-coverage-matrix.html"><strong>Coverage matrix</strong><span>Map from brief expectations to artifacts.</span></a>
+                    <a class="artifact-card" href="assets/mockups/walkthrough/index.html" data-path="assets/mockups/walkthrough/index.html"><strong>Walkthrough</strong><span>Interactive guided route through the pilot.</span></a><a class="artifact-card" href="assets/mockups/storyboard-gallery.html" data-path="assets/mockups/storyboard-gallery.html"><strong>Storyboard</strong><span>Seven-core storyboard for the client presentation.</span></a><a class="artifact-card" href="assets/mockups/html/README.html" data-path="assets/mockups/html/README.html"><strong>HTML companion screens</strong><span>Runnable mockup screens for the workstreams.</span></a><a class="artifact-card" href="assets/pitch/pitch-deck.html" data-path="assets/pitch/pitch-deck.html"><strong>Pitch deck</strong><span>Steering-committee narrative and slide outline.</span></a><a class="artifact-card" href="assets/pitch/client-send-pack-and-follow-up.html" data-path="assets/pitch/client-send-pack-and-follow-up.html"><strong>Client send pack</strong><span>Follow-up bundle and post-call actions.</span></a><a class="artifact-card" href="assets/pitch/client-action-pack.html" data-path="assets/pitch/client-action-pack.html"><strong>Client action pack</strong><span>Immediate client decisions and evidence asks.</span></a><a class="artifact-card" href="assets/pitch/build-map-coverage-matrix.html" data-path="assets/pitch/build-map-coverage-matrix.html"><strong>Coverage matrix</strong><span>Map from brief expectations to artifacts.</span></a>
                   </div>
                 </div>
               </div>
 
               <h4 class="acc-sub">Open evidence gates</h4>
               <div class="section-photo acc-photo">
-                <span class="section-bg" data-task76="evidence-gates-texture" aria-hidden="true" style="background-image:url(assets/brand/evidence-gates-texture.png);"></span>
+                <span class="section-bg" aria-hidden="true" style="background-image:url(assets/brand/evidence-gates-texture.png);"></span>
                 <div class="acc-photo-inner">
                   <p class="acc-note">Honest blockers keep the page safe. Open checks stay visible instead of being laundered into false certainty.</p>
                   <div class="gate-list">
@@ -666,7 +666,7 @@
 
     <!-- ===================== Closing decision surface ===================== -->
     <section id="next-step" class="section section-photo" aria-labelledby="next-title">
-      <span class="section-bg" data-task76="next-step-bg" aria-hidden="true" style="background-image:url(assets/brand/next-step-bg.png);"></span>
+      <span class="section-bg" aria-hidden="true" style="background-image:url(assets/brand/next-step-bg.png);"></span>
       <div class="wrap" style="text-align:center;max-width:980px;">
         <div class="eyebrow">Next step</div>
         <h2 id="next-title">Book a 30-minute pilot scoping call.</h2>
