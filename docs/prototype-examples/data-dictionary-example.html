@@ -124,7 +124,7 @@ body{
   <p>Private pre-call draft for Top Spirit (Marussia) and Angel Software Solutions. Demo values are illustrative; starter data is synthetic; client evidence gates remain explicit.</p>
 </footer>
 <script>
-function statusBadge(s){ return '<span class="badge badge-'+(s==='APPROVED'?'approved':'review')+'">'+s.replace('_',' ')+'</span>'; }
+function statusBadge(s){ return '<span class="badge badge-'+(s==='APPROVED'?'approved':'review')+'">'+s.replace(/_/g,' ')+'</span>'; }
 function parseCsv(text) {
   const lines = text.trim().split(/\r?\n/).filter(Boolean);
   if (!lines.length) return [];
@@ -179,7 +179,7 @@ const FALLBACK = [
   {term_id:'T-010',term:'Bank reconciliation',definition:'Matching bank transactions to open invoices and credits',owner:'Finance Controller',source_export:'EXP-FIN-BANK-001',review_status:'APPROVED',notes:'Target use case for reconciliation assistant'}
 ];
 fetch('../../data/samples/business_glossary.csv')
-  .then(r=>r.text())
+  .then(r=>{ if(!r.ok) throw new Error('fetch failed'); return r.text(); })
   .then(parseCsv)
   .then(render)
   .catch(()=>render(FALLBACK));

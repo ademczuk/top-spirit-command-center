@@ -139,8 +139,8 @@ body{
 let allRows = [];
 function fmtMoney(n){ return '€'+Number(n).toLocaleString('en-IE',{maximumFractionDigits:0}); }
 function badge(level){ return '<span class="badge badge-'+level+'">'+level+'</span>'; }
-function statusBadge(s){ return '<span class="badge badge-'+s.toLowerCase()+'">'+s.replace('_',' ')+'</span>'; }
-function approvalBadge(s){ return '<span class="badge badge-'+(s==='APPROVED'?'approved':'pending')+'">'+s.replace('_',' ')+'</span>'; }
+function statusBadge(s){ return '<span class="badge badge-'+s.toLowerCase()+'">'+s.replace(/_/g,' ')+'</span>'; }
+function approvalBadge(s){ return '<span class="badge badge-'+(s==='APPROVED'?'approved':'pending')+'">'+s.replace(/_/g,' ')+'</span>'; }
 function parseCsv(text) {
   const lines = text.trim().split(/\r?\n/).filter(Boolean);
   if (!lines.length) return [];
@@ -210,7 +210,7 @@ const FALLBACK = [
   {opportunity_id:'OPP-006',name:'ERP decision pack',status:'steering',effort:'H',value:'H',risk:'H',hours_saved_per_month:'12.0',eur_value_per_year:'4536',owner:'Programme Lead',approval_status:'PENDING_HUMAN_APPROVAL'}
 ];
 fetch('../../data/samples/opportunity_cards.csv')
-  .then(r=>r.text())
+  .then(r=>{ if(!r.ok) throw new Error('fetch failed'); return r.text(); })
   .then(parseCsv)
   .then(renderTable)
   .catch(()=>renderTable(FALLBACK));
