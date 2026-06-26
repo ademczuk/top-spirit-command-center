@@ -125,15 +125,22 @@ body{
 </footer>
 <script>
 function statusBadge(s){ return '<span class="badge badge-'+(s==='APPROVED'?'approved':'review')+'">'+s.replace('_',' ')+'</span>'; }
-function parseCSV(text){
-  const lines = text.trim().split(/\r?\n/);
-  const headers = lines[0].split(',').map(h=>h.trim());
-  return lines.slice(1).map(line=>{
-    const vals = line.split(',');
-    const obj={};
-    headers.forEach((h,i)=>obj[h]=(vals[i]||'').trim());
-    return obj;
-  });
+function parseCsv(text) {
+  const lines = text.trim().split(/\r?\n/).filter(Boolean);
+  if (!lines.length) return [];
+  const split = (line) => {
+    const cells = []; let cell = ''; let quote = false;
+    for (let i = 0; i < line.length; i++) {
+      const c = line[i];
+      if (c === '"' && line[i + 1] === '"') { cell += '"'; i++; continue; }
+      if (c === '"') { quote = !quote; continue; }
+      if (c === ',' && !quote) { cells.push(cell); cell = ''; continue; }
+      cell += c;
+    }
+    cells.push(cell); return cells;
+  };
+  const headers = split(lines[0]).map((h) => h.trim());
+  return lines.slice(1).map((line) => Object.fromEntries(split(line).map((value, i) => [headers[i], value.trim()])));
 }
 function render(rows){
   const total = rows.length;
@@ -160,20 +167,20 @@ function render(rows){
   document.getElementById('table-container').innerHTML = html;
 }
 const FALLBACK = [
-  {term_id:'T-001',term:'Net sales',definition:'Gross invoiced sales value less discounts credit notes and returns',owner:'Finance Controller',source_export:'EXP-ERP-SALES-001',review_status:'APPROVED',notes:'Excludes VAT and duty recoveries'},
+  {term_id:'T-001',term:'Net sales',definition:'Gross invoiced sales value, less discounts, credit notes and returns',owner:'Finance Controller',source_export:'EXP-ERP-SALES-001',review_status:'APPROVED',notes:'Excludes VAT and duty recoveries'},
   {term_id:'T-002',term:'Gross profit (GP)',definition:'Net sales minus cost of goods sold',owner:'Finance Controller',source_export:'EXP-ERP-SALES-001',review_status:'APPROVED',notes:'Used in monthly management pack'},
   {term_id:'T-003',term:'Depletions',definition:'Volume of product removed from inventory to fulfil demand',owner:'Supply Chain Lead',source_export:'EXP-WMS-INV-001',review_status:'APPROVED',notes:'Measured in cases or 9-litre equivalents'},
-  {term_id:'T-004',term:'Off-trade',definition:'Sales channel covering retail grocery and specialist outlets',owner:'Commercial Manager',source_export:'EXP-ERP-SALES-001',review_status:'APPROVED',notes:'Contrast with on-trade'},
-  {term_id:'T-005',term:'On-trade',definition:'Sales channel covering bars restaurants and hotels',owner:'Commercial Manager',source_export:'EXP-ERP-SALES-001',review_status:'APPROVED',notes:'Contrast with off-trade'},
+  {term_id:'T-004',term:'Off-trade',definition:'Sales channel covering retail, grocery and specialist outlets',owner:'Commercial Manager',source_export:'EXP-ERP-SALES-001',review_status:'APPROVED',notes:'Contrast with on-trade'},
+  {term_id:'T-005',term:'On-trade',definition:'Sales channel covering bars, restaurants and hotels',owner:'Commercial Manager',source_export:'EXP-ERP-SALES-001',review_status:'APPROVED',notes:'Contrast with off-trade'},
   {term_id:'T-006',term:'Credit note',definition:'Document reducing amount owed by a customer',owner:'Finance Controller',source_export:'EXP-ERP-AR-001',review_status:'UNDER_REVIEW',notes:'Must include reason code and approver'},
   {term_id:'T-007',term:'Discount',definition:'Reduction in list price granted to a customer',owner:'Commercial Manager',source_export:'EXP-ERP-SALES-001',review_status:'APPROVED',notes:'Distinguish from credit note'},
-  {term_id:'T-008',term:'Cost of goods sold',definition:'Direct costs attributable to products sold',owner:'Finance Controller',source_export:'EXP-ERP-SALES-001',review_status:'APPROVED',notes:'Includes duty freight and excise where applicable'},
+  {term_id:'T-008',term:'Cost of goods sold',definition:'Direct costs attributable to products sold',owner:'Finance Controller',source_export:'EXP-ERP-SALES-001',review_status:'APPROVED',notes:'Includes duty, freight and excise where applicable'},
   {term_id:'T-009',term:'Open invoice',definition:'Customer invoice not yet settled in full',owner:'Finance Controller',source_export:'EXP-ERP-AR-001',review_status:'UNDER_REVIEW',notes:'Basis for cash collection and bank matching'},
   {term_id:'T-010',term:'Bank reconciliation',definition:'Matching bank transactions to open invoices and credits',owner:'Finance Controller',source_export:'EXP-FIN-BANK-001',review_status:'APPROVED',notes:'Target use case for reconciliation assistant'}
 ];
 fetch('../../data/samples/business_glossary.csv')
   .then(r=>r.text())
-  .then(parseCSV)
+  .then(parseCsv)
   .then(render)
   .catch(()=>render(FALLBACK));
 </script>

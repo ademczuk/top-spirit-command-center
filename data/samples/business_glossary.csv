@@ -1,11 +1,11 @@
 term_id,term,definition,owner,source_export,review_status,notes
-T-001,Net sales,Gross invoiced sales value less discounts credit notes and returns,Finance Controller,EXP-ERP-SALES-001,APPROVED,Excludes VAT and duty recoveries
-T-002,Gross profit (GP),Net sales minus cost of goods sold,Finance Controller,EXP-ERP-SALES-001,APPROVED,Used in monthly management pack
-T-003,Depletions,Volume of product removed from inventory to fulfil demand,Supply Chain Lead,EXP-WMS-INV-001,APPROVED,Measured in cases or 9-litre equivalents
-T-004,Off-trade,Sales channel covering retail grocery and specialist outlets,Commercial Manager,EXP-ERP-SALES-001,APPROVED,Contrast with on-trade
-T-005,On-trade,Sales channel covering bars restaurants and hotels,Commercial Manager,EXP-ERP-SALES-001,APPROVED,Contrast with off-trade
-T-006,Credit note,Document reducing amount owed by a customer,Finance Controller,EXP-ERP-AR-001,UNDER_REVIEW,Must include reason code and approver
-T-007,Discount,Reduction in list price granted to a customer,Commercial Manager,EXP-ERP-SALES-001,APPROVED,Distinguish from credit note
-T-008,Cost of goods sold,Direct costs attributable to products sold,Finance Controller,EXP-ERP-SALES-001,APPROVED,Includes duty freight and excise where applicable
-T-009,Open invoice,Customer invoice not yet settled in full,Finance Controller,EXP-ERP-AR-001,UNDER_REVIEW,Basis for cash collection and bank matching
-T-010,Bank reconciliation,Matching bank transactions to open invoices and credits,Finance Controller,EXP-FIN-BANK-001,APPROVED,Target use case for reconciliation assistant
+T-001,Net sales,"Gross invoiced sales value, less discounts, credit notes and returns",Finance Controller,EXP-ERP-SALES-001,APPROVED,Excludes VAT and duty recoveries
+T-002,Gross profit (GP),"Net sales minus cost of goods sold",Finance Controller,EXP-ERP-SALES-001,APPROVED,Used in monthly management pack
+T-003,Depletions,"Volume of product removed from inventory to fulfil demand",Supply Chain Lead,EXP-WMS-INV-001,APPROVED,Measured in cases or 9-litre equivalents
+T-004,Off-trade,"Sales channel covering retail, grocery and specialist outlets",Commercial Manager,EXP-ERP-SALES-001,APPROVED,Contrast with on-trade
+T-005,On-trade,"Sales channel covering bars, restaurants and hotels",Commercial Manager,EXP-ERP-SALES-001,APPROVED,Contrast with off-trade
+T-006,Credit note,"Document reducing amount owed by a customer",Finance Controller,EXP-ERP-AR-001,UNDER_REVIEW,Must include reason code and approver
+T-007,Discount,"Reduction in list price granted to a customer",Commercial Manager,EXP-ERP-SALES-001,APPROVED,Distinguish from credit note
+T-008,Cost of goods sold,"Direct costs attributable to products sold",Finance Controller,EXP-ERP-SALES-001,APPROVED,"Includes duty, freight and excise where applicable"
+T-009,Open invoice,"Customer invoice not yet settled in full",Finance Controller,EXP-ERP-AR-001,UNDER_REVIEW,Basis for cash collection and bank matching
+T-010,Bank reconciliation,"Matching bank transactions to open invoices and credits",Finance Controller,EXP-FIN-BANK-001,APPROVED,Target use case for reconciliation assistant

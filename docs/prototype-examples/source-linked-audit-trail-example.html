@@ -146,15 +146,22 @@ body{
 </footer>
 <script>
 function statusBadge(s){ return '<span class="badge badge-'+(s==='APPROVED'?'approved':'pending')+'">'+s.replace('_',' ')+'</span>'; }
-function parseCSV(text){
-  const lines = text.trim().split(/\r?\n/);
-  const headers = lines[0].split(',').map(h=>h.trim());
-  return lines.slice(1).map(line=>{
-    const vals = line.split(',');
-    const obj={};
-    headers.forEach((h,i)=>obj[h]=(vals[i]||'').trim());
-    return obj;
-  });
+function parseCsv(text) {
+  const lines = text.trim().split(/\r?\n/).filter(Boolean);
+  if (!lines.length) return [];
+  const split = (line) => {
+    const cells = []; let cell = ''; let quote = false;
+    for (let i = 0; i < line.length; i++) {
+      const c = line[i];
+      if (c === '"' && line[i + 1] === '"') { cell += '"'; i++; continue; }
+      if (c === '"') { quote = !quote; continue; }
+      if (c === ',' && !quote) { cells.push(cell); cell = ''; continue; }
+      cell += c;
+    }
+    cells.push(cell); return cells;
+  };
+  const headers = split(lines[0]).map((h) => h.trim());
+  return lines.slice(1).map((line) => Object.fromEntries(split(line).map((value, i) => [headers[i], value.trim()])));
 }
 function render(rows){
   document.getElementById('audit-count').textContent = rows.length;
@@ -182,7 +189,7 @@ const FALLBACK = [
 ];
 fetch('../../data/samples/audit_trail_rows.csv')
   .then(r=>r.text())
-  .then(parseCSV)
+  .then(parseCsv)
   .then(render)
   .catch(()=>render(FALLBACK));
 </script>

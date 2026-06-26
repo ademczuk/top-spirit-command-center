@@ -1,37 +1,124 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Power BI build pack example · Top Spirit engagement</title>
-  <style>
-    :root { --navy:#0F172A; --slate:#64748B; --teal:#0D9488; --bg:#F8FAFC; --border:#E2E8F0; }
-    body { margin:0; font-family: Inter, ui-sans-serif, system-ui, sans-serif; color:var(--navy); background:var(--bg); line-height:1.6; }
-    header { padding:28px; background:#fff; border-bottom:1px solid var(--border); }
-    h1 { margin:0; font-size:28px; letter-spacing:-0.03em; }
-    main { max-width:900px; margin:0 auto; padding:28px; }
-    .card { background:#fff; border:1px solid var(--border); border-radius:20px; padding:20px; margin-bottom:18px; }
-    .muted { color:var(--slate); }
-    a { color:var(--teal); }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Power BI build pack example — Top Spirit Command Center</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --deep:#07111F; --surface:#101B2A; --line:#1d2c40; --border:#2a3a4f;
+  --gold:#D6A94A; --teal:#0D9488; --cream:#F6F1E8; --paper:#FBF8F1;
+  --ink:#10243a; --muted:#5b6b7d; --clay:#B45309;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0; font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  color:var(--ink); background:linear-gradient(160deg,var(--deep) 0%,var(--surface) 100%);
+  background-attachment:fixed; line-height:1.65;
+}
+.topbar{
+  position:sticky; top:0; z-index:10; display:flex; align-items:center; justify-content:space-between;
+  gap:18px; padding:14px 28px; background:rgba(7,17,31,.92); backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--border);
+}
+.brand{display:flex; flex-direction:column; line-height:1.2;}
+.brand .name{color:#fff; font-weight:800; letter-spacing:-.01em; font-size:15px;}
+.brand .sub{color:var(--gold); font-size:11px; text-transform:uppercase; letter-spacing:.14em;}
+.back{
+  color:#cdd8e6; text-decoration:none; font-size:14px; font-weight:600; white-space:nowrap;
+  border:1px solid var(--border); padding:8px 14px; border-radius:9px; transition:all .15s;
+}
+.back:hover{color:#fff; border-color:var(--gold); background:rgba(214,169,74,.12);}
+.wrap{max-width:980px; margin:34px auto 60px; padding:0 22px;}
+.doc{
+  background:var(--paper); border-radius:16px; padding:54px 56px;
+  box-shadow:0 24px 60px rgba(0,0,0,.35); border:1px solid rgba(255,255,255,.06);
+}
+.doc h1,.doc h2,.doc h3,.doc h4{font-family:"Playfair Display",Georgia,serif; color:var(--deep); line-height:1.18; letter-spacing:-.01em;}
+.doc h1{font-size:34px; margin:0 0 8px; padding-bottom:16px; border-bottom:3px solid var(--gold);}
+.doc h2{font-size:25px; margin:38px 0 12px;}
+.doc h3{font-size:19px; margin:28px 0 8px;}
+.doc p{margin:12px 0;}
+.doc a{color:var(--teal); text-decoration:none; border-bottom:1px solid rgba(13,148,136,.3);}
+.doc a:hover{color:var(--clay); border-bottom-color:var(--clay);}
+.doc ul,.doc ol{padding-left:24px; margin:12px 0;}
+.doc li{margin:5px 0;}
+.doc strong{color:var(--deep);}
+.doc code{
+  font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace; font-size:.88em;
+  background:#eee6d6; color:#7a4d12; padding:2px 6px; border-radius:5px;
+}
+.footer{max-width:980px; margin:0 auto 50px; padding:0 22px; color:#8ea2b8; font-size:12.5px; text-align:center;}
+.steps{display:grid; gap:16px; margin:24px 0;}
+.step{background:#fff; border:1px solid #e6ddca; border-radius:12px; padding:18px; border-left:5px solid var(--teal);}
+.step h4{margin:0 0 6px; font-size:16px;}
+.step p{margin:0; color:var(--muted); font-size:14px;}
+.meta{display:flex; gap:12px; flex-wrap:wrap; margin:18px 0;}
+.badge{display:inline-block; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.04em; padding:4px 10px; border-radius:999px; background:#eef2f7; color:#475569;}
+</style>
 </head>
 <body>
-  <header><h1>Power BI build pack example</h1><p class="muted">Step-by-step build instructions for the BICC pilot.</p></header>
-  <main>
-    <div class="card">
-      <h2>Build steps</h2>
-      <ol>
-        <li>Load classified sales invoice export into Power BI Desktop.</li>
-        <li>Create net sales measure: gross sales − discounts − credit notes.</li>
-        <li>Build channel/brand decomposition.</li>
-        <li>Add source lineage page with export ID and refresh timestamp.</li>
-        <li>Publish to BICC workspace and capture acceptance evidence.</li>
-      </ol>
+<header class="topbar">
+  <div class="brand"><span class="name">Top Spirit Command Center</span><span class="sub">Angel Software Solutions</span></div>
+  <a class="back" href="../../assets/mockups/walkthrough/index.html">Back to walkthrough</a>
+</header>
+<div class="wrap">
+  <article class="doc">
+    <h1>Power BI Desktop build pack example</h1>
+    <p>A low-cost, file-export-first pilot for the BICC. No live connectors, no new licences — just classified exports transformed into a source-linked report.</p>
+
+    <div class="meta">
+      <span class="badge">Power BI Desktop</span>
+      <span class="badge">M365 E3</span>
+      <span class="badge">Export Layer</span>
+      <span class="badge">Source-linked</span>
     </div>
-    <div class="card">
-      <p class="muted">This is a condensed example. The full build pack covers data modelling, DAX, refresh, and governance.</p>
-      <p><a href="../06-wave-1/power-bi-desktop-pilot-build-pack.html">Open full Power BI Desktop pilot build pack</a></p>
+
+    <h2>Build steps</h2>
+    <div class="steps">
+      <div class="step">
+        <h4>1. Load classified exports</h4>
+        <p>Bring <code>sales_invoice_lines_may.csv</code>, <code>customer_master.csv</code>, and <code>price_list.csv</code> into Power BI Desktop as text/CSV sources. Keep the export ID in a metadata column.</p>
+      </div>
+      <div class="step">
+        <h4>2. Model relationships</h4>
+        <p>Link invoices to customers and products. Avoid merging tables prematurely — keep the star schema simple so the BICC can maintain it.</p>
+      </div>
+      <div class="step">
+        <h4>3. Write DAX measures</h4>
+        <p>Net sales = gross sales − discounts − credit notes. Gross profit = net sales − cost of goods sold. Depletions = sum of cases shipped.</p>
+      </div>
+      <div class="step">
+        <h4>4. Build report pages</h4>
+        <p>Executive summary, channel/brand decomposition, open-invoice ageing, and a source-lineage page showing export IDs and refresh timestamp.</p>
+      </div>
+      <div class="step">
+        <h4>5. Add Approval Envelope</h4>
+        <p>Before any figure is used in a steering decision, a named reviewer signs off on the export classification, measure definition, and source lineage.</p>
+      </div>
+      <div class="step">
+        <h4>6. Capture acceptance evidence</h4>
+        <p>Publish to the BICC workspace, run a trade-meeting walkthrough, and record screenshots plus the business-user acceptance log.</p>
+      </div>
     </div>
-  </main>
+
+    <h2>What the BICC gets</h2>
+    <ul>
+      <li>A working .pbix file built entirely from their own exports.</li>
+      <li>A repeatable refresh routine using SharePoint/OneDrive file drops.</li>
+      <li>A documented measure catalogue tied to the business glossary.</li>
+      <li>A governance checklist for promoting reports to wider use.</li>
+    </ul>
+
+    <p><a href="../06-wave-1/power-bi-desktop-pilot-build-pack.html">Open the full Power BI Desktop pilot build pack →</a></p>
+  </article>
+</div>
+<footer class="footer">
+  <p>Illustrative pre-call preview for Top Spirit (Marussia) and Angel Software Solutions. Demo values are synthetic; client evidence gates remain explicit.</p>
+</footer>
 </body>
 </html>

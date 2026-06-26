@@ -136,15 +136,22 @@ const PHASE_MAP = {
   'PS-009':'Close','PS-010':'Close'
 };
 function badge(level){ return '<span class="badge badge-'+level+'">'+level+'</span>'; }
-function parseCSV(text){
-  const lines = text.trim().split(/\r?\n/);
-  const headers = lines[0].split(',').map(h=>h.trim());
-  return lines.slice(1).map(line=>{
-    const vals = line.split(',');
-    const obj={};
-    headers.forEach((h,i)=>obj[h]=(vals[i]||'').trim());
-    return obj;
-  });
+function parseCsv(text) {
+  const lines = text.trim().split(/\r?\n/).filter(Boolean);
+  if (!lines.length) return [];
+  const split = (line) => {
+    const cells = []; let cell = ''; let quote = false;
+    for (let i = 0; i < line.length; i++) {
+      const c = line[i];
+      if (c === '"' && line[i + 1] === '"') { cell += '"'; i++; continue; }
+      if (c === '"') { quote = !quote; continue; }
+      if (c === ',' && !quote) { cells.push(cell); cell = ''; continue; }
+      cell += c;
+    }
+    cells.push(cell); return cells;
+  };
+  const headers = split(lines[0]).map((h) => h.trim());
+  return lines.slice(1).map((line) => Object.fromEntries(split(line).map((value, i) => [headers[i], value.trim()])));
 }
 function render(rows){
   rows.forEach(r=>r.canonical_phase = PHASE_MAP[r.step_id] || 'Other');
@@ -194,7 +201,7 @@ const FALLBACK = [
 ];
 fetch('../../data/samples/process_steps.csv')
   .then(r=>r.text())
-  .then(parseCSV)
+  .then(parseCsv)
   .then(render)
   .catch(()=>render(FALLBACK));
 </script>
