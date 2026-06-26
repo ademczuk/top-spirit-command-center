@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Phase 0  -  Data classification rule and export inventory  -  Top Spirit Command Center</title>
+<title>Phase 0 — Data classification rule and export inventory — Top Spirit Command Center</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
@@ -11,7 +11,7 @@
 :root{
   --deep:#07111F; --surface:#101B2A; --line:#1d2c40; --border:#2a3a4f;
   --gold:#D6A94A; --teal:#0D9488; --cream:#F6F1E8; --paper:#FBF8F1;
-  --ink:#10243a; --muted:#5b6b7d; --clay:#B45309;
+  --ink:#10243a; --muted:#5b6b7d; --clay:#B45309; --ts-border:#e6e2d8;
 }
 *{box-sizing:border-box;}
 html{scroll-behavior:smooth;}
@@ -70,6 +70,8 @@ body{
 .doc tbody tr:last-child td{border-bottom:none;}
 .doc hr{border:none; border-top:1px solid #e0d6c0; margin:30px 0;}
 .doc img{max-width:100%; border-radius:10px;}
+.table-scroll{overflow-x:auto; -webkit-overflow-scrolling:touch; width:100%; border:1px solid var(--ts-border); border-radius:8px;}
+.table-scroll table{width:100%; min-width:720px; border-collapse:collapse;}
 .footer{max-width:880px; margin:0 auto 50px; padding:0 22px; color:#8ea2b8; font-size:12.5px; text-align:center;}
 .footer a{color:#bcd0e6;}
 @media (max-width:640px){.doc{padding:32px 22px;} .wrap{margin-top:20px;} .doc h1{font-size:27px;}}
@@ -78,15 +80,16 @@ body{
 <body>
 <header class="topbar">
   <div class="brand"><span class="name">Top Spirit Command Center</span><span class="sub">Angel Software Solutions</span></div>
-  <a class="back" href="../../index.html">Back to command center</a>
+  <a class="back" href="../index.html">Back to command center</a>
 </header>
 <div class="wrap">
   <article class="doc">
-<h1 id="phase-0-data-classification-rule-and-export-inventory">Phase 0  -  Data classification rule and export inventory</h1>
+<h1 id="phase-0-data-classification-rule-and-export-inventory">Phase 0 — Data classification rule and export inventory</h1>
 <blockquote>
-<p>Illustrative working artifact. Use this before any export is loaded into Angel Software Solutions, Power BI Desktop, an LLM workflow, or an agent prototype.</p>
+<p>Confidential working artifact. Use this before any export is loaded into Angel Software Solutions, Power BI Desktop, an LLM workflow, or an agent prototype.</p>
 </blockquote>
 <h2 id="1-four-tier-classification-rule">1. Four-tier classification rule</h2>
+<div class="table-scroll">
 <table>
 <thead>
 <tr>
@@ -128,8 +131,10 @@ body{
 </tr>
 </tbody>
 </table>
+</div>
 <h2 id="2-minimum-export-inventory-fields">2. Minimum export inventory fields</h2>
 <p>Every export used by the engagement gets one row before analysis begins.</p>
+<div class="table-scroll">
 <table>
 <thead>
 <tr>
@@ -196,7 +201,9 @@ body{
 </tr>
 </tbody>
 </table>
+</div>
 <h2 id="3-seed-inventory-for-introductory-call">3. Seed inventory for introductory call</h2>
+<div class="table-scroll">
 <table>
 <thead>
 <tr>
@@ -299,6 +306,7 @@ body{
 </tr>
 </tbody>
 </table>
+</div>
 <h2 id="4-sign-off-path">4. Sign-off path</h2>
 <ol>
 <li>BICC confirms each export owner and availability.</li>
@@ -308,6 +316,7 @@ body{
 </ol>
 <h2 id="5-client-completion-request">5. Client completion request</h2>
 <p>Ask the BICC lead and data owners to complete these fields before any export is used in an AI/agent workflow:</p>
+<div class="table-scroll">
 <table>
 <thead>
 <tr>
@@ -354,6 +363,7 @@ body{
 </tr>
 </tbody>
 </table>
+</div>
 <h2 id="6-open-client-inputs">6. Open client inputs</h2>
 <ul>
 <li>Confirm actual source-system names and export availability for each seed inventory row.</li>
@@ -365,7 +375,7 @@ body{
   </article>
 </div>
 <footer class="footer">
-  <p>Illustrative pre-call preview for Top Spirit (Marussia) and Angel Software Solutions. Demo values are synthetic; client evidence gates remain explicit.</p>
+  <p>Private pre-call draft for Top Spirit (Marussia) and Angel Software Solutions. Demo values are illustrative; starter data is synthetic; client evidence gates remain explicit.</p>
 </footer>
 </body>
 </html>
