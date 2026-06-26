@@ -4,101 +4,98 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Angel Software Solutions — guided interface walkthrough</title>
+  <link rel="stylesheet" href="../../assets/theme.css">
+  <script src="../../assets/theme-toggle.js" defer></script>
   <style>
     :root {
-      --navy: #0F172A;
-      --slate: #64748B;
-      --teal: #0D9488;
       --teal-soft: #CCFBF1;
-      --bg: #F8FAFC;
-      --card: #FFFFFF;
-      --border: #E2E8F0;
       --amber: #F59E0B;
       --red: #DC2626;
       --green: #16A34A;
-      --shadow: 0 18px 45px rgba(15, 23, 42, 0.10);
+      --shadow: var(--ts-shadow-md);
     }
     * { box-sizing: border-box; }
-    html, body { margin: 0; min-height: 100%; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: var(--navy); background: var(--bg); overflow-x: hidden; }
+    html, body { margin: 0; min-height: 100%; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: var(--ts-text-main); background: var(--ts-paper); overflow-x: hidden; }
     body { display: grid; grid-template-rows: 64px 1fr; }
-    .topbar { position: sticky; top: 0; z-index: 20; height: 64px; display: flex; align-items: center; justify-content: space-between; padding: 0 28px; background: rgba(255,255,255,.94); backdrop-filter: blur(14px); border-bottom: 1px solid var(--border); }
+    .topbar { position: sticky; top: 0; z-index: 20; height: 64px; display: flex; align-items: center; justify-content: space-between; padding: 0 28px; background: var(--ts-surface); backdrop-filter: blur(14px); border-bottom: 1px solid var(--ts-border); }
     .brand { display: flex; align-items: center; gap: 12px; font-weight: 800; letter-spacing: -0.02em; }
-    .brand-mark { width: 36px; height: 36px; border-radius: 12px; background: linear-gradient(135deg, var(--navy), var(--teal)); color: #fff; display: grid; place-items: center; font-size: 17px; box-shadow: var(--shadow); }
-    .top-meta { color: var(--slate); font-size: 13px; }
+    .brand h1 { margin: 0; font-size: inherit; font-weight: inherit; letter-spacing: inherit; line-height: inherit; }
+    .brand-mark { width: 36px; height: 36px; border-radius: 12px; background: linear-gradient(135deg, var(--ts-deep), var(--ts-teal)); color: var(--ts-white); display: grid; place-items: center; font-size: 17px; box-shadow: var(--shadow); }
+    .top-meta { color: var(--ts-text-muted); font-size: 13px; }
     .app { min-height: calc(100vh - 64px); display: grid; grid-template-columns: 260px minmax(0, 1fr); }
-    aside { border-right: 1px solid var(--border); background: #fff; padding: 22px 18px; position: sticky; top: 64px; align-self: start; min-height: calc(100vh - 64px); }
-    .nav-title { font-size: 12px; color: var(--slate); text-transform: uppercase; letter-spacing: .12em; margin: 0 0 12px; }
-    .nav-item { width: 100%; border: 0; background: transparent; color: var(--slate); text-align: left; border-radius: 14px; padding: 12px 12px; margin: 3px 0; cursor: pointer; display: flex; gap: 10px; align-items: center; font: inherit; }
-    .nav-item span:first-child { width: 28px; height: 28px; border-radius: 999px; display: grid; place-items: center; background: var(--bg); color: var(--slate); font-weight: 800; font-size: 12px; }
-    .nav-item.active { background: var(--teal-soft); color: var(--navy); font-weight: 750; }
-    .nav-item.active span:first-child { background: var(--teal); color: #fff; }
+    aside { border-right: 1px solid var(--ts-border); background: var(--ts-surface); padding: 22px 18px; position: sticky; top: 64px; align-self: start; min-height: calc(100vh - 64px); }
+    .nav-title { font-size: 12px; color: var(--ts-text-muted); text-transform: uppercase; letter-spacing: .12em; margin: 0 0 12px; }
+    .nav-item { width: 100%; border: 0; background: transparent; color: var(--ts-text-muted); text-align: left; border-radius: 14px; padding: 12px 12px; margin: 3px 0; cursor: pointer; display: flex; gap: 10px; align-items: center; font: inherit; }
+    .nav-item span:first-child { width: 28px; height: 28px; border-radius: 999px; display: grid; place-items: center; background: var(--ts-paper); color: var(--ts-text-muted); font-weight: 800; font-size: 12px; }
+    .nav-item.active { background: var(--teal-soft); color: #0F172A; font-weight: 750; }
+    .nav-item.active span:first-child { background: var(--ts-teal); color: var(--ts-white); }
     main { padding: 34px; }
     .slide { display: none; animation: rise .24s ease-out; }
     .slide.active { display: block; }
     @keyframes rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
     .hero { display: flex; justify-content: space-between; gap: 24px; align-items: flex-start; margin-bottom: 20px; }
-    h1 { margin: 0 0 10px; font-size: clamp(28px, 4vw, 46px); letter-spacing: -0.05em; line-height: 1.02; }
-    .helper { margin: 0; color: var(--slate); font-size: 16px; max-width: 820px; line-height: 1.6; }
-    .pill, .badge { display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--border); border-radius: 999px; padding: 6px 10px; background: #fff; color: var(--slate); font-size: 12px; font-weight: 700; white-space: nowrap; }
+    h1, .slide h2 { margin: 0 0 10px; font-size: clamp(28px, 4vw, 46px); letter-spacing: -0.05em; line-height: 1.02; }
+    .helper { margin: 0; color: var(--ts-text-muted); font-size: 16px; max-width: 820px; line-height: 1.6; }
+    .pill, .badge { display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--ts-border); border-radius: 999px; padding: 6px 10px; background: var(--ts-surface); color: var(--ts-text-muted); font-size: 12px; font-weight: 700; white-space: nowrap; }
     .pill.teal, .badge.teal { background: var(--teal-soft); border-color: #99F6E4; color: #0F766E; }
     .badge.red { color: var(--red); background: #FEF2F2; border-color: #FECACA; }
     .badge.amber { color: #92400E; background: #FFFBEB; border-color: #FDE68A; }
     .badge.green { color: #166534; background: #F0FDF4; border-color: #BBF7D0; }
-    .screen { background: #fff; border: 1px solid var(--border); border-radius: 28px; box-shadow: var(--shadow); overflow: hidden; }
-    .screen-bar { min-height: 54px; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 0 20px; border-bottom: 1px solid var(--border); background: #fff; }
+    .screen { background: var(--ts-surface); border: 1px solid var(--ts-border); border-radius: 28px; box-shadow: var(--shadow); overflow: hidden; }
+    .screen-bar { min-height: 54px; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 0 20px; border-bottom: 1px solid var(--ts-border); background: var(--ts-surface); }
     .screen-title { font-weight: 850; }
     .screen-actions { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
     .content { padding: 22px; display: grid; gap: 18px; }
     .grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 16px; }
-    .card { background: var(--card); border: 1px solid var(--border); border-radius: 20px; padding: 18px; min-height: 100%; }
-    .card.soft { background: var(--bg); }
+    .card { background: var(--ts-surface); border: 1px solid var(--ts-border); border-radius: 20px; padding: 18px; min-height: 100%; }
+    .card.soft { background: var(--ts-paper); }
     .card h3 { margin: 0 0 10px; font-size: 18px; letter-spacing: -0.02em; }
-    .card p { margin: 0 0 10px; color: var(--slate); line-height: 1.5; }
+    .card p { margin: 0 0 10px; color: var(--ts-text-muted); line-height: 1.5; }
     .col-3 { grid-column: span 3; } .col-4 { grid-column: span 4; } .col-5 { grid-column: span 5; } .col-6 { grid-column: span 6; } .col-7 { grid-column: span 7; } .col-8 { grid-column: span 8; } .col-12 { grid-column: span 12; }
     .list { display: grid; gap: 10px; }
-    .row { display: flex; justify-content: space-between; gap: 12px; align-items: center; padding: 11px 0; border-top: 1px solid var(--border); }
+    .row { display: flex; justify-content: space-between; gap: 12px; align-items: center; padding: 11px 0; border-top: 1px solid var(--ts-border); }
     .row:first-child { border-top: 0; }
-    .file { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; color: var(--navy); }
+    .file { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; color: var(--ts-text-main); }
     .banner { border: 1px solid #FDE68A; background: #FFFBEB; color: #92400E; border-radius: 18px; padding: 14px 16px; font-weight: 800; display: flex; align-items: center; gap: 10px; }
-    .doc-preview { border-radius: 18px; background: #fff; border: 1px solid var(--border); padding: 16px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; color: #334155; line-height: 1.6; }
+    .doc-preview { border-radius: 18px; background: var(--ts-surface); border: 1px solid var(--ts-border); padding: 16px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; color: var(--ts-text-muted); line-height: 1.6; }
     mark { background: #CCFBF1; color: #0F766E; border-radius: 6px; padding: 0 4px; }
-    .confidence { height: 8px; border-radius: 999px; background: #E2E8F0; overflow: hidden; min-width: 90px; }
-    .confidence > i { display: block; height: 100%; background: var(--teal); border-radius: inherit; }
-    .button, button.control { border: 0; background: var(--navy); color: #fff; border-radius: 14px; padding: 11px 14px; font-weight: 850; cursor: pointer; }
-    .button.secondary, button.control.secondary { background: #fff; color: var(--navy); border: 1px solid var(--border); }
+    .confidence { height: 8px; border-radius: 999px; background: var(--ts-border); overflow: hidden; min-width: 90px; }
+    .confidence > i { display: block; height: 100%; background: var(--ts-teal); border-radius: inherit; }
+    .button, button.control, a.control { border: 0; background: var(--ts-deep); color: var(--ts-white); border-radius: 14px; padding: 11px 14px; font-weight: 850; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; }
+    .button.secondary, button.control.secondary, a.control.secondary { background: var(--ts-surface); color: var(--ts-text-main); border: 1px solid var(--ts-border); }
     .metric { font-size: 34px; font-weight: 900; letter-spacing: -0.04em; }
-    .muted { color: var(--slate); }
-    .tier { border-left: 5px solid var(--teal); }
+    .muted { color: var(--ts-text-muted); }
+    .tier { border-left: 5px solid var(--ts-teal); }
     .tier.amber { border-left-color: var(--amber); }
     .tier.red { border-left-color: var(--red); }
-    details { border: 1px solid var(--border); border-radius: 18px; background: #fff; padding: 14px 16px; }
+    details { border: 1px solid var(--ts-border); border-radius: 18px; background: var(--ts-surface); padding: 14px 16px; }
     details summary { cursor: pointer; font-weight: 850; }
-    .lineage { margin-top: 14px; display: grid; gap: 8px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px; color: #334155; }
+    .lineage { margin-top: 14px; display: grid; gap: 8px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px; color: var(--ts-text-muted); }
     .chart { width: 100%; min-height: 220px; }
     .board { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
-    .opp { border: 1px solid var(--border); border-radius: 18px; background: #fff; padding: 14px; }
-    .compare th, .compare td { border-bottom: 1px solid var(--border); padding: 12px; text-align: left; vertical-align: top; }
+    .opp { border: 1px solid var(--ts-border); border-radius: 18px; background: var(--ts-surface); padding: 14px; }
+    .compare th, .compare td { border-bottom: 1px solid var(--ts-border); padding: 12px; text-align: left; vertical-align: top; }
     .compare { width: 100%; border-collapse: collapse; font-size: 14px; }
     .progress-wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-top: 18px; }
     .dots { display: flex; gap: 7px; align-items: center; }
-    .dot { width: 10px; height: 10px; border-radius: 999px; border: 1px solid #94A3B8; background: #fff; padding: 0; cursor: pointer; }
-    .dot.active { width: 26px; border-color: var(--teal); background: var(--teal); }
+    .dot { width: 10px; height: 10px; border-radius: 999px; border: 1px solid var(--ts-border); background: var(--ts-surface); padding: 0; cursor: pointer; }
+    .dot.active { width: 26px; border-color: var(--ts-teal); background: var(--ts-teal); }
     .controls { display: flex; gap: 10px; }
     .demo-controls { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
     .demo-controls .control { padding: 9px 11px; border-radius: 12px; font-size: 12px; }
-    .tiny { font-size: 12px; color: var(--slate); }
+    .tiny { font-size: 12px; color: var(--ts-text-muted); }
     .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
-    .demo-panel { border-color: #99F6E4; background: linear-gradient(180deg, #F0FDFA 0%, #FFFFFF 100%); }
+    .demo-panel { border-color: var(--ts-teal); background: linear-gradient(180deg, var(--ts-paper) 0%, var(--ts-surface) 100%); }
     .demo-metrics { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-top: 12px; }
-    .demo-metrics .metric-tile { border: 1px solid var(--border); border-radius: 16px; padding: 12px; background: #fff; }
+    .demo-metrics .metric-tile { border: 1px solid var(--ts-border); border-radius: 16px; padding: 12px; background: var(--ts-surface); }
     .demo-metrics b { display: block; font-size: 20px; letter-spacing: -0.03em; }
-    .demo-status { font-weight: 850; color: #0F766E; }
+    .demo-status { font-weight: 850; color: var(--ts-teal); }
     .event-log { max-height: 160px; overflow: auto; }
     @media (max-width: 980px) {
       body { display: block; }
       .topbar { position: static; }
       .app { display: block; }
-      aside { position: static; min-height: 0; border-right: 0; border-bottom: 1px solid var(--border); }
+      aside { position: static; min-height: 0; border-right: 0; border-bottom: 1px solid var(--ts-border); }
       .nav-item { display: inline-flex; width: auto; }
       main { padding: 18px; }
       .hero { display: block; }
@@ -109,20 +106,20 @@
       .screen-actions { justify-content: flex-start; }
     }
     @media (max-width: 640px) {
-      .topbar { width: 100%; max-width: 390px; height: auto; min-height: 56px; display: grid; grid-template-columns: 1fr; align-items: start; padding: 8px 12px; gap: 10px; overflow: hidden; }
+      .topbar { width: 100%; height: auto; min-height: 56px; display: grid; grid-template-columns: 1fr; align-items: start; padding: 8px 12px; gap: 10px; overflow: hidden; }
       .brand { min-width: 0; gap: 8px; font-size: 14px; }
       .brand-mark { width: 32px; height: 32px; border-radius: 10px; flex: 0 0 auto; }
       .brand .muted, .top-meta { display: none; }
-      .app, aside, main { width: 100%; max-width: 390px; }
-      aside { position: sticky; top: 0; z-index: 15; padding: 8px 12px; background: rgba(255,255,255,.96); backdrop-filter: blur(12px); }
+      .app, aside, main { width: 100%; }
+      aside { position: sticky; top: 0; z-index: 15; padding: 8px 12px; background: var(--ts-surface); backdrop-filter: blur(12px); }
       main { padding: 18px; overflow: hidden; }
       .nav-title { display: none; }
       #nav { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 4px; -webkit-overflow-scrolling: touch; }
       .nav-item { flex: 0 0 auto; margin: 0; padding: 8px 10px; border-radius: 999px; }
       .nav-item span:first-child { width: 24px; height: 24px; }
       .nav-item strong { white-space: nowrap; font-size: 12px; }
-      .hero, .screen, .progress-wrap, main > .tiny { width: 100%; max-width: 354px; }
-      .helper { max-width: 354px; }
+      .hero, .screen, .progress-wrap, main > .tiny { width: 100%; }
+      .helper { max-width: none; }
       .progress-wrap { flex-direction: column; align-items: stretch; gap: 12px; margin-top: 24px; }
       .progress-wrap > div:first-child { text-align: center; }
       .dots { justify-content: center; }
@@ -139,20 +136,21 @@
       .row .confidence { flex: 1 1 100%; min-width: 0; }
       .doc-preview { word-break: break-word; }
       .screen-actions { justify-content: flex-start; }
-      .demo-controls { width: 100%; max-width: 366px; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; justify-content: stretch; }
-      .demo-controls .control { width: 100%; }
+      .demo-controls { display: flex; flex-wrap: wrap; gap: 8px; justify-content: stretch; }
+      .demo-controls .control { flex: 1 1 auto; min-width: 120px; }
       .demo-metrics { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
   <header class="topbar">
-    <div class="brand"><div class="brand-mark">AS</div><div>Angel Software Solutions <span class="muted">/ guided walkthrough</span></div></div>
+    <div class="brand"><div class="brand-mark">AS</div><h1>Angel Software Solutions <span class="muted">/ guided walkthrough</span></h1></div>
     <div class="demo-controls" role="group" aria-label="Synthetic realtime demo controls">
       <button class="control secondary" type="button" data-demo-action="load">Load sample data pack</button>
       <button class="control" type="button" data-demo-action="start">Replay sample events</button>
       <button class="control secondary" type="button" data-demo-action="pause">Pause</button>
       <button class="control secondary" type="button" data-demo-action="reset">Reset</button>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to light mode"><span class="icon" aria-hidden="true">☀️</span><span>Light</span></button>
     </div>
     <div class="top-meta">Prepare · Map · Optimise · Build · Operate · Decide</div>
   </header>
@@ -163,61 +161,61 @@
     </aside>
     <main>
       <section class="slide active" data-step="1" data-title="Prepare">
-        <div class="hero"><div><h1>Prepare the data foundation</h1><p class="helper">Export Layer, classification, glossary, and privacy/GDPR operating model. The foundation stays file-export first before any automation runs.</p></div><span class="pill teal">1 of 6</span></div>
+        <div class="hero"><div><h2>Prepare the data foundation</h2><p class="helper">Export Layer, classification, glossary, and privacy/GDPR operating model. The foundation stays file-export first before any automation runs.</p></div><span class="pill teal">1 of 6</span></div>
         <div class="screen"><div class="screen-bar"><div class="screen-title">Prepare · Export Layer, classification, glossary, privacy/GDPR</div><div class="screen-actions"><span class="badge teal">Export Layer first</span><span class="badge">M365 E3</span><span class="badge">No live connectors</span><span class="badge green">GDPR operating model</span></div></div><div class="content"><div class="grid">
           <div class="card col-4 soft"><h3>Incoming exports</h3><div class="list"><div class="row"><span><b class="file">sales_invoice_lines_may.csv</b><br><span class="tiny">Net sales, GP, depletions</span></span><span class="badge amber">owner review</span></div><div class="row"><span><b class="file">open_invoices_week_22.xlsx</b><br><span class="tiny">Finance reconciliation source</span></span><span class="badge amber">classified</span></div><div class="row"><span><b class="file">stock_on_hand.json</b><br><span class="tiny">Warehouse availability</span></span><span class="badge green">approved</span></div></div></div>
-          <div class="card col-4"><h3>Control checks</h3><p><b data-demo-field="glossary-coverage">46/80</b> glossary terms reviewed.</p><p><b data-demo-field="exports-pending">1</b> export connection still pending owner confirmation.</p><p><b data-demo-field="write-back-count">0</b> rows written back without approval.</p><button class="control" data-path="../../../docs/05-phase-0/data-classification-and-export-inventory.html">Open classification guide</button></div>
-          <div class="card col-4"><h3>Knowledge capture</h3><p>Process maps and definitions come from exports plus SME input, not guesswork.</p><button class="control secondary" data-path="../../../docs/05-phase-0/knowledge-capture-and-input-pack.html">Open input pack</button></div>
-          <div class="card col-12"><h3>Privacy / GDPR operating model</h3><div class="grid"><div class="col-6"><p>Personal data stays in classified exports; processing purposes are recorded per source; retention and access controls are documented before automation.</p></div><div class="col-6" style="display:flex;justify-content:flex-end;align-items:center;"><button class="control secondary" data-path="../../../docs/05-phase-0/privacy-gdpr-operating-model.html">Open privacy model</button></div></div></div>
+          <div class="card col-4"><h3>Control checks</h3><p><b data-demo-field="glossary-coverage">46/80</b> glossary terms reviewed.</p><p><b data-demo-field="exports-pending">1</b> export connection still pending owner confirmation.</p><p><b data-demo-field="write-back-count">0</b> rows written back without approval.</p><a class="control" href="../../../docs/05-phase-0/data-classification-and-export-inventory.html" target="_blank" rel="noopener noreferrer" data-path="../../../docs/05-phase-0/data-classification-and-export-inventory.html">Open classification guide</a></div>
+          <div class="card col-4"><h3>Knowledge capture</h3><p>Process maps and definitions come from exports plus SME input, not guesswork.</p><a class="control secondary" href="../../../docs/05-phase-0/knowledge-capture-and-input-pack.html" target="_blank" rel="noopener noreferrer" data-path="../../../docs/05-phase-0/knowledge-capture-and-input-pack.html">Open input pack</a></div>
+          <div class="card col-12"><h3>Privacy / GDPR operating model</h3><div class="grid"><div class="col-6"><p>Personal data stays in classified exports; processing purposes are recorded per source; retention and access controls are documented before automation.</p></div><div class="col-6" style="display:flex;justify-content:flex-end;align-items:center;"><a class="control secondary" href="../../../docs/05-phase-0/privacy-gdpr-operating-model.html" target="_blank" rel="noopener noreferrer" data-path="../../../docs/05-phase-0/privacy-gdpr-operating-model.html">Open privacy model</a></div></div></div>
           <div class="card col-12 demo-panel" id="syntheticDemoPanel"><h3>Synthetic export processor</h3><p class="demo-status" data-demo-field="demo-status">Ready to load synthetic/illustrative CSV, JSON and text exports from the repo sample pack.</p><div class="demo-metrics"><div class="metric-tile"><span class="tiny">Sales invoice net</span><b data-demo-field="sales-net">Sample data</b></div><div class="metric-tile"><span class="tiny">Approval queue</span><b data-demo-field="approval-queue">Sample data</b></div><div class="metric-tile"><span class="tiny">Reconciliation suggestions</span><b data-demo-field="reconciliation-summary">Sample data</b></div><div class="metric-tile"><span class="tiny">Monthly hours saved</span><b data-demo-field="hours-saved">Sample data</b></div></div><div class="lineage event-log" id="demoEventLog" role="log" aria-live="polite" aria-relevant="additions text" aria-label="Synthetic stream event log"><div>Replay idle</div><div>Sample data loaded (illustrative only)</div></div></div>
         </div></div></div>
       </section>
       <section class="slide" data-step="2" data-title="Map">
-        <div class="hero"><div><h1>Map the process</h1><p class="helper">End-to-end process mapping with source lineage. Pain points, actors, exports, and target states are traced to a source export ID.</p></div><span class="pill teal">2 of 6</span></div>
+        <div class="hero"><div><h2>Map the process</h2><p class="helper">End-to-end process mapping with source lineage. Pain points, actors, exports, and target states are traced to a source export ID.</p></div><span class="pill teal">2 of 6</span></div>
         <div class="screen"><div class="screen-bar"><div class="screen-title">Map · End-to-end process mapping with source lineage</div><div class="screen-actions"><span class="badge teal">Source-linked</span><span class="badge">Order-to-cash</span></div></div><div class="content"><div class="grid">
           <div class="card col-8 soft"><h3>Order-to-cash process summary</h3><p>From customer order through credit check, warehouse, shipment, invoicing, bank receipt, reconciliation, dispute, period close, and leadership review.</p><div class="list"><div class="row"><span>Receive order → Credit check → Pick and pack</span><span class="badge teal">Customer + Warehouse</span></div><div class="row"><span>Ship goods → Invoice customer → Receive bank receipt</span><span class="badge">Finance + Carrier</span></div><div class="row"><span>Reconcile accounts → Handle dispute → Close period → Review KPIs</span><span class="badge amber">Finance + Commercial</span></div></div></div>
           <div class="card col-4"><h3>Coverage</h3><div class="metric" data-demo-field="process-coverage">100%</div><p><b data-demo-field="mapped-phases">5</b> phases mapped across the end-to-end process.</p></div>
           <div class="card col-4 soft"><h3>High-pain steps</h3><div class="metric" data-demo-field="high-pain-steps">4</div><p>Steps tagged high value with a recorded pain point and target state.</p></div>
           <div class="card col-4"><h3>Source exports used</h3><div class="metric" data-demo-field="source-exports-used">8</div><p>Every process step links to a classified source export ID.</p></div>
-          <div class="card col-4"><h3>Process map example</h3><p>Open the interactive prototype to see swim-lanes, pain points, and target-state annotations.</p><button class="control" data-path="../../../docs/prototype-examples/process-map-example.html">Open process map example</button></div>
+          <div class="card col-4"><h3>Process map example</h3><p>Open the interactive prototype to see swim-lanes, pain points, and target-state annotations.</p><a class="control" href="../../../docs/prototype-examples/process-map-example.html" target="_blank" rel="noopener noreferrer" data-path="../../../docs/prototype-examples/process-map-example.html">Open process map example</a></div>
         </div></div></div>
       </section>
       <section class="slide" data-step="3" data-title="Optimise">
-        <div class="hero"><div><h1>Optimise the target state</h1><p class="helper">Target-state redesign, quantified before/after, and a live opportunity catalogue that feeds the decision pack.</p></div><span class="pill teal">3 of 6</span></div>
+        <div class="hero"><div><h2>Optimise the target state</h2><p class="helper">Target-state redesign, quantified before/after, and a live opportunity catalogue that feeds the decision pack.</p></div><span class="pill teal">3 of 6</span></div>
         <div class="screen"><div class="screen-bar"><div class="screen-title">Optimise · Target-state redesign and opportunity catalogue</div><div class="screen-actions"><span class="badge teal">Value-led</span><span class="badge">Evidence-backed</span></div></div><div class="content"><div class="grid">
           <div class="card col-12"><h3>Opportunity board</h3><p class="tiny"><span data-demo-field="opportunity-count">6</span> opportunities from the value realisation catalogue.</p><div class="board"><div class="opp"><b>Order intake</b><p class="tiny">Effort M · Value H · Risk L</p><span class="badge green">Live</span></div><div class="opp"><b>Reconciliation</b><p class="tiny">Effort H · Value H · Risk M</p><span class="badge amber">Pilot</span></div><div class="opp"><b>Report consolidation</b><p class="tiny">Effort M · Value H · Risk L</p><span class="badge green">Live</span></div><div class="opp"><b>Power BI Desktop pilot</b><p class="tiny">Effort M · Value M · Risk L</p><span class="badge amber">Pilot</span></div><div class="opp"><b>Glossary rollout</b><p class="tiny">Effort M · Value M · Risk L</p><span class="badge teal">Ready</span></div><div class="opp"><b>ERP decision pack</b><p class="tiny">Effort H · Value H · Risk H</p><span class="badge">Steering</span></div></div></div>
           <div class="card col-3 soft"><h3>Total annual value</h3><div class="metric" data-demo-field="opportunity-total-value">€115k</div></div>
           <div class="card col-3 soft"><h3>Top pick</h3><div class="metric" style="font-size:20px;" data-demo-field="top-opportunity">Order intake assistant</div></div>
           <div class="card col-3 soft"><h3>Quick wins</h3><div class="metric" data-demo-field="quick-win-count">0</div><p>Effort L and value H or M.</p></div>
-          <div class="card col-3"><h3>Catalogue and dictionary</h3><button class="control" data-path="../../../docs/prototype-examples/opportunity-catalogue-example.html">Open opportunity catalogue</button><button class="control secondary" data-path="../../../docs/prototype-examples/data-dictionary-example.html" style="margin-top:8px;">Open data dictionary</button></div>
+          <div class="card col-3"><h3>Catalogue and dictionary</h3><a class="control" href="../../../docs/prototype-examples/opportunity-catalogue-example.html" target="_blank" rel="noopener noreferrer" data-path="../../../docs/prototype-examples/opportunity-catalogue-example.html">Open opportunity catalogue</a><a class="control secondary" href="../../../docs/prototype-examples/data-dictionary-example.html" target="_blank" rel="noopener noreferrer" data-path="../../../docs/prototype-examples/data-dictionary-example.html" style="margin-top:8px;">Open data dictionary</a></div>
         </div></div></div>
       </section>
       <section class="slide" data-step="4" data-title="Build">
-        <div class="hero"><div><h1>Build the pilot</h1><p class="helper">Power BI Desktop BICC pilot, order intake, and finance reconciliation Approval Envelopes. AI proposes; a named human decides.</p></div><span class="pill teal">4 of 6</span></div>
+        <div class="hero"><div><h2>Build the pilot</h2><p class="helper">Power BI Desktop BICC pilot, order intake, and finance reconciliation Approval Envelopes. AI proposes; a named human decides.</p></div><span class="pill teal">4 of 6</span></div>
         <div class="screen"><div class="screen-bar"><div class="screen-title">Build · Power BI Desktop BICC pilot and Approval Envelopes</div><button class="control" data-demo-action="approve-draft">Review draft only</button></div><div class="content"><div class="grid">
           <div class="card col-6"><h3>Order intake Approval Envelope</h3><p><b data-demo-field="order-lines">2</b> synthetic draft lines loaded; status <b data-demo-field="approval-status">PENDING_HUMAN_REVIEW</b>; write-back <b data-demo-field="order-writeback">NO_WRITE_BACK</b>.</p><div class="list"><div class="row"><span>Customer account</span><b data-demo-field="order-customer">Neutral trade account</b></div><div class="row"><span>Delivery date</span><b data-demo-field="order-date">Friday, pending calendar check</b></div><div class="row"><span>Line item 1</span><b data-demo-field="order-line-1">24 cases</b></div><div class="row"><span>Line item 2</span><b data-demo-field="order-line-2">12 cases</b></div></div><div class="banner">Approval Envelope active: AI proposes; a named human decides. Demo stream is a synthetic file-export simulation, not a live connector or real client data.</div></div>
           <div class="card col-6"><h3>Finance reconciliation</h3><div class="grid"><div class="card soft col-6"><h3>Matched</h3><div class="metric" data-demo-field="reconciliation-matched">3</div></div><div class="card soft col-6"><h3>Unmatched</h3><div class="metric" data-demo-field="reconciliation-unmatched">1</div></div><div class="card soft col-6"><h3>Flagged</h3><div class="metric" data-demo-field="reconciliation-flagged">1</div></div><div class="card soft col-6"><h3>Bank receipts matched</h3><div class="metric" data-demo-field="bank-total">€37,750</div></div></div></div>
-          <div class="card col-3 soft"><h3>BICC pilot</h3><p>Power BI Desktop proves the BI track without adding licences or live connectors.</p><button class="control secondary" data-path="../../../docs/prototype-examples/bicc-pilot-example.html">Open BICC pilot example</button></div>
-          <div class="card col-3"><h3>Approval Envelope</h3><p>Human-in-the-loop sign-off before any write-back.</p><button class="control secondary" data-path="../../../docs/prototype-examples/approval-envelope-example.html">Open approval envelope example</button></div>
-          <div class="card col-3 soft"><h3>Manual report consolidation</h3><p>One manual report becomes a source-linked Power BI Desktop pilot.</p><button class="control secondary" data-path="../../../docs/06-wave-1/manual-report-consolidation-plan.html">Open consolidation plan</button></div>
-          <div class="card col-3"><h3>Power BI build pack</h3><p>Step-by-step build instructions for the BICC pilot.</p><button class="control secondary" data-path="../../../docs/prototype-examples/power-bi-build-pack-example.html">Open Power BI build pack</button></div>
+          <div class="card col-3 soft"><h3>BICC pilot</h3><p>Power BI Desktop proves the BI track without adding licences or live connectors.</p><a class="control secondary" href="../../../docs/prototype-examples/bicc-pilot-example.html" target="_blank" rel="noopener noreferrer" data-path="../../../docs/prototype-examples/bicc-pilot-example.html">Open BICC pilot example</a></div>
+          <div class="card col-3"><h3>Approval Envelope</h3><p>Human-in-the-loop sign-off before any write-back.</p><a class="control secondary" href="../../../docs/prototype-examples/approval-envelope-example.html" target="_blank" rel="noopener noreferrer" data-path="../../../docs/prototype-examples/approval-envelope-example.html">Open approval envelope example</a></div>
+          <div class="card col-3 soft"><h3>Manual report consolidation</h3><p>One manual report becomes a source-linked Power BI Desktop pilot.</p><a class="control secondary" href="../../../docs/06-wave-1/manual-report-consolidation-plan.html" target="_blank" rel="noopener noreferrer" data-path="../../../docs/06-wave-1/manual-report-consolidation-plan.html">Open consolidation plan</a></div>
+          <div class="card col-3"><h3>Power BI build pack</h3><p>Step-by-step build instructions for the BICC pilot.</p><a class="control secondary" href="../../../docs/prototype-examples/power-bi-build-pack-example.html" target="_blank" rel="noopener noreferrer" data-path="../../../docs/prototype-examples/power-bi-build-pack-example.html">Open Power BI build pack</a></div>
         </div></div></div>
       </section>
       <section class="slide" data-step="5" data-title="Operate">
-        <div class="hero"><div><h1>Operate with proof</h1><p class="helper">Audit trail, value realisation, adoption, and AI-literacy programme. Evidence is source-linked and human-gated.</p></div><span class="pill teal">5 of 6</span></div>
+        <div class="hero"><div><h2>Operate with proof</h2><p class="helper">Audit trail, value realisation, adoption, and AI-literacy programme. Evidence is source-linked and human-gated.</p></div><span class="pill teal">5 of 6</span></div>
         <div class="screen"><div class="screen-bar"><div class="screen-title">Operate · Audit trail, value realisation, adoption, AI literacy</div><div class="screen-actions"><span class="badge amber">Synthetic / illustrative</span></div></div><div class="content"><div class="grid">
           <div class="card col-4 soft"><h3>Power BI net sales (sample month)</h3><div class="metric" data-demo-field="powerbi-net-sales">€11,753</div><p>Net invoice sales for the sample month. Loaded from sample exports; replace only after client exports and validation.</p></div>
           <div class="card col-8"><h3>Source-linked Audit Trail</h3><details open><summary>Expand source trace</summary><div class="lineage"><div>Source: <span data-demo-field="audit-source">Sales invoice export</span></div><div>Rows: <span data-demo-field="audit-rows">Sample data</span></div><div>Formula: net sales = gross sales - discounts - credit notes</div><div>Recent action: <span data-demo-field="audit-action">draft refresh; no auto-posting</span></div></div></details></div>
           <div class="card col-3 soft"><h3>Hours saved</h3><div class="metric" data-demo-field="value-hours">303</div></div><div class="card col-3 soft"><h3>Annualised value (all automations)</h3><div class="metric" data-demo-field="value-eur">€115k</div></div><div class="card col-3 soft"><h3>Automations live</h3><div class="metric" data-demo-field="automations-live">4</div></div><div class="card col-3 soft"><h3>Active users</h3><div class="metric" data-demo-field="active-users">8</div></div><div class="card col-3 soft"><h3>AI literacy completions</h3><div class="metric" data-demo-field="literacy-completions">21/35</div></div>
-          <div class="card col-9"><h3>Operate examples</h3><p>Open the source-linked audit trail and AI-literacy programme prototypes.</p><div class="screen-actions"><button class="control secondary" data-path="../../../docs/prototype-examples/source-linked-audit-trail-example.html">Open source-linked audit trail example</button><button class="control secondary" data-path="../../../docs/prototype-examples/ai-literacy-programme-example.html">Open AI literacy programme example</button></div></div>
+          <div class="card col-9"><h3>Operate examples</h3><p>Open the source-linked audit trail and AI-literacy programme prototypes.</p><div class="screen-actions"><a class="control secondary" href="../../../docs/prototype-examples/source-linked-audit-trail-example.html" target="_blank" rel="noopener noreferrer" data-path="../../../docs/prototype-examples/source-linked-audit-trail-example.html">Open source-linked audit trail example</a><a class="control secondary" href="../../../docs/prototype-examples/ai-literacy-programme-example.html" target="_blank" rel="noopener noreferrer" data-path="../../../docs/prototype-examples/ai-literacy-programme-example.html">Open AI literacy programme example</a></div></div>
         </div></div></div>
       </section>
       <section class="slide" data-step="6" data-title="Decide">
-        <div class="hero"><div><h1>Decide what happens next</h1><p class="helper">Vendor-neutral Next-ERP decision pack, evidence gates, and commercial close. The team leaves with a maintainable pilot, not a demo maze.</p></div><span class="pill teal">6 of 6</span></div>
+        <div class="hero"><div><h2>Decide what happens next</h2><p class="helper">Vendor-neutral Next-ERP decision pack, evidence gates, and commercial close. The team leaves with a maintainable pilot, not a demo maze.</p></div><span class="pill teal">6 of 6</span></div>
         <div class="screen"><div class="screen-bar"><div class="screen-title">Decide · Next-ERP decision pack and evidence gates</div><div class="screen-actions"><button class="control secondary" data-restart>Restart walkthrough</button><a class="control" href="mailto:hello@angelsoftware.solutions?subject=Top%20Spirit%20pilot%20scoping%20call">Request scoping call</a></div></div><div class="content"><div class="grid">
           <div class="card col-6 table-scroll"><h3>Next-ERP decision support</h3><table class="compare"><thead><tr><th>Criterion</th><th>Brownfield</th><th>Greenfield</th></tr></thead><tbody><tr><td>Cost</td><td>Lower initial change; legacy constraints remain.</td><td>Higher programme cost; cleaner target architecture.</td></tr><tr><td>Time to value</td><td>Faster if current processes are stable.</td><td>Slower, but may remove structural friction.</td></tr><tr><td>Export Layer fit</td><td>Works now and survives incremental changes.</td><td>Works as bridge and migration evidence base.</td></tr><tr><td>AI literacy impact</td><td>Upskills users around current exports and controls.</td><td>Requires broader retraining during process change.</td></tr></tbody></table></div>
-          <div class="card col-6 soft"><h3>Open evidence gates</h3><div class="list"><div class="row"><span>BICC export inventory sign-off</span><span class="badge amber">client needed</span></div><div class="row"><span>Business-user report acceptance</span><span class="badge amber">client needed</span></div><div class="row"><span>Steering governance review</span><span class="badge amber">client needed</span></div></div><button class="control" data-path="../../../docs/prototype-examples/next-erp-decision-pack-example.html" style="margin-top:12px;">Open Next-ERP decision pack example</button></div>
-          <div class="card col-12"><h3>Guide buttons</h3><p>Detailed proof is one click away when the reviewer wants it, not forced into the main path.</p><div class="screen-actions"><button class="control secondary" data-path="../../../docs/05-phase-0/data-classification-and-export-inventory.html">Classification guide</button><button class="control secondary" data-path="../../../docs/05-phase-0/knowledge-capture-and-input-pack.html">Input pack</button><button class="control secondary" data-path="../../../docs/06-wave-1/order-to-cash-process-map.html">Process map</button><button class="control secondary" data-path="../../../docs/06-wave-1/manual-report-consolidation-plan.html">Consolidation plan</button><button class="control secondary" data-path="../../../docs/06-wave-1/power-bi-desktop-pilot-build-pack.html">Power BI build pack</button></div></div>
+          <div class="card col-6 soft"><h3>Open evidence gates</h3><div class="list"><div class="row"><span>BICC export inventory sign-off</span><span class="badge amber">client needed</span></div><div class="row"><span>Business-user report acceptance</span><span class="badge amber">client needed</span></div><div class="row"><span>Steering governance review</span><span class="badge amber">client needed</span></div></div><a class="control" href="../../../docs/prototype-examples/next-erp-decision-pack-example.html" target="_blank" rel="noopener noreferrer" data-path="../../../docs/prototype-examples/next-erp-decision-pack-example.html" style="margin-top:12px;">Open Next-ERP decision pack example</a></div>
+          <div class="card col-12"><h3>Guide buttons</h3><p>Detailed proof is one click away when the reviewer wants it, not forced into the main path.</p><div class="screen-actions"><a class="control secondary" href="../../../docs/05-phase-0/data-classification-and-export-inventory.html" target="_blank" rel="noopener noreferrer" data-path="../../../docs/05-phase-0/data-classification-and-export-inventory.html">Classification guide</a><a class="control secondary" href="../../../docs/05-phase-0/knowledge-capture-and-input-pack.html" target="_blank" rel="noopener noreferrer" data-path="../../../docs/05-phase-0/knowledge-capture-and-input-pack.html">Input pack</a><a class="control secondary" href="../../../docs/06-wave-1/order-to-cash-process-map.html" target="_blank" rel="noopener noreferrer" data-path="../../../docs/06-wave-1/order-to-cash-process-map.html">Process map</a><a class="control secondary" href="../../../docs/06-wave-1/manual-report-consolidation-plan.html" target="_blank" rel="noopener noreferrer" data-path="../../../docs/06-wave-1/manual-report-consolidation-plan.html">Consolidation plan</a><a class="control secondary" href="../../../docs/06-wave-1/power-bi-desktop-pilot-build-pack.html" target="_blank" rel="noopener noreferrer" data-path="../../../docs/06-wave-1/power-bi-desktop-pilot-build-pack.html">Power BI build pack</a></div></div>
         </div></div></div>
       </section>
       <div class="progress-wrap"><div><b id="stepLabel">1 of 6</b><div class="tiny">Use arrow keys, side nav, or buttons.</div></div><div class="dots" id="dots" aria-label="Walkthrough step picker"></div><div class="controls"><button class="control secondary" id="prev">Previous</button><button class="control" id="next">Next</button></div></div>
@@ -466,11 +464,10 @@
     function pauseRealtime() { if (demo.timer) window.clearInterval(demo.timer); demo.timer = null; }
     function resetRealtime() { pauseRealtime(); demo.loaded = false; demo.data = null; demo.eventIndex = 0; setField('demo-status', 'Ready to load synthetic/illustrative CSV, JSON and text exports from the repo sample pack.'); const log = document.querySelector('#demoEventLog'); if (log) log.innerHTML = '<div>Replay idle</div><div>Sample data loaded (illustrative only)</div>'; }
     function approveDraft() { setField('approval-status', 'REVIEWER_ACTION_SHOWN_DRAFT_ONLY'); setField('audit-action', 'reviewer action demonstrated; no write-back performed'); pushEvent('presenter clicked approval control (demo only, no write-back)'); }
-    document.querySelectorAll('button[data-path]').forEach((button) => {
-      const path = button.getAttribute('data-path');
-      button.setAttribute('aria-label', `${button.textContent.trim()} opens in a new tab`);
-      button.addEventListener('click', () => {
-        window.open(path, '_blank', 'noopener,noreferrer');
+    document.querySelectorAll('[data-path]').forEach((el) => {
+      const path = el.getAttribute('data-path');
+      el.setAttribute('aria-label', `${el.textContent.trim()} opens in a new tab`);
+      el.addEventListener('click', () => {
         const log = document.querySelector('#demoEventLog');
         if (log) log.prepend(Object.assign(document.createElement('div'), { textContent: `Opened proof document: ${path}` }));
       });
