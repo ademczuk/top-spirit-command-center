@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Data dictionary — business glossary — Top Spirit Command Center</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --deep:#07111F; --surface:#101B2A; --line:#1d2c40; --border:#2a3a4f;
+  --gold:#D6A94A; --teal:#0D9488; --cream:#F6F1E8; --paper:#FBF8F1;
+  --ink:#10243a; --muted:#5b6b7d; --clay:#B45309;
+  --green-bg:#e6f4f1; --green-text:#0f5c54;
+  --yellow-bg:#faf3e3; --yellow-text:#7a5c20;
+  --red-bg:#fceae6; --red-text:#8c3a2a;
+  --slate-bg:#eef2f7; --slate-text:#475569;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0; font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  color:var(--ink); background:linear-gradient(160deg,var(--deep) 0%,var(--surface) 100%);
+  background-attachment:fixed; line-height:1.65;
+}
+.topbar{
+  position:sticky; top:0; z-index:10; display:flex; align-items:center; justify-content:space-between;
+  gap:18px; padding:14px 28px; background:rgba(7,17,31,.92); backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--border);
+}
+.brand{display:flex; flex-direction:column; line-height:1.2;}
+.brand .name{color:#fff; font-weight:800; letter-spacing:-.01em; font-size:15px;}
+.brand .sub{color:var(--gold); font-size:11px; text-transform:uppercase; letter-spacing:.14em;}
+.back{
+  color:#cdd8e6; text-decoration:none; font-size:14px; font-weight:600; white-space:nowrap;
+  border:1px solid var(--border); padding:8px 14px; border-radius:9px; transition:all .15s;
+}
+.back:hover{color:#fff; border-color:var(--gold); background:rgba(214,169,74,.12);}
+.wrap{max-width:980px; margin:34px auto 60px; padding:0 22px;}
+.doc{
+  background:var(--paper); border-radius:16px; padding:54px 56px;
+  box-shadow:0 24px 60px rgba(0,0,0,.35); border:1px solid rgba(255,255,255,.06);
+}
+.doc h1,.doc h2,.doc h3,.doc h4{font-family:"Playfair Display",Georgia,serif; color:var(--deep); line-height:1.18; letter-spacing:-.01em;}
+.doc h1{font-size:34px; margin:0 0 8px; padding-bottom:16px; border-bottom:3px solid var(--gold);}
+.doc h2{font-size:25px; margin:38px 0 12px;}
+.doc h3{font-size:19px; margin:28px 0 8px;}
+.doc h4{font-size:16px; margin:22px 0 6px; font-family:Inter,sans-serif; font-weight:700;}
+.doc p{margin:12px 0;}
+.doc a{color:var(--teal); text-decoration:none; border-bottom:1px solid rgba(13,148,136,.3);}
+.doc a:hover{color:var(--clay); border-bottom-color:var(--clay);}
+.doc ul,.doc ol{padding-left:24px; margin:12px 0;}
+.doc li{margin:5px 0;}
+.doc strong{color:var(--deep);}
+.doc blockquote{
+  margin:18px 0; padding:12px 20px; border-left:4px solid var(--gold);
+  background:rgba(214,169,74,.08); color:var(--ink); border-radius:0 8px 8px 0;
+}
+.doc blockquote p{margin:6px 0;}
+.doc code{
+  font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace; font-size:.88em;
+  background:#eee6d6; color:#7a4d12; padding:2px 6px; border-radius:5px;
+}
+.doc table{border-collapse:collapse; width:100%; margin:20px 0; font-size:14.5px; overflow:hidden; border-radius:10px;}
+.doc thead th{background:var(--deep); color:#fff; text-align:left; padding:11px 14px; font-weight:600;}
+.doc tbody td{padding:10px 14px; border-bottom:1px solid #e6ddca; vertical-align:top;}
+.doc tbody tr:nth-child(even){background:rgba(16,36,58,.035);}
+.doc tbody tr:last-child td{border-bottom:none;}
+.footer{max-width:980px; margin:0 auto 50px; padding:0 22px; color:#8ea2b8; font-size:12.5px; text-align:center;}
+.metrics{display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:16px; margin:24px 0;}
+.metric{background:#fff; border:1px solid #e6ddca; border-radius:12px; padding:18px; box-shadow:0 2px 8px rgba(0,0,0,.04);}
+.metric .label{font-size:12px; text-transform:uppercase; letter-spacing:.08em; color:var(--muted); font-weight:700;}
+.metric .value{font-family:"Playfair Display",Georgia,serif; font-size:32px; color:var(--deep); margin:6px 0 2px;}
+.metric .note{font-size:12px; color:var(--muted);}
+.badge{display:inline-block; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.04em; padding:3px 8px; border-radius:999px; margin:0 3px 3px 0;}
+.badge-approved{background:var(--green-bg); color:var(--green-text);}
+.badge-review{background:var(--yellow-bg); color:var(--yellow-text);}
+.term{font-family:"Playfair Display",Georgia,serif; font-size:17px; color:var(--deep); font-weight:700;}
+@media (max-width:640px){.doc{padding:32px 22px;} .wrap{margin-top:20px;} .doc h1{font-size:27px;} .metrics{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><span class="name">Top Spirit Command Center</span><span class="sub">Angel Software Solutions</span></div>
+  <a class="back" href="../../assets/mockups/walkthrough/index.html">Back to walkthrough</a>
+</header>
+<div class="wrap">
+  <article class="doc">
+    <h1>Business glossary / data dictionary</h1>
+    <blockquote>
+      <p>A single source of truth for the terms that appear in exports, reports and AI prompts. Every term is owned, source-linked and carries a review status before it is used in automation or steering packs.</p>
+    </blockquote>
+
+    <h2>Summary</h2>
+    <div class="metrics" id="summary-metrics">
+      <div class="metric">
+        <div class="label">Approved / Total</div>
+        <div class="value" id="approved-ratio">—</div>
+        <div class="note">glossary terms signed off</div>
+      </div>
+      <div class="metric">
+        <div class="label">Under review</div>
+        <div class="value" id="under-review">—</div>
+        <div class="note">pending owner confirmation</div>
+      </div>
+      <div class="metric">
+        <div class="label">Coverage</div>
+        <div class="value" id="coverage">—</div>
+        <div class="note">approved terms / total terms</div>
+      </div>
+      <div class="metric">
+        <div class="label">Sources</div>
+        <div class="value" id="sources">—</div>
+        <div class="note">distinct export IDs referenced</div>
+      </div>
+    </div>
+
+    <h2>Terms</h2>
+    <div id="table-container"><p>Loading glossary…</p></div>
+  </article>
+</div>
+<footer class="footer">
+  <p>Private pre-call draft for Top Spirit (Marussia) and Angel Software Solutions. Demo values are illustrative; starter data is synthetic; client evidence gates remain explicit.</p>
+</footer>
+<script>
+function statusBadge(s){ return '<span class="badge badge-'+(s==='APPROVED'?'approved':'review')+'">'+s.replace('_',' ')+'</span>'; }
+function parseCSV(text){
+  const lines = text.trim().split(/\r?\n/);
+  const headers = lines[0].split(',').map(h=>h.trim());
+  return lines.slice(1).map(line=>{
+    const vals = line.split(',');
+    const obj={};
+    headers.forEach((h,i)=>obj[h]=(vals[i]||'').trim());
+    return obj;
+  });
+}
+function render(rows){
+  const total = rows.length;
+  const approved = rows.filter(r=>r.review_status==='APPROVED').length;
+  const review = rows.filter(r=>r.review_status==='UNDER_REVIEW').length;
+  const sources = new Set(rows.map(r=>r.source_export)).size;
+  document.getElementById('approved-ratio').textContent = approved+' / '+total;
+  document.getElementById('under-review').textContent = review;
+  document.getElementById('coverage').textContent = Math.round((approved/total)*100)+'%';
+  document.getElementById('sources').textContent = sources;
+
+  let html = '<table><thead><tr><th>Term</th><th>Definition</th><th>Owner</th><th>Source export</th><th>Status</th><th>Notes</th></tr></thead><tbody>';
+  rows.forEach(r=>{
+    html += '<tr>';
+    html += '<td><span class="term">'+r.term+'</span><br><small><code>'+r.term_id+'</code></small></td>';
+    html += '<td>'+r.definition+'</td>';
+    html += '<td>'+r.owner+'</td>';
+    html += '<td><code>'+r.source_export+'</code></td>';
+    html += '<td>'+statusBadge(r.review_status)+'</td>';
+    html += '<td>'+(r.notes||'')+'</td>';
+    html += '</tr>';
+  });
+  html += '</tbody></table>';
+  document.getElementById('table-container').innerHTML = html;
+}
+const FALLBACK = [
+  {term_id:'T-001',term:'Net sales',definition:'Gross invoiced sales value less discounts credit notes and returns',owner:'Finance Controller',source_export:'EXP-ERP-SALES-001',review_status:'APPROVED',notes:'Excludes VAT and duty recoveries'},
+  {term_id:'T-002',term:'Gross profit (GP)',definition:'Net sales minus cost of goods sold',owner:'Finance Controller',source_export:'EXP-ERP-SALES-001',review_status:'APPROVED',notes:'Used in monthly management pack'},
+  {term_id:'T-003',term:'Depletions',definition:'Volume of product removed from inventory to fulfil demand',owner:'Supply Chain Lead',source_export:'EXP-WMS-INV-001',review_status:'APPROVED',notes:'Measured in cases or 9-litre equivalents'},
+  {term_id:'T-004',term:'Off-trade',definition:'Sales channel covering retail grocery and specialist outlets',owner:'Commercial Manager',source_export:'EXP-ERP-SALES-001',review_status:'APPROVED',notes:'Contrast with on-trade'},
+  {term_id:'T-005',term:'On-trade',definition:'Sales channel covering bars restaurants and hotels',owner:'Commercial Manager',source_export:'EXP-ERP-SALES-001',review_status:'APPROVED',notes:'Contrast with off-trade'},
+  {term_id:'T-006',term:'Credit note',definition:'Document reducing amount owed by a customer',owner:'Finance Controller',source_export:'EXP-ERP-AR-001',review_status:'UNDER_REVIEW',notes:'Must include reason code and approver'},
+  {term_id:'T-007',term:'Discount',definition:'Reduction in list price granted to a customer',owner:'Commercial Manager',source_export:'EXP-ERP-SALES-001',review_status:'APPROVED',notes:'Distinguish from credit note'},
+  {term_id:'T-008',term:'Cost of goods sold',definition:'Direct costs attributable to products sold',owner:'Finance Controller',source_export:'EXP-ERP-SALES-001',review_status:'APPROVED',notes:'Includes duty freight and excise where applicable'},
+  {term_id:'T-009',term:'Open invoice',definition:'Customer invoice not yet settled in full',owner:'Finance Controller',source_export:'EXP-ERP-AR-001',review_status:'UNDER_REVIEW',notes:'Basis for cash collection and bank matching'},
+  {term_id:'T-010',term:'Bank reconciliation',definition:'Matching bank transactions to open invoices and credits',owner:'Finance Controller',source_export:'EXP-FIN-BANK-001',review_status:'APPROVED',notes:'Target use case for reconciliation assistant'}
+];
+fetch('../../data/samples/business_glossary.csv')
+  .then(r=>r.text())
+  .then(parseCSV)
+  .then(render)
+  .catch(()=>render(FALLBACK));
+</script>
+</body>
+</html>

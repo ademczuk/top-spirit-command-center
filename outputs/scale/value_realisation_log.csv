@@ -3,3 +3,5 @@ OPP-001,Order intake assistant,live,8.0,2.5,1800,2026-06,165.0,31.50,62370,TS-20
 OPP-003,Manual report consolidation,live,240.0,45.0,4,2026-06,13.0,31.50,4914,TS-2026-0103 time sample + Power BI refresh log,EXP-ERP-SALES-001,BICC Lead,APPROVED
 OPP-002,Reconciliation assistant,piloting,6.0,1.5,1200,2026-06,90.0,31.50,34020,FIN-MATCH-LOG-06 finance matching log,EXP-FIN-BANK-001,Finance Controller,PENDING_HUMAN_APPROVAL
 OPP-004,Power BI Desktop pilot (report prep),piloting,180.0,30.0,4,2026-06,10.0,31.50,3780,BICC-PREP-LOG-06 build/refresh log,EXP-ERP-SALES-001,BICC Lead,PENDING_HUMAN_APPROVAL
+OPP-005,Business glossary rollout,ready,60.0,20.0,20,2026-06,13.3,31.50,5027,GLOS-06 glossary change log,EXP-BICC-GLOS-001,BICC Lead,PENDING_HUMAN_APPROVAL
+OPP-006,ERP decision pack,steering,480.0,120.0,2,2026-06,12.0,31.50,4536,ERP-DEC-06 steering pack evidence,EXP-ERP-MASTER-001,Programme Lead,PENDING_HUMAN_APPROVAL

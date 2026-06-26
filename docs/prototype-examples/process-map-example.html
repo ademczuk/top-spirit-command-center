@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Process map — as-is / to-be order-to-cash — Top Spirit Command Center</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --deep:#07111F; --surface:#101B2A; --line:#1d2c40; --border:#2a3a4f;
+  --gold:#D6A94A; --teal:#0D9488; --cream:#F6F1E8; --paper:#FBF8F1;
+  --ink:#10243a; --muted:#5b6b7d; --clay:#B45309;
+  --green-bg:#e6f4f1; --green-text:#0f5c54;
+  --yellow-bg:#faf3e3; --yellow-text:#7a5c20;
+  --red-bg:#fceae6; --red-text:#8c3a2a;
+  --slate-bg:#eef2f7; --slate-text:#475569;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0; font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  color:var(--ink); background:linear-gradient(160deg,var(--deep) 0%,var(--surface) 100%);
+  background-attachment:fixed; line-height:1.65;
+}
+.topbar{
+  position:sticky; top:0; z-index:10; display:flex; align-items:center; justify-content:space-between;
+  gap:18px; padding:14px 28px; background:rgba(7,17,31,.92); backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--border);
+}
+.brand{display:flex; flex-direction:column; line-height:1.2;}
+.brand .name{color:#fff; font-weight:800; letter-spacing:-.01em; font-size:15px;}
+.brand .sub{color:var(--gold); font-size:11px; text-transform:uppercase; letter-spacing:.14em;}
+.back{
+  color:#cdd8e6; text-decoration:none; font-size:14px; font-weight:600; white-space:nowrap;
+  border:1px solid var(--border); padding:8px 14px; border-radius:9px; transition:all .15s;
+}
+.back:hover{color:#fff; border-color:var(--gold); background:rgba(214,169,74,.12);}
+.wrap{max-width:980px; margin:34px auto 60px; padding:0 22px;}
+.doc{
+  background:var(--paper); border-radius:16px; padding:54px 56px;
+  box-shadow:0 24px 60px rgba(0,0,0,.35); border:1px solid rgba(255,255,255,.06);
+}
+.doc h1,.doc h2,.doc h3,.doc h4{font-family:"Playfair Display",Georgia,serif; color:var(--deep); line-height:1.18; letter-spacing:-.01em;}
+.doc h1{font-size:34px; margin:0 0 8px; padding-bottom:16px; border-bottom:3px solid var(--gold);}
+.doc h2{font-size:25px; margin:38px 0 12px;}
+.doc h3{font-size:19px; margin:28px 0 8px;}
+.doc h4{font-size:16px; margin:22px 0 6px; font-family:Inter,sans-serif; font-weight:700;}
+.doc p{margin:12px 0;}
+.doc a{color:var(--teal); text-decoration:none; border-bottom:1px solid rgba(13,148,136,.3);}
+.doc a:hover{color:var(--clay); border-bottom-color:var(--clay);}
+.doc ul,.doc ol{padding-left:24px; margin:12px 0;}
+.doc li{margin:5px 0;}
+.doc strong{color:var(--deep);}
+.doc blockquote{
+  margin:18px 0; padding:12px 20px; border-left:4px solid var(--gold);
+  background:rgba(214,169,74,.08); color:var(--ink); border-radius:0 8px 8px 0;
+}
+.doc blockquote p{margin:6px 0;}
+.doc code{
+  font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace; font-size:.88em;
+  background:#eee6d6; color:#7a4d12; padding:2px 6px; border-radius:5px;
+}
+.doc table{border-collapse:collapse; width:100%; margin:20px 0; font-size:14.5px; overflow:hidden; border-radius:10px;}
+.doc thead th{background:var(--deep); color:#fff; text-align:left; padding:11px 14px; font-weight:600;}
+.doc tbody td{padding:10px 14px; border-bottom:1px solid #e6ddca; vertical-align:top;}
+.doc tbody tr:nth-child(even){background:rgba(16,36,58,.035);}
+.doc tbody tr:last-child td{border-bottom:none;}
+.footer{max-width:980px; margin:0 auto 50px; padding:0 22px; color:#8ea2b8; font-size:12.5px; text-align:center;}
+.metrics{display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:16px; margin:24px 0;}
+.metric{background:#fff; border:1px solid #e6ddca; border-radius:12px; padding:18px; box-shadow:0 2px 8px rgba(0,0,0,.04);}
+.metric .label{font-size:12px; text-transform:uppercase; letter-spacing:.08em; color:var(--muted); font-weight:700;}
+.metric .value{font-family:"Playfair Display",Georgia,serif; font-size:32px; color:var(--deep); margin:6px 0 2px;}
+.metric .note{font-size:12px; color:var(--muted);}
+.badge{display:inline-block; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.04em; padding:3px 8px; border-radius:999px; margin:0 3px 3px 0;}
+.badge-L{background:var(--green-bg); color:var(--green-text);}
+.badge-M{background:var(--yellow-bg); color:var(--yellow-text);}
+.badge-H{background:var(--red-bg); color:var(--red-text);}
+.phase-group{margin:28px 0;}
+.phase-title{font-family:"Playfair Display",Georgia,serif; font-size:20px; color:var(--deep); margin:0 0 10px; display:flex; align-items:center; gap:10px;}
+.phase-title .dot{width:10px; height:10px; border-radius:50%; background:var(--teal);}
+@media (max-width:640px){.doc{padding:32px 22px;} .wrap{margin-top:20px;} .doc h1{font-size:27px;} .metrics{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><span class="name">Top Spirit Command Center</span><span class="sub">Angel Software Solutions</span></div>
+  <a class="back" href="../../assets/mockups/walkthrough/index.html">Back to walkthrough</a>
+</header>
+<div class="wrap">
+  <article class="doc">
+    <h1>Order-to-cash process map</h1>
+    <blockquote>
+      <p>As-is pain points and target-state fixes for the order-to-cash value chain. Each step is classified by effort, value and risk so the programme can sequence quick wins before heavier transformations.</p>
+    </blockquote>
+
+    <h2>Summary</h2>
+    <div class="metrics" id="summary-metrics">
+      <div class="metric">
+        <div class="label">Coverage</div>
+        <div class="value" id="cov-pct">—</div>
+        <div class="note">of steps mapped to target state</div>
+      </div>
+      <div class="metric">
+        <div class="label">High-pain steps</div>
+        <div class="value" id="high-pain">—</div>
+        <div class="note">high effort or high value</div>
+      </div>
+      <div class="metric">
+        <div class="label">Quick wins</div>
+        <div class="value" id="quick-wins">—</div>
+        <div class="note">low effort + high value</div>
+      </div>
+      <div class="metric">
+        <div class="label">Phases</div>
+        <div class="value">5</div>
+        <div class="note">Receive → Process → Fulfil → Settle → Close</div>
+      </div>
+    </div>
+
+    <h2>Process steps</h2>
+    <div id="process-container"><p>Loading process steps…</p></div>
+  </article>
+</div>
+<footer class="footer">
+  <p>Private pre-call draft for Top Spirit (Marussia) and Angel Software Solutions. Demo values are illustrative; starter data is synthetic; client evidence gates remain explicit.</p>
+</footer>
+<script>
+const PHASE_ORDER = ['Receive','Process','Fulfil','Settle','Close'];
+const PHASE_MAP = {
+  'PS-001':'Receive',
+  'PS-002':'Process','PS-008':'Process',
+  'PS-003':'Fulfil','PS-004':'Fulfil',
+  'PS-005':'Settle','PS-006':'Settle','PS-007':'Settle',
+  'PS-009':'Close','PS-010':'Close'
+};
+function badge(level){ return '<span class="badge badge-'+level+'">'+level+'</span>'; }
+function parseCSV(text){
+  const lines = text.trim().split(/\r?\n/);
+  const headers = lines[0].split(',').map(h=>h.trim());
+  return lines.slice(1).map(line=>{
+    const vals = line.split(',');
+    const obj={};
+    headers.forEach((h,i)=>obj[h]=(vals[i]||'').trim());
+    return obj;
+  });
+}
+function render(rows){
+  rows.forEach(r=>r.canonical_phase = PHASE_MAP[r.step_id] || 'Other');
+  const cov = rows.filter(r=>r.target_state).length;
+  document.getElementById('cov-pct').textContent = Math.round((cov/rows.length)*100)+'%';
+  const highPain = rows.filter(r=>r.effort==='H' || r.value==='H').length;
+  document.getElementById('high-pain').textContent = highPain;
+  const quickWins = rows.filter(r=>r.effort==='L' && r.value==='H').length;
+  document.getElementById('quick-wins').textContent = quickWins;
+
+  const byPhase = {};
+  PHASE_ORDER.forEach(p=>byPhase[p]=[]);
+  rows.forEach(r=>{ if(byPhase[r.canonical_phase]) byPhase[r.canonical_phase].push(r); });
+
+  let html='';
+  PHASE_ORDER.forEach(phase=>{
+    const steps = byPhase[phase];
+    if(!steps.length) return;
+    html += '<div class="phase-group"><h3 class="phase-title"><span class="dot"></span>'+phase+'</h3>';
+    html += '<table><thead><tr><th>Step</th><th>Activity</th><th>Actor</th><th>System export</th><th>Pain point</th><th>Target-state fix</th><th>Effort / Value / Risk</th></tr></thead><tbody>';
+    steps.forEach(s=>{
+      html += '<tr>';
+      html += '<td><code>'+s.step_id+'</code></td>';
+      html += '<td>'+s.activity+'</td>';
+      html += '<td>'+s.actor+'</td>';
+      html += '<td><code>'+s.system_export+'</code><br><small>'+s.source_export_id+'</small></td>';
+      html += '<td>'+s.pain_point+'</td>';
+      html += '<td>'+s.target_state+'</td>';
+      html += '<td>'+badge(s.effort)+badge(s.value)+badge(s.risk)+'</td>';
+      html += '</tr>';
+    });
+    html += '</tbody></table></div>';
+  });
+  document.getElementById('process-container').innerHTML = html;
+}
+const FALLBACK = [
+  {step_id:'PS-001',phase:'Order-to-cash',activity:'Receive order',actor:'Customer service',system_export:'Email / order portal',pain_point:'Manual rekeying of order details into ERP creates duplicate entries and delays',target_state:'Auto-captured draft order queued in Approval Envelope for review',effort:'M',value:'H',risk:'L',source_export_id:'EXP-CS-ORDERS-001'},
+  {step_id:'PS-002',phase:'Order-to-cash',activity:'Credit check',actor:'Finance / Customer service',system_export:'ERP customer master',pain_point:'Disconnected credit-limit checks delay release and cause ad-hoc emails',target_state:'Real-time credit-hold flag visible before pick release',effort:'M',value:'M',risk:'M',source_export_id:'EXP-ERP-AR-001'},
+  {step_id:'PS-003',phase:'Warehouse',activity:'Pick and pack',actor:'Warehouse operative',system_export:'WMS / ERP inventory',pain_point:'Paper pick lists re-printed and rescanned; wrong quantity logged',target_state:'Digitised pick list with barcode confirmation and quantity check',effort:'M',value:'M',risk:'L',source_export_id:'EXP-WMS-INV-001'},
+  {step_id:'PS-004',phase:'Warehouse',activity:'Ship goods',actor:'Warehouse / Carrier',system_export:'Carrier portal',pain_point:'Tracking reference entered manually after phone call to carrier',target_state:'Carrier label and tracking reference auto-posted to ERP',effort:'M',value:'M',risk:'L',source_export_id:'EXP-WMS-SHIP-001'},
+  {step_id:'PS-005',phase:'Finance',activity:'Invoice customer',actor:'Finance clerk',system_export:'ERP billing',pain_point:'Invoice PDF manually attached to email and sent to customer',target_state:'E-invoice generated and dispatched directly from the system',effort:'L',value:'M',risk:'L',source_export_id:'EXP-ERP-SALES-001'},
+  {step_id:'PS-006',phase:'Finance',activity:'Receive bank receipt',actor:'Finance clerk',system_export:'Bank feed',pain_point:'Unallocated receipts require manual matching in spreadsheet',target_state:'Suggested match queued in Approval Envelope for one-click sign-off',effort:'H',value:'H',risk:'M',source_export_id:'EXP-FIN-BANK-001'},
+  {step_id:'PS-007',phase:'Finance',activity:'Reconcile accounts',actor:'Finance controller',system_export:'ERP + bank feed',pain_point:'Duplicate line-by-line spreadsheet comparison each period end',target_state:'Automated reconciliation with source-linked exception list',effort:'H',value:'H',risk:'M',source_export_id:'EXP-FIN-BANK-001'},
+  {step_id:'PS-008',phase:'Finance',activity:'Handle dispute',actor:'Customer service / Finance',system_export:'CRM / ERP',pain_point:'Dispute notes copied between email threads and ERP',target_state:'Single case file with status history and audit trail',effort:'M',value:'M',risk:'M',source_export_id:'EXP-CRM-DISP-001'},
+  {step_id:'PS-009',phase:'Commercial',activity:'Close period reporting',actor:'BICC / Commercial',system_export:'ERP + Power BI',pain_point:'Manual consolidation of multiple workbooks before leadership review',target_state:'Source-linked report refreshed from export layer',effort:'H',value:'H',risk:'L',source_export_id:'EXP-ERP-SALES-001'},
+  {step_id:'PS-010',phase:'Management',activity:'Review KPI pack',actor:'Leadership',system_export:'Power BI',pain_point:'Static slide snapshots with no drill-down or audit trail',target_state:'Live self-service dashboard with source-linked figures',effort:'L',value:'H',risk:'L',source_export_id:'EXP-BICC-RPT-001'}
+];
+fetch('../../data/samples/process_steps.csv')
+  .then(r=>r.text())
+  .then(parseCSV)
+  .then(render)
+  .catch(()=>render(FALLBACK));
+</script>
+</body>
+</html>

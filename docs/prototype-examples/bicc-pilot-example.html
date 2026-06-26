@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Power BI Desktop BICC pilot — Top Spirit Command Center</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --deep:#07111F; --surface:#101B2A; --line:#1d2c40; --border:#2a3a4f;
+  --gold:#D6A94A; --teal:#0D9488; --cream:#F6F1E8; --paper:#FBF8F1;
+  --ink:#10243a; --muted:#5b6b7d; --clay:#B45309;
+  --green-bg:#e6f4f1; --green-text:#0f5c54;
+  --yellow-bg:#faf3e3; --yellow-text:#7a5c20;
+  --red-bg:#fceae6; --red-text:#8c3a2a;
+  --slate-bg:#eef2f7; --slate-text:#475569;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0; font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  color:var(--ink); background:linear-gradient(160deg,var(--deep) 0%,var(--surface) 100%);
+  background-attachment:fixed; line-height:1.65;
+}
+.topbar{
+  position:sticky; top:0; z-index:10; display:flex; align-items:center; justify-content:space-between;
+  gap:18px; padding:14px 28px; background:rgba(7,17,31,.92); backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--border);
+}
+.brand{display:flex; flex-direction:column; line-height:1.2;}
+.brand .name{color:#fff; font-weight:800; letter-spacing:-.01em; font-size:15px;}
+.brand .sub{color:var(--gold); font-size:11px; text-transform:uppercase; letter-spacing:.14em;}
+.back{
+  color:#cdd8e6; text-decoration:none; font-size:14px; font-weight:600; white-space:nowrap;
+  border:1px solid var(--border); padding:8px 14px; border-radius:9px; transition:all .15s;
+}
+.back:hover{color:#fff; border-color:var(--gold); background:rgba(214,169,74,.12);}
+.wrap{max-width:980px; margin:34px auto 60px; padding:0 22px;}
+.doc{
+  background:var(--paper); border-radius:16px; padding:54px 56px;
+  box-shadow:0 24px 60px rgba(0,0,0,.35); border:1px solid rgba(255,255,255,.06);
+}
+.doc h1,.doc h2,.doc h3,.doc h4{font-family:"Playfair Display",Georgia,serif; color:var(--deep); line-height:1.18; letter-spacing:-.01em;}
+.doc h1{font-size:34px; margin:0 0 8px; padding-bottom:16px; border-bottom:3px solid var(--gold);}
+.doc h2{font-size:25px; margin:38px 0 12px;}
+.doc h3{font-size:19px; margin:28px 0 8px;}
+.doc h4{font-size:16px; margin:22px 0 6px; font-family:Inter,sans-serif; font-weight:700;}
+.doc p{margin:12px 0;}
+.doc a{color:var(--teal); text-decoration:none; border-bottom:1px solid rgba(13,148,136,.3);}
+.doc a:hover{color:var(--clay); border-bottom-color:var(--clay);}
+.doc ul,.doc ol{padding-left:24px; margin:12px 0;}
+.doc li{margin:5px 0;}
+.doc strong{color:var(--deep);}
+.doc blockquote{
+  margin:18px 0; padding:12px 20px; border-left:4px solid var(--gold);
+  background:rgba(214,169,74,.08); color:var(--ink); border-radius:0 8px 8px 0;
+}
+.doc blockquote p{margin:6px 0;}
+.doc code{
+  font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace; font-size:.88em;
+  background:#eee6d6; color:#7a4d12; padding:2px 6px; border-radius:5px;
+}
+.doc table{border-collapse:collapse; width:100%; margin:20px 0; font-size:14.5px; overflow:hidden; border-radius:10px;}
+.doc thead th{background:var(--deep); color:#fff; text-align:left; padding:11px 14px; font-weight:600;}
+.doc tbody td{padding:10px 14px; border-bottom:1px solid #e6ddca; vertical-align:top;}
+.doc tbody tr:nth-child(even){background:rgba(16,36,58,.035);}
+.doc tbody tr:last-child td{border-bottom:none;}
+.footer{max-width:980px; margin:0 auto 50px; padding:0 22px; color:#8ea2b8; font-size:12.5px; text-align:center;}
+.metrics{display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:16px; margin:24px 0;}
+.metric{background:#fff; border:1px solid #e6ddca; border-radius:12px; padding:18px; box-shadow:0 2px 8px rgba(0,0,0,.04);}
+.metric .label{font-size:12px; text-transform:uppercase; letter-spacing:.08em; color:var(--muted); font-weight:700;}
+.metric .value{font-family:"Playfair Display",Georgia,serif; font-size:32px; color:var(--deep); margin:6px 0 2px;}
+.metric .note{font-size:12px; color:var(--muted);}
+.card{background:#fff; border:1px solid #e6ddca; border-radius:12px; padding:22px; margin:16px 0; box-shadow:0 2px 8px rgba(0,0,0,.04);}
+.card h4{margin-top:0;}
+.lineage{display:flex; align-items:center; gap:8px; flex-wrap:wrap; font-size:13px; margin:10px 0;}
+.lineage span{background:#eef2f7; color:var(--ink); padding:6px 12px; border-radius:6px; border:1px solid #dde4ed; font-weight:600;}
+.lineage .arrow{color:var(--muted); font-weight:800;}
+.report-page{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; margin:18px 0;}
+.page-tile{background:#fff; border:1px solid #e6ddca; border-radius:12px; padding:18px; box-shadow:0 2px 8px rgba(0,0,0,.04); border-top:4px solid var(--teal);}
+.page-tile h4{margin-top:0; margin-bottom:8px;}
+.page-tile p{font-size:13px; color:var(--muted); margin:0;}
+.badge{display:inline-block; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.04em; padding:3px 8px; border-radius:999px; margin:0 3px 3px 0;}
+.badge-teal{background:#e6f4f1; color:#0f5c54;}
+@media (max-width:640px){.doc{padding:32px 22px;} .wrap{margin-top:20px;} .doc h1{font-size:27px;} .metrics{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><span class="name">Top Spirit Command Center</span><span class="sub">Angel Software Solutions</span></div>
+  <a class="back" href="../../assets/mockups/walkthrough/index.html">Back to walkthrough</a>
+</header>
+<div class="wrap">
+  <article class="doc">
+    <h1>Power BI Desktop BICC pilot</h1>
+    <blockquote>
+      <p>A low-cost, file-export-based pilot that rebuilds the leadership pack in Power BI Desktop before any new licences or live connectors are procured.</p>
+    </blockquote>
+
+    <h2>Pilot scope</h2>
+    <p>The pilot uses classified file exports from the legacy ERP and bank portal. All data is loaded through Power Query from CSV/XLSX files, transformed inside Power BI Desktop, and visualised in a small set of report pages. No direct database connections, no new Power BI Service licences and no live connectors are needed during the pilot.</p>
+
+    <div class="metrics">
+      <div class="metric">
+        <div class="label">Licences</div>
+        <div class="value">0</div>
+        <div class="note">uses existing Microsoft 365 E3</div>
+      </div>
+      <div class="metric">
+        <div class="label">Connectors</div>
+        <div class="value">0</div>
+        <div class="note">file exports only</div>
+      </div>
+      <div class="metric">
+        <div class="label">Report pages</div>
+        <div class="value">4</div>
+        <div class="note">net sales, GP, depletions, invoices</div>
+      </div>
+      <div class="metric">
+        <div class="label">Source exports</div>
+        <div class="value">3</div>
+        <div class="note">sales, inventory, AR</div>
+      </div>
+    </div>
+
+    <h2>Sample report structure</h2>
+    <div class="report-page">
+      <div class="page-tile">
+        <h4>Net sales by channel</h4>
+        <p>Off-trade vs on-trade vs e-commerce. Filtered by month and brand category.</p>
+      </div>
+      <div class="page-tile">
+        <h4>Gross profit</h4>
+        <p>GP and GP% by channel, customer group and product family with variance to prior month.</p>
+      </div>
+      <div class="page-tile">
+        <h4>Depletions</h4>
+        <p>Cases and 9-litre equivalents leaving the warehouse, trended by week and SKU.</p>
+      </div>
+      <div class="page-tile">
+        <h4>Open invoices</h4>
+        <p>Aged debtor position, days-sales-outstanding and collection status.</p>
+      </div>
+    </div>
+
+    <h2>Connection lineage</h2>
+    <p>Every visual in the pilot traces back to a named export. This lineage is documented before the model is built so the BICC can reproduce, review and sign off each figure.</p>
+
+    <div class="card">
+      <h4>Net sales by channel</h4>
+      <div class="lineage">
+        <span>EXP-ERP-SALES-001</span>
+        <span class="arrow">→</span>
+        <span>Power Query transform</span>
+        <span class="arrow">→</span>
+        <span>fact_Sales</span>
+        <span class="arrow">→</span>
+        <span>bar + table visuals</span>
+      </div>
+      <p style="font-size:13px; color:var(--muted); margin:0;">Remove discounts and credit notes, convert to net sales, allocate channel from customer master.</p>
+    </div>
+
+    <div class="card">
+      <h4>Gross profit</h4>
+      <div class="lineage">
+        <span>EXP-ERP-SALES-001</span>
+        <span class="arrow">→</span>
+        <span>Power Query transform</span>
+        <span class="arrow">→</span>
+        <span>fact_Sales + dim_COGS</span>
+        <span class="arrow">→</span>
+        <span>KPI cards + variance table</span>
+      </div>
+      <p style="font-size:13px; color:var(--muted); margin:0;">Net sales minus cost of goods sold; duty, freight and excise included where applicable.</p>
+    </div>
+
+    <div class="card">
+      <h4>Depletions</h4>
+      <div class="lineage">
+        <span>EXP-WMS-INV-001</span>
+        <span class="arrow">→</span>
+        <span>Power Query transform</span>
+        <span class="arrow">→</span>
+        <span>fact_Movements</span>
+        <span class="arrow">→</span>
+        <span>line chart by week</span>
+      </div>
+      <p style="font-size:13px; color:var(--muted); margin:0;">Filter outbound warehouse movements, aggregate to cases and 9-litre equivalents.</p>
+    </div>
+
+    <div class="card">
+      <h4>Open invoices</h4>
+      <div class="lineage">
+        <span>EXP-ERP-AR-001</span>
+        <span class="arrow">→</span>
+        <span>Power Query transform</span>
+        <span class="arrow">→</span>
+        <span>fact_OpenInvoices</span>
+        <span class="arrow">→</span>
+        <span>aged-debtor matrix</span>
+      </div>
+      <p style="font-size:13px; color:var(--muted); margin:0;">Calculate days outstanding and age buckets from invoice date and due date.</p>
+    </div>
+
+    <h2>Guardrails</h2>
+    <ul>
+      <li>All exports classified T2/T3 remain inside the project workspace; no personal or bank data is published.</li>
+      <li>Report figures carry source-linked audit IDs before they reach steering packs.</li>
+      <li>The pilot is rebuilt as a throw-away learning exercise; no production system depends on it.</li>
+      <li>Go/no-go to a service deployment happens only after the Next-ERP decision is clear.</li>
+    </ul>
+  </article>
+</div>
+<footer class="footer">
+  <p>Private pre-call draft for Top Spirit (Marussia) and Angel Software Solutions. Demo values are illustrative; starter data is synthetic; client evidence gates remain explicit.</p>
+</footer>
+</body>
+</html>

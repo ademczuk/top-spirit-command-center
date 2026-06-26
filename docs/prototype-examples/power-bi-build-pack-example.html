@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Power BI build pack example · Top Spirit engagement</title>
+  <style>
+    :root { --navy:#0F172A; --slate:#64748B; --teal:#0D9488; --bg:#F8FAFC; --border:#E2E8F0; }
+    body { margin:0; font-family: Inter, ui-sans-serif, system-ui, sans-serif; color:var(--navy); background:var(--bg); line-height:1.6; }
+    header { padding:28px; background:#fff; border-bottom:1px solid var(--border); }
+    h1 { margin:0; font-size:28px; letter-spacing:-0.03em; }
+    main { max-width:900px; margin:0 auto; padding:28px; }
+    .card { background:#fff; border:1px solid var(--border); border-radius:20px; padding:20px; margin-bottom:18px; }
+    .muted { color:var(--slate); }
+    a { color:var(--teal); }
+  </style>
+</head>
+<body>
+  <header><h1>Power BI build pack example</h1><p class="muted">Step-by-step build instructions for the BICC pilot.</p></header>
+  <main>
+    <div class="card">
+      <h2>Build steps</h2>
+      <ol>
+        <li>Load classified sales invoice export into Power BI Desktop.</li>
+        <li>Create net sales measure: gross sales − discounts − credit notes.</li>
+        <li>Build channel/brand decomposition.</li>
+        <li>Add source lineage page with export ID and refresh timestamp.</li>
+        <li>Publish to BICC workspace and capture acceptance evidence.</li>
+      </ol>
+    </div>
+    <div class="card">
+      <p class="muted">This is a condensed example. The full build pack covers data modelling, DAX, refresh, and governance.</p>
+      <p><a href="../06-wave-1/power-bi-desktop-pilot-build-pack.html">Open full Power BI Desktop pilot build pack</a></p>
+    </div>
+  </main>
+</body>
+</html>

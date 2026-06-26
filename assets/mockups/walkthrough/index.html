@@ -3,17 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Top Spirit  -  guided pilot walkthrough</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <title>Angel Software Solutions  -  guided interface walkthrough</title>
   <style>
     :root {
       --navy: #0F172A;
       --slate: #64748B;
       --teal: #0D9488;
-      --gold: #D6A94A;
-      --gold-soft: rgba(214,169,74,.18);
       --teal-soft: #CCFBF1;
       --bg: #F8FAFC;
       --card: #FFFFFF;
@@ -28,21 +23,21 @@
     body { display: grid; grid-template-rows: 64px 1fr; }
     .topbar { position: sticky; top: 0; z-index: 20; height: 64px; display: flex; align-items: center; justify-content: space-between; padding: 0 28px; background: rgba(255,255,255,.94); backdrop-filter: blur(14px); border-bottom: 1px solid var(--border); }
     .brand { display: flex; align-items: center; gap: 12px; font-weight: 800; letter-spacing: -0.02em; }
-    .brand-mark { width: 36px; height: 36px; border-radius: 12px; background: linear-gradient(135deg, var(--navy), var(--gold)); color: #fff; display: grid; place-items: center; font-size: 17px; box-shadow: var(--shadow); }
+    .brand-mark { width: 36px; height: 36px; border-radius: 12px; background: linear-gradient(135deg, var(--navy), var(--teal)); color: #fff; display: grid; place-items: center; font-size: 17px; box-shadow: var(--shadow); }
     .top-meta { color: var(--slate); font-size: 13px; }
     .app { min-height: calc(100vh - 64px); display: grid; grid-template-columns: 260px minmax(0, 1fr); }
     aside { border-right: 1px solid var(--border); background: #fff; padding: 22px 18px; position: sticky; top: 64px; align-self: start; min-height: calc(100vh - 64px); }
     .nav-title { font-size: 12px; color: var(--slate); text-transform: uppercase; letter-spacing: .12em; margin: 0 0 12px; }
     .nav-item { width: 100%; border: 0; background: transparent; color: var(--slate); text-align: left; border-radius: 14px; padding: 12px 12px; margin: 3px 0; cursor: pointer; display: flex; gap: 10px; align-items: center; font: inherit; }
     .nav-item span:first-child { width: 28px; height: 28px; border-radius: 999px; display: grid; place-items: center; background: var(--bg); color: var(--slate); font-weight: 800; font-size: 12px; }
-    .nav-item.active { background: var(--gold-soft); color: var(--navy); font-weight: 750; }
-    .nav-item.active span:first-child { background: var(--gold); color: #fff; }
+    .nav-item.active { background: var(--teal-soft); color: var(--navy); font-weight: 750; }
+    .nav-item.active span:first-child { background: var(--teal); color: #fff; }
     main { padding: 34px; }
     .slide { display: none; animation: rise .24s ease-out; }
     .slide.active { display: block; }
     @keyframes rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
     .hero { display: flex; justify-content: space-between; gap: 24px; align-items: flex-start; margin-bottom: 20px; }
-    h1 { margin: 0 0 10px; font-family: "Playfair Display", Georgia, serif; font-size: clamp(28px, 4vw, 46px); letter-spacing: -0.03em; line-height: 1.02; }
+    h1 { margin: 0 0 10px; font-size: clamp(28px, 4vw, 46px); letter-spacing: -0.05em; line-height: 1.02; }
     .helper { margin: 0; color: var(--slate); font-size: 16px; max-width: 820px; line-height: 1.6; }
     .pill, .badge { display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--border); border-radius: 999px; padding: 6px 10px; background: #fff; color: var(--slate); font-size: 12px; font-weight: 700; white-space: nowrap; }
     .pill.teal, .badge.teal { background: var(--teal-soft); border-color: #99F6E4; color: #0F766E; }
@@ -152,14 +147,14 @@
 </head>
 <body>
   <header class="topbar">
-    <div class="brand"><div class="brand-mark">TS</div><div>Top Spirit <span class="muted">/ guided pilot walkthrough</span></div></div>
+    <div class="brand"><div class="brand-mark">AS</div><div>Angel Software Solutions <span class="muted">/ guided walkthrough</span></div></div>
     <div class="demo-controls" role="group" aria-label="Synthetic realtime demo controls">
       <button class="control secondary" type="button" data-demo-action="load">Load sample data pack</button>
       <button class="control" type="button" data-demo-action="start">Replay sample events</button>
       <button class="control secondary" type="button" data-demo-action="pause">Pause</button>
       <button class="control secondary" type="button" data-demo-action="reset">Reset</button>
     </div>
-    <div class="top-meta">File exports · Approval Envelopes · Source-linked Audit Trail</div>
+    <div class="top-meta">Prepare · Map · Optimise · Build · Operate · Decide</div>
   </header>
   <div class="app">
     <aside>
@@ -167,46 +162,67 @@
       <div id="nav"></div>
     </aside>
     <main>
-<section class="slide active" data-step="1" data-title="Prepare">
-        <div class="hero"><div><h1>Prepare the files</h1><p class="helper">One chapter for the foundation: classify exports, name owners, load the synthetic sample pack, and prove the work stays file-export first before any automation runs.</p></div><span class="pill teal">1 of 4</span></div>
-        <div class="screen"><div class="screen-bar"><div class="screen-title">Prepare · Export Layer, classification and glossary</div><div class="screen-actions"><span class="badge teal">Export Layer first</span><span class="badge">M365 E3</span><span class="badge">No live connectors</span></div></div><div class="content"><div class="grid">
+      <section class="slide active" data-step="1" data-title="Prepare">
+        <div class="hero"><div><h1>Prepare the data foundation</h1><p class="helper">Export Layer, classification, glossary, and privacy/GDPR operating model. The foundation stays file-export first before any automation runs.</p></div><span class="pill teal">1 of 6</span></div>
+        <div class="screen"><div class="screen-bar"><div class="screen-title">Prepare · Export Layer, classification, glossary, privacy/GDPR</div><div class="screen-actions"><span class="badge teal">Export Layer first</span><span class="badge">M365 E3</span><span class="badge">No live connectors</span><span class="badge green">GDPR operating model</span></div></div><div class="content"><div class="grid">
           <div class="card col-4 soft"><h3>Incoming exports</h3><div class="list"><div class="row"><span><b class="file">sales_invoice_lines_may.csv</b><br><span class="tiny">Net sales, GP, depletions</span></span><span class="badge amber">owner review</span></div><div class="row"><span><b class="file">open_invoices_week_22.xlsx</b><br><span class="tiny">Finance reconciliation source</span></span><span class="badge amber">classified</span></div><div class="row"><span><b class="file">stock_on_hand.json</b><br><span class="tiny">Warehouse availability</span></span><span class="badge green">approved</span></div></div></div>
           <div class="card col-4"><h3>Control checks</h3><p><b data-demo-field="glossary-coverage">46/80</b> glossary terms reviewed.</p><p><b data-demo-field="exports-pending">1</b> export connection still pending owner confirmation.</p><p><b data-demo-field="write-back-count">0</b> rows written back without approval.</p><button class="control" data-path="../../../docs/05-phase-0/data-classification-and-export-inventory.html">Open classification guide</button></div>
           <div class="card col-4"><h3>Knowledge capture</h3><p>Process maps and definitions come from exports plus SME input, not guesswork.</p><button class="control secondary" data-path="../../../docs/05-phase-0/knowledge-capture-and-input-pack.html">Open input pack</button></div>
+          <div class="card col-12"><h3>Privacy / GDPR operating model</h3><div class="grid"><div class="col-6"><p>Personal data stays in classified exports; processing purposes are recorded per source; retention and access controls are documented before automation.</p></div><div class="col-6" style="display:flex;justify-content:flex-end;align-items:center;"><button class="control secondary" data-path="../../../docs/05-phase-0/privacy-gdpr-operating-model.html">Open privacy model</button></div></div></div>
           <div class="card col-12 demo-panel" id="syntheticDemoPanel"><h3>Synthetic export processor</h3><p class="demo-status" data-demo-field="demo-status">Ready to load synthetic/illustrative CSV, JSON and text exports from the repo sample pack.</p><div class="demo-metrics"><div class="metric-tile"><span class="tiny">Sales invoice net</span><b data-demo-field="sales-net">Sample data</b></div><div class="metric-tile"><span class="tiny">Approval queue</span><b data-demo-field="approval-queue">Sample data</b></div><div class="metric-tile"><span class="tiny">Reconciliation suggestions</span><b data-demo-field="reconciliation-summary">Sample data</b></div><div class="metric-tile"><span class="tiny">Monthly hours saved</span><b data-demo-field="hours-saved">Sample data</b></div></div><div class="lineage event-log" id="demoEventLog" role="log" aria-live="polite" aria-relevant="additions text" aria-label="Synthetic stream event log"><div>Replay idle</div><div>Sample data loaded (illustrative only)</div></div></div>
         </div></div></div>
       </section>
-<section class="slide" data-step="2" data-title="Build">
-        <div class="hero"><div><h1>Build the pilot</h1><p class="helper">One chapter for what the client actually sees: order-to-cash mapping, Power BI Desktop, order intake, reconciliation, and the human Approval Envelope.</p></div><span class="pill teal">2 of 4</span></div>
-        <div class="screen"><div class="screen-bar"><div class="screen-title">Build · Process, report and human approval</div><button class="control" data-demo-action="approve-draft">Review draft only</button></div><div class="content"><div class="grid">
-          <div class="card col-4 soft"><h3>Order-to-cash map</h3><p>As-is pain points and target-state fixes are shown together so the discussion stays grounded.</p><button class="control secondary" data-path="../../../docs/06-wave-1/order-to-cash-process-map.html">Open process map</button></div>
-          <div class="card col-4"><h3>Manual report rebuild</h3><p>One manual report becomes a source-linked Power BI Desktop pilot built from classified file exports.</p><button class="control secondary" data-path="../../../docs/06-wave-1/manual-report-consolidation-plan.html">Open consolidation plan</button></div>
-          <div class="card col-4 soft"><h3>BICC pilot</h3><p>Power BI Desktop proves the BI track without adding licences or live connectors.</p><button class="control secondary" data-path="../../../docs/06-wave-1/power-bi-desktop-pilot-build-pack.html">Open pilot build pack</button></div>
+      <section class="slide" data-step="2" data-title="Map">
+        <div class="hero"><div><h1>Map the process</h1><p class="helper">End-to-end process mapping with source lineage. Pain points, actors, exports, and target states are traced to a source export ID.</p></div><span class="pill teal">2 of 6</span></div>
+        <div class="screen"><div class="screen-bar"><div class="screen-title">Map · End-to-end process mapping with source lineage</div><div class="screen-actions"><span class="badge teal">Source-linked</span><span class="badge">Order-to-cash</span></div></div><div class="content"><div class="grid">
+          <div class="card col-8 soft"><h3>Order-to-cash process summary</h3><p>From customer order through credit check, warehouse, shipment, invoicing, bank receipt, reconciliation, dispute, period close, and leadership review.</p><div class="list"><div class="row"><span>Receive order → Credit check → Pick and pack</span><span class="badge teal">Customer + Warehouse</span></div><div class="row"><span>Ship goods → Invoice customer → Receive bank receipt</span><span class="badge">Finance + Carrier</span></div><div class="row"><span>Reconcile accounts → Handle dispute → Close period → Review KPIs</span><span class="badge amber">Finance + Commercial</span></div></div></div>
+          <div class="card col-4"><h3>Coverage</h3><div class="metric" data-demo-field="process-coverage">100%</div><p><b data-demo-field="mapped-phases">5</b> phases mapped across the end-to-end process.</p></div>
+          <div class="card col-4 soft"><h3>High-pain steps</h3><div class="metric" data-demo-field="high-pain-steps">4</div><p>Steps tagged high value with a recorded pain point and target state.</p></div>
+          <div class="card col-4"><h3>Source exports used</h3><div class="metric" data-demo-field="source-exports-used">10</div><p>Every process step links to a classified source export ID.</p></div>
+          <div class="card col-4"><h3>Process map example</h3><p>Open the interactive prototype to see swim-lanes, pain points, and target-state annotations.</p><button class="control" data-path="../../../docs/prototype-examples/process-map-example.html">Open process map example</button></div>
+        </div></div></div>
+      </section>
+      <section class="slide" data-step="3" data-title="Optimise">
+        <div class="hero"><div><h1>Optimise the target state</h1><p class="helper">Target-state redesign, quantified before/after, and a live opportunity catalogue that feeds the decision pack.</p></div><span class="pill teal">3 of 6</span></div>
+        <div class="screen"><div class="screen-bar"><div class="screen-title">Optimise · Target-state redesign and opportunity catalogue</div><div class="screen-actions"><span class="badge teal">Value-led</span><span class="badge">Evidence-backed</span></div></div><div class="content"><div class="grid">
+          <div class="card col-12"><h3>Opportunity board</h3><p class="tiny"><span data-demo-field="opportunity-count">6</span> opportunities from the value realisation catalogue.</p><div class="board"><div class="opp"><b>Order intake</b><p class="tiny">Effort M · Value H · Risk L</p><span class="badge green">Live</span></div><div class="opp"><b>Reconciliation</b><p class="tiny">Effort H · Value H · Risk M</p><span class="badge amber">Pilot</span></div><div class="opp"><b>Report consolidation</b><p class="tiny">Effort M · Value H · Risk L</p><span class="badge green">Live</span></div><div class="opp"><b>Power BI Desktop pilot</b><p class="tiny">Effort M · Value M · Risk L</p><span class="badge amber">Pilot</span></div><div class="opp"><b>Glossary rollout</b><p class="tiny">Effort M · Value M · Risk L</p><span class="badge teal">Ready</span></div><div class="opp"><b>ERP decision pack</b><p class="tiny">Effort H · Value H · Risk H</p><span class="badge">Steering</span></div></div></div>
+          <div class="card col-3 soft"><h3>Total annual value</h3><div class="metric" data-demo-field="opportunity-total-value">€115k</div></div>
+          <div class="card col-3 soft"><h3>Top pick</h3><div class="metric" style="font-size:20px;" data-demo-field="top-opportunity">Order intake assistant</div></div>
+          <div class="card col-3 soft"><h3>Quick wins</h3><div class="metric" data-demo-field="quick-win-count">0</div><p>Effort L and value H or M.</p></div>
+          <div class="card col-3"><h3>Catalogue and dictionary</h3><button class="control" data-path="../../../docs/prototype-examples/opportunity-catalogue-example.html">Open opportunity catalogue</button><button class="control secondary" data-path="../../../docs/prototype-examples/data-dictionary-example.html" style="margin-top:8px;">Open data dictionary</button></div>
+        </div></div></div>
+      </section>
+      <section class="slide" data-step="4" data-title="Build">
+        <div class="hero"><div><h1>Build the pilot</h1><p class="helper">Power BI Desktop BICC pilot, order intake, and finance reconciliation Approval Envelopes. AI proposes; a named human decides.</p></div><span class="pill teal">4 of 6</span></div>
+        <div class="screen"><div class="screen-bar"><div class="screen-title">Build · Power BI Desktop BICC pilot and Approval Envelopes</div><button class="control" data-demo-action="approve-draft">Review draft only</button></div><div class="content"><div class="grid">
           <div class="card col-6"><h3>Order intake Approval Envelope</h3><p><b data-demo-field="order-lines">2</b> synthetic draft lines loaded; status <b data-demo-field="approval-status">PENDING_HUMAN_REVIEW</b>; write-back <b data-demo-field="order-writeback">NO_WRITE_BACK</b>.</p><div class="list"><div class="row"><span>Customer account</span><b data-demo-field="order-customer">Neutral trade account</b></div><div class="row"><span>Delivery date</span><b data-demo-field="order-date">Friday, pending calendar check</b></div><div class="row"><span>Line item 1</span><b data-demo-field="order-line-1">24 cases</b></div><div class="row"><span>Line item 2</span><b data-demo-field="order-line-2">12 cases</b></div></div><div class="banner">Approval Envelope active: AI proposes; a named human decides. Demo stream is a synthetic file-export simulation, not a live connector or real client data.</div></div>
           <div class="card col-6"><h3>Finance reconciliation</h3><div class="grid"><div class="card soft col-6"><h3>Matched</h3><div class="metric" data-demo-field="reconciliation-matched">3</div></div><div class="card soft col-6"><h3>Unmatched</h3><div class="metric" data-demo-field="reconciliation-unmatched">1</div></div><div class="card soft col-6"><h3>Flagged</h3><div class="metric" data-demo-field="reconciliation-flagged">1</div></div><div class="card soft col-6"><h3>Bank receipts matched</h3><div class="metric" data-demo-field="bank-total">€37,750</div></div></div></div>
+          <div class="card col-3 soft"><h3>BICC pilot</h3><p>Power BI Desktop proves the BI track without adding licences or live connectors.</p><button class="control secondary" data-path="../../../docs/prototype-examples/bicc-pilot-example.html">Open BICC pilot example</button></div>
+          <div class="card col-3"><h3>Approval Envelope</h3><p>Human-in-the-loop sign-off before any write-back.</p><button class="control secondary" data-path="../../../docs/prototype-examples/approval-envelope-example.html">Open approval envelope example</button></div>
+          <div class="card col-3 soft"><h3>Manual report consolidation</h3><p>One manual report becomes a source-linked Power BI Desktop pilot.</p><button class="control secondary" data-path="../../../docs/06-wave-1/manual-report-consolidation-plan.html">Open consolidation plan</button></div>
+          <div class="card col-3"><h3>Power BI build pack</h3><p>Step-by-step build instructions for the BICC pilot.</p><button class="control secondary" data-path="../../../docs/prototype-examples/power-bi-build-pack-example.html">Open Power BI build pack</button></div>
         </div></div></div>
       </section>
-<section class="slide" data-step="3" data-title="Operate">
-        <div class="hero"><div><h1>Operate with proof</h1><p class="helper">One chapter for the evidence spine: audit trail, value/adoption, glossary, opportunity catalogue, and source-linked metrics.</p></div><span class="pill teal">3 of 4</span></div>
-        <div class="screen"><div class="screen-bar"><div class="screen-title">Operate · Audit, value and adoption</div><span class="badge amber">Synthetic / illustrative</span></div><div class="content"><div class="grid">
-          <div class="card col-5 soft"><h3>Power BI net sales (sample month)</h3><div class="metric" data-demo-field="powerbi-net-sales">€11,753</div><p>Net invoice sales for the sample month. Loaded from sample exports; replace only after client exports and validation.</p></div>
-          <div class="card col-7"><h3>Source-linked Audit Trail</h3><details open><summary>Expand source trace</summary><div class="lineage"><div>Source: <span data-demo-field="audit-source">Sales invoice export</span></div><div>Rows: <span data-demo-field="audit-rows">Sample data</span></div><div>Formula: net sales = gross sales - discounts - credit notes</div><div>Recent action: <span data-demo-field="audit-action">draft refresh; no auto-posting</span></div></div></details></div>
+      <section class="slide" data-step="5" data-title="Operate">
+        <div class="hero"><div><h1>Operate with proof</h1><p class="helper">Audit trail, value realisation, adoption, and AI-literacy programme. Evidence is source-linked and human-gated.</p></div><span class="pill teal">5 of 6</span></div>
+        <div class="screen"><div class="screen-bar"><div class="screen-title">Operate · Audit trail, value realisation, adoption, AI literacy</div><div class="screen-actions"><span class="badge amber">Synthetic / illustrative</span></div></div><div class="content"><div class="grid">
+          <div class="card col-4 soft"><h3>Power BI net sales (sample month)</h3><div class="metric" data-demo-field="powerbi-net-sales">€11,753</div><p>Net invoice sales for the sample month. Loaded from sample exports; replace only after client exports and validation.</p></div>
+          <div class="card col-8"><h3>Source-linked Audit Trail</h3><details open><summary>Expand source trace</summary><div class="lineage"><div>Source: <span data-demo-field="audit-source">Sales invoice export</span></div><div>Rows: <span data-demo-field="audit-rows">Sample data</span></div><div>Formula: net sales = gross sales - discounts - credit notes</div><div>Recent action: <span data-demo-field="audit-action">draft refresh; no auto-posting</span></div></div></details></div>
           <div class="card col-3 soft"><h3>Hours saved</h3><div class="metric" data-demo-field="value-hours">278</div></div><div class="card col-3 soft"><h3>Annualised value (all automations)</h3><div class="metric" data-demo-field="value-eur">€105k</div></div><div class="card col-3 soft"><h3>Automations live</h3><div class="metric" data-demo-field="automations-live">4</div></div><div class="card col-3 soft"><h3>Active users</h3><div class="metric" data-demo-field="active-users">8</div></div><div class="card col-3 soft"><h3>AI literacy completions</h3><div class="metric" data-demo-field="literacy-completions">21/35</div></div>
-          <div class="card col-5"><h3>Business Glossary</h3><p><b>Net sales</b> = gross sales minus discounts and credit notes.</p><div class="row"><span>Source</span><b data-demo-field="glossary-source">sales invoice export</b></div><div class="row"><span>Terms reviewed</span><b data-demo-field="glossary-reviewed">46/80</b></div></div>
-          <div class="card col-7"><h3>Opportunity Catalogue</h3><p class="tiny"><span data-demo-field="opportunity-count">4</span> sample opportunities from the value realisation log.</p><div class="board"><div class="opp"><b>Order intake</b><p class="tiny">Effort M · Value H · Risk M</p><span class="badge amber">Pilot</span></div><div class="opp"><b>Reconciliation</b><p class="tiny">Effort M · Value H · Risk H</p><span class="badge">Candidate</span></div><div class="opp"><b>Glossary rollout</b><p class="tiny">Effort L · Value M · Risk L</p><span class="badge green">Ready</span></div><div class="opp"><b>ERP decision pack</b><p class="tiny">Effort M · Value H · Risk M</p><span class="badge">Steering</span></div></div></div>
+          <div class="card col-9"><h3>Operate examples</h3><p>Open the source-linked audit trail and AI-literacy programme prototypes.</p><div class="screen-actions"><button class="control secondary" data-path="../../../docs/prototype-examples/source-linked-audit-trail-example.html">Open source-linked audit trail example</button><button class="control secondary" data-path="../../../docs/prototype-examples/ai-literacy-programme-example.html">Open AI literacy programme example</button></div></div>
         </div></div></div>
       </section>
-<section class="slide" data-step="4" data-title="Decide">
-        <div class="hero"><div><h1>Decide what happens next</h1><p class="helper">One closing chapter: the ERP decision stays vendor-neutral, evidence gates stay visible, and the team leaves with a maintainable pilot instead of a giant demo maze.</p></div><span class="pill teal">4 of 4</span></div>
-        <div class="screen"><div class="screen-bar"><div class="screen-title">Decision pack and open evidence</div><div class="screen-actions"><button class="control secondary" data-restart>Restart walkthrough</button><a class="control" href="mailto:hello@angelsoftware.solutions?subject=Top%20Spirit%20pilot%20scoping%20call">Request scoping call</a></div></div><div class="content"><div class="grid">
+      <section class="slide" data-step="6" data-title="Decide">
+        <div class="hero"><div><h1>Decide what happens next</h1><p class="helper">Vendor-neutral Next-ERP decision pack, evidence gates, and commercial close. The team leaves with a maintainable pilot, not a demo maze.</p></div><span class="pill teal">6 of 6</span></div>
+        <div class="screen"><div class="screen-bar"><div class="screen-title">Decide · Next-ERP decision pack and evidence gates</div><div class="screen-actions"><button class="control secondary" data-restart>Restart walkthrough</button><a class="control" href="mailto:hello@angelsoftware.solutions?subject=Top%20Spirit%20pilot%20scoping%20call">Request scoping call</a></div></div><div class="content"><div class="grid">
           <div class="card col-6 table-scroll"><h3>Next-ERP decision support</h3><table class="compare"><thead><tr><th>Criterion</th><th>Brownfield</th><th>Greenfield</th></tr></thead><tbody><tr><td>Cost</td><td>Lower initial change; legacy constraints remain.</td><td>Higher programme cost; cleaner target architecture.</td></tr><tr><td>Time to value</td><td>Faster if current processes are stable.</td><td>Slower, but may remove structural friction.</td></tr><tr><td>Export Layer fit</td><td>Works now and survives incremental changes.</td><td>Works as bridge and migration evidence base.</td></tr><tr><td>AI literacy impact</td><td>Upskills users around current exports and controls.</td><td>Requires broader retraining during process change.</td></tr></tbody></table></div>
-          <div class="card col-6 soft"><h3>Open evidence gates</h3><div class="list"><div class="row"><span>BICC export inventory sign-off</span><span class="badge amber">client needed</span></div><div class="row"><span>Business-user report acceptance</span><span class="badge amber">client needed</span></div><div class="row"><span>Steering governance review</span><span class="badge amber">client needed</span></div></div></div>
+          <div class="card col-6 soft"><h3>Open evidence gates</h3><div class="list"><div class="row"><span>BICC export inventory sign-off</span><span class="badge amber">client needed</span></div><div class="row"><span>Business-user report acceptance</span><span class="badge amber">client needed</span></div><div class="row"><span>Steering governance review</span><span class="badge amber">client needed</span></div></div><button class="control" data-path="../../../docs/prototype-examples/next-erp-decision-pack-example.html" style="margin-top:12px;">Open Next-ERP decision pack example</button></div>
           <div class="card col-12"><h3>Guide buttons</h3><p>Detailed proof is one click away when the reviewer wants it, not forced into the main path.</p><div class="screen-actions"><button class="control secondary" data-path="../../../docs/05-phase-0/data-classification-and-export-inventory.html">Classification guide</button><button class="control secondary" data-path="../../../docs/05-phase-0/knowledge-capture-and-input-pack.html">Input pack</button><button class="control secondary" data-path="../../../docs/06-wave-1/order-to-cash-process-map.html">Process map</button><button class="control secondary" data-path="../../../docs/06-wave-1/manual-report-consolidation-plan.html">Consolidation plan</button><button class="control secondary" data-path="../../../docs/06-wave-1/power-bi-desktop-pilot-build-pack.html">Power BI build pack</button></div></div>
         </div></div></div>
       </section>
-<div class="progress-wrap"><div><b id="stepLabel">1 of 4</b><div class="tiny">Use arrow keys, side nav, or buttons.</div></div><div class="dots" id="dots" aria-label="Walkthrough step picker"></div><div class="controls"><button class="control secondary" id="prev">Previous</button><button class="control" id="next">Next</button></div></div>
+      <div class="progress-wrap"><div><b id="stepLabel">1 of 6</b><div class="tiny">Use arrow keys, side nav, or buttons.</div></div><div class="dots" id="dots" aria-label="Walkthrough step picker"></div><div class="controls"><button class="control secondary" id="prev">Previous</button><button class="control" id="next">Next</button></div></div>
       <div id="stepAnnouncer" class="sr-only" aria-live="polite" aria-atomic="true"></div>
-      <p class="tiny">No real Top Spirit / Marussia data. Four-chapter route; figures and names are neutral placeholders for steering-committee demonstration only.</p>
+      <p class="tiny">No real Top Spirit / Marussia data. Six-chapter route; figures and names are neutral placeholders for steering-committee demonstration only.</p>
     </main>
   </div>
   <script>
@@ -270,7 +286,11 @@
       orderQueue: '../../../outputs/wave2/order_intake_review_queue.csv',
       reconciliation: '../../../outputs/wave2/reconciliation_suggestions.csv',
       valueLog: '../../../outputs/scale/' + ['value', 'realisation', 'log.csv'].join('_'),
-      adoptionLog: '../../../outputs/scale/adoption_log.csv'
+      adoptionLog: '../../../outputs/scale/adoption_log.csv',
+      processSteps: '../../../data/samples/process_steps.csv',
+      opportunityCards: '../../../data/samples/opportunity_cards.csv',
+      businessGlossary: '../../../data/samples/business_glossary.csv',
+      auditTrail: '../../../data/samples/audit_trail_rows.csv'
     };
     const fallbackSources = {
       salesInvoices: 'invoice_id,invoice_date,customer_id,product_code,quantity,unit_price_eur,net_amount_eur,vat_rate,total_amount_eur,payment_status\nINV-2026-1042,2026-06-15,CUST-1002,SPI-001,200,12.50,2500.00,0.20,3000.00,paid\nINV-2026-1042,2026-06-15,CUST-1002,SPI-005,100,18.00,1800.00,0.20,2160.00,paid\nINV-2026-1045,2026-06-16,CUST-1003,SPI-002,150,15.00,2250.00,0.20,2700.00,paid\nINV-2026-1048,2026-06-17,CUST-1001,SPI-003,250,11.75,2937.50,0.20,3525.00,paid\nINV-2026-1051,2026-06-18,CUST-1005,SPI-006,50,22.50,1125.00,0.20,1350.00,paid\nINV-2026-1054,2026-06-19,CUST-1004,SPI-004,80,14.25,1140.00,0.20,1368.00,open\n',
@@ -280,7 +300,11 @@
       orderQueue: 'source_id,source_file,customer,delivery_date,product,quantity,unit_price,field_confidence,approval_status,write_back\nEXP-ORDER-SAMPLE-001,data/samples/order_email_001.txt,Sample Retailer A,2026-06-28,Brand A Riesling 0.75L,24,12.5,customer=0.82;date=0.95;line=0.88,PENDING_HUMAN_REVIEW,NO_WRITE_BACK\nEXP-ORDER-SAMPLE-001,data/samples/order_email_001.txt,Sample Retailer A,2026-06-28,Brand B Gin 0.70L,12,22.0,customer=0.82;date=0.95;line=0.88,PENDING_HUMAN_REVIEW,NO_WRITE_BACK\n',
       reconciliation: 'bank_txn_id,suggested_invoice,confidence,signals,exception_reason,finance_approval_status,posting\nBANK-001,INV-1001,100,invoice-reference;amount-exact;payer-customer,,PENDING_HUMAN_APPROVAL,NO_AUTO_POSTING\nBANK-002,INV-1002,100,invoice-reference;amount-exact;payer-customer,,PENDING_HUMAN_APPROVAL,NO_AUTO_POSTING\nBANK-003,,0,,NO_MATCH,PENDING_HUMAN_APPROVAL,NO_AUTO_POSTING\nBANK-004,INV-1004,100,invoice-reference;amount-exact;payer-customer,,PENDING_HUMAN_APPROVAL,NO_AUTO_POSTING\n',
       valueLog: 'opportunity_id,automation_name,status,baseline_minutes_per_task,automated_minutes_per_task,tasks_per_period,period,hours_saved_per_month,loaded_hourly_rate_eur,eur_value_per_year,evidence_ref,source_export_id,reviewer,review_status\nOPP-001,Order intake assistant,live,8.0,2.5,1800,2026-06,165.0,31.50,62370,TS synthetic time sample,EXP-CS-ORDERS-001,Head of Customer Service,APPROVED\nOPP-003,Manual report consolidation,live,240.0,45.0,4,2026-06,13.0,31.50,4914,synthetic Power BI refresh log,EXP-ERP-SALES-001,BICC Lead,APPROVED\nOPP-002,Reconciliation assistant,piloting,6.0,1.5,1200,2026-06,90.0,31.50,34020,synthetic finance matching log,EXP-FIN-BANK-001,Finance Controller,PENDING_HUMAN_APPROVAL\nOPP-004,Power BI Desktop pilot (report prep),piloting,180.0,30.0,4,2026-06,10.0,31.50,3780,synthetic build/refresh log,EXP-ERP-SALES-001,BICC Lead,PENDING_HUMAN_APPROVAL\n',
-      adoptionLog: 'tool_or_report_name,audience,metric,period,value,target,collection_method,source_ref,owner\nPower BI Desktop pilot,Commercial managers + BICC,unique viewers,2026-06,8,10,BICC usage log + trade-meeting evidence,BICC-ADOPT-06,BICC Lead\nBusiness glossary,BICC + SMEs,terms reviewed with owner/source,2026-06,46,80,Glossary change log,GLOS-06,BICC Lead\nAI-literacy modules,All trained roles,completions,2026-06,21,35,Attendance register,TRAIN-06,AI-literacy Lead\n'
+      adoptionLog: 'tool_or_report_name,audience,metric,period,value,target,collection_method,source_ref,owner\nPower BI Desktop pilot,Commercial managers + BICC,unique viewers,2026-06,8,10,BICC usage log + trade-meeting evidence,BICC-ADOPT-06,BICC Lead\nBusiness glossary,BICC + SMEs,terms reviewed with owner/source,2026-06,46,80,Glossary change log,GLOS-06,BICC Lead\nAI-literacy modules,All trained roles,completions,2026-06,21,35,Attendance register,TRAIN-06,AI-literacy Lead\n',
+      processSteps: 'step_id,phase,activity,actor,system_export,pain_point,target_state,effort,value,risk,source_export_id\nPS-001,Order-to-cash,Receive order,Customer service,Email / order portal,Manual rekeying creates duplicates,Auto-captured draft queued for review,M,H,L,EXP-CS-ORDERS-001\nPS-002,Order-to-cash,Credit check,Finance / Customer service,ERP customer master,Disconnected checks delay release,Real-time credit-hold flag,M,M,M,EXP-ERP-AR-001\nPS-003,Warehouse,Pick and pack,Warehouse operative,WMS / ERP inventory,Paper lists re-printed and rescanned,Digitised pick list with barcode,M,M,L,EXP-WMS-INV-001\nPS-004,Warehouse,Ship goods,Warehouse / Carrier,Carrier portal,Tracking reference entered manually,Carrier label auto-posted,M,M,L,EXP-WMS-SHIP-001\nPS-005,Finance,Invoice customer,Finance clerk,ERP billing,Invoice PDF manually attached,E-invoice dispatched,L,M,L,EXP-ERP-SALES-001\nPS-006,Finance,Receive bank receipt,Finance clerk,Bank feed,Unallocated receipts matched in spreadsheet,Suggested match in Approval Envelope,H,H,M,EXP-FIN-BANK-001\nPS-007,Finance,Reconcile accounts,Finance controller,ERP + bank feed,Line-by-line spreadsheet comparison,Automated reconciliation with exceptions,H,H,M,EXP-FIN-BANK-001\nPS-008,Finance,Handle dispute,Customer service / Finance,CRM / ERP,Notes copied between email and ERP,Single case file with audit trail,M,M,M,EXP-CRM-DISP-001\nPS-009,Commercial,Close period reporting,BICC / Commercial,ERP + Power BI,Manual workbook consolidation,Source-linked report refresh,H,H,L,EXP-ERP-SALES-001\nPS-010,Management,Review KPI pack,Leadership,Power BI,Static slide snapshots,Live self-service dashboard,L,H,L,EXP-BICC-RPT-001\n',
+      opportunityCards: 'opportunity_id,name,status,effort,value,risk,baseline_minutes_per_task,automated_minutes_per_task,tasks_per_period,period,hours_saved_per_month,loaded_hourly_rate_eur,eur_value_per_year,evidence_ref,source_export_id,owner,approval_status\nOPP-001,Order intake assistant,live,M,H,L,8.0,2.5,1800,2026-06,165.0,31.50,62370,TS-2026-0142 time sample + Approval Envelope task log,EXP-CS-ORDERS-001,Head of Customer Service,APPROVED\nOPP-002,Reconciliation assistant,piloting,H,H,M,6.0,1.5,1200,2026-06,90.0,31.50,34020,FIN-MATCH-LOG-06 finance matching log,EXP-FIN-BANK-001,Finance Controller,PENDING_HUMAN_APPROVAL\nOPP-003,Manual report consolidation,live,M,H,L,240.0,45.0,4,2026-06,13.0,31.50,4914,TS-2026-0103 time sample + Power BI refresh log,EXP-ERP-SALES-001,BICC Lead,APPROVED\nOPP-004,Power BI Desktop pilot (report prep),piloting,M,M,L,180.0,30.0,4,2026-06,10.0,31.50,3780,BICC-PREP-LOG-06 build/refresh log,EXP-ERP-SALES-001,BICC Lead,PENDING_HUMAN_APPROVAL\nOPP-005,Business glossary rollout,ready,L,M,L,60.0,20.0,20,2026-06,13.3,31.50,5027,GLOS-06 glossary change log,EXP-BICC-GLOS-001,BICC Lead,PENDING_HUMAN_APPROVAL\nOPP-006,ERP decision pack,steering,H,H,H,480.0,120.0,2,2026-06,12.0,31.50,4536,ERP-DEC-06 steering pack evidence,EXP-ERP-MASTER-001,Programme Lead,PENDING_HUMAN_APPROVAL\n',
+      businessGlossary: 'term_id,term,definition,owner,source_export,review_status,notes\nT-001,Net sales,Gross invoiced sales value less discounts credit notes and returns,Finance Controller,EXP-ERP-SALES-001,APPROVED,Excludes VAT and duty recoveries\nT-002,Gross profit (GP),Net sales minus cost of goods sold,Finance Controller,EXP-ERP-SALES-001,APPROVED,Used in monthly management pack\nT-003,Depletions,Volume of product removed from inventory to fulfil demand,Supply Chain Lead,EXP-WMS-INV-001,APPROVED,Measured in cases or 9-litre equivalents\nT-004,Off-trade,Sales channel covering retail grocery and specialist outlets,Commercial Manager,EXP-ERP-SALES-001,APPROVED,Contrast with on-trade\nT-005,On-trade,Sales channel covering bars restaurants and hotels,Commercial Manager,EXP-ERP-SALES-001,APPROVED,Contrast with off-trade\nT-006,Credit note,Document reducing amount owed by a customer,Finance Controller,EXP-ERP-AR-001,UNDER_REVIEW,Must include reason code and approver\nT-007,Discount,Reduction in list price granted to a customer,Commercial Manager,EXP-ERP-SALES-001,APPROVED,Distinguish from credit note\nT-008,Cost of goods sold,Direct costs attributable to products sold,Finance Controller,EXP-ERP-SALES-001,APPROVED,Includes duty freight and excise where applicable\nT-009,Open invoice,Customer invoice not yet settled in full,Finance Controller,EXP-ERP-AR-001,UNDER_REVIEW,Basis for cash collection and bank matching\nT-010,Bank reconciliation,Matching bank transactions to open invoices and credits,Finance Controller,EXP-FIN-BANK-001,APPROVED,Target use case for reconciliation assistant\n',
+      auditTrail: 'audit_id,figure,value,source_export,transformation,reviewer,review_status,timestamp,lineage_hash\nAUD-001,Power BI net sales,185420.00,EXP-ERP-SALES-001,Sum of gross_sales minus discounts and credit notes,Finance Controller,APPROVED,2026-06-26T10:00:00Z,a1b2c3d4e5f67890\nAUD-002,Bank total receipts,38250.00,EXP-FIN-BANK-001,Aggregate bank_amount by value date,Finance Controller,APPROVED,2026-06-26T10:05:00Z,e5f6g7h8i9j01234\nAUD-003,Order intake assistant hours saved,165.0,EXP-CS-ORDERS-001,(baseline_minutes - automated_minutes) * tasks / 60,Head of Customer Service,APPROVED,2026-06-26T10:10:00Z,i9j0k1l2m3n45678\nAUD-004,Reconciliation matched count,1140,EXP-FIN-BANK-001,Count of match_status equals matched,Finance Controller,PENDING_HUMAN_APPROVAL,2026-06-26T10:15:00Z,m3n4o5p6q7r89012\nAUD-005,Glossary terms reviewed,46,EXP-BICC-GLOS-001,Count of terms with owner and review_status assigned,BICC Lead,PENDING_HUMAN_APPROVAL,2026-06-26T10:20:00Z,q7r8s9t0u1v23456\nAUD-006,Report prep pilot hours saved,10.0,EXP-ERP-SALES-001,(baseline_minutes - automated_minutes) * tasks / 60,BICC Lead,PENDING_HUMAN_APPROVAL,2026-06-26T10:25:00Z,u1v2w3x4y5z67890\n'
     };
     const demo = { loaded: false, data: null, eventIndex: 0, timer: null };
     const money = new Intl.NumberFormat('en-IE', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 });
@@ -312,6 +336,7 @@
       }
     }
     const sum = (rows, field) => rows.reduce((total, row) => total + (Number(row[field]) || 0), 0);
+    const unique = (rows, field) => new Set(rows.map((row) => row[field]).filter(Boolean)).size;
     function deriveState(raw) {
       const salesInvoices = parseCsv(raw.salesInvoices);
       const bankPayments = parseCsv(raw.bankPayments);
@@ -320,14 +345,21 @@
       const reconciliation = parseCsv(raw.reconciliation);
       const valueLog = parseCsv(raw.valueLog);
       const adoptionLog = parseCsv(raw.adoptionLog);
+      const processSteps = parseCsv(raw.processSteps);
+      const opportunityCards = parseCsv(raw.opportunityCards);
+      const businessGlossary = parseCsv(raw.businessGlossary);
+      const auditTrail = parseCsv(raw.auditTrail);
       const connections = JSON.parse(raw.connections).connections || [];
       const matched = reconciliation.filter((row) => row.suggested_invoice).length;
       const openInvoices = salesInvoices.filter((row) => row.payment_status !== 'paid').length;
       const glossary = adoptionLog.find((row) => row.tool_or_report_name === 'Business glossary') || {};
       const activeUsers = adoptionLog.find((row) => row.tool_or_report_name === 'Power BI Desktop pilot') || {};
       const literacy = adoptionLog.find((row) => row.tool_or_report_name === 'AI-literacy modules') || {};
+      const livePilotOpps = opportunityCards.filter((row) => ['live', 'piloting'].includes(row.status));
+      const topOpp = livePilotOpps.length ? livePilotOpps.reduce((max, row) => (Number(row.eur_value_per_year) || 0) > (Number(max.eur_value_per_year) || 0) ? row : max, livePilotOpps[0]) : {};
       return {
         salesInvoices, bankPayments, salesLines, orderQueue, reconciliation, valueLog, adoptionLog, connections,
+        processSteps, opportunityCards, businessGlossary, auditTrail,
         salesNet: sum(salesInvoices, 'net_amount_eur'),
         bankTotal: sum(bankPayments, 'amount_eur'),
         matched,
@@ -335,7 +367,14 @@
         flagged: reconciliation.filter((row) => row.exception_reason).length,
         hours: sum(valueLog, 'hours_saved_per_month'),
         eurValue: sum(valueLog, 'eur_value_per_year'),
-        opportunityCount: valueLog.length,
+        opportunityCount: opportunityCards.length,
+        opportunityTotalValue: sum(opportunityCards, 'eur_value_per_year'),
+        topOpportunity: topOpp.name || '—',
+        quickWinCount: opportunityCards.filter((row) => row.effort === 'L' && ['H', 'M'].includes(row.value)).length,
+        processCoverage: processSteps.length >= 10 ? 100 : Math.round((processSteps.length / 10) * 100),
+        highPainSteps: processSteps.filter((row) => row.value === 'H' && row.pain_point).length,
+        processPhases: unique(processSteps, 'phase'),
+        sourceExportsUsed: unique(processSteps, 'source_export_id'),
         automations: valueLog.filter((row) => ['live', 'piloting'].includes(row.status)).length,
         activeUsers: activeUsers.value || '8',
         literacyCompletions: `${literacy.value || 21}/${literacy.target || 35}`,
@@ -368,14 +407,19 @@
       setField('active-users', state.activeUsers);
       setField('literacy-completions', state.literacyCompletions);
       setField('audit-source', 'Sales invoice export');
-      setField('audit-rows', `${state.salesInvoices.length} invoice rows; ${state.salesLines.length} sales-line rows`);
+      setField('audit-rows', `${state.salesInvoices.length} invoice rows; ${state.salesLines.length} sales-line rows; ${state.auditTrail.length} audit rows`);
       setField('audit-action', 'draft refresh loaded; no auto-posting');
-      setField('glossary-source', 'Sales invoice export + Business Glossary seed');
-      setField('glossary-reviewed', state.glossaryReviewed);
       setField('opportunity-count', state.opportunityCount);
+      setField('opportunity-total-value', money.format(state.opportunityTotalValue));
+      setField('top-opportunity', state.topOpportunity);
+      setField('quick-win-count', state.quickWinCount);
       setField('glossary-coverage', state.glossaryReviewed);
       setField('exports-pending', state.pendingExports);
       setField('write-back-count', state.writeBacks);
+      setField('process-coverage', `${state.processCoverage}%`);
+      setField('high-pain-steps', state.highPainSteps);
+      setField('mapped-phases', state.processPhases);
+      setField('source-exports-used', state.sourceExportsUsed);
       const log = document.querySelector('#demoEventLog');
       if (log) log.innerHTML = '<div>Sample data pack loaded</div><div>Source: sales invoice export</div><div>Source: order intake review queue</div><div>Guardrail: no write-back until explicit reviewer action</div>';
     }
@@ -390,10 +434,12 @@
     }
     const streamEvents = [
       'ingested classified invoice export',
+      'mapped order-to-cash process steps',
+      'scored opportunity catalogue',
       'updated Power BI pilot net-sales metric',
       'queued order-intake Approval Envelope draft',
       'matched bank lines into finance review queue',
-      'wrote source-linked audit trail entries',
+      'linked audit trail rows to source exports',
       'updated value/adoption dashboard indicators'
     ];
     function pushEvent(label) {

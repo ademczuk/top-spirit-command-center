@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cross-cutting — Privacy and GDPR operating model — Top Spirit Command Center</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --deep:#07111F; --surface:#101B2A; --line:#1d2c40; --border:#2a3a4f;
+  --gold:#D6A94A; --teal:#0D9488; --cream:#F6F1E8; --paper:#FBF8F1;
+  --ink:#10243a; --muted:#5b6b7d; --clay:#B45309;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0; font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  color:var(--ink); background:linear-gradient(160deg,var(--deep) 0%,var(--surface) 100%);
+  background-attachment:fixed; line-height:1.65;
+}
+.topbar{
+  position:sticky; top:0; z-index:10; display:flex; align-items:center; justify-content:space-between;
+  gap:18px; padding:14px 28px; background:rgba(7,17,31,.92); backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--border);
+}
+.brand{display:flex; flex-direction:column; line-height:1.2;}
+.brand .name{color:#fff; font-weight:800; letter-spacing:-.01em; font-size:15px;}
+.brand .sub{color:var(--gold); font-size:11px; text-transform:uppercase; letter-spacing:.14em;}
+.back{
+  color:#cdd8e6; text-decoration:none; font-size:14px; font-weight:600; white-space:nowrap;
+  border:1px solid var(--border); padding:8px 14px; border-radius:9px; transition:all .15s;
+}
+.back:hover{color:#fff; border-color:var(--gold); background:rgba(214,169,74,.12);}
+.wrap{max-width:880px; margin:34px auto 60px; padding:0 22px;}
+.doc{
+  background:var(--paper); border-radius:16px; padding:54px 56px;
+  box-shadow:0 24px 60px rgba(0,0,0,.35); border:1px solid rgba(255,255,255,.06);
+}
+.doc h1,.doc h2,.doc h3,.doc h4{font-family:"Playfair Display",Georgia,serif; color:var(--deep); line-height:1.18; letter-spacing:-.01em;}
+.doc h1{font-size:34px; margin:0 0 8px; padding-bottom:16px; border-bottom:3px solid var(--gold);}
+.doc h2{font-size:25px; margin:38px 0 12px;}
+.doc h3{font-size:19px; margin:28px 0 8px;}
+.doc h4{font-size:16px; margin:22px 0 6px; font-family:Inter,sans-serif; font-weight:700;}
+.doc p{margin:12px 0;}
+.doc a{color:var(--teal); text-decoration:none; border-bottom:1px solid rgba(13,148,136,.3);}
+.doc a:hover{color:var(--clay); border-bottom-color:var(--clay);}
+.doc ul,.doc ol{padding-left:24px; margin:12px 0;}
+.doc li{margin:5px 0;}
+.doc strong{color:var(--deep);}
+.doc blockquote{
+  margin:18px 0; padding:12px 20px; border-left:4px solid var(--gold);
+  background:rgba(214,169,74,.08); color:var(--ink); border-radius:0 8px 8px 0;
+}
+.doc blockquote p{margin:6px 0;}
+.doc code{
+  font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace; font-size:.88em;
+  background:#eee6d6; color:#7a4d12; padding:2px 6px; border-radius:5px;
+}
+.doc pre{
+  background:var(--deep); color:#e6edf6; padding:18px 20px; border-radius:11px;
+  overflow:auto; font-size:13px; line-height:1.55; border:1px solid var(--border);
+}
+.doc pre code{background:none; color:inherit; padding:0;}
+.doc table{border-collapse:collapse; width:100%; margin:20px 0; font-size:14.5px; overflow:hidden; border-radius:10px;}
+.doc thead th{background:var(--deep); color:#fff; text-align:left; padding:11px 14px; font-weight:600;}
+.doc tbody td{padding:10px 14px; border-bottom:1px solid #e6ddca; vertical-align:top;}
+.doc tbody tr:nth-child(even){background:rgba(16,36,58,.035);}
+.doc tbody tr:last-child td{border-bottom:none;}
+.doc hr{border:none; border-top:1px solid #e0d6c0; margin:30px 0;}
+.doc img{max-width:100%; border-radius:10px;}
+.footer{max-width:880px; margin:0 auto 50px; padding:0 22px; color:#8ea2b8; font-size:12.5px; text-align:center;}
+.footer a{color:#bcd0e6;}
+@media (max-width:640px){.doc{padding:32px 22px;} .wrap{margin-top:20px;} .doc h1{font-size:27px;}}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><span class="name">Top Spirit Command Center</span><span class="sub">Angel Software Solutions</span></div>
+  <a class="back" href="../index.html">Back to command center</a>
+</header>
+<div class="wrap">
+  <article class="doc">
+<h1 id="cross-cutting-privacy-and-gdpr-operating-model">Cross-cutting — Privacy and GDPR operating model</h1>
+<blockquote>
+<p>Applies to exports, reports, interview notes, prompts, AI agents, Power BI files and audit logs.</p>
+</blockquote>
+<h2 id="principles">Principles</h2>
+<ol>
+<li><strong>Need-to-know access</strong>: users and agents only see data required for their role and task.</li>
+<li><strong>Purpose limitation</strong>: exports are used only for agreed process review, reporting, automation or glossary work.</li>
+<li><strong>Minimisation</strong>: redact, aggregate or sample before using AI where full detail is not needed.</li>
+<li><strong>Human validation</strong>: financial, pricing and customer-facing outputs remain human-approved.</li>
+<li><strong>Traceability without oversharing</strong>: audit logs reference source IDs, not unnecessary personal data.</li>
+</ol>
+<h2 id="ai-handling-by-classification-tier">AI handling by classification tier</h2>
+<table>
+<thead>
+<tr>
+<th>Tier</th>
+<th>Can be entered into AI workflow?</th>
+<th>Conditions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>T0 Public</td>
+<td>Yes</td>
+<td>No restrictions beyond quality review.</td>
+</tr>
+<tr>
+<td>T1 Internal</td>
+<td>Yes in approved workspace</td>
+<td>No personal/customer/pricing detail; keep within project team.</td>
+</tr>
+<tr>
+<td>T2 Confidential</td>
+<td>Limited</td>
+<td>Approved workspace only, authorised users only, source logged, output human-reviewed.</td>
+</tr>
+<tr>
+<td>T3 Restricted/GDPR</td>
+<td>Normally no</td>
+<td>Use redacted/minimised extracts only after owner approval and documented purpose. Never paste credentials, bank details or unauthorised personal data.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="roleaccess-rules">Role/access rules</h2>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Default access</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Executive sponsor</td>
+<td>Summary artifacts, governance decisions, prioritisation, commercial pack.</td>
+</tr>
+<tr>
+<td>BICC</td>
+<td>Export inventory, Power BI pilot, data model, glossary, lineage records.</td>
+</tr>
+<tr>
+<td>Finance SME</td>
+<td>Finance exports, net sales/GP logic, reconciliation outputs.</td>
+</tr>
+<tr>
+<td>Sales/Commercial SME</td>
+<td>Pricing/customer segmentation logic relevant to approved scope.</td>
+</tr>
+<tr>
+<td>Operations/Logistics SME</td>
+<td>Stock, delivery, depletions and warehouse process data.</td>
+</tr>
+<tr>
+<td>Agent/automation</td>
+<td>Only approved input folders and only the minimum fields required for the workflow.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="gdpr-sensitive-scenarios">GDPR-sensitive scenarios</h2>
+<table>
+<thead>
+<tr>
+<th>Scenario</th>
+<th>Handling</th>
+<th>Retention/escalation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Export contains named contacts/emails</td>
+<td>Minimise or pseudonymise unless needed for process control.</td>
+<td>Record GDPR flag; delete working copy at project retention date.</td>
+</tr>
+<tr>
+<td>Bank export contains payer details</td>
+<td>Use controlled finance workspace only.</td>
+<td>Finance approval required before processing; no public AI tools.</td>
+</tr>
+<tr>
+<td>Customer complaint/free-text notes</td>
+<td>Treat as T3 until reviewed.</td>
+<td>Escalate to data owner; avoid LLM use unless redacted.</td>
+</tr>
+<tr>
+<td>Accidental unauthorised data exposure</td>
+<td>Stop processing and quarantine artifact.</td>
+<td>Notify engagement lead/BICC; log incident and remediation.</td>
+</tr>
+<tr>
+<td>Prompt/output includes pricing or customer-facing decision</td>
+<td>AI may draft/recommend only.</td>
+<td>Approval Envelope mandatory before use.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="operating-checklist-before-any-new-workflow">Operating checklist before any new workflow</h2>
+<ul>
+<li>Export/source owner named.</li>
+<li>Classification tier assigned.</li>
+<li>GDPR flag assessed.</li>
+<li>Authorised users/agents listed.</li>
+<li>Input minimisation approach chosen.</li>
+<li>Approval Envelope tier assigned.</li>
+<li>Retention and deletion rule recorded.</li>
+</ul>
+<h2 id="client-sign-off-record-task-94">Client sign-off record (TASK-94)</h2>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gate</td>
+<td>Privacy and GDPR operating model</td>
+</tr>
+<tr>
+<td>Required approver</td>
+<td>Executive sponsor or named data owner</td>
+</tr>
+<tr>
+<td>Decision</td>
+<td>☐ APPROVED ☐ APPROVED WITH CONDITIONS ☐ NOT APPROVED</td>
+</tr>
+<tr>
+<td>Conditions / reservations</td>
+<td></td>
+</tr>
+<tr>
+<td>Date</td>
+<td></td>
+</tr>
+<tr>
+<td>Signed</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>This sign-off must be completed before any T2/T3 exports are used in demos, pilots or automation workflows.</p>
+  </article>
+</div>
+<footer class="footer">
+  <p>Private pre-call draft for Top Spirit (Marussia) and Angel Software Solutions. Demo values are illustrative; starter data is synthetic; client evidence gates remain explicit.</p>
+</footer>
+</body>
+</html>

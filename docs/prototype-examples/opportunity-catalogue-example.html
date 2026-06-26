@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Opportunity catalogue — prioritised automation &amp; AI opportunities — Top Spirit Command Center</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --deep:#07111F; --surface:#101B2A; --line:#1d2c40; --border:#2a3a4f;
+  --gold:#D6A94A; --teal:#0D9488; --cream:#F6F1E8; --paper:#FBF8F1;
+  --ink:#10243a; --muted:#5b6b7d; --clay:#B45309;
+  --green-bg:#e6f4f1; --green-text:#0f5c54;
+  --yellow-bg:#faf3e3; --yellow-text:#7a5c20;
+  --red-bg:#fceae6; --red-text:#8c3a2a;
+  --slate-bg:#eef2f7; --slate-text:#475569;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0; font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  color:var(--ink); background:linear-gradient(160deg,var(--deep) 0%,var(--surface) 100%);
+  background-attachment:fixed; line-height:1.65;
+}
+.topbar{
+  position:sticky; top:0; z-index:10; display:flex; align-items:center; justify-content:space-between;
+  gap:18px; padding:14px 28px; background:rgba(7,17,31,.92); backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--border);
+}
+.brand{display:flex; flex-direction:column; line-height:1.2;}
+.brand .name{color:#fff; font-weight:800; letter-spacing:-.01em; font-size:15px;}
+.brand .sub{color:var(--gold); font-size:11px; text-transform:uppercase; letter-spacing:.14em;}
+.back{
+  color:#cdd8e6; text-decoration:none; font-size:14px; font-weight:600; white-space:nowrap;
+  border:1px solid var(--border); padding:8px 14px; border-radius:9px; transition:all .15s;
+}
+.back:hover{color:#fff; border-color:var(--gold); background:rgba(214,169,74,.12);}
+.wrap{max-width:980px; margin:34px auto 60px; padding:0 22px;}
+.doc{
+  background:var(--paper); border-radius:16px; padding:54px 56px;
+  box-shadow:0 24px 60px rgba(0,0,0,.35); border:1px solid rgba(255,255,255,.06);
+}
+.doc h1,.doc h2,.doc h3,.doc h4{font-family:"Playfair Display",Georgia,serif; color:var(--deep); line-height:1.18; letter-spacing:-.01em;}
+.doc h1{font-size:34px; margin:0 0 8px; padding-bottom:16px; border-bottom:3px solid var(--gold);}
+.doc h2{font-size:25px; margin:38px 0 12px;}
+.doc h3{font-size:19px; margin:28px 0 8px;}
+.doc h4{font-size:16px; margin:22px 0 6px; font-family:Inter,sans-serif; font-weight:700;}
+.doc p{margin:12px 0;}
+.doc a{color:var(--teal); text-decoration:none; border-bottom:1px solid rgba(13,148,136,.3);}
+.doc a:hover{color:var(--clay); border-bottom-color:var(--clay);}
+.doc ul,.doc ol{padding-left:24px; margin:12px 0;}
+.doc li{margin:5px 0;}
+.doc strong{color:var(--deep);}
+.doc blockquote{
+  margin:18px 0; padding:12px 20px; border-left:4px solid var(--gold);
+  background:rgba(214,169,74,.08); color:var(--ink); border-radius:0 8px 8px 0;
+}
+.doc blockquote p{margin:6px 0;}
+.doc code{
+  font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace; font-size:.88em;
+  background:#eee6d6; color:#7a4d12; padding:2px 6px; border-radius:5px;
+}
+.doc table{border-collapse:collapse; width:100%; margin:20px 0; font-size:14.5px; overflow:hidden; border-radius:10px;}
+.doc thead th{background:var(--deep); color:#fff; text-align:left; padding:11px 14px; font-weight:600; cursor:pointer; user-select:none;}
+.doc thead th:hover{background:#1a2940;}
+.doc thead th.sortable::after{content:" ⇅"; opacity:.6; font-size:.85em;}
+.doc tbody td{padding:10px 14px; border-bottom:1px solid #e6ddca; vertical-align:top;}
+.doc tbody tr:nth-child(even){background:rgba(16,36,58,.035);}
+.doc tbody tr:last-child td{border-bottom:none;}
+.footer{max-width:980px; margin:0 auto 50px; padding:0 22px; color:#8ea2b8; font-size:12.5px; text-align:center;}
+.metrics{display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:16px; margin:24px 0;}
+.metric{background:#fff; border:1px solid #e6ddca; border-radius:12px; padding:18px; box-shadow:0 2px 8px rgba(0,0,0,.04);}
+.metric .label{font-size:12px; text-transform:uppercase; letter-spacing:.08em; color:var(--muted); font-weight:700;}
+.metric .value{font-family:"Playfair Display",Georgia,serif; font-size:30px; color:var(--deep); margin:6px 0 2px;}
+.metric .note{font-size:12px; color:var(--muted);}
+.badge{display:inline-block; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.04em; padding:3px 8px; border-radius:999px; margin:0 3px 3px 0;}
+.badge-L{background:var(--green-bg); color:var(--green-text);}
+.badge-M{background:var(--yellow-bg); color:var(--yellow-text);}
+.badge-H{background:var(--red-bg); color:var(--red-text);}
+.badge-live{background:var(--green-bg); color:var(--green-text);}
+.badge-piloting{background:var(--yellow-bg); color:var(--yellow-text);}
+.badge-ready{background:var(--slate-bg); color:var(--slate-text);}
+.badge-steering{background:var(--red-bg); color:var(--red-text);}
+.badge-approved{background:var(--green-bg); color:var(--green-text);}
+.badge-pending{background:var(--yellow-bg); color:var(--yellow-text);}
+.num{text-align:right; font-variant-numeric:tabular-nums;}
+@media (max-width:640px){.doc{padding:32px 22px;} .wrap{margin-top:20px;} .doc h1{font-size:27px;} .metrics{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><span class="name">Top Spirit Command Center</span><span class="sub">Angel Software Solutions</span></div>
+  <a class="back" href="../../assets/mockups/walkthrough/index.html">Back to walkthrough</a>
+</header>
+<div class="wrap">
+  <article class="doc">
+    <h1>Opportunity catalogue</h1>
+    <blockquote>
+      <p>Prioritised automation and AI opportunities scored by effort, value and risk. All hours and annual values are synthetic estimates for discussion; real baselines require client time samples and owner sign-off.</p>
+    </blockquote>
+
+    <h2>Summary</h2>
+    <div class="metrics" id="summary-metrics">
+      <div class="metric">
+        <div class="label">Total annual value</div>
+        <div class="value" id="total-value">—</div>
+        <div class="note">estimated € / year</div>
+      </div>
+      <div class="metric">
+        <div class="label">Top opportunity</div>
+        <div class="value" style="font-size:18px; padding-top:8px;" id="top-opp">—</div>
+        <div class="note" id="top-opp-note">—</div>
+      </div>
+      <div class="metric">
+        <div class="label">Live</div>
+        <div class="value" id="live-count">—</div>
+        <div class="note">in production use</div>
+      </div>
+      <div class="metric">
+        <div class="label">Piloting</div>
+        <div class="value" id="pilot-count">—</div>
+        <div class="note">controlled trial</div>
+      </div>
+    </div>
+
+    <h2>How we prioritise</h2>
+    <p>Each opportunity is tagged with <strong>Effort</strong>, <strong>Value</strong> and <strong>Risk</strong>. We sequence live roll-outs by looking for low-effort / high-value / low-risk candidates first, then move into higher-effort or higher-risk pilots only after the approval envelope and audit trail are proven. Steering-committee items stay as decision-support packs rather than automation until the Next-ERP path is clear.</p>
+
+    <h2>Opportunities</h2>
+    <div id="table-container"><p>Loading opportunities…</p></div>
+  </article>
+</div>
+<footer class="footer">
+  <p>Private pre-call draft for Top Spirit (Marussia) and Angel Software Solutions. Demo values are illustrative; starter data is synthetic; client evidence gates remain explicit.</p>
+</footer>
+<script>
+let allRows = [];
+function fmtMoney(n){ return '€'+Number(n).toLocaleString('en-IE',{maximumFractionDigits:0}); }
+function badge(level){ return '<span class="badge badge-'+level+'">'+level+'</span>'; }
+function statusBadge(s){ return '<span class="badge badge-'+s.toLowerCase()+'">'+s.replace('_',' ')+'</span>'; }
+function approvalBadge(s){ return '<span class="badge badge-'+(s==='APPROVED'?'approved':'pending')+'">'+s.replace('_',' ')+'</span>'; }
+function parseCSV(text){
+  const lines = text.trim().split(/\r?\n/);
+  const headers = lines[0].split(',').map(h=>h.trim());
+  return lines.slice(1).map(line=>{
+    const vals = line.split(',');
+    const obj={};
+    headers.forEach((h,i)=>obj[h]=(vals[i]||'').trim());
+    return obj;
+  });
+}
+function renderTable(rows){
+  allRows = rows;
+  const total = rows.reduce((a,r)=>a+Number(r.eur_value_per_year||0),0);
+  document.getElementById('total-value').textContent = fmtMoney(total);
+  const top = rows.reduce((a,b)=>Number(a.eur_value_per_year)>Number(b.eur_value_per_year)?a:b,rows[0]);
+  document.getElementById('top-opp').textContent = top.name;
+  document.getElementById('top-opp-note').textContent = fmtMoney(top.eur_value_per_year)+' / year';
+  document.getElementById('live-count').textContent = rows.filter(r=>r.status==='live').length;
+  document.getElementById('pilot-count').textContent = rows.filter(r=>r.status==='piloting').length;
+
+  let html = '<table id="opp-table"><thead><tr>';
+  ['Name','Status','Effort','Value','Risk','Hours saved / month','Annual value','Owner','Approval'].forEach((h,i)=>{
+    html += '<th class="sortable" data-col="'+i+'">'+h+'</th>';
+  });
+  html += '</tr></thead><tbody>';
+  rows.forEach(r=>{
+    html += '<tr>';
+    html += '<td><strong>'+r.name+'</strong><br><small><code>'+r.opportunity_id+'</code></small></td>';
+    html += '<td>'+statusBadge(r.status)+'</td>';
+    html += '<td>'+badge(r.effort)+'</td>';
+    html += '<td>'+badge(r.value)+'</td>';
+    html += '<td>'+badge(r.risk)+'</td>';
+    html += '<td class="num">'+r.hours_saved_per_month+'</td>';
+    html += '<td class="num">'+fmtMoney(r.eur_value_per_year)+'</td>';
+    html += '<td>'+r.owner+'</td>';
+    html += '<td>'+approvalBadge(r.approval_status)+'</td>';
+    html += '</tr>';
+  });
+  html += '</tbody></table>';
+  document.getElementById('table-container').innerHTML = html;
+  document.querySelectorAll('#opp-table th').forEach(th=>th.addEventListener('click',()=>sortTable(Number(th.dataset.col))));
+}
+function sortTable(col){
+  const keys = ['name','status','effort','value','risk','hours_saved_per_month','eur_value_per_year','owner','approval_status'];
+  const key = keys[col];
+  const numeric = ['hours_saved_per_month','eur_value_per_year'].includes(key);
+  allRows.sort((a,b)=>{
+    let av = a[key], bv = b[key];
+    if(numeric){ av=Number(av); bv=Number(bv); }
+    if(av<bv) return -1; if(av>bv) return 1; return 0;
+  });
+  renderTable(allRows);
+}
+const FALLBACK = [
+  {opportunity_id:'OPP-001',name:'Order intake assistant',status:'live',effort:'M',value:'H',risk:'L',hours_saved_per_month:'165.0',eur_value_per_year:'62370',owner:'Head of Customer Service',approval_status:'APPROVED'},
+  {opportunity_id:'OPP-002',name:'Reconciliation assistant',status:'piloting',effort:'H',value:'H',risk:'M',hours_saved_per_month:'90.0',eur_value_per_year:'34020',owner:'Finance Controller',approval_status:'PENDING_HUMAN_APPROVAL'},
+  {opportunity_id:'OPP-003',name:'Manual report consolidation',status:'live',effort:'M',value:'H',risk:'L',hours_saved_per_month:'13.0',eur_value_per_year:'4914',owner:'BICC Lead',approval_status:'APPROVED'},
+  {opportunity_id:'OPP-004',name:'Power BI Desktop pilot (report prep)',status:'piloting',effort:'M',value:'M',risk:'L',hours_saved_per_month:'10.0',eur_value_per_year:'3780',owner:'BICC Lead',approval_status:'PENDING_HUMAN_APPROVAL'},
+  {opportunity_id:'OPP-005',name:'Business glossary rollout',status:'ready',effort:'M',value:'M',risk:'L',hours_saved_per_month:'13.3',eur_value_per_year:'5027',owner:'BICC Lead',approval_status:'PENDING_HUMAN_APPROVAL'},
+  {opportunity_id:'OPP-006',name:'ERP decision pack',status:'steering',effort:'H',value:'H',risk:'H',hours_saved_per_month:'12.0',eur_value_per_year:'4536',owner:'Programme Lead',approval_status:'PENDING_HUMAN_APPROVAL'}
+];
+fetch('../../data/samples/opportunity_cards.csv')
+  .then(r=>r.text())
+  .then(parseCSV)
+  .then(renderTable)
+  .catch(()=>renderTable(FALLBACK));
+</script>
+</body>
+</html>

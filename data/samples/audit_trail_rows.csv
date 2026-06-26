@@ -1,0 +1,7 @@
+audit_id,figure,value,source_export,transformation,reviewer,review_status,timestamp,lineage_hash
+AUD-001,Power BI net sales,185420.00,EXP-ERP-SALES-001,Sum of gross_sales minus discounts and credit notes,Finance Controller,APPROVED,2026-06-26T10:00:00Z,a1b2c3d4e5f67890
+AUD-002,Bank total receipts,38250.00,EXP-FIN-BANK-001,Aggregate bank_amount by value date,Finance Controller,APPROVED,2026-06-26T10:05:00Z,e5f6g7h8i9j01234
+AUD-003,Order intake assistant hours saved,165.0,EXP-CS-ORDERS-001,(baseline_minutes - automated_minutes) * tasks / 60,Head of Customer Service,APPROVED,2026-06-26T10:10:00Z,i9j0k1l2m3n45678
+AUD-004,Reconciliation matched count,1140,EXP-FIN-BANK-001,Count of match_status equals matched,Finance Controller,PENDING_HUMAN_APPROVAL,2026-06-26T10:15:00Z,m3n4o5p6q7r89012
+AUD-005,Glossary terms reviewed,46,EXP-BICC-GLOS-001,Count of terms with owner and review_status assigned,BICC Lead,PENDING_HUMAN_APPROVAL,2026-06-26T10:20:00Z,q7r8s9t0u1v23456
+AUD-006,Report prep pilot hours saved,10.0,EXP-ERP-SALES-001,(baseline_minutes - automated_minutes) * tasks / 60,BICC Lead,PENDING_HUMAN_APPROVAL,2026-06-26T10:25:00Z,u1v2w3x4y5z67890

@@ -1,0 +1,11 @@
+step_id,phase,activity,actor,system_export,pain_point,target_state,effort,value,risk,source_export_id
+PS-001,Order-to-cash,Receive order,Customer service,Email / order portal,Manual rekeying of order details into ERP creates duplicate entries and delays,Auto-captured draft order queued in Approval Envelope for review,M,H,L,EXP-CS-ORDERS-001
+PS-002,Order-to-cash,Credit check,Finance / Customer service,ERP customer master,Disconnected credit-limit checks delay release and cause ad-hoc emails,Real-time credit-hold flag visible before pick release,M,M,M,EXP-ERP-AR-001
+PS-003,Warehouse,Pick and pack,Warehouse operative,WMS / ERP inventory,Paper pick lists re-printed and rescanned; wrong quantity logged,Digitised pick list with barcode confirmation and quantity check,M,M,L,EXP-WMS-INV-001
+PS-004,Warehouse,Ship goods,Warehouse / Carrier,Carrier portal,Tracking reference entered manually after phone call to carrier,Carrier label and tracking reference auto-posted to ERP,M,M,L,EXP-WMS-SHIP-001
+PS-005,Finance,Invoice customer,Finance clerk,ERP billing,Invoice PDF manually attached to email and sent to customer,E-invoice generated and dispatched directly from the system,L,M,L,EXP-ERP-SALES-001
+PS-006,Finance,Receive bank receipt,Finance clerk,Bank feed,Unallocated receipts require manual matching in spreadsheet,Suggested match queued in Approval Envelope for one-click sign-off,H,H,M,EXP-FIN-BANK-001
+PS-007,Finance,Reconcile accounts,Finance controller,ERP + bank feed,Duplicate line-by-line spreadsheet comparison each period end,Automated reconciliation with source-linked exception list,H,H,M,EXP-FIN-BANK-001
+PS-008,Finance,Handle dispute,Customer service / Finance,CRM / ERP,Dispute notes copied between email threads and ERP,Single case file with status history and audit trail,M,M,M,EXP-CRM-DISP-001
+PS-009,Commercial,Close period reporting,BICC / Commercial,ERP + Power BI,Manual consolidation of multiple workbooks before leadership review,Source-linked report refreshed from export layer,H,H,L,EXP-ERP-SALES-001
+PS-010,Management,Review KPI pack,Leadership,Power BI,Static slide snapshots with no drill-down or audit trail,Live self-service dashboard with source-linked figures,L,H,L,EXP-BICC-RPT-001
